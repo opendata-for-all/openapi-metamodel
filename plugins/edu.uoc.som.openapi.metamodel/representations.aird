@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description" xmi:id="_SnJjIKOAEeW7qNU6Nu_uNw" selectedViews="_hhYGwKOAEeW7qNU6Nu_uNw _cH4uoCLbEeip1alSlcJerQ _cIB4kCLbEeip1alSlcJerQ _cIDGsCLbEeip1alSlcJerQ" version="12.1.0.201708031200">
+  <semanticResources>model/swagger.ecore</semanticResources>
+  <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+  <semanticResources>model/API.xmi</semanticResources>
+  <semanticResources>model/swagger.genmodel</semanticResources>
+  <semanticResources>model/openAPI.ecore</semanticResources>
+  <semanticResources>model/openapi.ecore</semanticResources>
+  <semanticResources>model/openapi.genmodel</semanticResources>
+  <ownedViews xmi:type="viewpoint:DView" xmi:id="_hhYGwKOAEeW7qNU6Nu_uNw">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DView" xmi:id="_cH4uoCLbEeip1alSlcJerQ">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DView" xmi:id="_cIB4kCLbEeip1alSlcJerQ">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Archetype']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DView" xmi:id="_cIDGsCLbEeip1alSlcJerQ">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']"/>
+  </ownedViews>
+</viewpoint:DAnalysis>
