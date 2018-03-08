@@ -97,6 +97,22 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi.ecore#//API/tags"/>
       <genOperations ecoreOperation="openapi.ecore#//API/getRef"/>
       <genOperations ecoreOperation="openapi.ecore#//API/pathsIsSet"/>
+      <genOperations ecoreOperation="openapi.ecore#//API/getAllOperations"/>
+      <genOperations ecoreOperation="openapi.ecore#//API/getSchemaByReference">
+        <genParameters ecoreParameter="openapi.ecore#//API/getSchemaByReference/ref"/>
+      </genOperations>
+      <genOperations ecoreOperation="openapi.ecore#//API/getOperationById">
+        <genParameters ecoreParameter="openapi.ecore#//API/getOperationById/operationId"/>
+      </genOperations>
+      <genOperations ecoreOperation="openapi.ecore#//API/getPathByRelativePath">
+        <genParameters ecoreParameter="openapi.ecore#//API/getPathByRelativePath/relativePath"/>
+      </genOperations>
+      <genOperations ecoreOperation="openapi.ecore#//API/getSchemaByName">
+        <genParameters ecoreParameter="openapi.ecore#//API/getSchemaByName/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="openapi.ecore#//API/getParameterByRef">
+        <genParameters ecoreParameter="openapi.ecore#//API/getParameterByRef/ref"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="openapi.ecore#//Info">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//Info/title"/>
@@ -116,7 +132,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//License/url"/>
     </genClasses>
     <genClasses ecoreClass="openapi.ecore#//Path">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//Path/pattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//Path/relativePath"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi.ecore#//Path/get"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi.ecore#//Path/put"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi.ecore#//Path/post"/>
@@ -124,6 +140,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi.ecore#//Path/options"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi.ecore#//Path/head"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi.ecore#//Path/patch"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openapi.ecore#//Path/api"/>
+      <genOperations ecoreOperation="openapi.ecore#//Path/getOperationByMethod">
+        <genParameters ecoreParameter="openapi.ecore#//Path/getOperationByMethod/method"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="openapi.ecore#//Operation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//Operation/tagReferences"/>
@@ -136,6 +156,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//Operation/schemes"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//Operation/deprecated"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openapi.ecore#//Operation/path"/>
+      <genOperations ecoreOperation="openapi.ecore#//Operation/getFullPath"/>
+      <genOperations ecoreOperation="openapi.ecore#//Operation/getConsumedSchema"/>
+      <genOperations ecoreOperation="openapi.ecore#//Operation/getProducedSchema"/>
+      <genOperations ecoreOperation="openapi.ecore#//Operation/IsProducingList"/>
+      <genOperations ecoreOperation="openapi.ecore#//Operation/getMethod"/>
     </genClasses>
     <genClasses ecoreClass="openapi.ecore#//ExternalDocs">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//ExternalDocs/description"/>
@@ -169,6 +194,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi.ecore#//Schema/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//Schema/additonalPropertiesAllowed"/>
       <genOperations ecoreOperation="openapi.ecore#//Schema/getRef"/>
+      <genOperations ecoreOperation="openapi.ecore#//Schema/getPropertyByName">
+        <genParameters ecoreParameter="openapi.ecore#//Schema/getPropertyByName/name"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="openapi.ecore#//Response">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//Response/description"/>

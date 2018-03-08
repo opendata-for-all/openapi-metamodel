@@ -11,9 +11,12 @@ import edu.uoc.som.openapi.ParameterContext;
 import edu.uoc.som.openapi.Path;
 import edu.uoc.som.openapi.Response;
 import edu.uoc.som.openapi.ResponseDeclaringContext;
+import edu.uoc.som.openapi.Schema;
 import edu.uoc.som.openapi.SchemeType;
 import edu.uoc.som.openapi.SecurityContext;
 import edu.uoc.som.openapi.SecurityRequirement;
+
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
@@ -495,6 +498,89 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getFullPath() {
+		return getPath().getApi().getHost()
+						+ getPath().getApi().getBasePath() + getPath().getRelativePath();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Schema getConsumedSchema() {
+		for(Parameter parameter: getParameters()) {
+			if(parameter.getLocation().equals(ParameterLocation.BODY))
+				if(parameter.getSchema().getType().equals(JSONDataType.ARRAY))
+					return parameter.getSchema().getItems();
+					else
+						return parameter.getSchema();
+			}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Schema getProducedSchema() {
+		for(Response response: getResponses()) {
+			if((response.getCode().equals("200") ||response.getCode().equals("201"))   && (response.getSchema()!= null && response.getSchema().getType().equals(JSONDataType.ARRAY))) {
+				return response.getSchema().getItems();
+			
+			}
+			if((response.getCode().equals("200") ||response.getCode().equals("201")) && (response.getSchema()!= null && response.getSchema().getType().equals(JSONDataType.OBJECT))) {
+				return response.getSchema();
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean IsProducingList() {
+		for (Response response : getResponses()) {
+			if ((response.getCode().equals("200") || response.getCode().equals("201"))
+					&& (response.getSchema() != null && response.getSchema().getType().equals(JSONDataType.ARRAY))) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getMethod() {
+		Path path = getPath();
+		if(path.getGet().equals(this))
+			return "GET";
+		if(path.getPost().equals(this))
+			return "POST";
+		if(path.getPut().equals(this))
+			return "PUT";
+		if(path.getDelete().equals(this))
+			return "DELETE";
+		if(path.getOptions().equals(this))
+			return "OPTIONS";
+		if(path.getHead().equals(this))
+			return "HEAD";
+		if(path.getPatch().equals(this))
+			return "PATCH";
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -788,6 +874,28 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case OpenAPIPackage.OPERATION___GET_FULL_PATH:
+				return getFullPath();
+			case OpenAPIPackage.OPERATION___GET_CONSUMED_SCHEMA:
+				return getConsumedSchema();
+			case OpenAPIPackage.OPERATION___GET_PRODUCED_SCHEMA:
+				return getProducedSchema();
+			case OpenAPIPackage.OPERATION___IS_PRODUCING_LIST:
+				return IsProducingList();
+			case OpenAPIPackage.OPERATION___GET_METHOD:
+				return getMethod();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

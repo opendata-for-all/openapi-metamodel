@@ -2,11 +2,14 @@
  */
 package edu.uoc.som.openapi.impl;
 
+import edu.uoc.som.openapi.API;
 import edu.uoc.som.openapi.OpenAPIPackage;
 import edu.uoc.som.openapi.Operation;
 import edu.uoc.som.openapi.Parameter;
 import edu.uoc.som.openapi.ParameterContext;
 import edu.uoc.som.openapi.Path;
+
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
@@ -21,6 +24,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +35,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link edu.uoc.som.openapi.impl.PathImpl#getParameters <em>Parameters</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.PathImpl#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.PathImpl#getRelativePath <em>Relative Path</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.PathImpl#getGet <em>Get</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.PathImpl#getPut <em>Put</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.PathImpl#getPost <em>Post</em>}</li>
@@ -39,6 +43,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link edu.uoc.som.openapi.impl.PathImpl#getOptions <em>Options</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.PathImpl#getHead <em>Head</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.PathImpl#getPatch <em>Patch</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.PathImpl#getApi <em>Api</em>}</li>
  * </ul>
  *
  * @generated
@@ -55,24 +60,24 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	protected EList<Parameter> parameters;
 
 	/**
-	 * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+	 * The default value of the '{@link #getRelativePath() <em>Relative Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPattern()
+	 * @see #getRelativePath()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PATTERN_EDEFAULT = null;
+	protected static final String RELATIVE_PATH_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+	 * The cached value of the '{@link #getRelativePath() <em>Relative Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPattern()
+	 * @see #getRelativePath()
 	 * @generated
 	 * @ordered
 	 */
-	protected String pattern = PATTERN_EDEFAULT;
+	protected String relativePath = RELATIVE_PATH_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getGet() <em>Get</em>}' containment reference.
@@ -180,8 +185,8 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPattern() {
-		return pattern;
+	public String getRelativePath() {
+		return relativePath;
 	}
 
 	/**
@@ -189,11 +194,11 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPattern(String newPattern) {
-		String oldPattern = pattern;
-		pattern = newPattern;
+	public void setRelativePath(String newRelativePath) {
+		String oldRelativePath = relativePath;
+		relativePath = newRelativePath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__PATTERN, oldPattern, pattern));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__RELATIVE_PATH, oldRelativePath, relativePath));
 	}
 
 	/**
@@ -502,6 +507,65 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public API getApi() {
+		if (eContainerFeatureID() != OpenAPIPackage.PATH__API) return null;
+		return (API)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetApi(API newApi, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newApi, OpenAPIPackage.PATH__API, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setApi(API newApi) {
+		if (newApi != eInternalContainer() || (eContainerFeatureID() != OpenAPIPackage.PATH__API && newApi != null)) {
+			if (EcoreUtil.isAncestor(this, newApi))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newApi != null)
+				msgs = ((InternalEObject)newApi).eInverseAdd(this, OpenAPIPackage.API__PATHS, API.class, msgs);
+			msgs = basicSetApi(newApi, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PATH__API, newApi, newApi));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operation getOperationByMethod(final String method) {
+		switch(method) {
+			case "GET": return getGet();
+			case "POST": return getPost();
+			case "PUT": return getPost();
+			case "DELETE": return getDelete();
+			case "PATCH": return getPatch();
+			case "OPTIONS": return getOptions();
+			case "HEAD": return getHead();
+			default: return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -509,6 +573,10 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 				if (get != null)
 					msgs = ((InternalEObject)get).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__GET, null, msgs);
 				return basicSetGet((Operation)otherEnd, msgs);
+			case OpenAPIPackage.PATH__API:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetApi((API)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -535,8 +603,24 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 				return basicSetHead(null, msgs);
 			case OpenAPIPackage.PATH__PATCH:
 				return basicSetPatch(null, msgs);
+			case OpenAPIPackage.PATH__API:
+				return basicSetApi(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case OpenAPIPackage.PATH__API:
+				return eInternalContainer().eInverseRemove(this, OpenAPIPackage.API__PATHS, API.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -549,8 +633,8 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		switch (featureID) {
 			case OpenAPIPackage.PATH__PARAMETERS:
 				return getParameters();
-			case OpenAPIPackage.PATH__PATTERN:
-				return getPattern();
+			case OpenAPIPackage.PATH__RELATIVE_PATH:
+				return getRelativePath();
 			case OpenAPIPackage.PATH__GET:
 				return getGet();
 			case OpenAPIPackage.PATH__PUT:
@@ -565,6 +649,8 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 				return getHead();
 			case OpenAPIPackage.PATH__PATCH:
 				return getPatch();
+			case OpenAPIPackage.PATH__API:
+				return getApi();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -582,8 +668,8 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 				getParameters().clear();
 				getParameters().addAll((Collection<? extends Parameter>)newValue);
 				return;
-			case OpenAPIPackage.PATH__PATTERN:
-				setPattern((String)newValue);
+			case OpenAPIPackage.PATH__RELATIVE_PATH:
+				setRelativePath((String)newValue);
 				return;
 			case OpenAPIPackage.PATH__GET:
 				setGet((Operation)newValue);
@@ -606,6 +692,9 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 			case OpenAPIPackage.PATH__PATCH:
 				setPatch((Operation)newValue);
 				return;
+			case OpenAPIPackage.PATH__API:
+				setApi((API)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -621,8 +710,8 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 			case OpenAPIPackage.PATH__PARAMETERS:
 				getParameters().clear();
 				return;
-			case OpenAPIPackage.PATH__PATTERN:
-				setPattern(PATTERN_EDEFAULT);
+			case OpenAPIPackage.PATH__RELATIVE_PATH:
+				setRelativePath(RELATIVE_PATH_EDEFAULT);
 				return;
 			case OpenAPIPackage.PATH__GET:
 				setGet((Operation)null);
@@ -645,6 +734,9 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 			case OpenAPIPackage.PATH__PATCH:
 				setPatch((Operation)null);
 				return;
+			case OpenAPIPackage.PATH__API:
+				setApi((API)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -659,8 +751,8 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		switch (featureID) {
 			case OpenAPIPackage.PATH__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
-			case OpenAPIPackage.PATH__PATTERN:
-				return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals(pattern);
+			case OpenAPIPackage.PATH__RELATIVE_PATH:
+				return RELATIVE_PATH_EDEFAULT == null ? relativePath != null : !RELATIVE_PATH_EDEFAULT.equals(relativePath);
 			case OpenAPIPackage.PATH__GET:
 				return get != null;
 			case OpenAPIPackage.PATH__PUT:
@@ -675,6 +767,8 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 				return head != null;
 			case OpenAPIPackage.PATH__PATCH:
 				return patch != null;
+			case OpenAPIPackage.PATH__API:
+				return getApi() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -717,12 +811,26 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * @generated
 	 */
 	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case OpenAPIPackage.PATH___GET_OPERATION_BY_METHOD__STRING:
+				return getOperationByMethod((String)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (pattern: ");
-		result.append(pattern);
+		result.append(" (relativePath: ");
+		result.append(relativePath);
 		result.append(')');
 		return result.toString();
 	}

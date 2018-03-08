@@ -191,6 +191,7 @@ public interface API extends ParamterDeclaringContext, SchemaDeclaringContext, J
 	/**
 	 * Returns the value of the '<em><b>Paths</b></em>' containment reference list.
 	 * The list contents are of type {@link edu.uoc.som.openapi.Path}.
+	 * It is bidirectional and its opposite is '{@link edu.uoc.som.openapi.Path#getApi <em>Api</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Paths</em>' containment reference list isn't clear,
@@ -201,7 +202,8 @@ public interface API extends ParamterDeclaringContext, SchemaDeclaringContext, J
 	 * @see #isSetPaths()
 	 * @see #unsetPaths()
 	 * @see edu.uoc.som.openapi.OpenAPIPackage#getAPI_Paths()
-	 * @model containment="true" unsettable="true"
+	 * @see edu.uoc.som.openapi.Path#getApi
+	 * @model opposite="api" containment="true" unsettable="true"
 	 * @generated
 	 */
 	EList<Path> getPaths();
@@ -307,5 +309,54 @@ public interface API extends ParamterDeclaringContext, SchemaDeclaringContext, J
 	 * @generated
 	 */
 	boolean pathsIsSet();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='TreeIterator&lt;EObject&gt; allElements = this.eAllContents();\r\nEList&lt;Operation&gt; allOperations = ECollections.newBasicEList();\r\nwhile (allElements.hasNext()) {\r\n\torg.eclipse.emf.ecore.EObject object = allElements.next();\r\n\tif (object instanceof Operation) {\r\n\t\tallOperations.add((Operation) object);\r\n\t}\r\n}\r\nreturn allOperations;'"
+	 * @generated
+	 */
+	EList<Operation> getAllOperations();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='List&lt;Schema&gt; schemas = this.getDefinitions();\r\nfor (Schema schema : schemas) {\r\n\tif (schema.getRef().equalsIgnoreCase(ref))\r\n\t\treturn schema;\r\n}\r\nreturn null;\t\t'"
+	 * @generated
+	 */
+	Schema getSchemaByReference(String ref);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='EList&lt;Operation&gt; allOperations = getAllOperations();\r\nfor (Operation operation : allOperations) {\r\n\tif (operation.getOperationId().equals(operationId))\r\n\t\treturn operation;\r\n}\r\nreturn null;'"
+	 * @generated
+	 */
+	Operation getOperationById(String operationId);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for(Path path: getPaths()) {\r\n\tif(path.getRelativePath().equalsIgnoreCase(relativePath)) {\r\n\t\treturn path;\r\n\t}\r\n}\r\nreturn null;'"
+	 * @generated
+	 */
+	Path getPathByRelativePath(String relativePath);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for (Schema schema : getDefinitions()) {\r\n\tif (schema.getName().equalsIgnoreCase(name))\r\n\t\treturn schema;\r\n}\r\nreturn null;'"
+	 * @generated
+	 */
+	Schema getSchemaByName(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='String referenceName = ref.substring(ref.lastIndexOf(\"/\")+1);\r\nfor (Parameter parameter : getParameters()) {\r\nif(parameter.getReferenceName().equals(referenceName))\r\n\treturn parameter;\r\n}\r\nreturn null;'"
+	 * @generated
+	 */
+	Parameter getParameterByRef(String ref);
 
 } // API

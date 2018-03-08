@@ -245,4 +245,48 @@ public interface Operation extends ParamterDeclaringContext, SecurityContext, Pa
 	 */
 	void setPath(Path value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return getPath().getApi().getHost()\r\n\t\t\t\t+ getPath().getApi().getBasePath() + getPath().getRelativePath();'"
+	 * @generated
+	 */
+	String getFullPath();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='for(Parameter parameter: getParameters())\r\n\t{\r\n\tif(parameter.getLocation().equals(ParameterLocation.BODY))\r\n\t\tif(parameter.getSchema().getType().equals(JSONDataType.ARRAY))\r\n\t\t\treturn parameter.getSchema().getItems();\r\n\t\t\telse\r\n\t\t\t\treturn parameter.getSchema();\r\n\t}\r\nreturn null;'"
+	 * @generated
+	 */
+	Schema getConsumedSchema();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='for(Response response: getResponses()) {\r\n\tif((response.getCode().equals(\"200\") ||response.getCode().equals(\"201\"))   &amp;&amp; (response.getSchema()!= null &amp;&amp; response.getSchema().getType().equals(JSONDataType.ARRAY))) {\r\n\t\treturn response.getSchema().getItems();\r\n\t\r\n\t}\r\n\tif((response.getCode().equals(\"200\") ||response.getCode().equals(\"201\")) &amp;&amp; (response.getSchema()!= null &amp;&amp; response.getSchema().getType().equals(JSONDataType.OBJECT))) {\r\n\t\treturn response.getSchema();\r\n\t}\r\n}\r\nreturn null;'"
+	 * @generated
+	 */
+	Schema getProducedSchema();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for (Response response : getResponses()) {\r\n\tif ((response.getCode().equals(\"200\") || response.getCode().equals(\"201\"))\r\n\t\t\t&amp;&amp; (response.getSchema() != null &amp;&amp; response.getSchema().getType().equals(JSONDataType.ARRAY))) {\r\n\t\treturn true;\r\n\t}\r\n}\r\nreturn false;'"
+	 * @generated
+	 */
+	boolean IsProducingList();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='Path path = getPath();\r\nif(path.getGet().equals(this))\r\n\treturn \"GET\";\r\nif(path.getPost().equals(this))\r\n\treturn \"POST\";\r\nif(path.getPut().equals(this))\r\n\treturn \"PUT\";\r\nif(path.getDelete().equals(this))\r\n\treturn \"DELETE\";\r\nif(path.getOptions().equals(this))\r\n\treturn \"OPTIONS\";\r\nif(path.getHead().equals(this))\r\n\treturn \"HEAD\";\r\nif(path.getPatch().equals(this))\r\n\treturn \"PATCH\";\r\nreturn null;'"
+	 * @generated
+	 */
+	String getMethod();
+
 } // Operation

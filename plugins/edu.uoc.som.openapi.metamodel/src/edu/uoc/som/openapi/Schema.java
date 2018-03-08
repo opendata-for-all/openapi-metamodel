@@ -431,4 +431,12 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 */
 	String getRef();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for (Schema property : getProperties())\r\n\tif (property.getName().equals(name))\r\n\t\treturn property;\r\nreturn null;'"
+	 * @generated
+	 */
+	Schema getPropertyByName(String name);
+
 } // Schema

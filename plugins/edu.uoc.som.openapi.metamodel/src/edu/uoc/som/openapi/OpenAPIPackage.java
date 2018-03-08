@@ -504,13 +504,67 @@ public interface OpenAPIPackage extends EPackage {
 	int API___PATHS_IS_SET = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get All Operations</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API___GET_ALL_OPERATIONS = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Schema By Reference</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API___GET_SCHEMA_BY_REFERENCE__STRING = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Operation By Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API___GET_OPERATION_BY_ID__STRING = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get Path By Relative Path</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API___GET_PATH_BY_RELATIVE_PATH__STRING = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Get Schema By Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API___GET_SCHEMA_BY_NAME__STRING = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Get Parameter By Ref</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API___GET_PARAMETER_BY_REF__STRING = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 7;
+
+	/**
 	 * The number of operations of the '<em>API</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION_COUNT = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 2;
+	int API_OPERATION_COUNT = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.InfoImpl <em>Info</em>}' class.
@@ -715,13 +769,13 @@ public interface OpenAPIPackage extends EPackage {
 	int PATH__PARAMETERS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
+	 * The feature id for the '<em><b>Relative Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH__PATTERN = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
+	int PATH__RELATIVE_PATH = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Get</b></em>' containment reference.
@@ -787,13 +841,31 @@ public interface OpenAPIPackage extends EPackage {
 	int PATH__PATCH = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Api</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH__API = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Path</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_FEATURE_COUNT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 9;
+	int PATH_FEATURE_COUNT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 10;
+
+	/**
+	 * The operation id for the '<em>Get Operation By Method</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH___GET_OPERATION_BY_METHOD__STRING = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Path</em>' class.
@@ -802,7 +874,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_OPERATION_COUNT = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
+	int PATH_OPERATION_COUNT = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.OperationImpl <em>Operation</em>}' class.
@@ -941,13 +1013,58 @@ public interface OpenAPIPackage extends EPackage {
 	int OPERATION_FEATURE_COUNT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 13;
 
 	/**
+	 * The operation id for the '<em>Get Full Path</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION___GET_FULL_PATH = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Consumed Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION___GET_CONSUMED_SCHEMA = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Produced Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION___GET_PRODUCED_SCHEMA = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Is Producing List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION___IS_PRODUCING_LIST = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Method</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION___GET_METHOD = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_OPERATION_COUNT = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
+	int OPERATION_OPERATION_COUNT = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.ExternalDocsImpl <em>External Docs</em>}' class.
@@ -1819,13 +1936,22 @@ public interface OpenAPIPackage extends EPackage {
 	int SCHEMA___GET_REF = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Property By Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA___GET_PROPERTY_BY_NAME__STRING = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_OPERATION_COUNT = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 1;
+	int SCHEMA_OPERATION_COUNT = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.ResponseImpl <em>Response</em>}' class.
@@ -3225,6 +3351,66 @@ public interface OpenAPIPackage extends EPackage {
 	EOperation getAPI__PathsIsSet();
 
 	/**
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.API#getAllOperations() <em>Get All Operations</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Operations</em>' operation.
+	 * @see edu.uoc.som.openapi.API#getAllOperations()
+	 * @generated
+	 */
+	EOperation getAPI__GetAllOperations();
+
+	/**
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.API#getSchemaByReference(java.lang.String) <em>Get Schema By Reference</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Schema By Reference</em>' operation.
+	 * @see edu.uoc.som.openapi.API#getSchemaByReference(java.lang.String)
+	 * @generated
+	 */
+	EOperation getAPI__GetSchemaByReference__String();
+
+	/**
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.API#getOperationById(java.lang.String) <em>Get Operation By Id</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Operation By Id</em>' operation.
+	 * @see edu.uoc.som.openapi.API#getOperationById(java.lang.String)
+	 * @generated
+	 */
+	EOperation getAPI__GetOperationById__String();
+
+	/**
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.API#getPathByRelativePath(java.lang.String) <em>Get Path By Relative Path</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Path By Relative Path</em>' operation.
+	 * @see edu.uoc.som.openapi.API#getPathByRelativePath(java.lang.String)
+	 * @generated
+	 */
+	EOperation getAPI__GetPathByRelativePath__String();
+
+	/**
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.API#getSchemaByName(java.lang.String) <em>Get Schema By Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Schema By Name</em>' operation.
+	 * @see edu.uoc.som.openapi.API#getSchemaByName(java.lang.String)
+	 * @generated
+	 */
+	EOperation getAPI__GetSchemaByName__String();
+
+	/**
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.API#getParameterByRef(java.lang.String) <em>Get Parameter By Ref</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Parameter By Ref</em>' operation.
+	 * @see edu.uoc.som.openapi.API#getParameterByRef(java.lang.String)
+	 * @generated
+	 */
+	EOperation getAPI__GetParameterByRef__String();
+
+	/**
 	 * Returns the meta object for class '{@link edu.uoc.som.openapi.Info <em>Info</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3386,15 +3572,15 @@ public interface OpenAPIPackage extends EPackage {
 	EClass getPath();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.Path#getPattern <em>Pattern</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.Path#getRelativePath <em>Relative Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pattern</em>'.
-	 * @see edu.uoc.som.openapi.Path#getPattern()
+	 * @return the meta object for the attribute '<em>Relative Path</em>'.
+	 * @see edu.uoc.som.openapi.Path#getRelativePath()
 	 * @see #getPath()
 	 * @generated
 	 */
-	EAttribute getPath_Pattern();
+	EAttribute getPath_RelativePath();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link edu.uoc.som.openapi.Path#getGet <em>Get</em>}'.
@@ -3472,6 +3658,27 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPath_Patch();
+
+	/**
+	 * Returns the meta object for the container reference '{@link edu.uoc.som.openapi.Path#getApi <em>Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Api</em>'.
+	 * @see edu.uoc.som.openapi.Path#getApi()
+	 * @see #getPath()
+	 * @generated
+	 */
+	EReference getPath_Api();
+
+	/**
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.Path#getOperationByMethod(java.lang.String) <em>Get Operation By Method</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Operation By Method</em>' operation.
+	 * @see edu.uoc.som.openapi.Path#getOperationByMethod(java.lang.String)
+	 * @generated
+	 */
+	EOperation getPath__GetOperationByMethod__String();
 
 	/**
 	 * Returns the meta object for class '{@link edu.uoc.som.openapi.Operation <em>Operation</em>}'.
@@ -3592,6 +3799,56 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOperation_Path();
+
+	/**
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.Operation#getFullPath() <em>Get Full Path</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Full Path</em>' operation.
+	 * @see edu.uoc.som.openapi.Operation#getFullPath()
+	 * @generated
+	 */
+	EOperation getOperation__GetFullPath();
+
+	/**
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.Operation#getConsumedSchema() <em>Get Consumed Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Consumed Schema</em>' operation.
+	 * @see edu.uoc.som.openapi.Operation#getConsumedSchema()
+	 * @generated
+	 */
+	EOperation getOperation__GetConsumedSchema();
+
+	/**
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.Operation#getProducedSchema() <em>Get Produced Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Produced Schema</em>' operation.
+	 * @see edu.uoc.som.openapi.Operation#getProducedSchema()
+	 * @generated
+	 */
+	EOperation getOperation__GetProducedSchema();
+
+	/**
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.Operation#IsProducingList() <em>Is Producing List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Producing List</em>' operation.
+	 * @see edu.uoc.som.openapi.Operation#IsProducingList()
+	 * @generated
+	 */
+	EOperation getOperation__IsProducingList();
+
+	/**
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.Operation#getMethod() <em>Get Method</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Method</em>' operation.
+	 * @see edu.uoc.som.openapi.Operation#getMethod()
+	 * @generated
+	 */
+	EOperation getOperation__GetMethod();
 
 	/**
 	 * Returns the meta object for class '{@link edu.uoc.som.openapi.ExternalDocs <em>External Docs</em>}'.
@@ -3917,6 +4174,16 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSchema__GetRef();
+
+	/**
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.Schema#getPropertyByName(java.lang.String) <em>Get Property By Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Property By Name</em>' operation.
+	 * @see edu.uoc.som.openapi.Schema#getPropertyByName(java.lang.String)
+	 * @generated
+	 */
+	EOperation getSchema__GetPropertyByName__String();
 
 	/**
 	 * Returns the meta object for class '{@link edu.uoc.som.openapi.Response <em>Response</em>}'.
@@ -4880,6 +5147,54 @@ public interface OpenAPIPackage extends EPackage {
 		EOperation API___PATHS_IS_SET = eINSTANCE.getAPI__PathsIsSet();
 
 		/**
+		 * The meta object literal for the '<em><b>Get All Operations</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation API___GET_ALL_OPERATIONS = eINSTANCE.getAPI__GetAllOperations();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Schema By Reference</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation API___GET_SCHEMA_BY_REFERENCE__STRING = eINSTANCE.getAPI__GetSchemaByReference__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Operation By Id</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation API___GET_OPERATION_BY_ID__STRING = eINSTANCE.getAPI__GetOperationById__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Path By Relative Path</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation API___GET_PATH_BY_RELATIVE_PATH__STRING = eINSTANCE.getAPI__GetPathByRelativePath__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Schema By Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation API___GET_SCHEMA_BY_NAME__STRING = eINSTANCE.getAPI__GetSchemaByName__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Parameter By Ref</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation API___GET_PARAMETER_BY_REF__STRING = eINSTANCE.getAPI__GetParameterByRef__String();
+
+		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.InfoImpl <em>Info</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5008,12 +5323,12 @@ public interface OpenAPIPackage extends EPackage {
 		EClass PATH = eINSTANCE.getPath();
 
 		/**
-		 * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Relative Path</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PATH__PATTERN = eINSTANCE.getPath_Pattern();
+		EAttribute PATH__RELATIVE_PATH = eINSTANCE.getPath_RelativePath();
 
 		/**
 		 * The meta object literal for the '<em><b>Get</b></em>' containment reference feature.
@@ -5070,6 +5385,22 @@ public interface OpenAPIPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PATH__PATCH = eINSTANCE.getPath_Patch();
+
+		/**
+		 * The meta object literal for the '<em><b>Api</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PATH__API = eINSTANCE.getPath_Api();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Operation By Method</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATH___GET_OPERATION_BY_METHOD__STRING = eINSTANCE.getPath__GetOperationByMethod__String();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.OperationImpl <em>Operation</em>}' class.
@@ -5160,6 +5491,46 @@ public interface OpenAPIPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OPERATION__PATH = eINSTANCE.getOperation_Path();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Full Path</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OPERATION___GET_FULL_PATH = eINSTANCE.getOperation__GetFullPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Consumed Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OPERATION___GET_CONSUMED_SCHEMA = eINSTANCE.getOperation__GetConsumedSchema();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Produced Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OPERATION___GET_PRODUCED_SCHEMA = eINSTANCE.getOperation__GetProducedSchema();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Producing List</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OPERATION___IS_PRODUCING_LIST = eINSTANCE.getOperation__IsProducingList();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Method</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OPERATION___GET_METHOD = eINSTANCE.getOperation__GetMethod();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.ExternalDocsImpl <em>External Docs</em>}' class.
@@ -5408,6 +5779,14 @@ public interface OpenAPIPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SCHEMA___GET_REF = eINSTANCE.getSchema__GetRef();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Property By Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SCHEMA___GET_PROPERTY_BY_NAME__STRING = eINSTANCE.getSchema__GetPropertyByName__String();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.ResponseImpl <em>Response</em>}' class.

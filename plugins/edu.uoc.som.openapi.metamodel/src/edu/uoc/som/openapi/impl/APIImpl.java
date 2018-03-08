@@ -8,6 +8,7 @@ import edu.uoc.som.openapi.ExternalDocsContext;
 import edu.uoc.som.openapi.Info;
 import edu.uoc.som.openapi.JSONPointer;
 import edu.uoc.som.openapi.OpenAPIPackage;
+import edu.uoc.som.openapi.Operation;
 import edu.uoc.som.openapi.Parameter;
 import edu.uoc.som.openapi.ParameterContext;
 import edu.uoc.som.openapi.Path;
@@ -37,6 +38,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -503,7 +505,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 */
 	public EList<Path> getPaths() {
 		if (paths == null) {
-			paths = new EObjectContainmentEList.Unsettable<Path>(Path.class, this, OpenAPIPackage.API__PATHS);
+			paths = new EObjectContainmentWithInverseEList.Unsettable<Path>(Path.class, this, OpenAPIPackage.API__PATHS, OpenAPIPackage.PATH__API);
 		}
 		return paths;
 	}
@@ -581,6 +583,107 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 */
 	public boolean pathsIsSet() {
 		return pathsIsSet();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Operation> getAllOperations() {
+		TreeIterator<EObject> allElements = this.eAllContents();
+		EList<Operation> allOperations = ECollections.newBasicEList();
+		while (allElements.hasNext()) {
+			org.eclipse.emf.ecore.EObject object = allElements.next();
+			if (object instanceof Operation) {
+				allOperations.add((Operation) object);
+			}
+		}
+		return allOperations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Schema getSchemaByReference(final String ref) {
+		List<Schema> schemas = this.getDefinitions();
+		for (Schema schema : schemas) {
+			if (schema.getRef().equalsIgnoreCase(ref))
+				return schema;
+		}
+		return null;		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operation getOperationById(final String operationId) {
+		EList<Operation> allOperations = getAllOperations();
+		for (Operation operation : allOperations) {
+			if (operation.getOperationId().equals(operationId))
+				return operation;
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Path getPathByRelativePath(final String relativePath) {
+		for(Path path: getPaths()) {
+			if(path.getRelativePath().equalsIgnoreCase(relativePath)) {
+				return path;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Schema getSchemaByName(final String name) {
+		for (Schema schema : getDefinitions()) {
+			if (schema.getName().equalsIgnoreCase(name))
+				return schema;
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Parameter getParameterByRef(final String ref) {
+		String referenceName = ref.substring(ref.lastIndexOf("/")+1);
+		for (Parameter parameter : getParameters()) {
+		if(parameter.getReferenceName().equals(referenceName))
+			return parameter;
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case OpenAPIPackage.API__PATHS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPaths()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -920,6 +1023,18 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 		switch (operationID) {
 			case OpenAPIPackage.API___PATHS_IS_SET:
 				return pathsIsSet();
+			case OpenAPIPackage.API___GET_ALL_OPERATIONS:
+				return getAllOperations();
+			case OpenAPIPackage.API___GET_SCHEMA_BY_REFERENCE__STRING:
+				return getSchemaByReference((String)arguments.get(0));
+			case OpenAPIPackage.API___GET_OPERATION_BY_ID__STRING:
+				return getOperationById((String)arguments.get(0));
+			case OpenAPIPackage.API___GET_PATH_BY_RELATIVE_PATH__STRING:
+				return getPathByRelativePath((String)arguments.get(0));
+			case OpenAPIPackage.API___GET_SCHEMA_BY_NAME__STRING:
+				return getSchemaByName((String)arguments.get(0));
+			case OpenAPIPackage.API___GET_PARAMETER_BY_REF__STRING:
+				return getParameterByRef((String)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
