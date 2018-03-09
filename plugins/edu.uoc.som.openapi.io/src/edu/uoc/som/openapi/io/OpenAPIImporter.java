@@ -45,10 +45,10 @@ import edu.uoc.som.openapi.XMLElement;
 
 
 
-public class OpenAPIGenerator {
+public class OpenAPIImporter {
 	OpenAPIFactory openAPIFactory;
 
-	public OpenAPIGenerator() {
+	public OpenAPIImporter() {
 		openAPIFactory = OpenAPIFactory.eINSTANCE;
 		
 	}
