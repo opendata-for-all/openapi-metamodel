@@ -2,10 +2,10 @@
 <feature
       id="edu.uoc.som.openapi.feature"
       label="Open API metamodel"
-      version="1.0.0">
+      version="1.0.0.qualifier">
 
    <description url="https://github.com/SOM-Research/openapi-metamodel">
-      Open API metamodel and tools
+      Open API metamodel and tools.
    </description>
 
    <copyright url="http://som-research.uoc.edu">
