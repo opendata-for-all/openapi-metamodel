@@ -359,4 +359,12 @@ public interface API extends ParamterDeclaringContext, SchemaDeclaringContext, J
 	 */
 	Parameter getParameterByRef(String ref);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for(SecuritySchema securitySchema: getSecurityDefinitions())\r\n\tif(securitySchema.getReferenceName().equals(name))\r\n\t\treturn securitySchema;\r\nreturn null\t;'"
+	 * @generated
+	 */
+	SecuritySchema getSecuritySchemaByName(String name);
+
 } // API

@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.uoc.som.openapi.SecuritySchema#getFlow <em>Flow</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.SecuritySchema#getAuthorizationUrl <em>Authorization Url</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.SecuritySchema#getTokenUrl <em>Token Url</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.SecuritySchema#getGlobalName <em>Global Name</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.SecuritySchema#getReferenceName <em>Reference Name</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.SecuritySchema#getScopes <em>Scopes</em>}</li>
  * </ul>
  *
@@ -223,30 +223,30 @@ public interface SecuritySchema extends EObject {
 	void setTokenUrl(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Global Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Reference Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Global Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Reference Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Global Name</em>' attribute.
-	 * @see #setGlobalName(String)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecuritySchema_GlobalName()
+	 * @return the value of the '<em>Reference Name</em>' attribute.
+	 * @see #setReferenceName(String)
+	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecuritySchema_ReferenceName()
 	 * @model
 	 * @generated
 	 */
-	String getGlobalName();
+	String getReferenceName();
 
 	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.SecuritySchema#getGlobalName <em>Global Name</em>}' attribute.
+	 * Sets the value of the '{@link edu.uoc.som.openapi.SecuritySchema#getReferenceName <em>Reference Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Global Name</em>' attribute.
-	 * @see #getGlobalName()
+	 * @param value the new value of the '<em>Reference Name</em>' attribute.
+	 * @see #getReferenceName()
 	 * @generated
 	 */
-	void setGlobalName(String value);
+	void setReferenceName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Scopes</b></em>' containment reference list.
@@ -263,5 +263,13 @@ public interface SecuritySchema extends EObject {
 	 * @generated
 	 */
 	EList<SecurityScope> getScopes();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for(SecurityScope securityScope: getScopes())\r\n\tif(securityScope.getName().equals(name))\r\n\t\treturn securityScope;\r\nreturn null;'"
+	 * @generated
+	 */
+	SecurityScope getSecurityScopeByName(String name);
 
 } // SecuritySchema

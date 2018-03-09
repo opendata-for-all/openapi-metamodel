@@ -9,6 +9,8 @@ import edu.uoc.som.openapi.SecuritySchema;
 import edu.uoc.som.openapi.SecuritySchemeType;
 import edu.uoc.som.openapi.SecurityScope;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -40,7 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl#getFlow <em>Flow</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl#getAuthorizationUrl <em>Authorization Url</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl#getTokenUrl <em>Token Url</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl#getGlobalName <em>Global Name</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl#getReferenceName <em>Reference Name</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl#getScopes <em>Scopes</em>}</li>
  * </ul>
  *
@@ -188,24 +190,24 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	protected String tokenUrl = TOKEN_URL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getGlobalName() <em>Global Name</em>}' attribute.
+	 * The default value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGlobalName()
+	 * @see #getReferenceName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String GLOBAL_NAME_EDEFAULT = null;
+	protected static final String REFERENCE_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getGlobalName() <em>Global Name</em>}' attribute.
+	 * The cached value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGlobalName()
+	 * @see #getReferenceName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String globalName = GLOBAL_NAME_EDEFAULT;
+	protected String referenceName = REFERENCE_NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getScopes() <em>Scopes</em>}' containment reference list.
@@ -388,8 +390,8 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getGlobalName() {
-		return globalName;
+	public String getReferenceName() {
+		return referenceName;
 	}
 
 	/**
@@ -397,11 +399,11 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGlobalName(String newGlobalName) {
-		String oldGlobalName = globalName;
-		globalName = newGlobalName;
+	public void setReferenceName(String newReferenceName) {
+		String oldReferenceName = referenceName;
+		referenceName = newReferenceName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEMA__GLOBAL_NAME, oldGlobalName, globalName));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEMA__REFERENCE_NAME, oldReferenceName, referenceName));
 	}
 
 	/**
@@ -414,6 +416,18 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 			scopes = new EObjectContainmentEList<SecurityScope>(SecurityScope.class, this, OpenAPIPackage.SECURITY_SCHEMA__SCOPES);
 		}
 		return scopes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SecurityScope getSecurityScopeByName(final String name) {
+		for(SecurityScope securityScope: getScopes())
+			if(securityScope.getName().equals(name))
+				return securityScope;
+		return null;
 	}
 
 	/**
@@ -452,8 +466,8 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 				return getAuthorizationUrl();
 			case OpenAPIPackage.SECURITY_SCHEMA__TOKEN_URL:
 				return getTokenUrl();
-			case OpenAPIPackage.SECURITY_SCHEMA__GLOBAL_NAME:
-				return getGlobalName();
+			case OpenAPIPackage.SECURITY_SCHEMA__REFERENCE_NAME:
+				return getReferenceName();
 			case OpenAPIPackage.SECURITY_SCHEMA__SCOPES:
 				return getScopes();
 		}
@@ -490,8 +504,8 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 			case OpenAPIPackage.SECURITY_SCHEMA__TOKEN_URL:
 				setTokenUrl((String)newValue);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__GLOBAL_NAME:
-				setGlobalName((String)newValue);
+			case OpenAPIPackage.SECURITY_SCHEMA__REFERENCE_NAME:
+				setReferenceName((String)newValue);
 				return;
 			case OpenAPIPackage.SECURITY_SCHEMA__SCOPES:
 				getScopes().clear();
@@ -530,8 +544,8 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 			case OpenAPIPackage.SECURITY_SCHEMA__TOKEN_URL:
 				setTokenUrl(TOKEN_URL_EDEFAULT);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__GLOBAL_NAME:
-				setGlobalName(GLOBAL_NAME_EDEFAULT);
+			case OpenAPIPackage.SECURITY_SCHEMA__REFERENCE_NAME:
+				setReferenceName(REFERENCE_NAME_EDEFAULT);
 				return;
 			case OpenAPIPackage.SECURITY_SCHEMA__SCOPES:
 				getScopes().clear();
@@ -562,12 +576,26 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 				return AUTHORIZATION_URL_EDEFAULT == null ? authorizationUrl != null : !AUTHORIZATION_URL_EDEFAULT.equals(authorizationUrl);
 			case OpenAPIPackage.SECURITY_SCHEMA__TOKEN_URL:
 				return TOKEN_URL_EDEFAULT == null ? tokenUrl != null : !TOKEN_URL_EDEFAULT.equals(tokenUrl);
-			case OpenAPIPackage.SECURITY_SCHEMA__GLOBAL_NAME:
-				return GLOBAL_NAME_EDEFAULT == null ? globalName != null : !GLOBAL_NAME_EDEFAULT.equals(globalName);
+			case OpenAPIPackage.SECURITY_SCHEMA__REFERENCE_NAME:
+				return REFERENCE_NAME_EDEFAULT == null ? referenceName != null : !REFERENCE_NAME_EDEFAULT.equals(referenceName);
 			case OpenAPIPackage.SECURITY_SCHEMA__SCOPES:
 				return scopes != null && !scopes.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case OpenAPIPackage.SECURITY_SCHEMA___GET_SECURITY_SCOPE_BY_NAME__STRING:
+				return getSecurityScopeByName((String)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -594,8 +622,8 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 		result.append(authorizationUrl);
 		result.append(", tokenUrl: ");
 		result.append(tokenUrl);
-		result.append(", globalName: ");
-		result.append(globalName);
+		result.append(", referenceName: ");
+		result.append(referenceName);
 		result.append(')');
 		return result.toString();
 	}

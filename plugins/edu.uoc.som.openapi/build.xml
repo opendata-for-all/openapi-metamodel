@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="Swagger metamodel" default="default">
+<project name="Open API metamodel" default="default">
     <description>
     	Build JAR
     </description>

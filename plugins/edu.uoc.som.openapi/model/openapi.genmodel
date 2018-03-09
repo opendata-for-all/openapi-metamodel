@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/edu.uoc.som.openapi.metamodel/src" modelPluginID="edu.uoc.som.openapi.metamodel"
-    templateDirectory="/openapi.metamodel/templates" dynamicTemplates="true" modelName="OpenAPI"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/edu.uoc.som.openapi/src" editDirectory="/edu.uoc.som.openapi.edit/src"
+    editorDirectory="/edu.uoc.som.openapi.editor/src" modelPluginID="edu.uoc.som.openapi"
+    templateDirectory="/edu.uoc.som.openapi/templates" dynamicTemplates="true" modelName="OpenAPI"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+    complianceLevel="7.0" copyrightFields="false" editPluginID="edu.uoc.som.openapi.edit"
+    editorPluginID="edu.uoc.som.openapi.editor" operationReflection="true" importOrganizing="true">
   <foreignModel>openapi.ecore</foreignModel>
   <genPackages prefix="OpenAPI" basePackage="edu.uoc.som" disposableProviderFactory="true"
       fileExtensions="oas" ecorePackage="openapi.ecore#/">
@@ -113,6 +115,9 @@
       <genOperations ecoreOperation="openapi.ecore#//API/getParameterByRef">
         <genParameters ecoreParameter="openapi.ecore#//API/getParameterByRef/ref"/>
       </genOperations>
+      <genOperations ecoreOperation="openapi.ecore#//API/getSecuritySchemaByName">
+        <genParameters ecoreParameter="openapi.ecore#//API/getSecuritySchemaByName/name"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="openapi.ecore#//Info">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//Info/title"/>
@@ -221,8 +226,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//SecuritySchema/flow"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//SecuritySchema/authorizationUrl"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//SecuritySchema/tokenUrl"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//SecuritySchema/globalName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//SecuritySchema/referenceName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi.ecore#//SecuritySchema/scopes"/>
+      <genOperations ecoreOperation="openapi.ecore#//SecuritySchema/getSecurityScopeByName">
+        <genParameters ecoreParameter="openapi.ecore#//SecuritySchema/getSecurityScopeByName/name"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="openapi.ecore#//Example">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//Example/mimeType"/>

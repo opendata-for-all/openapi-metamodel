@@ -11,7 +11,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated openapi -->
       <package
-            uri="http://som.uoc.edu/openapi/1.0.0"
+            uri="http://som.uoc.edu/openapi/2.0.0"
             class="edu.uoc.som.openapi.OpenAPIPackage"
             genModel="model/openapi.genmodel"/>
    </extension>

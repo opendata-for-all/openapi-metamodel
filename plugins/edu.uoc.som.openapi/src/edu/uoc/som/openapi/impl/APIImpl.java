@@ -675,6 +675,18 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SecuritySchema getSecuritySchemaByName(final String name) {
+		for(SecuritySchema securitySchema: getSecurityDefinitions())
+			if(securitySchema.getReferenceName().equals(name))
+				return securitySchema;
+		return null	;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -1034,6 +1046,8 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 				return getSchemaByName((String)arguments.get(0));
 			case OpenAPIPackage.API___GET_PARAMETER_BY_REF__STRING:
 				return getParameterByRef((String)arguments.get(0));
+			case OpenAPIPackage.API___GET_SECURITY_SCHEMA_BY_NAME__STRING:
+				return getSecuritySchemaByName((String)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
