@@ -8,3 +8,4 @@ Bundle-Vendor: %providerName
 Require-Bundle: edu.uoc.som.openapi;bundle-version="1.0.0"
 Bundle-ClassPath: lib/gson-2.6.2.jar,
  .
+Export-Package: edu.uoc.som.openapi.io
