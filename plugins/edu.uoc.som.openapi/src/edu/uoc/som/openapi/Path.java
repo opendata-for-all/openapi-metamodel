@@ -56,7 +56,6 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 
 	/**
 	 * Returns the value of the '<em><b>Get</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link edu.uoc.som.openapi.Operation#getPath <em>Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Get</em>' containment reference isn't clear,
@@ -66,8 +65,7 @@ public interface Path extends ParamterDeclaringContext, ParameterContext {
 	 * @return the value of the '<em>Get</em>' containment reference.
 	 * @see #setGet(Operation)
 	 * @see edu.uoc.som.openapi.OpenAPIPackage#getPath_Get()
-	 * @see edu.uoc.som.openapi.Operation#getPath
-	 * @model opposite="path" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	Operation getGet();

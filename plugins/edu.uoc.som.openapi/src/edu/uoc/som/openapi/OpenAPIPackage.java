@@ -1004,22 +1004,13 @@ public interface OpenAPIPackage extends EPackage {
 	int OPERATION__DEPRECATED = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Path</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION__PATH = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 12;
-
-	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 13;
+	int OPERATION_FEATURE_COUNT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Get Full Path</em>' operation.
@@ -3818,17 +3809,6 @@ public interface OpenAPIPackage extends EPackage {
 	EAttribute getOperation_Deprecated();
 
 	/**
-	 * Returns the meta object for the container reference '{@link edu.uoc.som.openapi.Operation#getPath <em>Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Path</em>'.
-	 * @see edu.uoc.som.openapi.Operation#getPath()
-	 * @see #getOperation()
-	 * @generated
-	 */
-	EReference getOperation_Path();
-
-	/**
 	 * Returns the meta object for the '{@link edu.uoc.som.openapi.Operation#getFullPath() <em>Get Full Path</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5529,14 +5509,6 @@ public interface OpenAPIPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OPERATION__DEPRECATED = eINSTANCE.getOperation_Deprecated();
-
-		/**
-		 * The meta object literal for the '<em><b>Path</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPERATION__PATH = eINSTANCE.getOperation_Path();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Full Path</b></em>' operation.

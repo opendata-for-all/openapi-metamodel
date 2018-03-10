@@ -234,9 +234,9 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 		if (newGet != get) {
 			NotificationChain msgs = null;
 			if (get != null)
-				msgs = ((InternalEObject)get).eInverseRemove(this, OpenAPIPackage.OPERATION__PATH, Operation.class, msgs);
+				msgs = ((InternalEObject)get).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__GET, null, msgs);
 			if (newGet != null)
-				msgs = ((InternalEObject)newGet).eInverseAdd(this, OpenAPIPackage.OPERATION__PATH, Operation.class, msgs);
+				msgs = ((InternalEObject)newGet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__GET, null, msgs);
 			msgs = basicSetGet(newGet, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -569,10 +569,6 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case OpenAPIPackage.PATH__GET:
-				if (get != null)
-					msgs = ((InternalEObject)get).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPIPackage.PATH__GET, null, msgs);
-				return basicSetGet((Operation)otherEnd, msgs);
 			case OpenAPIPackage.PATH__API:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);

@@ -22,7 +22,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link edu.uoc.som.openapi.Operation#getResponses <em>Responses</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Operation#getSchemes <em>Schemes</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Operation#getDeprecated <em>Deprecated</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.Operation#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @see edu.uoc.som.openapi.OpenAPIPackage#getOperation()
@@ -218,38 +217,10 @@ public interface Operation extends ParamterDeclaringContext, SecurityContext, Pa
 	void setDeprecated(Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Path</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link edu.uoc.som.openapi.Path#getGet <em>Get</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Path</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Path</em>' container reference.
-	 * @see #setPath(Path)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getOperation_Path()
-	 * @see edu.uoc.som.openapi.Path#getGet
-	 * @model opposite="get" transient="false"
-	 * @generated
-	 */
-	Path getPath();
-
-	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.Operation#getPath <em>Path</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Path</em>' container reference.
-	 * @see #getPath()
-	 * @generated
-	 */
-	void setPath(Path value);
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return getPath().getApi().getHost()\r\n\t\t\t\t+ getPath().getApi().getBasePath() + getPath().getRelativePath();'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return ((Path)eContainer).getApi().getHost()\r\n\t\t\t\t+ ((Path)eContainer).getApi().getBasePath() + ((Path)eContainer).getRelativePath();'"
 	 * @generated
 	 */
 	String getFullPath();
@@ -284,7 +255,7 @@ public interface Operation extends ParamterDeclaringContext, SecurityContext, Pa
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='Path path = getPath();\r\nif(path.getGet().equals(this))\r\n\treturn \"GET\";\r\nif(path.getPost().equals(this))\r\n\treturn \"POST\";\r\nif(path.getPut().equals(this))\r\n\treturn \"PUT\";\r\nif(path.getDelete().equals(this))\r\n\treturn \"DELETE\";\r\nif(path.getOptions().equals(this))\r\n\treturn \"OPTIONS\";\r\nif(path.getHead().equals(this))\r\n\treturn \"HEAD\";\r\nif(path.getPatch().equals(this))\r\n\treturn \"PATCH\";\r\nreturn null;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='Path path = ((Path)eContainer);\r\nif(path.getGet().equals(this))\r\n\treturn \"GET\";\r\nif(path.getPost().equals(this))\r\n\treturn \"POST\";\r\nif(path.getPut().equals(this))\r\n\treturn \"PUT\";\r\nif(path.getDelete().equals(this))\r\n\treturn \"DELETE\";\r\nif(path.getOptions().equals(this))\r\n\treturn \"OPTIONS\";\r\nif(path.getHead().equals(this))\r\n\treturn \"HEAD\";\r\nif(path.getPatch().equals(this))\r\n\treturn \"PATCH\";\r\nreturn null;'"
 	 * @generated
 	 */
 	String getMethod();

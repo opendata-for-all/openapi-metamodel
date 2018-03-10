@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import edu.uoc.som.openapi.ExternalDocs;
@@ -53,7 +52,6 @@ import edu.uoc.som.openapi.SecurityRequirement;
  *   <li>{@link edu.uoc.som.openapi.impl.OperationImpl#getResponses <em>Responses</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.OperationImpl#getSchemes <em>Schemes</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.OperationImpl#getDeprecated <em>Deprecated</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.OperationImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
@@ -454,50 +452,9 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Path getPath() {
-		if (eContainerFeatureID() != OpenAPIPackage.OPERATION__PATH) return null;
-		return (Path)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPath(Path newPath, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newPath, OpenAPIPackage.OPERATION__PATH, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPath(Path newPath) {
-		if (newPath != eInternalContainer() || (eContainerFeatureID() != OpenAPIPackage.OPERATION__PATH && newPath != null)) {
-			if (EcoreUtil.isAncestor(this, newPath))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newPath != null)
-				msgs = ((InternalEObject)newPath).eInverseAdd(this, OpenAPIPackage.PATH__GET, Path.class, msgs);
-			msgs = basicSetPath(newPath, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.OPERATION__PATH, newPath, newPath));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getFullPath() {
-		return getPath().getApi().getHost()
-						+ getPath().getApi().getBasePath() + getPath().getRelativePath();
+		return ((Path)eContainer).getApi().getHost()
+						+ ((Path)eContainer).getApi().getBasePath() + ((Path)eContainer).getRelativePath();
 	}
 
 	/**
@@ -555,7 +512,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * @generated
 	 */
 	public String getMethod() {
-		Path path = getPath();
+		Path path = ((Path)eContainer);
 		if(path.getGet().equals(this))
 			return "GET";
 		if(path.getPost().equals(this))
@@ -579,46 +536,14 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case OpenAPIPackage.OPERATION__PATH:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetPath((Path)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case OpenAPIPackage.OPERATION__SECURITY_REQUIREMENTS:
 				return ((InternalEList<?>)getSecurityRequirements()).basicRemove(otherEnd, msgs);
 			case OpenAPIPackage.OPERATION__EXTERNAL_DOCS:
 				return basicSetExternalDocs(null, msgs);
-			case OpenAPIPackage.OPERATION__PATH:
-				return basicSetPath(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case OpenAPIPackage.OPERATION__PATH:
-				return eInternalContainer().eInverseRemove(this, OpenAPIPackage.PATH__GET, Path.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -653,8 +578,6 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 				return getSchemes();
 			case OpenAPIPackage.OPERATION__DEPRECATED:
 				return getDeprecated();
-			case OpenAPIPackage.OPERATION__PATH:
-				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -711,9 +634,6 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 			case OpenAPIPackage.OPERATION__DEPRECATED:
 				setDeprecated((Boolean)newValue);
 				return;
-			case OpenAPIPackage.OPERATION__PATH:
-				setPath((Path)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -762,9 +682,6 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 			case OpenAPIPackage.OPERATION__DEPRECATED:
 				setDeprecated(DEPRECATED_EDEFAULT);
 				return;
-			case OpenAPIPackage.OPERATION__PATH:
-				setPath((Path)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -801,8 +718,6 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 				return schemes != null && !schemes.isEmpty();
 			case OpenAPIPackage.OPERATION__DEPRECATED:
 				return DEPRECATED_EDEFAULT == null ? deprecated != null : !DEPRECATED_EDEFAULT.equals(deprecated);
-			case OpenAPIPackage.OPERATION__PATH:
-				return getPath() != null;
 		}
 		return super.eIsSet(featureID);
 	}

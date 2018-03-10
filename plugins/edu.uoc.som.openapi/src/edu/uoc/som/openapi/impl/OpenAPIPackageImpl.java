@@ -1097,15 +1097,6 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOperation_Path() {
-		return (EReference)operationEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getOperation__GetFullPath() {
 		return operationEClass.getEOperations().get(0);
 	}
@@ -2088,7 +2079,6 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		createEReference(operationEClass, OPERATION__RESPONSES);
 		createEAttribute(operationEClass, OPERATION__SCHEMES);
 		createEAttribute(operationEClass, OPERATION__DEPRECATED);
-		createEReference(operationEClass, OPERATION__PATH);
 		createEOperation(operationEClass, OPERATION___GET_FULL_PATH);
 		createEOperation(operationEClass, OPERATION___GET_CONSUMED_SCHEMA);
 		createEOperation(operationEClass, OPERATION___GET_PRODUCED_SCHEMA);
@@ -2352,7 +2342,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 
 		initEClass(pathEClass, Path.class, "Path", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPath_RelativePath(), ecorePackage.getEString(), "relativePath", null, 0, 1, Path.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPath_Get(), this.getOperation(), this.getOperation_Path(), "get", null, 0, 1, Path.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPath_Get(), this.getOperation(), null, "get", null, 0, 1, Path.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPath_Put(), this.getOperation(), null, "put", null, 0, 1, Path.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPath_Post(), this.getOperation(), null, "post", null, 0, 1, Path.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPath_Delete(), this.getOperation(), null, "delete", null, 0, 1, Path.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2374,7 +2364,6 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEReference(getOperation_Responses(), this.getResponse(), null, "responses", null, 1, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Schemes(), this.getSchemeType(), "schemes", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Deprecated(), ecorePackage.getEBooleanObject(), "deprecated", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperation_Path(), this.getPath(), this.getPath_Get(), "path", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getOperation__GetFullPath(), ecorePackage.getEString(), "getFullPath", 0, 1, IS_UNIQUE, IS_ORDERED);
 

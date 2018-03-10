@@ -155,7 +155,7 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="relativePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="get" eType="#//Operation"
-        containment="true" eOpposite="#//Operation/path"/>
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="put" eType="#//Operation"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="post" eType="#//Operation"
@@ -183,7 +183,7 @@
     </eAnnotations>
     <eOperations name="getFullPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="return getPath().getApi().getHost()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;+ getPath().getApi().getBasePath() + getPath().getRelativePath();"/>
+        <details key="body" value="return ((Path)eContainer).getApi().getHost()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;+ ((Path)eContainer).getApi().getBasePath() + ((Path)eContainer).getRelativePath();"/>
       </eAnnotations>
     </eOperations>
     <eOperations name="getConsumedSchema" eType="#//Schema">
@@ -203,7 +203,7 @@
     </eOperations>
     <eOperations name="getMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="Path path = getPath();&#xD;&#xA;if(path.getGet().equals(this))&#xD;&#xA;&#x9;return &quot;GET&quot;;&#xD;&#xA;if(path.getPost().equals(this))&#xD;&#xA;&#x9;return &quot;POST&quot;;&#xD;&#xA;if(path.getPut().equals(this))&#xD;&#xA;&#x9;return &quot;PUT&quot;;&#xD;&#xA;if(path.getDelete().equals(this))&#xD;&#xA;&#x9;return &quot;DELETE&quot;;&#xD;&#xA;if(path.getOptions().equals(this))&#xD;&#xA;&#x9;return &quot;OPTIONS&quot;;&#xD;&#xA;if(path.getHead().equals(this))&#xD;&#xA;&#x9;return &quot;HEAD&quot;;&#xD;&#xA;if(path.getPatch().equals(this))&#xD;&#xA;&#x9;return &quot;PATCH&quot;;&#xD;&#xA;return null;"/>
+        <details key="body" value="Path path = ((Path)eContainer);&#xD;&#xA;if(path.getGet().equals(this))&#xD;&#xA;&#x9;return &quot;GET&quot;;&#xD;&#xA;if(path.getPost().equals(this))&#xD;&#xA;&#x9;return &quot;POST&quot;;&#xD;&#xA;if(path.getPut().equals(this))&#xD;&#xA;&#x9;return &quot;PUT&quot;;&#xD;&#xA;if(path.getDelete().equals(this))&#xD;&#xA;&#x9;return &quot;DELETE&quot;;&#xD;&#xA;if(path.getOptions().equals(this))&#xD;&#xA;&#x9;return &quot;OPTIONS&quot;;&#xD;&#xA;if(path.getHead().equals(this))&#xD;&#xA;&#x9;return &quot;HEAD&quot;;&#xD;&#xA;if(path.getPatch().equals(this))&#xD;&#xA;&#x9;return &quot;PATCH&quot;;&#xD;&#xA;return null;"/>
       </eAnnotations>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tagReferences" upperBound="-1"
@@ -220,7 +220,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemes" upperBound="-1"
         eType="#//SchemeType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deprecated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//Path" eOpposite="#//Path/get"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalDocs">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
