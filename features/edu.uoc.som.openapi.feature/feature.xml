@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="edu.uoc.som.openapi.feature"
-      label="Open API metamodel"
+      label="OpenAPI metamodel"
       version="1.0.0.qualifier">
 
    <description url="https://github.com/SOM-Research/openapi-metamodel">
-      Open API metamodel and tools.
+      OpenAPI metamodel and tools.
    </description>
 
    <copyright url="http://som-research.uoc.edu">
-      SOM Resesearch Lab (c) 2018
+      SOM Resesearch Lab (c) 2018.
    </copyright>
 
    <license url="https://www.eclipse.org/legal/epl-v20.html">
