@@ -264,7 +264,7 @@ public class OpenAPIImporter {
 			schema.setExclusiveMaximum(schemaObject.get("exclusiveMaximum").getAsBoolean());
 		if (schemaObject.has("minimum"))
 			schema.setMinimum(schemaObject.get("minimum").getAsDouble());
-		if (schemaObject.has("exclusiveMinimim"))
+		if (schemaObject.has("exclusiveMinimum"))
 			schema.setExclusiveMinimum(schemaObject.get("exclusiveMinimum").getAsBoolean());
 		if (schemaObject.has("maxLength"))
 			schema.setMaxLength(schemaObject.get("maxLength").getAsInt());
@@ -284,7 +284,7 @@ public class OpenAPIImporter {
 				schema.getEnum().add(item.getAsString());
 		}
 		if (schemaObject.has("multipleOf"))
-			schema.setMultipleOf(schemaObject.get("multipleOf").getAsInt());
+			schema.setMultipleOf( new Double(schemaObject.get("multipleOf").getAsDouble()));
 		if (schemaObject.has("maxProperties"))
 			schema.setMaxProperties(schemaObject.get("maxProperties").getAsInt());
 		if (schemaObject.has("minProperties"))
@@ -599,7 +599,7 @@ public class OpenAPIImporter {
 			header.setExclusiveMaximum(jsonObject.get("exclusiveMaximum").getAsBoolean());//to fix 
 		if (jsonObject.has("minimum"))
 			header.setMinimum(jsonObject.get("minimum").getAsDouble());
-		if (jsonObject.has("exclusiveMinimim"))
+		if (jsonObject.has("exclusiveMinimum"))
 			header.setExclusiveMinimum(jsonObject.get("exclusiveMinimum").getAsBoolean());
 		if (jsonObject.has("maxLength"))
 			header.setMaxLength(jsonObject.get("maxLength").getAsInt());
@@ -619,7 +619,7 @@ public class OpenAPIImporter {
 				header.getEnum().add(item.getAsString());
 		}
 		if (jsonObject.has("multipleOf"))
-			header.setMultipleOf(jsonObject.get("multipleOf").getAsInt());
+			header.setMultipleOf(new Double(jsonObject.get("multipleOf").getAsDouble()));
 
 	}
 
@@ -666,7 +666,7 @@ public class OpenAPIImporter {
 				aPIParameter.setExclusiveMaximum(jsonObject.get("exclusiveMaximum").getAsBoolean());
 			if (jsonObject.has("minimum"))
 				aPIParameter.setMinimum(jsonObject.get("minimum").getAsDouble());
-			if (jsonObject.has("exclusiveMinimim"))
+			if (jsonObject.has("exclusiveMinimum"))
 				aPIParameter.setExclusiveMinimum(jsonObject.get("exclusiveMinimum").getAsBoolean());
 			if (jsonObject.has("maxLength"))
 				aPIParameter.setMaxLength(jsonObject.get("maxLength").getAsInt());
@@ -686,7 +686,7 @@ public class OpenAPIImporter {
 					aPIParameter.getEnum().add(item.getAsString());
 			}
 			if (jsonObject.has("multipleOf"))
-				aPIParameter.setMultipleOf(jsonObject.get("multipleOf").getAsInt());
+				aPIParameter.setMultipleOf(new Double(jsonObject.get("multipleOf").getAsDouble()));
 
 		
 	}
@@ -712,7 +712,7 @@ public class OpenAPIImporter {
 			items.setExclusiveMaximum(jsonObject.get("exclusiveMaximum").getAsBoolean());
 		if (jsonObject.has("minimum"))
 			items.setMinimum(jsonObject.get("minimum").getAsDouble());
-		if (jsonObject.has("exclusiveMinimim"))
+		if (jsonObject.has("exclusiveMinimum"))
 			items.setExclusiveMinimum(jsonObject.get("exclusiveMinimum").getAsBoolean());
 		if (jsonObject.has("maxLength"))
 			items.setMaxLength(jsonObject.get("maxLength").getAsInt());
@@ -732,7 +732,7 @@ public class OpenAPIImporter {
 				items.getEnum().add(item.getAsString());
 		}
 		if (jsonObject.has("multipleOf"))
-			items.setMultipleOf(jsonObject.get("multipleOf").getAsInt());
+			items.setMultipleOf(new Double(jsonObject.get("multipleOf").getAsDouble()));
 	}
 
 	private  void discoverExternalDocs(JsonElement jsonElement, ExternalDocs externalDocs) {
