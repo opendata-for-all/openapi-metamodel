@@ -346,7 +346,7 @@ public abstract class JSONSchemaSubsetImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double MULTIPLE_OF_EDEFAULT = 0.0;
+	protected static final Double MULTIPLE_OF_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getMultipleOf() <em>Multiple Of</em>}' attribute.
@@ -356,7 +356,7 @@ public abstract class JSONSchemaSubsetImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 * @ordered
 	 */
-	protected double multipleOf = MULTIPLE_OF_EDEFAULT;
+	protected Double multipleOf = MULTIPLE_OF_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -688,7 +688,7 @@ public abstract class JSONSchemaSubsetImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getMultipleOf() {
+	public Double getMultipleOf() {
 		return multipleOf;
 	}
 
@@ -697,8 +697,8 @@ public abstract class JSONSchemaSubsetImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMultipleOf(double newMultipleOf) {
-		double oldMultipleOf = multipleOf;
+	public void setMultipleOf(Double newMultipleOf) {
+		Double oldMultipleOf = multipleOf;
 		multipleOf = newMultipleOf;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.JSON_SCHEMA_SUBSET__MULTIPLE_OF, oldMultipleOf, multipleOf));
@@ -909,7 +909,7 @@ public abstract class JSONSchemaSubsetImpl extends MinimalEObjectImpl.Container 
 			case OpenAPIPackage.JSON_SCHEMA_SUBSET__DEFAULT:
 				return DEFAULT_EDEFAULT == null ? default_ != null : !DEFAULT_EDEFAULT.equals(default_);
 			case OpenAPIPackage.JSON_SCHEMA_SUBSET__MULTIPLE_OF:
-				return multipleOf != MULTIPLE_OF_EDEFAULT;
+				return MULTIPLE_OF_EDEFAULT == null ? multipleOf != null : !MULTIPLE_OF_EDEFAULT.equals(multipleOf);
 		}
 		return super.eIsSet(featureID);
 	}

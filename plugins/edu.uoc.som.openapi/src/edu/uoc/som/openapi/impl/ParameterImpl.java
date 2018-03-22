@@ -377,7 +377,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double MULTIPLE_OF_EDEFAULT = 0.0;
+	protected static final Double MULTIPLE_OF_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getMultipleOf() <em>Multiple Of</em>}' attribute.
@@ -387,7 +387,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * @generated
 	 * @ordered
 	 */
-	protected double multipleOf = MULTIPLE_OF_EDEFAULT;
+	protected Double multipleOf = MULTIPLE_OF_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
@@ -927,7 +927,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getMultipleOf() {
+	public Double getMultipleOf() {
 		return multipleOf;
 	}
 
@@ -936,8 +936,8 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMultipleOf(double newMultipleOf) {
-		double oldMultipleOf = multipleOf;
+	public void setMultipleOf(Double newMultipleOf) {
+		Double oldMultipleOf = multipleOf;
 		multipleOf = newMultipleOf;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__MULTIPLE_OF, oldMultipleOf, multipleOf));
@@ -1487,7 +1487,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 			case OpenAPIPackage.PARAMETER__DEFAULT:
 				return DEFAULT_EDEFAULT == null ? default_ != null : !DEFAULT_EDEFAULT.equals(default_);
 			case OpenAPIPackage.PARAMETER__MULTIPLE_OF:
-				return multipleOf != MULTIPLE_OF_EDEFAULT;
+				return MULTIPLE_OF_EDEFAULT == null ? multipleOf != null : !MULTIPLE_OF_EDEFAULT.equals(multipleOf);
 			case OpenAPIPackage.PARAMETER__REF:
 				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
 			case OpenAPIPackage.PARAMETER__COLLECTION_FORMAT:

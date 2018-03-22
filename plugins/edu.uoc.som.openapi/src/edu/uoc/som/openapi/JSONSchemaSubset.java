@@ -431,12 +431,12 @@ public interface JSONSchemaSubset extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Multiple Of</em>' attribute.
-	 * @see #setMultipleOf(double)
+	 * @see #setMultipleOf(Double)
 	 * @see edu.uoc.som.openapi.OpenAPIPackage#getJSONSchemaSubset_MultipleOf()
 	 * @model
 	 * @generated
 	 */
-	double getMultipleOf();
+	Double getMultipleOf();
 
 	/**
 	 * Sets the value of the '{@link edu.uoc.som.openapi.JSONSchemaSubset#getMultipleOf <em>Multiple Of</em>}' attribute.
@@ -446,6 +446,6 @@ public interface JSONSchemaSubset extends EObject {
 	 * @see #getMultipleOf()
 	 * @generated
 	 */
-	void setMultipleOf(double value);
+	void setMultipleOf(Double value);
 
 } // JSONSchemaSubset
