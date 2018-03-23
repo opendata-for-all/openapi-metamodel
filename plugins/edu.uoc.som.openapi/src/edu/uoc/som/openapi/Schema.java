@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link edu.uoc.som.openapi.Schema#getDeclaringContext <em>Declaring Context</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Schema#getRequired <em>Required</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Schema#getValue <em>Value</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.Schema#isAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.Schema#getAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}</li>
  * </ul>
  *
  * @see edu.uoc.som.openapi.OpenAPIPackage#getSchema()
@@ -405,22 +405,22 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Additonal Properties Allowed</em>' attribute.
-	 * @see #setAdditonalPropertiesAllowed(boolean)
+	 * @see #setAdditonalPropertiesAllowed(Boolean)
 	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSchema_AdditonalPropertiesAllowed()
 	 * @model
 	 * @generated
 	 */
-	boolean isAdditonalPropertiesAllowed();
+	Boolean getAdditonalPropertiesAllowed();
 
 	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.Schema#isAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}' attribute.
+	 * Sets the value of the '{@link edu.uoc.som.openapi.Schema#getAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Additonal Properties Allowed</em>' attribute.
-	 * @see #isAdditonalPropertiesAllowed()
+	 * @see #getAdditonalPropertiesAllowed()
 	 * @generated
 	 */
-	void setAdditonalPropertiesAllowed(boolean value);
+	void setAdditonalPropertiesAllowed(Boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

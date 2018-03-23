@@ -51,7 +51,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getDeclaringContext <em>Declaring Context</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getRequired <em>Required</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getValue <em>Value</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#isAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}</li>
  * </ul>
  *
  * @generated
@@ -298,24 +298,24 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	protected Schema value;
 
 	/**
-	 * The default value of the '{@link #isAdditonalPropertiesAllowed() <em>Additonal Properties Allowed</em>}' attribute.
+	 * The default value of the '{@link #getAdditonalPropertiesAllowed() <em>Additonal Properties Allowed</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isAdditonalPropertiesAllowed()
+	 * @see #getAdditonalPropertiesAllowed()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT = false;
+	protected static final Boolean ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #isAdditonalPropertiesAllowed() <em>Additonal Properties Allowed</em>}' attribute.
+	 * The cached value of the '{@link #getAdditonalPropertiesAllowed() <em>Additonal Properties Allowed</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isAdditonalPropertiesAllowed()
+	 * @see #getAdditonalPropertiesAllowed()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean additonalPropertiesAllowed = ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT;
+	protected Boolean additonalPropertiesAllowed = ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -782,7 +782,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAdditonalPropertiesAllowed() {
+	public Boolean getAdditonalPropertiesAllowed() {
 		return additonalPropertiesAllowed;
 	}
 
@@ -791,8 +791,8 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAdditonalPropertiesAllowed(boolean newAdditonalPropertiesAllowed) {
-		boolean oldAdditonalPropertiesAllowed = additonalPropertiesAllowed;
+	public void setAdditonalPropertiesAllowed(Boolean newAdditonalPropertiesAllowed) {
+		Boolean oldAdditonalPropertiesAllowed = additonalPropertiesAllowed;
 		additonalPropertiesAllowed = newAdditonalPropertiesAllowed;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED, oldAdditonalPropertiesAllowed, additonalPropertiesAllowed));
@@ -873,7 +873,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 				if (resolve) return getValue();
 				return basicGetValue();
 			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
-				return isAdditonalPropertiesAllowed();
+				return getAdditonalPropertiesAllowed();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1051,7 +1051,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 			case OpenAPIPackage.SCHEMA__VALUE:
 				return value != null;
 			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
-				return additonalPropertiesAllowed != ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT;
+				return ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT == null ? additonalPropertiesAllowed != null : !ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT.equals(additonalPropertiesAllowed);
 		}
 		return super.eIsSet(featureID);
 	}

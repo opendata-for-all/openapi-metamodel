@@ -280,7 +280,7 @@
         eType="#//Schema"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Schema"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="additonalPropertiesAllowed"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Response" eSuperTypes="#//SchemaDeclaringContext #//SchemaContext">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

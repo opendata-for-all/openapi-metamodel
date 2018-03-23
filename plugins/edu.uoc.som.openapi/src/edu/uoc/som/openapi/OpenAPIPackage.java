@@ -4163,11 +4163,11 @@ public interface OpenAPIPackage extends EPackage {
 	EReference getSchema_Value();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.Schema#isAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.Schema#getAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Additonal Properties Allowed</em>'.
-	 * @see edu.uoc.som.openapi.Schema#isAdditonalPropertiesAllowed()
+	 * @see edu.uoc.som.openapi.Schema#getAdditonalPropertiesAllowed()
 	 * @see #getSchema()
 	 * @generated
 	 */
