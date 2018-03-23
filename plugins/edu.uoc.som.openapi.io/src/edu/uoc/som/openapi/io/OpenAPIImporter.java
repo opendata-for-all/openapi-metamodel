@@ -338,7 +338,8 @@ public class OpenAPIImporter {
 			for (JsonElement allOfElement : allOfArray) {
 				JsonObject allOfObject = allOfElement.getAsJsonObject();
 				if(allOfObject.has("$ref")) {
-					schema.getAllOf().add(root.getApi().getSchemaByReference(allOfObject.get("$ref").getAsString()));
+					Schema allOfRef = root.getApi().getSchemaByReference(allOfObject.get("$ref").getAsString());
+					schema.getAllOf().add(allOfRef);
 				}
 				else {
 					Schema allOfSchema = openAPIFactory.createSchema();
@@ -362,7 +363,7 @@ public class OpenAPIImporter {
 				discoverSchema(itemsObject,itemsSchema, root);
 			}
 		}
-		if (schemaObject.has("discrimitaor")) {
+		if (schemaObject.has("discriminator")) {
 			schema.setDiscriminator(schemaObject.get("discriminator").getAsString());
 		}
 		if (schemaObject.has("readOnly"))
