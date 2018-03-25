@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: edu.uoc.som.openapi.io
-Bundle-Version: 1.0.2.qualifier
+Bundle-Version: 1.0.3.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName
-Require-Bundle: edu.uoc.som.openapi;bundle-version="1.0.0"
+Require-Bundle: edu.uoc.som.openapi;bundle-version="1.0.2"
 Bundle-ClassPath: lib/gson-2.6.2.jar,
  .
 Export-Package: com.google.gson,

@@ -345,6 +345,7 @@ public class OpenAPIImporter {
 					Schema allOfSchema = openAPIFactory.createSchema();
 					schema.getAllOf().add(allOfSchema);
 					root.getSchemas().add(allOfSchema);
+					allOfSchema.setDeclaringContext(schema);
 					discoverSchema(allOfObject, allOfSchema, root);
 				}
 				

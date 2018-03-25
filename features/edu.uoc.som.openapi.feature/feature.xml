@@ -2,7 +2,7 @@
 <feature
       id="edu.uoc.som.openapi.feature"
       label="OpenAPI metamodel"
-      version="1.0.2.qualifier">
+      version="1.0.3.qualifier">
 
    <description url="https://github.com/SOM-Research/openapi-metamodel">
       OpenAPI metamodel and tools.
@@ -99,7 +99,6 @@ You may add additional accurate notices of copyright ownership.
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.ocl.ecore"/>
-      <import plugin="edu.uoc.som.openapi" version="1.0.2" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -113,7 +112,7 @@ You may add additional accurate notices of copyright ownership.
          id="edu.uoc.som.openapi.io"
          download-size="0"
          install-size="0"
-         version="1.0.2.qualifier"
+         version="1.0.3.qualifier"
          unpack="false"/>
 
 </feature>
