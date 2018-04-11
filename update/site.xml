@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/edu.uoc.som.openapi.feature_1.0.3.201803260017.jar" id="edu.uoc.som.openapi.feature" version="1.0.3.201803260017">
+   <feature url="features/edu.uoc.som.openapi.feature_1.0.3.201804111106.jar" id="edu.uoc.som.openapi.feature" version="1.0.3.201804111106">
       <category name="openapi"/>
    </feature>
    <category-def name="openapi" label="OpenAPI"/>
