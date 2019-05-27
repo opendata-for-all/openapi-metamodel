@@ -734,7 +734,7 @@ public class OpenAPIImporter {
 				items.getEnum().add(item.getAsString());
 		}
 		if (jsonObject.has("multipleOf"))
-			items.setMultipleOf(new Double(jsonObject.get("multipleOf").getAsDouble()));
+			items.setMultipleOf(Double.valueOf(jsonObject.get("multipleOf").getAsDouble()));
 	}
 
 	private  void importExternalDocs(JsonElement jsonElement, ExternalDocs externalDocs) {
