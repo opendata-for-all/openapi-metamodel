@@ -284,7 +284,7 @@ public class OpenAPIImporter {
 				schema.getEnum().add(item.getAsString());
 		}
 		if (schemaObject.has("multipleOf"))
-			schema.setMultipleOf( new Double(schemaObject.get("multipleOf").getAsDouble()));
+			schema.setMultipleOf(Double.valueOf(schemaObject.get("multipleOf").getAsDouble()));
 		if (schemaObject.has("maxProperties"))
 			schema.setMaxProperties(schemaObject.get("maxProperties").getAsInt());
 		if (schemaObject.has("minProperties"))
@@ -621,7 +621,7 @@ public class OpenAPIImporter {
 				header.getEnum().add(item.getAsString());
 		}
 		if (jsonObject.has("multipleOf"))
-			header.setMultipleOf(new Double(jsonObject.get("multipleOf").getAsDouble()));
+			header.setMultipleOf(Double.valueOf(jsonObject.get("multipleOf").getAsDouble()));
 
 	}
 
@@ -688,7 +688,7 @@ public class OpenAPIImporter {
 					aPIParameter.getEnum().add(item.getAsString());
 			}
 			if (jsonObject.has("multipleOf"))
-				aPIParameter.setMultipleOf(new Double(jsonObject.get("multipleOf").getAsDouble()));
+				aPIParameter.setMultipleOf(Double.valueOf(jsonObject.get("multipleOf").getAsDouble()));
 
 		
 	}
