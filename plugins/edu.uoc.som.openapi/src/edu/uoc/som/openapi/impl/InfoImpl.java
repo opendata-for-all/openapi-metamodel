@@ -159,6 +159,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTitle() {
 		return title;
 	}
@@ -168,6 +169,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTitle(String newTitle) {
 		String oldTitle = title;
 		title = newTitle;
@@ -180,6 +182,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -189,6 +192,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -201,6 +205,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTermsOfServices() {
 		return termsOfServices;
 	}
@@ -210,6 +215,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTermsOfServices(String newTermsOfServices) {
 		String oldTermsOfServices = termsOfServices;
 		termsOfServices = newTermsOfServices;
@@ -222,6 +228,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Contact getContact() {
 		return contact;
 	}
@@ -246,6 +253,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setContact(Contact newContact) {
 		if (newContact != contact) {
 			NotificationChain msgs = null;
@@ -265,6 +273,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public License getLicense() {
 		return license;
 	}
@@ -289,6 +298,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLicense(License newLicense) {
 		if (newLicense != license) {
 			NotificationChain msgs = null;
@@ -308,6 +318,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getVersion() {
 		return version;
 	}
@@ -317,6 +328,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
@@ -457,7 +469,7 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (title: ");
 		result.append(title);
 		result.append(", description: ");

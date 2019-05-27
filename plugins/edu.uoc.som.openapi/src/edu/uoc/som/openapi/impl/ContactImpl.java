@@ -112,6 +112,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -121,6 +122,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -133,6 +135,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUrl() {
 		return url;
 	}
@@ -142,6 +145,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
@@ -154,6 +158,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getEmail() {
 		return email;
 	}
@@ -163,6 +168,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEmail(String newEmail) {
 		String oldEmail = email;
 		email = newEmail;
@@ -257,7 +263,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", url: ");

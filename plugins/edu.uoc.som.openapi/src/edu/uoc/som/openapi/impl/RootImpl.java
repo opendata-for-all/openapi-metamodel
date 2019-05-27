@@ -106,6 +106,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public API getApi() {
 		return api;
 	}
@@ -130,6 +131,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setApi(API newApi) {
 		if (newApi != api) {
 			NotificationChain msgs = null;
@@ -149,6 +151,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Parameter> getParamters() {
 		if (paramters == null) {
 			paramters = new EObjectContainmentEList<Parameter>(Parameter.class, this, OpenAPIPackage.ROOT__PARAMTERS);
@@ -161,6 +164,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Schema> getSchemas() {
 		if (schemas == null) {
 			schemas = new EObjectContainmentEList<Schema>(Schema.class, this, OpenAPIPackage.ROOT__SCHEMAS);
@@ -173,6 +177,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Response> getResponses() {
 		if (responses == null) {
 			responses = new EObjectContainmentEList<Response>(Response.class, this, OpenAPIPackage.ROOT__RESPONSES);

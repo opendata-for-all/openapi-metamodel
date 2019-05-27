@@ -3,7 +3,7 @@
 package edu.uoc.som.openapi.impl;
 
 import edu.uoc.som.openapi.OpenAPIPackage;
-import edu.uoc.som.openapi.ParamterDeclaringContext;
+import edu.uoc.som.openapi.ParameterDeclaringContext;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -11,18 +11,18 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Paramter Declaring Context</b></em>'.
+ * An implementation of the model object '<em><b>Parameter Declaring Context</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public abstract class ParamterDeclaringContextImpl extends MinimalEObjectImpl.Container implements ParamterDeclaringContext {
+public abstract class ParameterDeclaringContextImpl extends MinimalEObjectImpl.Container implements ParameterDeclaringContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParamterDeclaringContextImpl() {
+	protected ParameterDeclaringContextImpl() {
 		super();
 	}
 
@@ -33,7 +33,7 @@ public abstract class ParamterDeclaringContextImpl extends MinimalEObjectImpl.Co
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return OpenAPIPackage.Literals.PARAMTER_DECLARING_CONTEXT;
+		return OpenAPIPackage.Literals.PARAMETER_DECLARING_CONTEXT;
 	}
 
-} //ParamterDeclaringContextImpl
+} //ParameterDeclaringContextImpl

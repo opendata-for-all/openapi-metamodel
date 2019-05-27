@@ -169,6 +169,7 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getSchema() {
 		if (schema != null && schema.eIsProxy()) {
 			InternalEObject oldSchema = (InternalEObject)schema;
@@ -195,6 +196,7 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSchema(Schema newSchema) {
 		Schema oldSchema = schema;
 		schema = newSchema;
@@ -207,6 +209,7 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -216,6 +219,7 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -228,6 +232,7 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Header> getHeaders() {
 		if (headers == null) {
 			headers = new EObjectContainmentEList<Header>(Header.class, this, OpenAPIPackage.RESPONSE__HEADERS);
@@ -240,6 +245,7 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Example> getExamples() {
 		if (examples == null) {
 			examples = new EObjectContainmentEList<Example>(Example.class, this, OpenAPIPackage.RESPONSE__EXAMPLES);
@@ -252,6 +258,7 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getCode() {
 		return code;
 	}
@@ -261,6 +268,7 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCode(String newCode) {
 		String oldCode = code;
 		code = newCode;
@@ -273,6 +281,7 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ResponseDeclaringContext getDeclaringContext() {
 		if (declaringContext != null && declaringContext.eIsProxy()) {
 			InternalEObject oldDeclaringContext = (InternalEObject)declaringContext;
@@ -299,6 +308,7 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDeclaringContext(ResponseDeclaringContext newDeclaringContext) {
 		ResponseDeclaringContext oldDeclaringContext = declaringContext;
 		declaringContext = newDeclaringContext;
@@ -311,6 +321,7 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getReferenceName() {
 		return referenceName;
 	}
@@ -320,6 +331,7 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReferenceName(String newReferenceName) {
 		String oldReferenceName = referenceName;
 		referenceName = newReferenceName;
@@ -507,7 +519,7 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (description: ");
 		result.append(description);
 		result.append(", code: ");

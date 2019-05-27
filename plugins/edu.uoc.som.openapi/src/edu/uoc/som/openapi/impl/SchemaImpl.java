@@ -341,6 +341,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getRef() {
 		if (getDeclaringContext() instanceof edu.uoc.som.openapi.API) {
 			return ((edu.uoc.som.openapi.API) getDeclaringContext()).getRef() + "/definitions/" + getName();
@@ -361,6 +362,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExternalDocs getExternalDocs() {
 		return externalDocs;
 	}
@@ -385,6 +387,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExternalDocs(ExternalDocs newExternalDocs) {
 		if (newExternalDocs != externalDocs) {
 			NotificationChain msgs = null;
@@ -404,6 +407,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -413,6 +417,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -425,6 +430,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTitle() {
 		return title;
 	}
@@ -434,6 +440,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTitle(String newTitle) {
 		String oldTitle = title;
 		title = newTitle;
@@ -446,6 +453,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Integer getMaxProperties() {
 		return maxProperties;
 	}
@@ -455,6 +463,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaxProperties(Integer newMaxProperties) {
 		Integer oldMaxProperties = maxProperties;
 		maxProperties = newMaxProperties;
@@ -467,6 +476,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Integer getMinProperties() {
 		return minProperties;
 	}
@@ -476,6 +486,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinProperties(Integer newMinProperties) {
 		Integer oldMinProperties = minProperties;
 		minProperties = newMinProperties;
@@ -488,6 +499,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getExample() {
 		return example;
 	}
@@ -497,6 +509,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExample(String newExample) {
 		String oldExample = example;
 		example = newExample;
@@ -509,6 +522,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDiscriminator() {
 		return discriminator;
 	}
@@ -518,6 +532,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDiscriminator(String newDiscriminator) {
 		String oldDiscriminator = discriminator;
 		discriminator = newDiscriminator;
@@ -530,6 +545,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Boolean getReadOnly() {
 		return readOnly;
 	}
@@ -539,6 +555,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReadOnly(Boolean newReadOnly) {
 		Boolean oldReadOnly = readOnly;
 		readOnly = newReadOnly;
@@ -551,6 +568,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Schema> getProperties() {
 		if (properties == null) {
 			properties = new EObjectResolvingEList<Schema>(Schema.class, this, OpenAPIPackage.SCHEMA__PROPERTIES);
@@ -563,6 +581,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Schema> getAllOf() {
 		if (allOf == null) {
 			allOf = new EObjectResolvingEList<Schema>(Schema.class, this, OpenAPIPackage.SCHEMA__ALL_OF);
@@ -575,6 +594,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getItems() {
 		if (items != null && items.eIsProxy()) {
 			InternalEObject oldItems = (InternalEObject)items;
@@ -601,6 +621,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setItems(Schema newItems) {
 		Schema oldItems = items;
 		items = newItems;
@@ -613,6 +634,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public XMLElement getXml() {
 		return xml;
 	}
@@ -637,6 +659,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setXml(XMLElement newXml) {
 		if (newXml != xml) {
 			NotificationChain msgs = null;
@@ -656,6 +679,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getAdditonalProperties() {
 		if (additonalProperties != null && additonalProperties.eIsProxy()) {
 			InternalEObject oldAdditonalProperties = (InternalEObject)additonalProperties;
@@ -682,6 +706,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAdditonalProperties(Schema newAdditonalProperties) {
 		Schema oldAdditonalProperties = additonalProperties;
 		additonalProperties = newAdditonalProperties;
@@ -694,6 +719,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SchemaDeclaringContext getDeclaringContext() {
 		if (declaringContext != null && declaringContext.eIsProxy()) {
 			InternalEObject oldDeclaringContext = (InternalEObject)declaringContext;
@@ -720,6 +746,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDeclaringContext(SchemaDeclaringContext newDeclaringContext) {
 		SchemaDeclaringContext oldDeclaringContext = declaringContext;
 		declaringContext = newDeclaringContext;
@@ -732,6 +759,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Schema> getRequired() {
 		if (required == null) {
 			required = new EObjectResolvingEList<Schema>(Schema.class, this, OpenAPIPackage.SCHEMA__REQUIRED);
@@ -744,6 +772,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getValue() {
 		if (value != null && value.eIsProxy()) {
 			InternalEObject oldValue = (InternalEObject)value;
@@ -770,6 +799,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(Schema newValue) {
 		Schema oldValue = value;
 		value = newValue;
@@ -782,6 +812,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Boolean getAdditonalPropertiesAllowed() {
 		return additonalPropertiesAllowed;
 	}
@@ -791,6 +822,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAdditonalPropertiesAllowed(Boolean newAdditonalPropertiesAllowed) {
 		Boolean oldAdditonalPropertiesAllowed = additonalPropertiesAllowed;
 		additonalPropertiesAllowed = newAdditonalPropertiesAllowed;
@@ -803,6 +835,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getPropertyByName(final String name) {
 		for (Schema property : getProperties())
 			if (property.getName().equals(name))
@@ -1133,7 +1166,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", title: ");

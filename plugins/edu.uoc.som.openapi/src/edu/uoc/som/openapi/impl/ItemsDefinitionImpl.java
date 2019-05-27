@@ -84,6 +84,7 @@ public class ItemsDefinitionImpl extends JSONSchemaSubsetImpl implements ItemsDe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CollectionFormat getCollectionFormat() {
 		return collectionFormat;
 	}
@@ -93,6 +94,7 @@ public class ItemsDefinitionImpl extends JSONSchemaSubsetImpl implements ItemsDe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCollectionFormat(CollectionFormat newCollectionFormat) {
 		CollectionFormat oldCollectionFormat = collectionFormat;
 		collectionFormat = newCollectionFormat == null ? COLLECTION_FORMAT_EDEFAULT : newCollectionFormat;
@@ -105,6 +107,7 @@ public class ItemsDefinitionImpl extends JSONSchemaSubsetImpl implements ItemsDe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ItemsDefinition getItems() {
 		return items;
 	}
@@ -129,6 +132,7 @@ public class ItemsDefinitionImpl extends JSONSchemaSubsetImpl implements ItemsDe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setItems(ItemsDefinition newItems) {
 		if (newItems != items) {
 			NotificationChain msgs = null;
@@ -268,7 +272,7 @@ public class ItemsDefinitionImpl extends JSONSchemaSubsetImpl implements ItemsDe
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (collectionFormat: ");
 		result.append(collectionFormat);
 		result.append(')');

@@ -81,7 +81,7 @@ public class OpenAPISwitch<T> extends Switch<T> {
 			case OpenAPIPackage.API: {
 				API api = (API)theEObject;
 				T result = caseAPI(api);
-				if (result == null) result = caseParamterDeclaringContext(api);
+				if (result == null) result = caseParameterDeclaringContext(api);
 				if (result == null) result = caseSchemaDeclaringContext(api);
 				if (result == null) result = caseJSONPointer(api);
 				if (result == null) result = caseSecurityContext(api);
@@ -112,7 +112,7 @@ public class OpenAPISwitch<T> extends Switch<T> {
 			case OpenAPIPackage.PATH: {
 				Path path = (Path)theEObject;
 				T result = casePath(path);
-				if (result == null) result = caseParamterDeclaringContext(path);
+				if (result == null) result = caseParameterDeclaringContext(path);
 				if (result == null) result = caseParameterContext(path);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -120,7 +120,7 @@ public class OpenAPISwitch<T> extends Switch<T> {
 			case OpenAPIPackage.OPERATION: {
 				Operation operation = (Operation)theEObject;
 				T result = caseOperation(operation);
-				if (result == null) result = caseParamterDeclaringContext(operation);
+				if (result == null) result = caseParameterDeclaringContext(operation);
 				if (result == null) result = caseSecurityContext(operation);
 				if (result == null) result = caseParameterContext(operation);
 				if (result == null) result = caseExternalDocsContext(operation);
@@ -210,9 +210,9 @@ public class OpenAPISwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case OpenAPIPackage.PARAMTER_DECLARING_CONTEXT: {
-				ParamterDeclaringContext paramterDeclaringContext = (ParamterDeclaringContext)theEObject;
-				T result = caseParamterDeclaringContext(paramterDeclaringContext);
+			case OpenAPIPackage.PARAMETER_DECLARING_CONTEXT: {
+				ParameterDeclaringContext parameterDeclaringContext = (ParameterDeclaringContext)theEObject;
+				T result = caseParameterDeclaringContext(parameterDeclaringContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -560,17 +560,17 @@ public class OpenAPISwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Paramter Declaring Context</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Declaring Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Paramter Declaring Context</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Declaring Context</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseParamterDeclaringContext(ParamterDeclaringContext object) {
+	public T caseParameterDeclaringContext(ParameterDeclaringContext object) {
 		return null;
 	}
 

@@ -80,6 +80,7 @@ public class SecurityRequirementImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SecurityScope> getSecurityScopes() {
 		if (securityScopes == null) {
 			securityScopes = new EObjectResolvingEList<SecurityScope>(SecurityScope.class, this, OpenAPIPackage.SECURITY_REQUIREMENT__SECURITY_SCOPES);
@@ -92,6 +93,7 @@ public class SecurityRequirementImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SecuritySchema getSecuritySchema() {
 		if (securitySchema != null && securitySchema.eIsProxy()) {
 			InternalEObject oldSecuritySchema = (InternalEObject)securitySchema;
@@ -118,6 +120,7 @@ public class SecurityRequirementImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSecuritySchema(SecuritySchema newSecuritySchema) {
 		SecuritySchema oldSecuritySchema = securitySchema;
 		securitySchema = newSecuritySchema;

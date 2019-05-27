@@ -10,8 +10,8 @@ import edu.uoc.som.openapi.JSONPointer;
 import edu.uoc.som.openapi.JSONSchemaSubset;
 import edu.uoc.som.openapi.OpenAPIPackage;
 import edu.uoc.som.openapi.Parameter;
+import edu.uoc.som.openapi.ParameterDeclaringContext;
 import edu.uoc.som.openapi.ParameterLocation;
-import edu.uoc.som.openapi.ParamterDeclaringContext;
 import edu.uoc.som.openapi.Schema;
 import edu.uoc.som.openapi.SchemaContext;
 
@@ -537,7 +537,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * @generated
 	 * @ordered
 	 */
-	protected ParamterDeclaringContext declaringContext;
+	protected ParameterDeclaringContext declaringContext;
 
 	/**
 	 * The default value of the '{@link #getExample() <em>Example</em>}' attribute.
@@ -583,6 +583,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getSchema() {
 		if (schema != null && schema.eIsProxy()) {
 			InternalEObject oldSchema = (InternalEObject)schema;
@@ -609,6 +610,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSchema(Schema newSchema) {
 		Schema oldSchema = schema;
 		schema = newSchema;
@@ -621,6 +623,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public JSONDataType getType() {
 		return type;
 	}
@@ -630,6 +633,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(JSONDataType newType) {
 		JSONDataType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
@@ -642,6 +646,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getFormat() {
 		return format;
 	}
@@ -651,6 +656,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFormat(String newFormat) {
 		String oldFormat = format;
 		format = newFormat;
@@ -663,6 +669,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -672,6 +679,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -684,6 +692,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Double getMaximum() {
 		return maximum;
 	}
@@ -693,6 +702,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaximum(Double newMaximum) {
 		Double oldMaximum = maximum;
 		maximum = newMaximum;
@@ -705,6 +715,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Boolean getExclusiveMaximum() {
 		return exclusiveMaximum;
 	}
@@ -714,6 +725,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExclusiveMaximum(Boolean newExclusiveMaximum) {
 		Boolean oldExclusiveMaximum = exclusiveMaximum;
 		exclusiveMaximum = newExclusiveMaximum;
@@ -726,6 +738,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Double getMinimum() {
 		return minimum;
 	}
@@ -735,6 +748,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinimum(Double newMinimum) {
 		Double oldMinimum = minimum;
 		minimum = newMinimum;
@@ -747,6 +761,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Boolean getExclusiveMinimum() {
 		return exclusiveMinimum;
 	}
@@ -756,6 +771,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExclusiveMinimum(Boolean newExclusiveMinimum) {
 		Boolean oldExclusiveMinimum = exclusiveMinimum;
 		exclusiveMinimum = newExclusiveMinimum;
@@ -768,6 +784,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Integer getMaxLength() {
 		return maxLength;
 	}
@@ -777,6 +794,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaxLength(Integer newMaxLength) {
 		Integer oldMaxLength = maxLength;
 		maxLength = newMaxLength;
@@ -789,6 +807,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Integer getMinLength() {
 		return minLength;
 	}
@@ -798,6 +817,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinLength(Integer newMinLength) {
 		Integer oldMinLength = minLength;
 		minLength = newMinLength;
@@ -810,6 +830,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getPattern() {
 		return pattern;
 	}
@@ -819,6 +840,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPattern(String newPattern) {
 		String oldPattern = pattern;
 		pattern = newPattern;
@@ -831,6 +853,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Integer getMaxItems() {
 		return maxItems;
 	}
@@ -840,6 +863,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaxItems(Integer newMaxItems) {
 		Integer oldMaxItems = maxItems;
 		maxItems = newMaxItems;
@@ -852,6 +876,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Integer getMinItems() {
 		return minItems;
 	}
@@ -861,6 +886,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinItems(Integer newMinItems) {
 		Integer oldMinItems = minItems;
 		minItems = newMinItems;
@@ -873,6 +899,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Boolean getUniqueItems() {
 		return uniqueItems;
 	}
@@ -882,6 +909,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUniqueItems(Boolean newUniqueItems) {
 		Boolean oldUniqueItems = uniqueItems;
 		uniqueItems = newUniqueItems;
@@ -894,6 +922,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getEnum() {
 		if (enum_ == null) {
 			enum_ = new EDataTypeUniqueEList<String>(String.class, this, OpenAPIPackage.PARAMETER__ENUM);
@@ -906,6 +935,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDefault() {
 		return default_;
 	}
@@ -915,6 +945,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefault(String newDefault) {
 		String oldDefault = default_;
 		default_ = newDefault;
@@ -927,6 +958,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Double getMultipleOf() {
 		return multipleOf;
 	}
@@ -936,6 +968,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMultipleOf(Double newMultipleOf) {
 		Double oldMultipleOf = multipleOf;
 		multipleOf = newMultipleOf;
@@ -948,6 +981,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getRef() {
 		// TODO: implement this method to return the 'Ref' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -959,6 +993,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CollectionFormat getCollectionFormat() {
 		return collectionFormat;
 	}
@@ -968,6 +1003,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCollectionFormat(CollectionFormat newCollectionFormat) {
 		CollectionFormat oldCollectionFormat = collectionFormat;
 		collectionFormat = newCollectionFormat == null ? COLLECTION_FORMAT_EDEFAULT : newCollectionFormat;
@@ -980,6 +1016,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ItemsDefinition getItems() {
 		return items;
 	}
@@ -1004,6 +1041,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setItems(ItemsDefinition newItems) {
 		if (newItems != items) {
 			NotificationChain msgs = null;
@@ -1023,6 +1061,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -1032,6 +1071,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -1044,6 +1084,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ParameterLocation getLocation() {
 		return location;
 	}
@@ -1053,6 +1094,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLocation(ParameterLocation newLocation) {
 		ParameterLocation oldLocation = location;
 		location = newLocation == null ? LOCATION_EDEFAULT : newLocation;
@@ -1065,6 +1107,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Boolean getRequired() {
 		return required;
 	}
@@ -1074,6 +1117,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRequired(Boolean newRequired) {
 		Boolean oldRequired = required;
 		required = newRequired;
@@ -1086,6 +1130,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Boolean getAllowEmplyValue() {
 		return allowEmplyValue;
 	}
@@ -1095,6 +1140,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAllowEmplyValue(Boolean newAllowEmplyValue) {
 		Boolean oldAllowEmplyValue = allowEmplyValue;
 		allowEmplyValue = newAllowEmplyValue;
@@ -1107,6 +1153,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getReferenceName() {
 		return referenceName;
 	}
@@ -1116,6 +1163,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReferenceName(String newReferenceName) {
 		String oldReferenceName = referenceName;
 		referenceName = newReferenceName;
@@ -1128,10 +1176,11 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParamterDeclaringContext getDeclaringContext() {
+	@Override
+	public ParameterDeclaringContext getDeclaringContext() {
 		if (declaringContext != null && declaringContext.eIsProxy()) {
 			InternalEObject oldDeclaringContext = (InternalEObject)declaringContext;
-			declaringContext = (ParamterDeclaringContext)eResolveProxy(oldDeclaringContext);
+			declaringContext = (ParameterDeclaringContext)eResolveProxy(oldDeclaringContext);
 			if (declaringContext != oldDeclaringContext) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OpenAPIPackage.PARAMETER__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
@@ -1145,7 +1194,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParamterDeclaringContext basicGetDeclaringContext() {
+	public ParameterDeclaringContext basicGetDeclaringContext() {
 		return declaringContext;
 	}
 
@@ -1154,8 +1203,9 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDeclaringContext(ParamterDeclaringContext newDeclaringContext) {
-		ParamterDeclaringContext oldDeclaringContext = declaringContext;
+	@Override
+	public void setDeclaringContext(ParameterDeclaringContext newDeclaringContext) {
+		ParameterDeclaringContext oldDeclaringContext = declaringContext;
 		declaringContext = newDeclaringContext;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PARAMETER__DECLARING_CONTEXT, oldDeclaringContext, declaringContext));
@@ -1166,6 +1216,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getExample() {
 		return example;
 	}
@@ -1175,6 +1226,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExample(String newExample) {
 		String oldExample = example;
 		example = newExample;
@@ -1347,7 +1399,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 				setReferenceName((String)newValue);
 				return;
 			case OpenAPIPackage.PARAMETER__DECLARING_CONTEXT:
-				setDeclaringContext((ParamterDeclaringContext)newValue);
+				setDeclaringContext((ParameterDeclaringContext)newValue);
 				return;
 			case OpenAPIPackage.PARAMETER__EXAMPLE:
 				setExample((String)newValue);
@@ -1437,7 +1489,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 				setReferenceName(REFERENCE_NAME_EDEFAULT);
 				return;
 			case OpenAPIPackage.PARAMETER__DECLARING_CONTEXT:
-				setDeclaringContext((ParamterDeclaringContext)null);
+				setDeclaringContext((ParameterDeclaringContext)null);
 				return;
 			case OpenAPIPackage.PARAMETER__EXAMPLE:
 				setExample(EXAMPLE_EDEFAULT);
@@ -1621,7 +1673,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (type: ");
 		result.append(type);
 		result.append(", format: ");

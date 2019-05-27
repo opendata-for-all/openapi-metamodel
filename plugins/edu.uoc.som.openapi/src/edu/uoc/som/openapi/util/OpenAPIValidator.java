@@ -242,8 +242,8 @@ public class OpenAPIValidator extends EObjectValidator {
 				return validateXMLElement((XMLElement)value, diagnostics, context);
 			case OpenAPIPackage.SECURITY_SCOPE:
 				return validateSecurityScope((SecurityScope)value, diagnostics, context);
-			case OpenAPIPackage.PARAMTER_DECLARING_CONTEXT:
-				return validateParamterDeclaringContext((ParamterDeclaringContext)value, diagnostics, context);
+			case OpenAPIPackage.PARAMETER_DECLARING_CONTEXT:
+				return validateParameterDeclaringContext((ParameterDeclaringContext)value, diagnostics, context);
 			case OpenAPIPackage.SCHEMA_DECLARING_CONTEXT:
 				return validateSchemaDeclaringContext((SchemaDeclaringContext)value, diagnostics, context);
 			case OpenAPIPackage.RESPONSE_DECLARING_CONTEXT:
@@ -1111,8 +1111,8 @@ public class OpenAPIValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateParamterDeclaringContext(ParamterDeclaringContext paramterDeclaringContext, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(paramterDeclaringContext, diagnostics, context);
+	public boolean validateParameterDeclaringContext(ParameterDeclaringContext parameterDeclaringContext, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(parameterDeclaringContext, diagnostics, context);
 	}
 
 	/**

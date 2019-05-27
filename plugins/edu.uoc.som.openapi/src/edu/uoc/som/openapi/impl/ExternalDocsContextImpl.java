@@ -63,6 +63,7 @@ public abstract class ExternalDocsContextImpl extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExternalDocs getExternalDocs() {
 		return externalDocs;
 	}
@@ -87,6 +88,7 @@ public abstract class ExternalDocsContextImpl extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExternalDocs(ExternalDocs newExternalDocs) {
 		if (newExternalDocs != externalDocs) {
 			NotificationChain msgs = null;

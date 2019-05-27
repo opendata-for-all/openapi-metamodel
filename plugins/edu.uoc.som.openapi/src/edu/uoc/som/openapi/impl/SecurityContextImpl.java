@@ -68,6 +68,7 @@ public abstract class SecurityContextImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SecurityRequirement> getSecurityRequirements() {
 		if (securityRequirements == null) {
 			securityRequirements = new EObjectContainmentEList<SecurityRequirement>(SecurityRequirement.class, this, OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENTS);

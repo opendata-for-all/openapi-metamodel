@@ -295,32 +295,32 @@ public interface OpenAPIPackage extends EPackage {
 	int ROOT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.ParamterDeclaringContextImpl <em>Paramter Declaring Context</em>}' class.
+	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.ParameterDeclaringContextImpl <em>Parameter Declaring Context</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.uoc.som.openapi.impl.ParamterDeclaringContextImpl
-	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getParamterDeclaringContext()
+	 * @see edu.uoc.som.openapi.impl.ParameterDeclaringContextImpl
+	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getParameterDeclaringContext()
 	 * @generated
 	 */
-	int PARAMTER_DECLARING_CONTEXT = 19;
+	int PARAMETER_DECLARING_CONTEXT = 19;
 
 	/**
-	 * The number of structural features of the '<em>Paramter Declaring Context</em>' class.
+	 * The number of structural features of the '<em>Parameter Declaring Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT = 0;
+	int PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT = 0;
 
 	/**
-	 * The number of operations of the '<em>Paramter Declaring Context</em>' class.
+	 * The number of operations of the '<em>Parameter Declaring Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT = 0;
+	int PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.APIImpl <em>API</em>}' class.
@@ -339,7 +339,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__REF = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
+	int API__REF = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Security Requirements</b></em>' containment reference list.
@@ -348,7 +348,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__SECURITY_REQUIREMENTS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
+	int API__SECURITY_REQUIREMENTS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
@@ -357,7 +357,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__PARAMETERS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 2;
+	int API__PARAMETERS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>External Docs</b></em>' containment reference.
@@ -366,7 +366,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__EXTERNAL_DOCS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 3;
+	int API__EXTERNAL_DOCS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Swagger</b></em>' attribute.
@@ -375,7 +375,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__SWAGGER = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 4;
+	int API__SWAGGER = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Info</b></em>' containment reference.
@@ -384,7 +384,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__INFO = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 5;
+	int API__INFO = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Host</b></em>' attribute.
@@ -393,7 +393,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__HOST = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 6;
+	int API__HOST = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Base Path</b></em>' attribute.
@@ -402,7 +402,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__BASE_PATH = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 7;
+	int API__BASE_PATH = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Schemes</b></em>' attribute list.
@@ -411,7 +411,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__SCHEMES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 8;
+	int API__SCHEMES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Consumes</b></em>' attribute list.
@@ -420,7 +420,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__CONSUMES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 9;
+	int API__CONSUMES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Produces</b></em>' attribute list.
@@ -429,7 +429,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__PRODUCES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 10;
+	int API__PRODUCES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Paths</b></em>' containment reference list.
@@ -438,7 +438,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__PATHS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 11;
+	int API__PATHS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Definitions</b></em>' reference list.
@@ -447,7 +447,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__DEFINITIONS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 12;
+	int API__DEFINITIONS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Responses</b></em>' containment reference list.
@@ -456,7 +456,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__RESPONSES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 13;
+	int API__RESPONSES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Security Definitions</b></em>' containment reference list.
@@ -465,7 +465,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__SECURITY_DEFINITIONS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 14;
+	int API__SECURITY_DEFINITIONS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Tags</b></em>' containment reference list.
@@ -474,7 +474,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__TAGS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 15;
+	int API__TAGS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 15;
 
 	/**
 	 * The number of structural features of the '<em>API</em>' class.
@@ -483,7 +483,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_FEATURE_COUNT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 16;
+	int API_FEATURE_COUNT = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Get Ref</em>' operation.
@@ -492,7 +492,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API___GET_REF = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
+	int API___GET_REF = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Paths Is Set</em>' operation.
@@ -501,7 +501,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API___PATHS_IS_SET = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 1;
+	int API___PATHS_IS_SET = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get All Operations</em>' operation.
@@ -510,7 +510,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API___GET_ALL_OPERATIONS = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 2;
+	int API___GET_ALL_OPERATIONS = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Schema By Reference</em>' operation.
@@ -519,7 +519,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API___GET_SCHEMA_BY_REFERENCE__STRING = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 3;
+	int API___GET_SCHEMA_BY_REFERENCE__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Operation By Id</em>' operation.
@@ -528,7 +528,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API___GET_OPERATION_BY_ID__STRING = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 4;
+	int API___GET_OPERATION_BY_ID__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Path By Relative Path</em>' operation.
@@ -537,7 +537,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API___GET_PATH_BY_RELATIVE_PATH__STRING = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 5;
+	int API___GET_PATH_BY_RELATIVE_PATH__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Schema By Name</em>' operation.
@@ -546,7 +546,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API___GET_SCHEMA_BY_NAME__STRING = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 6;
+	int API___GET_SCHEMA_BY_NAME__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Parameter By Ref</em>' operation.
@@ -555,7 +555,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API___GET_PARAMETER_BY_REF__STRING = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 7;
+	int API___GET_PARAMETER_BY_REF__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get Security Schema By Name</em>' operation.
@@ -564,7 +564,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API___GET_SECURITY_SCHEMA_BY_NAME__STRING = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 8;
+	int API___GET_SECURITY_SCHEMA_BY_NAME__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>API</em>' class.
@@ -573,7 +573,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION_COUNT = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 9;
+	int API_OPERATION_COUNT = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.InfoImpl <em>Info</em>}' class.
@@ -775,7 +775,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH__PARAMETERS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
+	int PATH__PARAMETERS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Relative Path</b></em>' attribute.
@@ -784,7 +784,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH__RELATIVE_PATH = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
+	int PATH__RELATIVE_PATH = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Get</b></em>' containment reference.
@@ -793,7 +793,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH__GET = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 2;
+	int PATH__GET = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Put</b></em>' containment reference.
@@ -802,7 +802,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH__PUT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 3;
+	int PATH__PUT = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Post</b></em>' containment reference.
@@ -811,7 +811,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH__POST = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 4;
+	int PATH__POST = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Delete</b></em>' containment reference.
@@ -820,7 +820,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH__DELETE = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 5;
+	int PATH__DELETE = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' containment reference.
@@ -829,7 +829,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH__OPTIONS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 6;
+	int PATH__OPTIONS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Head</b></em>' containment reference.
@@ -838,7 +838,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH__HEAD = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 7;
+	int PATH__HEAD = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Patch</b></em>' containment reference.
@@ -847,7 +847,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH__PATCH = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 8;
+	int PATH__PATCH = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Api</b></em>' container reference.
@@ -856,7 +856,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH__API = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 9;
+	int PATH__API = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Path</em>' class.
@@ -865,7 +865,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_FEATURE_COUNT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 10;
+	int PATH_FEATURE_COUNT = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Get Operation By Method</em>' operation.
@@ -874,7 +874,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH___GET_OPERATION_BY_METHOD__STRING = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
+	int PATH___GET_OPERATION_BY_METHOD__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Path</em>' class.
@@ -883,7 +883,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_OPERATION_COUNT = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 1;
+	int PATH_OPERATION_COUNT = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.OperationImpl <em>Operation</em>}' class.
@@ -902,7 +902,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__SECURITY_REQUIREMENTS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
+	int OPERATION__SECURITY_REQUIREMENTS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
@@ -911,7 +911,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__PARAMETERS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
+	int OPERATION__PARAMETERS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>External Docs</b></em>' containment reference.
@@ -920,7 +920,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__EXTERNAL_DOCS = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 2;
+	int OPERATION__EXTERNAL_DOCS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Tag References</b></em>' attribute list.
@@ -929,7 +929,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__TAG_REFERENCES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 3;
+	int OPERATION__TAG_REFERENCES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Summary</b></em>' attribute.
@@ -938,7 +938,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__SUMMARY = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 4;
+	int OPERATION__SUMMARY = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -947,7 +947,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__DESCRIPTION = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 5;
+	int OPERATION__DESCRIPTION = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Operation Id</b></em>' attribute.
@@ -956,7 +956,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__OPERATION_ID = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 6;
+	int OPERATION__OPERATION_ID = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Consumes</b></em>' attribute list.
@@ -965,7 +965,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__CONSUMES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 7;
+	int OPERATION__CONSUMES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Produces</b></em>' attribute list.
@@ -974,7 +974,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__PRODUCES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 8;
+	int OPERATION__PRODUCES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Responses</b></em>' reference list.
@@ -983,7 +983,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__RESPONSES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 9;
+	int OPERATION__RESPONSES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Schemes</b></em>' attribute list.
@@ -992,7 +992,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__SCHEMES = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 10;
+	int OPERATION__SCHEMES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Deprecated</b></em>' attribute.
@@ -1001,7 +1001,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__DEPRECATED = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 11;
+	int OPERATION__DEPRECATED = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
@@ -1010,7 +1010,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = PARAMTER_DECLARING_CONTEXT_FEATURE_COUNT + 12;
+	int OPERATION_FEATURE_COUNT = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Get Full Path</em>' operation.
@@ -1019,7 +1019,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION___GET_FULL_PATH = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
+	int OPERATION___GET_FULL_PATH = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Consumed Schema</em>' operation.
@@ -1028,7 +1028,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION___GET_CONSUMED_SCHEMA = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 1;
+	int OPERATION___GET_CONSUMED_SCHEMA = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Produced Schema</em>' operation.
@@ -1037,7 +1037,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION___GET_PRODUCED_SCHEMA = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 2;
+	int OPERATION___GET_PRODUCED_SCHEMA = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Producing List</em>' operation.
@@ -1046,7 +1046,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION___IS_PRODUCING_LIST = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 3;
+	int OPERATION___IS_PRODUCING_LIST = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Method</em>' operation.
@@ -1055,7 +1055,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION___GET_METHOD = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 4;
+	int OPERATION___GET_METHOD = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Operation</em>' class.
@@ -1064,7 +1064,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_OPERATION_COUNT = PARAMTER_DECLARING_CONTEXT_OPERATION_COUNT + 5;
+	int OPERATION_OPERATION_COUNT = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.ExternalDocsImpl <em>External Docs</em>}' class.
@@ -4571,14 +4571,14 @@ public interface OpenAPIPackage extends EPackage {
 	EAttribute getSecurityScope_Description();
 
 	/**
-	 * Returns the meta object for class '{@link edu.uoc.som.openapi.ParamterDeclaringContext <em>Paramter Declaring Context</em>}'.
+	 * Returns the meta object for class '{@link edu.uoc.som.openapi.ParameterDeclaringContext <em>Parameter Declaring Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Paramter Declaring Context</em>'.
-	 * @see edu.uoc.som.openapi.ParamterDeclaringContext
+	 * @return the meta object for class '<em>Parameter Declaring Context</em>'.
+	 * @see edu.uoc.som.openapi.ParameterDeclaringContext
 	 * @generated
 	 */
-	EClass getParamterDeclaringContext();
+	EClass getParameterDeclaringContext();
 
 	/**
 	 * Returns the meta object for class '{@link edu.uoc.som.openapi.SchemaDeclaringContext <em>Schema Declaring Context</em>}'.
@@ -6101,14 +6101,14 @@ public interface OpenAPIPackage extends EPackage {
 		EAttribute SECURITY_SCOPE__DESCRIPTION = eINSTANCE.getSecurityScope_Description();
 
 		/**
-		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.ParamterDeclaringContextImpl <em>Paramter Declaring Context</em>}' class.
+		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.ParameterDeclaringContextImpl <em>Parameter Declaring Context</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.uoc.som.openapi.impl.ParamterDeclaringContextImpl
-		 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getParamterDeclaringContext()
+		 * @see edu.uoc.som.openapi.impl.ParameterDeclaringContextImpl
+		 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getParameterDeclaringContext()
 		 * @generated
 		 */
-		EClass PARAMTER_DECLARING_CONTEXT = eINSTANCE.getParamterDeclaringContext();
+		EClass PARAMETER_DECLARING_CONTEXT = eINSTANCE.getParameterDeclaringContext();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.SchemaDeclaringContextImpl <em>Schema Declaring Context</em>}' class.

@@ -91,6 +91,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -100,6 +101,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -112,6 +114,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUrl() {
 		return url;
 	}
@@ -121,6 +124,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
@@ -205,7 +209,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", url: ");

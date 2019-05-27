@@ -56,7 +56,7 @@ import edu.uoc.som.openapi.SecurityRequirement;
  *
  * @generated
  */
-public class OperationImpl extends ParamterDeclaringContextImpl implements Operation {
+public class OperationImpl extends ParameterDeclaringContextImpl implements Operation {
 	/**
 	 * The cached value of the '{@link #getSecurityRequirements() <em>Security Requirements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -241,6 +241,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SecurityRequirement> getSecurityRequirements() {
 		if (securityRequirements == null) {
 			securityRequirements = new EObjectContainmentEList<SecurityRequirement>(SecurityRequirement.class, this, OpenAPIPackage.OPERATION__SECURITY_REQUIREMENTS);
@@ -253,6 +254,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Parameter> getParameters() {
 		if (parameters == null) {
 			parameters = new EObjectResolvingEList<Parameter>(Parameter.class, this, OpenAPIPackage.OPERATION__PARAMETERS);
@@ -265,6 +267,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExternalDocs getExternalDocs() {
 		return externalDocs;
 	}
@@ -289,6 +292,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExternalDocs(ExternalDocs newExternalDocs) {
 		if (newExternalDocs != externalDocs) {
 			NotificationChain msgs = null;
@@ -308,6 +312,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getTagReferences() {
 		if (tagReferences == null) {
 			tagReferences = new EDataTypeUniqueEList<String>(String.class, this, OpenAPIPackage.OPERATION__TAG_REFERENCES);
@@ -320,6 +325,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getSummary() {
 		return summary;
 	}
@@ -329,6 +335,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSummary(String newSummary) {
 		String oldSummary = summary;
 		summary = newSummary;
@@ -341,6 +348,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -350,6 +358,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -362,6 +371,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getOperationId() {
 		return operationId;
 	}
@@ -371,6 +381,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOperationId(String newOperationId) {
 		String oldOperationId = operationId;
 		operationId = newOperationId;
@@ -383,6 +394,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getConsumes() {
 		if (consumes == null) {
 			consumes = new EDataTypeUniqueEList<String>(String.class, this, OpenAPIPackage.OPERATION__CONSUMES);
@@ -395,6 +407,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getProduces() {
 		if (produces == null) {
 			produces = new EDataTypeUniqueEList<String>(String.class, this, OpenAPIPackage.OPERATION__PRODUCES);
@@ -407,6 +420,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Response> getResponses() {
 		if (responses == null) {
 			responses = new EObjectResolvingEList<Response>(Response.class, this, OpenAPIPackage.OPERATION__RESPONSES);
@@ -419,6 +433,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SchemeType> getSchemes() {
 		if (schemes == null) {
 			schemes = new EDataTypeUniqueEList<SchemeType>(SchemeType.class, this, OpenAPIPackage.OPERATION__SCHEMES);
@@ -431,6 +446,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Boolean getDeprecated() {
 		return deprecated;
 	}
@@ -440,6 +456,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDeprecated(Boolean newDeprecated) {
 		Boolean oldDeprecated = deprecated;
 		deprecated = newDeprecated;
@@ -452,6 +469,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getFullPath() {
 		return ((Path)eContainer).getApi().getHost()
 						+ ((Path)eContainer).getApi().getBasePath() + ((Path)eContainer).getRelativePath();
@@ -462,6 +480,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getConsumedSchema() {
 		for(Parameter parameter: getParameters()) {
 			if(parameter.getLocation().equals(ParameterLocation.BODY))
@@ -478,6 +497,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getProducedSchema() {
 		for(Response response: getResponses()) {
 			if((response.getCode().equals("200") ||response.getCode().equals("201"))   && (response.getSchema()!= null && response.getSchema().getType().equals(JSONDataType.ARRAY))) {
@@ -496,6 +516,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean IsProducingList() {
 		for (Response response : getResponses()) {
 			if ((response.getCode().equals("200") || response.getCode().equals("201"))
@@ -511,6 +532,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getMethod() {
 		Path path = ((Path)eContainer);
 		if(path.getGet().equals(this))
@@ -819,7 +841,7 @@ public class OperationImpl extends ParamterDeclaringContextImpl implements Opera
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (tagReferences: ");
 		result.append(tagReferences);
 		result.append(", summary: ");

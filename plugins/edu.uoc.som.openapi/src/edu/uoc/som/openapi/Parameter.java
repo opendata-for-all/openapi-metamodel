@@ -169,12 +169,12 @@ public interface Parameter extends SchemaDeclaringContext, SchemaContext, JSONSc
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Declaring Context</em>' reference.
-	 * @see #setDeclaringContext(ParamterDeclaringContext)
+	 * @see #setDeclaringContext(ParameterDeclaringContext)
 	 * @see edu.uoc.som.openapi.OpenAPIPackage#getParameter_DeclaringContext()
 	 * @model
 	 * @generated
 	 */
-	ParamterDeclaringContext getDeclaringContext();
+	ParameterDeclaringContext getDeclaringContext();
 
 	/**
 	 * Sets the value of the '{@link edu.uoc.som.openapi.Parameter#getDeclaringContext <em>Declaring Context</em>}' reference.
@@ -184,7 +184,7 @@ public interface Parameter extends SchemaDeclaringContext, SchemaContext, JSONSc
 	 * @see #getDeclaringContext()
 	 * @generated
 	 */
-	void setDeclaringContext(ParamterDeclaringContext value);
+	void setDeclaringContext(ParameterDeclaringContext value);
 
 	/**
 	 * Returns the value of the '<em><b>Example</b></em>' attribute.

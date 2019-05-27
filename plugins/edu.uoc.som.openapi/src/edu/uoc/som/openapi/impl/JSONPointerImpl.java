@@ -57,6 +57,7 @@ public abstract class JSONPointerImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getRef() {
 		// TODO: implement this method to return the 'Ref' attribute
 		// Ensure that you remove @generated or mark it @generated NOT

@@ -154,6 +154,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -163,6 +164,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -175,6 +177,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getNamespace() {
 		return namespace;
 	}
@@ -184,6 +187,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNamespace(String newNamespace) {
 		String oldNamespace = namespace;
 		namespace = newNamespace;
@@ -196,6 +200,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getPrefix() {
 		return prefix;
 	}
@@ -205,6 +210,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPrefix(String newPrefix) {
 		String oldPrefix = prefix;
 		prefix = newPrefix;
@@ -217,6 +223,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isAttribute() {
 		return attribute;
 	}
@@ -226,6 +233,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAttribute(boolean newAttribute) {
 		boolean oldAttribute = attribute;
 		attribute = newAttribute;
@@ -238,6 +246,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isWrapped() {
 		return wrapped;
 	}
@@ -247,6 +256,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWrapped(boolean newWrapped) {
 		boolean oldWrapped = wrapped;
 		wrapped = newWrapped;
@@ -361,7 +371,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", namespace: ");

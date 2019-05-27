@@ -48,7 +48,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class PathImpl extends ParamterDeclaringContextImpl implements Path {
+public class PathImpl extends ParameterDeclaringContextImpl implements Path {
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -173,6 +173,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Parameter> getParameters() {
 		if (parameters == null) {
 			parameters = new EObjectResolvingEList<Parameter>(Parameter.class, this, OpenAPIPackage.PATH__PARAMETERS);
@@ -185,6 +186,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getRelativePath() {
 		return relativePath;
 	}
@@ -194,6 +196,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRelativePath(String newRelativePath) {
 		String oldRelativePath = relativePath;
 		relativePath = newRelativePath;
@@ -206,6 +209,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Operation getGet() {
 		return get;
 	}
@@ -230,6 +234,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGet(Operation newGet) {
 		if (newGet != get) {
 			NotificationChain msgs = null;
@@ -249,6 +254,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Operation getPut() {
 		return put;
 	}
@@ -273,6 +279,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPut(Operation newPut) {
 		if (newPut != put) {
 			NotificationChain msgs = null;
@@ -292,6 +299,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Operation getPost() {
 		return post;
 	}
@@ -316,6 +324,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPost(Operation newPost) {
 		if (newPost != post) {
 			NotificationChain msgs = null;
@@ -335,6 +344,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Operation getDelete() {
 		return delete;
 	}
@@ -359,6 +369,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDelete(Operation newDelete) {
 		if (newDelete != delete) {
 			NotificationChain msgs = null;
@@ -378,6 +389,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Operation getOptions() {
 		return options;
 	}
@@ -402,6 +414,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOptions(Operation newOptions) {
 		if (newOptions != options) {
 			NotificationChain msgs = null;
@@ -421,6 +434,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Operation getHead() {
 		return head;
 	}
@@ -445,6 +459,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setHead(Operation newHead) {
 		if (newHead != head) {
 			NotificationChain msgs = null;
@@ -464,6 +479,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Operation getPatch() {
 		return patch;
 	}
@@ -488,6 +504,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPatch(Operation newPatch) {
 		if (newPatch != patch) {
 			NotificationChain msgs = null;
@@ -507,6 +524,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public API getApi() {
 		if (eContainerFeatureID() != OpenAPIPackage.PATH__API) return null;
 		return (API)eInternalContainer();
@@ -527,6 +545,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setApi(API newApi) {
 		if (newApi != eInternalContainer() || (eContainerFeatureID() != OpenAPIPackage.PATH__API && newApi != null)) {
 			if (EcoreUtil.isAncestor(this, newApi))
@@ -548,6 +567,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Operation getOperationByMethod(final String method) {
 		switch(method) {
 			case "GET": return getGet();
@@ -824,7 +844,7 @@ public class PathImpl extends ParamterDeclaringContextImpl implements Path {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (relativePath: ");
 		result.append(relativePath);
 		result.append(')');

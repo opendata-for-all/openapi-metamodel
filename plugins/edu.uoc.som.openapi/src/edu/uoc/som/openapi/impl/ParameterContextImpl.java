@@ -64,6 +64,7 @@ public abstract class ParameterContextImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Parameter> getParameters() {
 		if (parameters == null) {
 			parameters = new EObjectResolvingEList<Parameter>(Parameter.class, this, OpenAPIPackage.PARAMETER_CONTEXT__PARAMETERS);

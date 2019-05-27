@@ -69,7 +69,7 @@ import edu.uoc.som.openapi.Tag;
  *
  * @generated
  */
-public class APIImpl extends ParamterDeclaringContextImpl implements API {
+public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	/**
 	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -284,6 +284,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getRef() {
 		return "#";
 	}
@@ -293,6 +294,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SecurityRequirement> getSecurityRequirements() {
 		if (securityRequirements == null) {
 			securityRequirements = new EObjectContainmentEList<SecurityRequirement>(SecurityRequirement.class, this, OpenAPIPackage.API__SECURITY_REQUIREMENTS);
@@ -305,6 +307,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Parameter> getParameters() {
 		if (parameters == null) {
 			parameters = new EObjectResolvingEList<Parameter>(Parameter.class, this, OpenAPIPackage.API__PARAMETERS);
@@ -317,6 +320,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExternalDocs getExternalDocs() {
 		return externalDocs;
 	}
@@ -341,6 +345,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExternalDocs(ExternalDocs newExternalDocs) {
 		if (newExternalDocs != externalDocs) {
 			NotificationChain msgs = null;
@@ -360,6 +365,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getSwagger() {
 		return swagger;
 	}
@@ -369,6 +375,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSwagger(String newSwagger) {
 		String oldSwagger = swagger;
 		swagger = newSwagger;
@@ -381,6 +388,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Info getInfo() {
 		return info;
 	}
@@ -405,6 +413,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInfo(Info newInfo) {
 		if (newInfo != info) {
 			NotificationChain msgs = null;
@@ -424,6 +433,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getHost() {
 		return host;
 	}
@@ -433,6 +443,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setHost(String newHost) {
 		String oldHost = host;
 		host = newHost;
@@ -445,6 +456,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getBasePath() {
 		return basePath;
 	}
@@ -454,6 +466,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBasePath(String newBasePath) {
 		String oldBasePath = basePath;
 		basePath = newBasePath;
@@ -466,6 +479,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SchemeType> getSchemes() {
 		if (schemes == null) {
 			schemes = new EDataTypeUniqueEList<SchemeType>(SchemeType.class, this, OpenAPIPackage.API__SCHEMES);
@@ -478,6 +492,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getConsumes() {
 		if (consumes == null) {
 			consumes = new EDataTypeUniqueEList<String>(String.class, this, OpenAPIPackage.API__CONSUMES);
@@ -490,6 +505,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getProduces() {
 		if (produces == null) {
 			produces = new EDataTypeUniqueEList<String>(String.class, this, OpenAPIPackage.API__PRODUCES);
@@ -502,6 +518,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Path> getPaths() {
 		if (paths == null) {
 			paths = new EObjectContainmentWithInverseEList.Unsettable<Path>(Path.class, this, OpenAPIPackage.API__PATHS, OpenAPIPackage.PATH__API);
@@ -514,6 +531,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void unsetPaths() {
 		if (paths != null) ((InternalEList.Unsettable<?>)paths).unset();
 	}
@@ -523,6 +541,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSetPaths() {
 		return paths != null && ((InternalEList.Unsettable<?>)paths).isSet();
 	}
@@ -532,6 +551,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Schema> getDefinitions() {
 		if (definitions == null) {
 			definitions = new EObjectResolvingEList<Schema>(Schema.class, this, OpenAPIPackage.API__DEFINITIONS);
@@ -544,6 +564,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Response> getResponses() {
 		if (responses == null) {
 			responses = new EObjectContainmentEList<Response>(Response.class, this, OpenAPIPackage.API__RESPONSES);
@@ -556,6 +577,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SecuritySchema> getSecurityDefinitions() {
 		if (securityDefinitions == null) {
 			securityDefinitions = new EObjectContainmentEList<SecuritySchema>(SecuritySchema.class, this, OpenAPIPackage.API__SECURITY_DEFINITIONS);
@@ -568,6 +590,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Tag> getTags() {
 		if (tags == null) {
 			tags = new EObjectContainmentEList<Tag>(Tag.class, this, OpenAPIPackage.API__TAGS);
@@ -580,6 +603,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean pathsIsSet() {
 		return pathsIsSet();
 	}
@@ -589,6 +613,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Operation> getAllOperations() {
 		TreeIterator<EObject> allElements = this.eAllContents();
 		EList<Operation> allOperations = ECollections.newBasicEList();
@@ -606,6 +631,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getSchemaByReference(final String ref) {
 		List<Schema> schemas = this.getDefinitions();
 		for (Schema schema : schemas) {
@@ -620,6 +646,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Operation getOperationById(final String operationId) {
 		EList<Operation> allOperations = getAllOperations();
 		for (Operation operation : allOperations) {
@@ -634,6 +661,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Path getPathByRelativePath(final String relativePath) {
 		for(Path path: getPaths()) {
 			if(path.getRelativePath().equalsIgnoreCase(relativePath)) {
@@ -648,6 +676,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getSchemaByName(final String name) {
 		for (Schema schema : getDefinitions()) {
 			if (schema.getName().equalsIgnoreCase(name))
@@ -661,6 +690,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Parameter getParameterByRef(final String ref) {
 		String referenceName = ref.substring(ref.lastIndexOf("/")+1);
 		for (Parameter parameter : getParameters()) {
@@ -675,6 +705,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SecuritySchema getSecuritySchemaByName(final String name) {
 		for(SecuritySchema securitySchema: getSecurityDefinitions())
 			if(securitySchema.getReferenceName().equals(name))
@@ -1061,7 +1092,7 @@ public class APIImpl extends ParamterDeclaringContextImpl implements API {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (swagger: ");
 		result.append(swagger);
 		result.append(", host: ");

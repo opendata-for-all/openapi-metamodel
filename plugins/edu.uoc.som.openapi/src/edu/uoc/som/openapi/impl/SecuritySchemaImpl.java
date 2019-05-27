@@ -243,6 +243,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SecuritySchemeType getType() {
 		return type;
 	}
@@ -252,6 +253,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(SecuritySchemeType newType) {
 		SecuritySchemeType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
@@ -264,6 +266,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -273,6 +276,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -285,6 +289,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -294,6 +299,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -306,6 +312,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public APIKeyLocation getLocation() {
 		return location;
 	}
@@ -315,6 +322,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLocation(APIKeyLocation newLocation) {
 		APIKeyLocation oldLocation = location;
 		location = newLocation == null ? LOCATION_EDEFAULT : newLocation;
@@ -327,6 +335,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public OAuth2FlowType getFlow() {
 		return flow;
 	}
@@ -336,6 +345,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFlow(OAuth2FlowType newFlow) {
 		OAuth2FlowType oldFlow = flow;
 		flow = newFlow == null ? FLOW_EDEFAULT : newFlow;
@@ -348,6 +358,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getAuthorizationUrl() {
 		return authorizationUrl;
 	}
@@ -357,6 +368,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAuthorizationUrl(String newAuthorizationUrl) {
 		String oldAuthorizationUrl = authorizationUrl;
 		authorizationUrl = newAuthorizationUrl;
@@ -369,6 +381,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTokenUrl() {
 		return tokenUrl;
 	}
@@ -378,6 +391,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTokenUrl(String newTokenUrl) {
 		String oldTokenUrl = tokenUrl;
 		tokenUrl = newTokenUrl;
@@ -390,6 +404,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getReferenceName() {
 		return referenceName;
 	}
@@ -399,6 +414,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReferenceName(String newReferenceName) {
 		String oldReferenceName = referenceName;
 		referenceName = newReferenceName;
@@ -411,6 +427,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SecurityScope> getScopes() {
 		if (scopes == null) {
 			scopes = new EObjectContainmentEList<SecurityScope>(SecurityScope.class, this, OpenAPIPackage.SECURITY_SCHEMA__SCOPES);
@@ -423,6 +440,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SecurityScope getSecurityScopeByName(final String name) {
 		for(SecurityScope securityScope: getScopes())
 			if(securityScope.getName().equals(name))
@@ -607,7 +625,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (type: ");
 		result.append(type);
 		result.append(", description: ");

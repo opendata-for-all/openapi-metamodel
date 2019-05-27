@@ -140,6 +140,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Root createRoot() {
 		RootImpl root = new RootImpl();
 		return root;
@@ -150,6 +151,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public API createAPI() {
 		APIImpl api = new APIImpl();
 		return api;
@@ -160,6 +162,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Info createInfo() {
 		InfoImpl info = new InfoImpl();
 		return info;
@@ -170,6 +173,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Contact createContact() {
 		ContactImpl contact = new ContactImpl();
 		return contact;
@@ -180,6 +184,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public License createLicense() {
 		LicenseImpl license = new LicenseImpl();
 		return license;
@@ -190,6 +195,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Path createPath() {
 		PathImpl path = new PathImpl();
 		return path;
@@ -200,6 +206,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Operation createOperation() {
 		OperationImpl operation = new OperationImpl();
 		return operation;
@@ -210,6 +217,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExternalDocs createExternalDocs() {
 		ExternalDocsImpl externalDocs = new ExternalDocsImpl();
 		return externalDocs;
@@ -220,6 +228,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Parameter createParameter() {
 		ParameterImpl parameter = new ParameterImpl();
 		return parameter;
@@ -230,6 +239,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ItemsDefinition createItemsDefinition() {
 		ItemsDefinitionImpl itemsDefinition = new ItemsDefinitionImpl();
 		return itemsDefinition;
@@ -240,6 +250,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema createSchema() {
 		SchemaImpl schema = new SchemaImpl();
 		return schema;
@@ -250,6 +261,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Response createResponse() {
 		ResponseImpl response = new ResponseImpl();
 		return response;
@@ -260,6 +272,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Header createHeader() {
 		HeaderImpl header = new HeaderImpl();
 		return header;
@@ -270,6 +283,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Tag createTag() {
 		TagImpl tag = new TagImpl();
 		return tag;
@@ -280,6 +294,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SecuritySchema createSecuritySchema() {
 		SecuritySchemaImpl securitySchema = new SecuritySchemaImpl();
 		return securitySchema;
@@ -290,6 +305,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Example createExample() {
 		ExampleImpl example = new ExampleImpl();
 		return example;
@@ -300,6 +316,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public XMLElement createXMLElement() {
 		XMLElementImpl xmlElement = new XMLElementImpl();
 		return xmlElement;
@@ -310,6 +327,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SecurityScope createSecurityScope() {
 		SecurityScopeImpl securityScope = new SecurityScopeImpl();
 		return securityScope;
@@ -320,6 +338,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SecurityRequirement createSecurityRequirement() {
 		SecurityRequirementImpl securityRequirement = new SecurityRequirementImpl();
 		return securityRequirement;
@@ -470,6 +489,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public OpenAPIPackage getOpenAPIPackage() {
 		return (OpenAPIPackage)getEPackage();
 	}

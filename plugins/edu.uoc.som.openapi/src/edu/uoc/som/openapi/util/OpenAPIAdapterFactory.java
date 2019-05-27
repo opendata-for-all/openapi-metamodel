@@ -144,8 +144,8 @@ public class OpenAPIAdapterFactory extends AdapterFactoryImpl {
 				return createSecurityScopeAdapter();
 			}
 			@Override
-			public Adapter caseParamterDeclaringContext(ParamterDeclaringContext object) {
-				return createParamterDeclaringContextAdapter();
+			public Adapter caseParameterDeclaringContext(ParameterDeclaringContext object) {
+				return createParameterDeclaringContextAdapter();
 			}
 			@Override
 			public Adapter caseSchemaDeclaringContext(SchemaDeclaringContext object) {
@@ -470,16 +470,16 @@ public class OpenAPIAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.uoc.som.openapi.ParamterDeclaringContext <em>Paramter Declaring Context</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.uoc.som.openapi.ParameterDeclaringContext <em>Parameter Declaring Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.uoc.som.openapi.ParamterDeclaringContext
+	 * @see edu.uoc.som.openapi.ParameterDeclaringContext
 	 * @generated
 	 */
-	public Adapter createParamterDeclaringContextAdapter() {
+	public Adapter createParameterDeclaringContextAdapter() {
 		return null;
 	}
 

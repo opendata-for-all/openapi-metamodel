@@ -22,8 +22,8 @@ import edu.uoc.som.openapi.OpenAPIPackage;
 import edu.uoc.som.openapi.Operation;
 import edu.uoc.som.openapi.Parameter;
 import edu.uoc.som.openapi.ParameterContext;
+import edu.uoc.som.openapi.ParameterDeclaringContext;
 import edu.uoc.som.openapi.ParameterLocation;
-import edu.uoc.som.openapi.ParamterDeclaringContext;
 import edu.uoc.som.openapi.Path;
 import edu.uoc.som.openapi.Response;
 import edu.uoc.som.openapi.ResponseDeclaringContext;
@@ -197,7 +197,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass paramterDeclaringContextEClass = null;
+	private EClass parameterDeclaringContextEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -339,7 +339,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link OpenAPIPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -353,7 +353,8 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		if (isInited) return (OpenAPIPackage)EPackage.Registry.INSTANCE.getEPackage(OpenAPIPackage.eNS_URI);
 
 		// Obtain or create and register package
-		OpenAPIPackageImpl theOpenAPIPackage = (OpenAPIPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof OpenAPIPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new OpenAPIPackageImpl());
+		Object registeredOpenAPIPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		OpenAPIPackageImpl theOpenAPIPackage = registeredOpenAPIPackage instanceof OpenAPIPackageImpl ? (OpenAPIPackageImpl)registeredOpenAPIPackage : new OpenAPIPackageImpl();
 
 		isInited = true;
 
@@ -365,8 +366,9 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
-			(theOpenAPIPackage, 
+			(theOpenAPIPackage,
 			 new EValidator.Descriptor() {
+				 @Override
 				 public EValidator getEValidator() {
 					 return OpenAPIValidator.INSTANCE;
 				 }
@@ -375,7 +377,6 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		// Mark meta-data to indicate it can't be changed
 		theOpenAPIPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(OpenAPIPackage.eNS_URI, theOpenAPIPackage);
 		return theOpenAPIPackage;
@@ -386,6 +387,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getJSONSchemaSubset() {
 		return jsonSchemaSubsetEClass;
 	}
@@ -395,6 +397,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONSchemaSubset_Type() {
 		return (EAttribute)jsonSchemaSubsetEClass.getEStructuralFeatures().get(0);
 	}
@@ -404,6 +407,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONSchemaSubset_Format() {
 		return (EAttribute)jsonSchemaSubsetEClass.getEStructuralFeatures().get(1);
 	}
@@ -413,6 +417,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONSchemaSubset_Description() {
 		return (EAttribute)jsonSchemaSubsetEClass.getEStructuralFeatures().get(2);
 	}
@@ -422,6 +427,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONSchemaSubset_Maximum() {
 		return (EAttribute)jsonSchemaSubsetEClass.getEStructuralFeatures().get(3);
 	}
@@ -431,6 +437,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONSchemaSubset_ExclusiveMaximum() {
 		return (EAttribute)jsonSchemaSubsetEClass.getEStructuralFeatures().get(4);
 	}
@@ -440,6 +447,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONSchemaSubset_Minimum() {
 		return (EAttribute)jsonSchemaSubsetEClass.getEStructuralFeatures().get(5);
 	}
@@ -449,6 +457,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONSchemaSubset_ExclusiveMinimum() {
 		return (EAttribute)jsonSchemaSubsetEClass.getEStructuralFeatures().get(6);
 	}
@@ -458,6 +467,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONSchemaSubset_MaxLength() {
 		return (EAttribute)jsonSchemaSubsetEClass.getEStructuralFeatures().get(7);
 	}
@@ -467,6 +477,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONSchemaSubset_MinLength() {
 		return (EAttribute)jsonSchemaSubsetEClass.getEStructuralFeatures().get(8);
 	}
@@ -476,6 +487,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONSchemaSubset_Pattern() {
 		return (EAttribute)jsonSchemaSubsetEClass.getEStructuralFeatures().get(9);
 	}
@@ -485,6 +497,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONSchemaSubset_MaxItems() {
 		return (EAttribute)jsonSchemaSubsetEClass.getEStructuralFeatures().get(10);
 	}
@@ -494,6 +507,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONSchemaSubset_MinItems() {
 		return (EAttribute)jsonSchemaSubsetEClass.getEStructuralFeatures().get(11);
 	}
@@ -503,6 +517,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONSchemaSubset_UniqueItems() {
 		return (EAttribute)jsonSchemaSubsetEClass.getEStructuralFeatures().get(12);
 	}
@@ -512,6 +527,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONSchemaSubset_Enum() {
 		return (EAttribute)jsonSchemaSubsetEClass.getEStructuralFeatures().get(13);
 	}
@@ -521,6 +537,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONSchemaSubset_Default() {
 		return (EAttribute)jsonSchemaSubsetEClass.getEStructuralFeatures().get(14);
 	}
@@ -530,6 +547,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONSchemaSubset_MultipleOf() {
 		return (EAttribute)jsonSchemaSubsetEClass.getEStructuralFeatures().get(15);
 	}
@@ -539,6 +557,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRoot() {
 		return rootEClass;
 	}
@@ -548,6 +567,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRoot_Api() {
 		return (EReference)rootEClass.getEStructuralFeatures().get(0);
 	}
@@ -557,6 +577,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRoot_Paramters() {
 		return (EReference)rootEClass.getEStructuralFeatures().get(1);
 	}
@@ -566,6 +587,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRoot_Schemas() {
 		return (EReference)rootEClass.getEStructuralFeatures().get(2);
 	}
@@ -575,6 +597,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRoot_Responses() {
 		return (EReference)rootEClass.getEStructuralFeatures().get(3);
 	}
@@ -584,6 +607,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAPI() {
 		return apiEClass;
 	}
@@ -593,6 +617,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAPI_Swagger() {
 		return (EAttribute)apiEClass.getEStructuralFeatures().get(0);
 	}
@@ -602,6 +627,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAPI_Info() {
 		return (EReference)apiEClass.getEStructuralFeatures().get(1);
 	}
@@ -611,6 +637,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAPI_Host() {
 		return (EAttribute)apiEClass.getEStructuralFeatures().get(2);
 	}
@@ -620,6 +647,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAPI_BasePath() {
 		return (EAttribute)apiEClass.getEStructuralFeatures().get(3);
 	}
@@ -629,6 +657,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAPI_Schemes() {
 		return (EAttribute)apiEClass.getEStructuralFeatures().get(4);
 	}
@@ -638,6 +667,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAPI_Consumes() {
 		return (EAttribute)apiEClass.getEStructuralFeatures().get(5);
 	}
@@ -647,6 +677,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAPI_Produces() {
 		return (EAttribute)apiEClass.getEStructuralFeatures().get(6);
 	}
@@ -656,6 +687,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAPI_Paths() {
 		return (EReference)apiEClass.getEStructuralFeatures().get(7);
 	}
@@ -665,6 +697,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAPI_Definitions() {
 		return (EReference)apiEClass.getEStructuralFeatures().get(8);
 	}
@@ -674,6 +707,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAPI_Responses() {
 		return (EReference)apiEClass.getEStructuralFeatures().get(9);
 	}
@@ -683,6 +717,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAPI_SecurityDefinitions() {
 		return (EReference)apiEClass.getEStructuralFeatures().get(10);
 	}
@@ -692,6 +727,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAPI_Tags() {
 		return (EReference)apiEClass.getEStructuralFeatures().get(11);
 	}
@@ -701,6 +737,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getAPI__GetRef() {
 		return apiEClass.getEOperations().get(0);
 	}
@@ -710,6 +747,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getAPI__PathsIsSet() {
 		return apiEClass.getEOperations().get(1);
 	}
@@ -719,6 +757,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getAPI__GetAllOperations() {
 		return apiEClass.getEOperations().get(2);
 	}
@@ -728,6 +767,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getAPI__GetSchemaByReference__String() {
 		return apiEClass.getEOperations().get(3);
 	}
@@ -737,6 +777,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getAPI__GetOperationById__String() {
 		return apiEClass.getEOperations().get(4);
 	}
@@ -746,6 +787,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getAPI__GetPathByRelativePath__String() {
 		return apiEClass.getEOperations().get(5);
 	}
@@ -755,6 +797,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getAPI__GetSchemaByName__String() {
 		return apiEClass.getEOperations().get(6);
 	}
@@ -764,6 +807,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getAPI__GetParameterByRef__String() {
 		return apiEClass.getEOperations().get(7);
 	}
@@ -773,6 +817,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getAPI__GetSecuritySchemaByName__String() {
 		return apiEClass.getEOperations().get(8);
 	}
@@ -782,6 +827,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInfo() {
 		return infoEClass;
 	}
@@ -791,6 +837,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInfo_Title() {
 		return (EAttribute)infoEClass.getEStructuralFeatures().get(0);
 	}
@@ -800,6 +847,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInfo_Description() {
 		return (EAttribute)infoEClass.getEStructuralFeatures().get(1);
 	}
@@ -809,6 +857,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInfo_TermsOfServices() {
 		return (EAttribute)infoEClass.getEStructuralFeatures().get(2);
 	}
@@ -818,6 +867,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getInfo_Contact() {
 		return (EReference)infoEClass.getEStructuralFeatures().get(3);
 	}
@@ -827,6 +877,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getInfo_License() {
 		return (EReference)infoEClass.getEStructuralFeatures().get(4);
 	}
@@ -836,6 +887,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInfo_Version() {
 		return (EAttribute)infoEClass.getEStructuralFeatures().get(5);
 	}
@@ -845,6 +897,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getContact() {
 		return contactEClass;
 	}
@@ -854,6 +907,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_Name() {
 		return (EAttribute)contactEClass.getEStructuralFeatures().get(0);
 	}
@@ -863,6 +917,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_Url() {
 		return (EAttribute)contactEClass.getEStructuralFeatures().get(1);
 	}
@@ -872,6 +927,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getContact_Email() {
 		return (EAttribute)contactEClass.getEStructuralFeatures().get(2);
 	}
@@ -881,6 +937,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLicense() {
 		return licenseEClass;
 	}
@@ -890,6 +947,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLicense_Name() {
 		return (EAttribute)licenseEClass.getEStructuralFeatures().get(0);
 	}
@@ -899,6 +957,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLicense_Url() {
 		return (EAttribute)licenseEClass.getEStructuralFeatures().get(1);
 	}
@@ -908,6 +967,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPath() {
 		return pathEClass;
 	}
@@ -917,6 +977,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPath_RelativePath() {
 		return (EAttribute)pathEClass.getEStructuralFeatures().get(0);
 	}
@@ -926,6 +987,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPath_Get() {
 		return (EReference)pathEClass.getEStructuralFeatures().get(1);
 	}
@@ -935,6 +997,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPath_Put() {
 		return (EReference)pathEClass.getEStructuralFeatures().get(2);
 	}
@@ -944,6 +1007,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPath_Post() {
 		return (EReference)pathEClass.getEStructuralFeatures().get(3);
 	}
@@ -953,6 +1017,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPath_Delete() {
 		return (EReference)pathEClass.getEStructuralFeatures().get(4);
 	}
@@ -962,6 +1027,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPath_Options() {
 		return (EReference)pathEClass.getEStructuralFeatures().get(5);
 	}
@@ -971,6 +1037,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPath_Head() {
 		return (EReference)pathEClass.getEStructuralFeatures().get(6);
 	}
@@ -980,6 +1047,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPath_Patch() {
 		return (EReference)pathEClass.getEStructuralFeatures().get(7);
 	}
@@ -989,6 +1057,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPath_Api() {
 		return (EReference)pathEClass.getEStructuralFeatures().get(8);
 	}
@@ -998,6 +1067,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getPath__GetOperationByMethod__String() {
 		return pathEClass.getEOperations().get(0);
 	}
@@ -1007,6 +1077,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getOperation() {
 		return operationEClass;
 	}
@@ -1016,6 +1087,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOperation_TagReferences() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(0);
 	}
@@ -1025,6 +1097,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOperation_Summary() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(1);
 	}
@@ -1034,6 +1107,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOperation_Description() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(2);
 	}
@@ -1043,6 +1117,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOperation_OperationId() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(3);
 	}
@@ -1052,6 +1127,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOperation_Consumes() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(4);
 	}
@@ -1061,6 +1137,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOperation_Produces() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(5);
 	}
@@ -1070,6 +1147,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOperation_Responses() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(6);
 	}
@@ -1079,6 +1157,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOperation_Schemes() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(7);
 	}
@@ -1088,6 +1167,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOperation_Deprecated() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(8);
 	}
@@ -1097,6 +1177,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getOperation__GetFullPath() {
 		return operationEClass.getEOperations().get(0);
 	}
@@ -1106,6 +1187,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getOperation__GetConsumedSchema() {
 		return operationEClass.getEOperations().get(1);
 	}
@@ -1115,6 +1197,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getOperation__GetProducedSchema() {
 		return operationEClass.getEOperations().get(2);
 	}
@@ -1124,6 +1207,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getOperation__IsProducingList() {
 		return operationEClass.getEOperations().get(3);
 	}
@@ -1133,6 +1217,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getOperation__GetMethod() {
 		return operationEClass.getEOperations().get(4);
 	}
@@ -1142,6 +1227,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getExternalDocs() {
 		return externalDocsEClass;
 	}
@@ -1151,6 +1237,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getExternalDocs_Description() {
 		return (EAttribute)externalDocsEClass.getEStructuralFeatures().get(0);
 	}
@@ -1160,6 +1247,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getExternalDocs_Url() {
 		return (EAttribute)externalDocsEClass.getEStructuralFeatures().get(1);
 	}
@@ -1169,6 +1257,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getParameter() {
 		return parameterEClass;
 	}
@@ -1178,6 +1267,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getParameter_Name() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(0);
 	}
@@ -1187,6 +1277,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getParameter_Location() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
 	}
@@ -1196,6 +1287,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getParameter_Required() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(2);
 	}
@@ -1205,6 +1297,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getParameter_AllowEmplyValue() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(3);
 	}
@@ -1214,6 +1307,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getParameter_ReferenceName() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(4);
 	}
@@ -1223,6 +1317,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getParameter_DeclaringContext() {
 		return (EReference)parameterEClass.getEStructuralFeatures().get(5);
 	}
@@ -1232,6 +1327,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getParameter_Example() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(6);
 	}
@@ -1241,6 +1337,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getItemsDefinition() {
 		return itemsDefinitionEClass;
 	}
@@ -1250,6 +1347,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSchema() {
 		return schemaEClass;
 	}
@@ -1259,6 +1357,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSchema_Name() {
 		return (EAttribute)schemaEClass.getEStructuralFeatures().get(0);
 	}
@@ -1268,6 +1367,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSchema_Title() {
 		return (EAttribute)schemaEClass.getEStructuralFeatures().get(1);
 	}
@@ -1277,6 +1377,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSchema_MaxProperties() {
 		return (EAttribute)schemaEClass.getEStructuralFeatures().get(2);
 	}
@@ -1286,6 +1387,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSchema_MinProperties() {
 		return (EAttribute)schemaEClass.getEStructuralFeatures().get(3);
 	}
@@ -1295,6 +1397,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSchema_Example() {
 		return (EAttribute)schemaEClass.getEStructuralFeatures().get(4);
 	}
@@ -1304,6 +1407,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSchema_Discriminator() {
 		return (EAttribute)schemaEClass.getEStructuralFeatures().get(5);
 	}
@@ -1313,6 +1417,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSchema_ReadOnly() {
 		return (EAttribute)schemaEClass.getEStructuralFeatures().get(6);
 	}
@@ -1322,6 +1427,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSchema_Properties() {
 		return (EReference)schemaEClass.getEStructuralFeatures().get(7);
 	}
@@ -1331,6 +1437,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSchema_AllOf() {
 		return (EReference)schemaEClass.getEStructuralFeatures().get(8);
 	}
@@ -1340,6 +1447,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSchema_Items() {
 		return (EReference)schemaEClass.getEStructuralFeatures().get(9);
 	}
@@ -1349,6 +1457,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSchema_Xml() {
 		return (EReference)schemaEClass.getEStructuralFeatures().get(10);
 	}
@@ -1358,6 +1467,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSchema_AdditonalProperties() {
 		return (EReference)schemaEClass.getEStructuralFeatures().get(11);
 	}
@@ -1367,6 +1477,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSchema_DeclaringContext() {
 		return (EReference)schemaEClass.getEStructuralFeatures().get(12);
 	}
@@ -1376,6 +1487,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSchema_Required() {
 		return (EReference)schemaEClass.getEStructuralFeatures().get(13);
 	}
@@ -1385,6 +1497,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSchema_Value() {
 		return (EReference)schemaEClass.getEStructuralFeatures().get(14);
 	}
@@ -1394,6 +1507,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSchema_AdditonalPropertiesAllowed() {
 		return (EAttribute)schemaEClass.getEStructuralFeatures().get(15);
 	}
@@ -1403,6 +1517,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSchema__GetRef() {
 		return schemaEClass.getEOperations().get(0);
 	}
@@ -1412,6 +1527,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSchema__GetPropertyByName__String() {
 		return schemaEClass.getEOperations().get(1);
 	}
@@ -1421,6 +1537,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getResponse() {
 		return responseEClass;
 	}
@@ -1430,6 +1547,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getResponse_Description() {
 		return (EAttribute)responseEClass.getEStructuralFeatures().get(0);
 	}
@@ -1439,6 +1557,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getResponse_Headers() {
 		return (EReference)responseEClass.getEStructuralFeatures().get(1);
 	}
@@ -1448,6 +1567,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getResponse_Examples() {
 		return (EReference)responseEClass.getEStructuralFeatures().get(2);
 	}
@@ -1457,6 +1577,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getResponse_Code() {
 		return (EAttribute)responseEClass.getEStructuralFeatures().get(3);
 	}
@@ -1466,6 +1587,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getResponse_DeclaringContext() {
 		return (EReference)responseEClass.getEStructuralFeatures().get(4);
 	}
@@ -1475,6 +1597,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getResponse_ReferenceName() {
 		return (EAttribute)responseEClass.getEStructuralFeatures().get(5);
 	}
@@ -1484,6 +1607,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getHeader() {
 		return headerEClass;
 	}
@@ -1493,6 +1617,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getHeader_Name() {
 		return (EAttribute)headerEClass.getEStructuralFeatures().get(0);
 	}
@@ -1502,6 +1627,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTag() {
 		return tagEClass;
 	}
@@ -1511,6 +1637,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTag_Name() {
 		return (EAttribute)tagEClass.getEStructuralFeatures().get(0);
 	}
@@ -1520,6 +1647,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTag_Description() {
 		return (EAttribute)tagEClass.getEStructuralFeatures().get(1);
 	}
@@ -1529,6 +1657,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSecuritySchema() {
 		return securitySchemaEClass;
 	}
@@ -1538,6 +1667,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecuritySchema_Type() {
 		return (EAttribute)securitySchemaEClass.getEStructuralFeatures().get(0);
 	}
@@ -1547,6 +1677,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecuritySchema_Description() {
 		return (EAttribute)securitySchemaEClass.getEStructuralFeatures().get(1);
 	}
@@ -1556,6 +1687,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecuritySchema_Name() {
 		return (EAttribute)securitySchemaEClass.getEStructuralFeatures().get(2);
 	}
@@ -1565,6 +1697,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecuritySchema_Location() {
 		return (EAttribute)securitySchemaEClass.getEStructuralFeatures().get(3);
 	}
@@ -1574,6 +1707,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecuritySchema_Flow() {
 		return (EAttribute)securitySchemaEClass.getEStructuralFeatures().get(4);
 	}
@@ -1583,6 +1717,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecuritySchema_AuthorizationUrl() {
 		return (EAttribute)securitySchemaEClass.getEStructuralFeatures().get(5);
 	}
@@ -1592,6 +1727,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecuritySchema_TokenUrl() {
 		return (EAttribute)securitySchemaEClass.getEStructuralFeatures().get(6);
 	}
@@ -1601,6 +1737,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecuritySchema_ReferenceName() {
 		return (EAttribute)securitySchemaEClass.getEStructuralFeatures().get(7);
 	}
@@ -1610,6 +1747,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSecuritySchema_Scopes() {
 		return (EReference)securitySchemaEClass.getEStructuralFeatures().get(8);
 	}
@@ -1619,6 +1757,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSecuritySchema__GetSecurityScopeByName__String() {
 		return securitySchemaEClass.getEOperations().get(0);
 	}
@@ -1628,6 +1767,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getExample() {
 		return exampleEClass;
 	}
@@ -1637,6 +1777,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getExample_MimeType() {
 		return (EAttribute)exampleEClass.getEStructuralFeatures().get(0);
 	}
@@ -1646,6 +1787,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getExample_Value() {
 		return (EAttribute)exampleEClass.getEStructuralFeatures().get(1);
 	}
@@ -1655,6 +1797,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getXMLElement() {
 		return xmlElementEClass;
 	}
@@ -1664,6 +1807,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getXMLElement_Name() {
 		return (EAttribute)xmlElementEClass.getEStructuralFeatures().get(0);
 	}
@@ -1673,6 +1817,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getXMLElement_Namespace() {
 		return (EAttribute)xmlElementEClass.getEStructuralFeatures().get(1);
 	}
@@ -1682,6 +1827,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getXMLElement_Prefix() {
 		return (EAttribute)xmlElementEClass.getEStructuralFeatures().get(2);
 	}
@@ -1691,6 +1837,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getXMLElement_Attribute() {
 		return (EAttribute)xmlElementEClass.getEStructuralFeatures().get(3);
 	}
@@ -1700,6 +1847,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getXMLElement_Wrapped() {
 		return (EAttribute)xmlElementEClass.getEStructuralFeatures().get(4);
 	}
@@ -1709,6 +1857,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSecurityScope() {
 		return securityScopeEClass;
 	}
@@ -1718,6 +1867,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecurityScope_Name() {
 		return (EAttribute)securityScopeEClass.getEStructuralFeatures().get(0);
 	}
@@ -1727,6 +1877,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSecurityScope_Description() {
 		return (EAttribute)securityScopeEClass.getEStructuralFeatures().get(1);
 	}
@@ -1736,8 +1887,9 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getParamterDeclaringContext() {
-		return paramterDeclaringContextEClass;
+	@Override
+	public EClass getParameterDeclaringContext() {
+		return parameterDeclaringContextEClass;
 	}
 
 	/**
@@ -1745,6 +1897,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSchemaDeclaringContext() {
 		return schemaDeclaringContextEClass;
 	}
@@ -1754,6 +1907,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getResponseDeclaringContext() {
 		return responseDeclaringContextEClass;
 	}
@@ -1763,6 +1917,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getJSONPointer() {
 		return jsonPointerEClass;
 	}
@@ -1772,6 +1927,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getJSONPointer_Ref() {
 		return (EAttribute)jsonPointerEClass.getEStructuralFeatures().get(0);
 	}
@@ -1781,6 +1937,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSecurityContext() {
 		return securityContextEClass;
 	}
@@ -1790,6 +1947,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSecurityContext_SecurityRequirements() {
 		return (EReference)securityContextEClass.getEStructuralFeatures().get(0);
 	}
@@ -1799,6 +1957,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getParameterContext() {
 		return parameterContextEClass;
 	}
@@ -1808,6 +1967,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getParameterContext_Parameters() {
 		return (EReference)parameterContextEClass.getEStructuralFeatures().get(0);
 	}
@@ -1817,6 +1977,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSchemaContext() {
 		return schemaContextEClass;
 	}
@@ -1826,6 +1987,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSchemaContext_Schema() {
 		return (EReference)schemaContextEClass.getEStructuralFeatures().get(0);
 	}
@@ -1835,6 +1997,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getExternalDocsContext() {
 		return externalDocsContextEClass;
 	}
@@ -1844,6 +2007,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getExternalDocsContext_ExternalDocs() {
 		return (EReference)externalDocsContextEClass.getEStructuralFeatures().get(0);
 	}
@@ -1853,6 +2017,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArrayContext() {
 		return arrayContextEClass;
 	}
@@ -1862,6 +2027,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getArrayContext_CollectionFormat() {
 		return (EAttribute)arrayContextEClass.getEStructuralFeatures().get(0);
 	}
@@ -1871,6 +2037,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArrayContext_Items() {
 		return (EReference)arrayContextEClass.getEStructuralFeatures().get(1);
 	}
@@ -1880,6 +2047,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSecurityRequirement() {
 		return securityRequirementEClass;
 	}
@@ -1889,6 +2057,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSecurityRequirement_SecurityScopes() {
 		return (EReference)securityRequirementEClass.getEStructuralFeatures().get(0);
 	}
@@ -1898,6 +2067,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSecurityRequirement_SecuritySchema() {
 		return (EReference)securityRequirementEClass.getEStructuralFeatures().get(1);
 	}
@@ -1907,6 +2077,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getSchemeType() {
 		return schemeTypeEEnum;
 	}
@@ -1916,6 +2087,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getParameterLocation() {
 		return parameterLocationEEnum;
 	}
@@ -1925,6 +2097,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getCollectionFormat() {
 		return collectionFormatEEnum;
 	}
@@ -1934,6 +2107,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getOAuth2FlowType() {
 		return oAuth2FlowTypeEEnum;
 	}
@@ -1943,6 +2117,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getAPIKeyLocation() {
 		return apiKeyLocationEEnum;
 	}
@@ -1952,6 +2127,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getSecuritySchemeType() {
 		return securitySchemeTypeEEnum;
 	}
@@ -1961,6 +2137,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getJSONDataType() {
 		return jsonDataTypeEEnum;
 	}
@@ -1970,6 +2147,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public OpenAPIFactory getOpenAPIFactory() {
 		return (OpenAPIFactory)getEFactoryInstance();
 	}
@@ -2162,7 +2340,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		createEAttribute(securityScopeEClass, SECURITY_SCOPE__NAME);
 		createEAttribute(securityScopeEClass, SECURITY_SCOPE__DESCRIPTION);
 
-		paramterDeclaringContextEClass = createEClass(PARAMTER_DECLARING_CONTEXT);
+		parameterDeclaringContextEClass = createEClass(PARAMETER_DECLARING_CONTEXT);
 
 		schemaDeclaringContextEClass = createEClass(SCHEMA_DECLARING_CONTEXT);
 
@@ -2229,16 +2407,16 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		apiEClass.getESuperTypes().add(this.getParamterDeclaringContext());
+		apiEClass.getESuperTypes().add(this.getParameterDeclaringContext());
 		apiEClass.getESuperTypes().add(this.getSchemaDeclaringContext());
 		apiEClass.getESuperTypes().add(this.getJSONPointer());
 		apiEClass.getESuperTypes().add(this.getSecurityContext());
 		apiEClass.getESuperTypes().add(this.getParameterContext());
 		apiEClass.getESuperTypes().add(this.getExternalDocsContext());
 		apiEClass.getESuperTypes().add(this.getResponseDeclaringContext());
-		pathEClass.getESuperTypes().add(this.getParamterDeclaringContext());
+		pathEClass.getESuperTypes().add(this.getParameterDeclaringContext());
 		pathEClass.getESuperTypes().add(this.getParameterContext());
-		operationEClass.getESuperTypes().add(this.getParamterDeclaringContext());
+		operationEClass.getESuperTypes().add(this.getParameterDeclaringContext());
 		operationEClass.getESuperTypes().add(this.getSecurityContext());
 		operationEClass.getESuperTypes().add(this.getParameterContext());
 		operationEClass.getESuperTypes().add(this.getExternalDocsContext());
@@ -2385,7 +2563,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEAttribute(getParameter_Required(), ecorePackage.getEBooleanObject(), "required", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_AllowEmplyValue(), ecorePackage.getEBooleanObject(), "allowEmplyValue", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_ReferenceName(), ecorePackage.getEString(), "referenceName", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameter_DeclaringContext(), this.getParamterDeclaringContext(), null, "declaringContext", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameter_DeclaringContext(), this.getParameterDeclaringContext(), null, "declaringContext", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_Example(), ecorePackage.getEString(), "example", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(itemsDefinitionEClass, ItemsDefinition.class, "ItemsDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2457,7 +2635,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEAttribute(getSecurityScope_Name(), ecorePackage.getEString(), "name", null, 0, 1, SecurityScope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSecurityScope_Description(), ecorePackage.getEString(), "description", null, 0, 1, SecurityScope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(paramterDeclaringContextEClass, ParamterDeclaringContext.class, "ParamterDeclaringContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(parameterDeclaringContextEClass, ParameterDeclaringContext.class, "ParameterDeclaringContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(schemaDeclaringContextEClass, SchemaDeclaringContext.class, "SchemaDeclaringContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2557,42 +2735,42 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	protected void createEcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation
-		  (apiEClass, 
-		   source, 
+		  (apiEClass,
+		   source,
 		   new String[] {
-			 "constraints", "requiredSwaggerVersion correctSwaggerVersion requiredInfoReference requiredPaths"
-		   });	
+			   "constraints", "requiredSwaggerVersion correctSwaggerVersion requiredInfoReference requiredPaths"
+		   });
 		addAnnotation
-		  (infoEClass, 
-		   source, 
+		  (infoEClass,
+		   source,
 		   new String[] {
-			 "constraints", "requiredTitle requiredAPIVerison"
-		   });	
+			   "constraints", "requiredTitle requiredAPIVerison"
+		   });
 		addAnnotation
-		  (licenseEClass, 
-		   source, 
+		  (licenseEClass,
+		   source,
 		   new String[] {
-			 "constraints", "requiredName"
-		   });	
+			   "constraints", "requiredName"
+		   });
 		addAnnotation
-		  (operationEClass, 
-		   source, 
+		  (operationEClass,
+		   source,
 		   new String[] {
-			 "constraints", "oneBodyParameterAllowed oneFormDataParameterAllowed hasUniqueParameters xorFormAndBody requiredResponses"
-		   });	
+			   "constraints", "oneBodyParameterAllowed oneFormDataParameterAllowed hasUniqueParameters xorFormAndBody requiredResponses"
+		   });
 		addAnnotation
-		  (externalDocsEClass, 
-		   source, 
+		  (externalDocsEClass,
+		   source,
 		   new String[] {
-			 "constraints", "requiredURL"
-		   });	
+			   "constraints", "requiredURL"
+		   });
 		addAnnotation
-		  (parameterEClass, 
-		   source, 
+		  (parameterEClass,
+		   source,
 		   new String[] {
-			 "constraints", "requiredName requiredLocation"
+			   "constraints", "requiredName requiredLocation"
 		   });
 	}
 
@@ -2603,51 +2781,51 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	protected void createOCLAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";
 		addAnnotation
-		  (apiEClass, 
-		   source, 
+		  (apiEClass,
+		   source,
 		   new String[] {
-			 "requiredSwaggerVersion", "not self.swagger.oclIsUndefined()",
-			 "requiredInfoReference", "not self.info.oclIsUndefined()",
-			 "correctSwaggerVersion", "self.swagger = \'2.0\'",
-			 "requiredPaths", "pathsIsSet()"
-		   });	
+			   "requiredSwaggerVersion", "not self.swagger.oclIsUndefined()",
+			   "requiredInfoReference", "not self.info.oclIsUndefined()",
+			   "correctSwaggerVersion", "self.swagger = \'2.0\'",
+			   "requiredPaths", "pathsIsSet()"
+		   });
 		addAnnotation
-		  (infoEClass, 
-		   source, 
+		  (infoEClass,
+		   source,
 		   new String[] {
-			 "requiredTitle", "not self.title.oclIsUndefined()",
-			 "requiredAPIVerison", "not self.version.oclIsUndefined()"
-		   });	
+			   "requiredTitle", "not self.title.oclIsUndefined()",
+			   "requiredAPIVerison", "not self.version.oclIsUndefined()"
+		   });
 		addAnnotation
-		  (licenseEClass, 
-		   source, 
+		  (licenseEClass,
+		   source,
 		   new String[] {
-			 "requiredName", "not self.name.oclIsUndefined()"
-		   });	
+			   "requiredName", "not self.name.oclIsUndefined()"
+		   });
 		addAnnotation
-		  (operationEClass, 
-		   source, 
+		  (operationEClass,
+		   source,
 		   new String[] {
-			 "oneBodyParameterAllowed", "self.parameters-> select(e | e.location = ParameterLocation::\'_body\') -> size() <= 1",
-			 "oneFormDataParameterAllowed", "self.parameters-> select(e | e.location = ParameterLocation::\'_formData\') -> size() <= 1",
-			 "hasUniqueParameters", "self.parameters -> collect(t | Tuple{name : String = t.name,location : ParameterLocation = t.location})->asSet() -> size() = self.parameters -> size()",
-			 "xorFormAndBody", "(parameters-> select(e | e.location =  ParameterLocation::_\'body\') -> size()=1 and parameters-> select(e | e.location =  ParameterLocation::_\'formData\') -> size()=0)\r\n\tor \r\n\t(parameters-> select(e | e.location =  ParameterLocation::_\'body\') -> size()=0 and parameters-> select(e | e.location =  ParameterLocation::_\'formData\') -> size()=1)\r\n\tor \r\n\t(parameters-> select(e | e.location =  ParameterLocation::_\'body\') -> size()=0 and parameters-> select(e | e.location =  ParameterLocation::_\'formData\') -> size()=0)\r\n\t",
-			 "requiredResponses", "self.responses -> size() <> 0"
-		   });	
+			   "oneBodyParameterAllowed", "self.parameters-> select(e | e.location = ParameterLocation::\'_body\') -> size() <= 1",
+			   "oneFormDataParameterAllowed", "self.parameters-> select(e | e.location = ParameterLocation::\'_formData\') -> size() <= 1",
+			   "hasUniqueParameters", "self.parameters -> collect(t | Tuple{name : String = t.name,location : ParameterLocation = t.location})->asSet() -> size() = self.parameters -> size()",
+			   "xorFormAndBody", "(parameters-> select(e | e.location =  ParameterLocation::_\'body\') -> size()=1 and parameters-> select(e | e.location =  ParameterLocation::_\'formData\') -> size()=0)\r\n\tor \r\n\t(parameters-> select(e | e.location =  ParameterLocation::_\'body\') -> size()=0 and parameters-> select(e | e.location =  ParameterLocation::_\'formData\') -> size()=1)\r\n\tor \r\n\t(parameters-> select(e | e.location =  ParameterLocation::_\'body\') -> size()=0 and parameters-> select(e | e.location =  ParameterLocation::_\'formData\') -> size()=0)\r\n\t",
+			   "requiredResponses", "self.responses -> size() <> 0"
+		   });
 		addAnnotation
-		  (externalDocsEClass, 
-		   source, 
+		  (externalDocsEClass,
+		   source,
 		   new String[] {
-			 "requiredURL", "not self.url.oclIsUndefined()"
-		   });	
+			   "requiredURL", "not self.url.oclIsUndefined()"
+		   });
 		addAnnotation
-		  (parameterEClass, 
-		   source, 
+		  (parameterEClass,
+		   source,
 		   new String[] {
-			 "requiredName", "not name.oclIsUndefined()",
-			 "requiredLocation", "not location = ParameterLocation::unspecified"
+			   "requiredName", "not name.oclIsUndefined()",
+			   "requiredLocation", "not location = ParameterLocation::unspecified"
 		   });
 	}
 
@@ -2658,12 +2836,12 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";	
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
 		addAnnotation
-		  (apiEClass, 
-		   source, 
+		  (apiEClass,
+		   source,
 		   new String[] {
-			 "name", "API"
+			   "name", "API"
 		   });
 	}
 

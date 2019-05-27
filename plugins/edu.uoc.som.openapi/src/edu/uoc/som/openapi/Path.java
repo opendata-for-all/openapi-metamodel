@@ -27,7 +27,7 @@ package edu.uoc.som.openapi;
  * @model
  * @generated
  */
-public interface Path extends ParamterDeclaringContext, ParameterContext {
+public interface Path extends ParameterDeclaringContext, ParameterContext {
 	/**
 	 * Returns the value of the '<em><b>Relative Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->

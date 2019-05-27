@@ -106,6 +106,7 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CollectionFormat getCollectionFormat() {
 		return collectionFormat;
 	}
@@ -115,6 +116,7 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCollectionFormat(CollectionFormat newCollectionFormat) {
 		CollectionFormat oldCollectionFormat = collectionFormat;
 		collectionFormat = newCollectionFormat == null ? COLLECTION_FORMAT_EDEFAULT : newCollectionFormat;
@@ -127,6 +129,7 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ItemsDefinition getItems() {
 		return items;
 	}
@@ -151,6 +154,7 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setItems(ItemsDefinition newItems) {
 		if (newItems != items) {
 			NotificationChain msgs = null;
@@ -170,6 +174,7 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -179,6 +184,7 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -321,7 +327,7 @@ public class HeaderImpl extends JSONSchemaSubsetImpl implements Header {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (collectionFormat: ");
 		result.append(collectionFormat);
 		result.append(", name: ");
