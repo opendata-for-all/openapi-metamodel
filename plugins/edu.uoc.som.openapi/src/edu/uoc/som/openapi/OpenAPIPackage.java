@@ -604,13 +604,13 @@ public interface OpenAPIPackage extends EPackage {
 	int INFO__DESCRIPTION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Terms Of Services</b></em>' attribute.
+	 * The feature id for the '<em><b>Terms Of Service</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFO__TERMS_OF_SERVICES = 2;
+	int INFO__TERMS_OF_SERVICE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Contact</b></em>' containment reference.
@@ -3462,15 +3462,15 @@ public interface OpenAPIPackage extends EPackage {
 	EAttribute getInfo_Description();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.Info#getTermsOfServices <em>Terms Of Services</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.Info#getTermsOfService <em>Terms Of Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Terms Of Services</em>'.
-	 * @see edu.uoc.som.openapi.Info#getTermsOfServices()
+	 * @return the meta object for the attribute '<em>Terms Of Service</em>'.
+	 * @see edu.uoc.som.openapi.Info#getTermsOfService()
 	 * @see #getInfo()
 	 * @generated
 	 */
-	EAttribute getInfo_TermsOfServices();
+	EAttribute getInfo_TermsOfService();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link edu.uoc.som.openapi.Info#getContact <em>Contact</em>}'.
@@ -5247,12 +5247,12 @@ public interface OpenAPIPackage extends EPackage {
 		EAttribute INFO__DESCRIPTION = eINSTANCE.getInfo_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Terms Of Services</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Terms Of Service</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INFO__TERMS_OF_SERVICES = eINSTANCE.getInfo_TermsOfServices();
+		EAttribute INFO__TERMS_OF_SERVICE = eINSTANCE.getInfo_TermsOfService();
 
 		/**
 		 * The meta object literal for the '<em><b>Contact</b></em>' containment reference feature.

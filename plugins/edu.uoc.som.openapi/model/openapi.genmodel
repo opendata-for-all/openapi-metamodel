@@ -123,7 +123,7 @@
     <genClasses ecoreClass="openapi.ecore#//Info">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//Info/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//Info/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//Info/termsOfServices"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//Info/termsOfService"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi.ecore#//Info/contact"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi.ecore#//Info/license"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//Info/version"/>

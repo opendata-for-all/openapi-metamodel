@@ -756,7 +756,7 @@ public class OpenAPIImporter {
 		if (infoObject.has("description"))
 			info.setDescription(infoObject.get("description").getAsString());
 		if (infoObject.has("termsOfServices"))
-			info.setTermsOfServices(infoObject.get("termsOfService").getAsString());
+			info.setTermsOfService(infoObject.get("termsOfService").getAsString());
 		if (infoObject.has("contact"))
 			importContact(infoObject.get("contact"), info);
 		if (infoObject.has("license"))

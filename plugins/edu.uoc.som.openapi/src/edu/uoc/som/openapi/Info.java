@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link edu.uoc.som.openapi.Info#getTitle <em>Title</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Info#getDescription <em>Description</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.Info#getTermsOfServices <em>Terms Of Services</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.Info#getTermsOfService <em>Terms Of Service</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Info#getContact <em>Contact</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Info#getLicense <em>License</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Info#getVersion <em>Version</em>}</li>
@@ -80,30 +80,26 @@ public interface Info extends EObject {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Terms Of Services</b></em>' attribute.
+	 * Returns the value of the '<em><b>Terms Of Service</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Terms Of Services</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Terms Of Services</em>' attribute.
-	 * @see #setTermsOfServices(String)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getInfo_TermsOfServices()
+	 * @return the value of the '<em>Terms Of Service</em>' attribute.
+	 * @see #setTermsOfService(String)
+	 * @see edu.uoc.som.openapi.OpenAPIPackage#getInfo_TermsOfService()
 	 * @model
 	 * @generated
 	 */
-	String getTermsOfServices();
+	String getTermsOfService();
 
 	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.Info#getTermsOfServices <em>Terms Of Services</em>}' attribute.
+	 * Sets the value of the '{@link edu.uoc.som.openapi.Info#getTermsOfService <em>Terms Of Service</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Terms Of Services</em>' attribute.
-	 * @see #getTermsOfServices()
+	 * @param value the new value of the '<em>Terms Of Service</em>' attribute.
+	 * @see #getTermsOfService()
 	 * @generated
 	 */
-	void setTermsOfServices(String value);
+	void setTermsOfService(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Contact</b></em>' containment reference.

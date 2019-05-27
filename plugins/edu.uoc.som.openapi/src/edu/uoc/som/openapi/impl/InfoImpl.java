@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link edu.uoc.som.openapi.impl.InfoImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.InfoImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.InfoImpl#getTermsOfServices <em>Terms Of Services</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.InfoImpl#getTermsOfService <em>Terms Of Service</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.InfoImpl#getContact <em>Contact</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.InfoImpl#getLicense <em>License</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.InfoImpl#getVersion <em>Version</em>}</li>
@@ -76,24 +76,24 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTermsOfServices() <em>Terms Of Services</em>}' attribute.
+	 * The default value of the '{@link #getTermsOfService() <em>Terms Of Service</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTermsOfServices()
+	 * @see #getTermsOfService()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TERMS_OF_SERVICES_EDEFAULT = null;
+	protected static final String TERMS_OF_SERVICE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTermsOfServices() <em>Terms Of Services</em>}' attribute.
+	 * The cached value of the '{@link #getTermsOfService() <em>Terms Of Service</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTermsOfServices()
+	 * @see #getTermsOfService()
 	 * @generated
 	 * @ordered
 	 */
-	protected String termsOfServices = TERMS_OF_SERVICES_EDEFAULT;
+	protected String termsOfService = TERMS_OF_SERVICE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getContact() <em>Contact</em>}' containment reference.
@@ -206,8 +206,8 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	 * @generated
 	 */
 	@Override
-	public String getTermsOfServices() {
-		return termsOfServices;
+	public String getTermsOfService() {
+		return termsOfService;
 	}
 
 	/**
@@ -216,11 +216,11 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 	 * @generated
 	 */
 	@Override
-	public void setTermsOfServices(String newTermsOfServices) {
-		String oldTermsOfServices = termsOfServices;
-		termsOfServices = newTermsOfServices;
+	public void setTermsOfService(String newTermsOfService) {
+		String oldTermsOfService = termsOfService;
+		termsOfService = newTermsOfService;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.INFO__TERMS_OF_SERVICES, oldTermsOfServices, termsOfServices));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.INFO__TERMS_OF_SERVICE, oldTermsOfService, termsOfService));
 	}
 
 	/**
@@ -364,8 +364,8 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 				return getTitle();
 			case OpenAPIPackage.INFO__DESCRIPTION:
 				return getDescription();
-			case OpenAPIPackage.INFO__TERMS_OF_SERVICES:
-				return getTermsOfServices();
+			case OpenAPIPackage.INFO__TERMS_OF_SERVICE:
+				return getTermsOfService();
 			case OpenAPIPackage.INFO__CONTACT:
 				return getContact();
 			case OpenAPIPackage.INFO__LICENSE:
@@ -390,8 +390,8 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 			case OpenAPIPackage.INFO__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case OpenAPIPackage.INFO__TERMS_OF_SERVICES:
-				setTermsOfServices((String)newValue);
+			case OpenAPIPackage.INFO__TERMS_OF_SERVICE:
+				setTermsOfService((String)newValue);
 				return;
 			case OpenAPIPackage.INFO__CONTACT:
 				setContact((Contact)newValue);
@@ -420,8 +420,8 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 			case OpenAPIPackage.INFO__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case OpenAPIPackage.INFO__TERMS_OF_SERVICES:
-				setTermsOfServices(TERMS_OF_SERVICES_EDEFAULT);
+			case OpenAPIPackage.INFO__TERMS_OF_SERVICE:
+				setTermsOfService(TERMS_OF_SERVICE_EDEFAULT);
 				return;
 			case OpenAPIPackage.INFO__CONTACT:
 				setContact((Contact)null);
@@ -448,8 +448,8 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 			case OpenAPIPackage.INFO__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case OpenAPIPackage.INFO__TERMS_OF_SERVICES:
-				return TERMS_OF_SERVICES_EDEFAULT == null ? termsOfServices != null : !TERMS_OF_SERVICES_EDEFAULT.equals(termsOfServices);
+			case OpenAPIPackage.INFO__TERMS_OF_SERVICE:
+				return TERMS_OF_SERVICE_EDEFAULT == null ? termsOfService != null : !TERMS_OF_SERVICE_EDEFAULT.equals(termsOfService);
 			case OpenAPIPackage.INFO__CONTACT:
 				return contact != null;
 			case OpenAPIPackage.INFO__LICENSE:
@@ -474,8 +474,8 @@ public class InfoImpl extends MinimalEObjectImpl.Container implements Info {
 		result.append(title);
 		result.append(", description: ");
 		result.append(description);
-		result.append(", termsOfServices: ");
-		result.append(termsOfServices);
+		result.append(", termsOfService: ");
+		result.append(termsOfService);
 		result.append(", version: ");
 		result.append(version);
 		result.append(')');
