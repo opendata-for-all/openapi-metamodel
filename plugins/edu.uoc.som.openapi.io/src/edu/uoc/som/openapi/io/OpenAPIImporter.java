@@ -293,6 +293,7 @@ public class OpenAPIImporter {
 		if (schemaObject.has("properties")) {
 			Set<Entry<String, JsonElement>> properties = schemaObject.get("properties").getAsJsonObject().entrySet();
 			for (Entry<String, JsonElement> jsonProperty : properties) {
+				
 				Schema property = openAPIFactory.createSchema();
 				property.setName(jsonProperty.getKey());
 				property.setDeclaringContext(schema);
