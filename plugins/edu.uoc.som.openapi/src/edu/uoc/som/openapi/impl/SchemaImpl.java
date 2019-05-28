@@ -6,6 +6,7 @@ import edu.uoc.som.openapi.ExternalDocs;
 import edu.uoc.som.openapi.ExternalDocsContext;
 import edu.uoc.som.openapi.JSONPointer;
 import edu.uoc.som.openapi.OpenAPIPackage;
+import edu.uoc.som.openapi.Property;
 import edu.uoc.som.openapi.Schema;
 import edu.uoc.som.openapi.SchemaDeclaringContext;
 import edu.uoc.som.openapi.XMLElement;
@@ -24,7 +25,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +39,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getExternalDocs <em>External Docs</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getName <em>Name</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getMaxProperties <em>Max Properties</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getMinProperties <em>Min Properties</em>}</li>
@@ -50,7 +52,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getAdditonalProperties <em>Additonal Properties</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getDeclaringContext <em>Declaring Context</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getRequired <em>Required</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getValue <em>Value</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}</li>
  * </ul>
  *
@@ -76,26 +77,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * @ordered
 	 */
 	protected ExternalDocs externalDocs;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
@@ -218,14 +199,14 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	protected Boolean readOnly = READ_ONLY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' reference list.
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProperties()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Schema> properties;
+	protected EList<Property> properties;
 
 	/**
 	 * The cached value of the '{@link #getAllOf() <em>All Of</em>}' reference list.
@@ -288,16 +269,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	protected EList<Schema> required;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected Schema value;
-
-	/**
 	 * The default value of the '{@link #getAdditonalPropertiesAllowed() <em>Additonal Properties Allowed</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -343,18 +314,9 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 */
 	@Override
 	public String getRef() {
-		if (getDeclaringContext() instanceof edu.uoc.som.openapi.API) {
-			return ((edu.uoc.som.openapi.API) getDeclaringContext()).getRef() + "/definitions/" + getName();
-			} else if (getDeclaringContext() instanceof Schema) {
-		Schema context = (Schema) getDeclaringContext();	
-		if (context.getProperties().contains(this))
-			return context.getRef() + "/properties/" + getName();
-		else if (context.getItems().equals(this))
-			return context.getRef() + "/items";
-		else if (context.getAdditonalProperties().equals(this))
-			return context.getRef() + "/additionalProperties";
-					}
-			return "";
+		// TODO: implement this method to return the 'Ref' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -400,29 +362,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__EXTERNAL_DOCS, newExternalDocs, newExternalDocs));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__NAME, oldName, name));
 	}
 
 	/**
@@ -569,9 +508,9 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * @generated
 	 */
 	@Override
-	public EList<Schema> getProperties() {
+	public EList<Property> getProperties() {
 		if (properties == null) {
-			properties = new EObjectResolvingEList<Schema>(Schema.class, this, OpenAPIPackage.SCHEMA__PROPERTIES);
+			properties = new EObjectContainmentEList<Property>(Property.class, this, OpenAPIPackage.SCHEMA__PROPERTIES);
 		}
 		return properties;
 	}
@@ -773,46 +712,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * @generated
 	 */
 	@Override
-	public Schema getValue() {
-		if (value != null && value.eIsProxy()) {
-			InternalEObject oldValue = (InternalEObject)value;
-			value = (Schema)eResolveProxy(oldValue);
-			if (value != oldValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OpenAPIPackage.SCHEMA__VALUE, oldValue, value));
-			}
-		}
-		return value;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Schema basicGetValue() {
-		return value;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setValue(Schema newValue) {
-		Schema oldValue = value;
-		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__VALUE, oldValue, value));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Boolean getAdditonalPropertiesAllowed() {
 		return additonalPropertiesAllowed;
 	}
@@ -836,11 +735,11 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * @generated
 	 */
 	@Override
-	public Schema getPropertyByName(final String name) {
-		for (Schema property : getProperties())
-			if (property.getName().equals(name))
-				return property;
-		return null;
+	public Property getPropertyByName(final String name) {
+		for (Property property : getProperties())
+					if (property.getName().equals(name))
+						return property;
+				return null;
 	}
 
 	/**
@@ -853,6 +752,8 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		switch (featureID) {
 			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
 				return basicSetExternalDocs(null, msgs);
+			case OpenAPIPackage.SCHEMA__PROPERTIES:
+				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
 			case OpenAPIPackage.SCHEMA__XML:
 				return basicSetXml(null, msgs);
 		}
@@ -871,8 +772,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 				return getRef();
 			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
 				return getExternalDocs();
-			case OpenAPIPackage.SCHEMA__NAME:
-				return getName();
 			case OpenAPIPackage.SCHEMA__TITLE:
 				return getTitle();
 			case OpenAPIPackage.SCHEMA__MAX_PROPERTIES:
@@ -902,9 +801,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 				return basicGetDeclaringContext();
 			case OpenAPIPackage.SCHEMA__REQUIRED:
 				return getRequired();
-			case OpenAPIPackage.SCHEMA__VALUE:
-				if (resolve) return getValue();
-				return basicGetValue();
 			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
 				return getAdditonalPropertiesAllowed();
 		}
@@ -922,9 +818,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		switch (featureID) {
 			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
 				setExternalDocs((ExternalDocs)newValue);
-				return;
-			case OpenAPIPackage.SCHEMA__NAME:
-				setName((String)newValue);
 				return;
 			case OpenAPIPackage.SCHEMA__TITLE:
 				setTitle((String)newValue);
@@ -946,7 +839,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 				return;
 			case OpenAPIPackage.SCHEMA__PROPERTIES:
 				getProperties().clear();
-				getProperties().addAll((Collection<? extends Schema>)newValue);
+				getProperties().addAll((Collection<? extends Property>)newValue);
 				return;
 			case OpenAPIPackage.SCHEMA__ALL_OF:
 				getAllOf().clear();
@@ -968,9 +861,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 				getRequired().clear();
 				getRequired().addAll((Collection<? extends Schema>)newValue);
 				return;
-			case OpenAPIPackage.SCHEMA__VALUE:
-				setValue((Schema)newValue);
-				return;
 			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
 				setAdditonalPropertiesAllowed((Boolean)newValue);
 				return;
@@ -988,9 +878,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		switch (featureID) {
 			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
 				setExternalDocs((ExternalDocs)null);
-				return;
-			case OpenAPIPackage.SCHEMA__NAME:
-				setName(NAME_EDEFAULT);
 				return;
 			case OpenAPIPackage.SCHEMA__TITLE:
 				setTitle(TITLE_EDEFAULT);
@@ -1031,9 +918,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 			case OpenAPIPackage.SCHEMA__REQUIRED:
 				getRequired().clear();
 				return;
-			case OpenAPIPackage.SCHEMA__VALUE:
-				setValue((Schema)null);
-				return;
 			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
 				setAdditonalPropertiesAllowed(ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT);
 				return;
@@ -1053,8 +937,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
 			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
 				return externalDocs != null;
-			case OpenAPIPackage.SCHEMA__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case OpenAPIPackage.SCHEMA__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 			case OpenAPIPackage.SCHEMA__MAX_PROPERTIES:
@@ -1081,8 +963,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 				return declaringContext != null;
 			case OpenAPIPackage.SCHEMA__REQUIRED:
 				return required != null && !required.isEmpty();
-			case OpenAPIPackage.SCHEMA__VALUE:
-				return value != null;
 			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
 				return ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT == null ? additonalPropertiesAllowed != null : !ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT.equals(additonalPropertiesAllowed);
 		}
@@ -1167,9 +1047,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", title: ");
+		result.append(" (title: ");
 		result.append(title);
 		result.append(", maxProperties: ");
 		result.append(maxProperties);

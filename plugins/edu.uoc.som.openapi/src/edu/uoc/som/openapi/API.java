@@ -230,20 +230,20 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 	boolean isSetPaths();
 
 	/**
-	 * Returns the value of the '<em><b>Definitions</b></em>' reference list.
-	 * The list contents are of type {@link edu.uoc.som.openapi.Schema}.
+	 * Returns the value of the '<em><b>Definitions</b></em>' containment reference list.
+	 * The list contents are of type {@link edu.uoc.som.openapi.Definition}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Definitions</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Definitions</em>' reference list.
+	 * @return the value of the '<em>Definitions</em>' containment reference list.
 	 * @see edu.uoc.som.openapi.OpenAPIPackage#getAPI_Definitions()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Schema> getDefinitions();
+	EList<Definition> getDefinitions();
 
 	/**
 	 * Returns the value of the '<em><b>Responses</b></em>' containment reference list.
@@ -296,15 +296,6 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return \"#\";'"
-	 * @generated
-	 */
-	String getRef();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='return pathsIsSet();'"
 	 * @generated
 	 */
@@ -322,7 +313,7 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='List&lt;Schema&gt; schemas = this.getDefinitions();\r\nfor (Schema schema : schemas) {\r\n\tif (schema.getRef().equalsIgnoreCase(ref))\r\n\t\treturn schema;\r\n}\r\nreturn null;\t\t'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='\t\tList&lt;Definition&gt; definitions = this.getDefinitions();\n\t\tfor (Definition definition : definitions) {\n\t\t\tif (definition.getSchema().getRef().equalsIgnoreCase(ref))\n\t\t\t\treturn definition.getSchema();\n\t\t}\n\t\treturn null;\t'"
 	 * @generated
 	 */
 	Schema getSchemaByReference(String ref);
@@ -346,10 +337,10 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for (Schema schema : getDefinitions()) {\r\n\tif (schema.getName().equalsIgnoreCase(name))\r\n\t\treturn schema;\r\n}\r\nreturn null;'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for (Definition definition : getDefinitions()) {\n\t\t\tif (definition.getName().equalsIgnoreCase(name))\n\t\t\t\treturn definition;\n\t\t}\n\t\treturn null;'"
 	 * @generated
 	 */
-	Schema getSchemaByName(String name);
+	Definition getDefinitionByName(String name);
 
 	/**
 	 * <!-- begin-user-doc -->

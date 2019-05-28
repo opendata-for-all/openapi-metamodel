@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link edu.uoc.som.openapi.Schema#getName <em>Name</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Schema#getTitle <em>Title</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Schema#getMaxProperties <em>Max Properties</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Schema#getMinProperties <em>Min Properties</em>}</li>
@@ -27,7 +26,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link edu.uoc.som.openapi.Schema#getAdditonalProperties <em>Additonal Properties</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Schema#getDeclaringContext <em>Declaring Context</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Schema#getRequired <em>Required</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.Schema#getValue <em>Value</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Schema#getAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}</li>
  * </ul>
  *
@@ -36,32 +34,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPointer, ExternalDocsContext {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSchema_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.Schema#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -219,20 +191,20 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	void setReadOnly(Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Properties</b></em>' reference list.
-	 * The list contents are of type {@link edu.uoc.som.openapi.Schema}.
+	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+	 * The list contents are of type {@link edu.uoc.som.openapi.Property}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Properties</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Properties</em>' reference list.
+	 * @return the value of the '<em>Properties</em>' containment reference list.
 	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSchema_Properties()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Schema> getProperties();
+	EList<Property> getProperties();
 
 	/**
 	 * Returns the value of the '<em><b>All Of</b></em>' reference list.
@@ -371,32 +343,6 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	EList<Schema> getRequired();
 
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Value</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value</em>' reference.
-	 * @see #setValue(Schema)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSchema_Value()
-	 * @model
-	 * @generated
-	 */
-	Schema getValue();
-
-	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.Schema#getValue <em>Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' reference.
-	 * @see #getValue()
-	 * @generated
-	 */
-	void setValue(Schema value);
-
-	/**
 	 * Returns the value of the '<em><b>Additonal Properties Allowed</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -425,18 +371,9 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='if (getDeclaringContext() instanceof edu.uoc.som.openapi.API) {\r\n\treturn ((edu.uoc.som.openapi.API) getDeclaringContext()).getRef() + \"/definitions/\" + getName();\r\n\t} else if (getDeclaringContext() instanceof Schema) {\r\nSchema context = (Schema) getDeclaringContext();\t\r\nif (context.getProperties().contains(this))\r\n\treturn context.getRef() + \"/properties/\" + getName();\r\nelse if (context.getItems().equals(this))\r\n\treturn context.getRef() + \"/items\";\r\nelse if (context.getAdditonalProperties().equals(this))\r\n\treturn context.getRef() + \"/additionalProperties\";\r\n\t\t\t}\r\n\treturn \"\";'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for (Property property : getProperties())\n\t\t\tif (property.getName().equals(name))\n\t\t\t\treturn property;\n\t\treturn null;'"
 	 * @generated
 	 */
-	String getRef();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for (Schema property : getProperties())\r\n\tif (property.getName().equals(name))\r\n\t\treturn property;\r\nreturn null;'"
-	 * @generated
-	 */
-	Schema getPropertyByName(String name);
+	Property getPropertyByName(String name);
 
 } // Schema

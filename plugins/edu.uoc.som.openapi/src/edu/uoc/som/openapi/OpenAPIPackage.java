@@ -441,7 +441,7 @@ public interface OpenAPIPackage extends EPackage {
 	int API__PATHS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Definitions</b></em>' reference list.
+	 * The feature id for the '<em><b>Definitions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -486,22 +486,13 @@ public interface OpenAPIPackage extends EPackage {
 	int API_FEATURE_COUNT = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 16;
 
 	/**
-	 * The operation id for the '<em>Get Ref</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API___GET_REF = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Paths Is Set</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API___PATHS_IS_SET = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 1;
+	int API___PATHS_IS_SET = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get All Operations</em>' operation.
@@ -510,7 +501,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API___GET_ALL_OPERATIONS = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 2;
+	int API___GET_ALL_OPERATIONS = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Schema By Reference</em>' operation.
@@ -519,7 +510,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API___GET_SCHEMA_BY_REFERENCE__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 3;
+	int API___GET_SCHEMA_BY_REFERENCE__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Operation By Id</em>' operation.
@@ -528,7 +519,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API___GET_OPERATION_BY_ID__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 4;
+	int API___GET_OPERATION_BY_ID__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Path By Relative Path</em>' operation.
@@ -537,16 +528,16 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API___GET_PATH_BY_RELATIVE_PATH__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 5;
+	int API___GET_PATH_BY_RELATIVE_PATH__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Get Schema By Name</em>' operation.
+	 * The operation id for the '<em>Get Definition By Name</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API___GET_SCHEMA_BY_NAME__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 6;
+	int API___GET_DEFINITION_BY_NAME__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Parameter By Ref</em>' operation.
@@ -555,7 +546,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API___GET_PARAMETER_BY_REF__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 7;
+	int API___GET_PARAMETER_BY_REF__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Security Schema By Name</em>' operation.
@@ -564,7 +555,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API___GET_SECURITY_SCHEMA_BY_NAME__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 8;
+	int API___GET_SECURITY_SCHEMA_BY_NAME__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>API</em>' class.
@@ -573,7 +564,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION_COUNT = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 9;
+	int API_OPERATION_COUNT = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.InfoImpl <em>Info</em>}' class.
@@ -1774,22 +1765,13 @@ public interface OpenAPIPackage extends EPackage {
 	int SCHEMA__EXTERNAL_DOCS = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__NAME = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__TITLE = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 3;
+	int SCHEMA__TITLE = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Max Properties</b></em>' attribute.
@@ -1798,7 +1780,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__MAX_PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 4;
+	int SCHEMA__MAX_PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Min Properties</b></em>' attribute.
@@ -1807,7 +1789,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__MIN_PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 5;
+	int SCHEMA__MIN_PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Example</b></em>' attribute.
@@ -1816,7 +1798,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__EXAMPLE = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 6;
+	int SCHEMA__EXAMPLE = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Discriminator</b></em>' attribute.
@@ -1825,7 +1807,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__DISCRIMINATOR = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 7;
+	int SCHEMA__DISCRIMINATOR = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Read Only</b></em>' attribute.
@@ -1834,16 +1816,16 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__READ_ONLY = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 8;
+	int SCHEMA__READ_ONLY = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Properties</b></em>' reference list.
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 9;
+	int SCHEMA__PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>All Of</b></em>' reference list.
@@ -1852,7 +1834,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__ALL_OF = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 10;
+	int SCHEMA__ALL_OF = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Items</b></em>' reference.
@@ -1861,7 +1843,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__ITEMS = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 11;
+	int SCHEMA__ITEMS = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Xml</b></em>' containment reference.
@@ -1870,7 +1852,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__XML = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 12;
+	int SCHEMA__XML = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Additonal Properties</b></em>' reference.
@@ -1879,7 +1861,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__ADDITONAL_PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 13;
+	int SCHEMA__ADDITONAL_PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Declaring Context</b></em>' reference.
@@ -1888,7 +1870,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__DECLARING_CONTEXT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 14;
+	int SCHEMA__DECLARING_CONTEXT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Required</b></em>' reference list.
@@ -1897,16 +1879,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__REQUIRED = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 15;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__VALUE = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 16;
+	int SCHEMA__REQUIRED = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Additonal Properties Allowed</b></em>' attribute.
@@ -1915,7 +1888,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__ADDITONAL_PROPERTIES_ALLOWED = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 17;
+	int SCHEMA__ADDITONAL_PROPERTIES_ALLOWED = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 15;
 
 	/**
 	 * The number of structural features of the '<em>Schema</em>' class.
@@ -1924,16 +1897,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_FEATURE_COUNT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 18;
-
-	/**
-	 * The operation id for the '<em>Get Ref</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA___GET_REF = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 0;
+	int SCHEMA_FEATURE_COUNT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Get Property By Name</em>' operation.
@@ -1942,7 +1906,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA___GET_PROPERTY_BY_NAME__STRING = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 1;
+	int SCHEMA___GET_PROPERTY_BY_NAME__STRING = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Schema</em>' class.
@@ -1951,7 +1915,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_OPERATION_COUNT = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 2;
+	int SCHEMA_OPERATION_COUNT = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.ResponseImpl <em>Response</em>}' class.
@@ -2887,6 +2851,144 @@ public interface OpenAPIPackage extends EPackage {
 	int SECURITY_REQUIREMENT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.NamedElementImpl <em>Named Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.uoc.som.openapi.impl.NamedElementImpl
+	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getNamedElement()
+	 * @generated
+	 */
+	int NAMED_ELEMENT = 30;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Named Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Named Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.DefinitionImpl <em>Definition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.uoc.som.openapi.impl.DefinitionImpl
+	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getDefinition()
+	 * @generated
+	 */
+	int DEFINITION = 29;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Schema</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION__SCHEMA = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Ref</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION___GET_REF = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.PropertyImpl <em>Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.uoc.som.openapi.impl.PropertyImpl
+	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getProperty()
+	 * @generated
+	 */
+	int PROPERTY = 31;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Schema</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__SCHEMA = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.SchemeType <em>Scheme Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2894,7 +2996,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getSchemeType()
 	 * @generated
 	 */
-	int SCHEME_TYPE = 29;
+	int SCHEME_TYPE = 32;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.ParameterLocation <em>Parameter Location</em>}' enum.
@@ -2904,7 +3006,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getParameterLocation()
 	 * @generated
 	 */
-	int PARAMETER_LOCATION = 30;
+	int PARAMETER_LOCATION = 33;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.CollectionFormat <em>Collection Format</em>}' enum.
@@ -2914,7 +3016,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getCollectionFormat()
 	 * @generated
 	 */
-	int COLLECTION_FORMAT = 31;
+	int COLLECTION_FORMAT = 34;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.OAuth2FlowType <em>OAuth2 Flow Type</em>}' enum.
@@ -2924,7 +3026,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getOAuth2FlowType()
 	 * @generated
 	 */
-	int OAUTH2_FLOW_TYPE = 32;
+	int OAUTH2_FLOW_TYPE = 35;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.APIKeyLocation <em>API Key Location</em>}' enum.
@@ -2934,7 +3036,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getAPIKeyLocation()
 	 * @generated
 	 */
-	int API_KEY_LOCATION = 33;
+	int API_KEY_LOCATION = 36;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.SecuritySchemeType <em>Security Scheme Type</em>}' enum.
@@ -2944,7 +3046,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getSecuritySchemeType()
 	 * @generated
 	 */
-	int SECURITY_SCHEME_TYPE = 34;
+	int SECURITY_SCHEME_TYPE = 37;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.JSONDataType <em>JSON Data Type</em>}' enum.
@@ -2954,7 +3056,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getJSONDataType()
 	 * @generated
 	 */
-	int JSON_DATA_TYPE = 35;
+	int JSON_DATA_TYPE = 38;
 
 
 	/**
@@ -3296,10 +3398,10 @@ public interface OpenAPIPackage extends EPackage {
 	EReference getAPI_Paths();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.uoc.som.openapi.API#getDefinitions <em>Definitions</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi.API#getDefinitions <em>Definitions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Definitions</em>'.
+	 * @return the meta object for the containment reference list '<em>Definitions</em>'.
 	 * @see edu.uoc.som.openapi.API#getDefinitions()
 	 * @see #getAPI()
 	 * @generated
@@ -3338,16 +3440,6 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAPI_Tags();
-
-	/**
-	 * Returns the meta object for the '{@link edu.uoc.som.openapi.API#getRef() <em>Get Ref</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Ref</em>' operation.
-	 * @see edu.uoc.som.openapi.API#getRef()
-	 * @generated
-	 */
-	EOperation getAPI__GetRef();
 
 	/**
 	 * Returns the meta object for the '{@link edu.uoc.som.openapi.API#pathsIsSet() <em>Paths Is Set</em>}' operation.
@@ -3400,14 +3492,14 @@ public interface OpenAPIPackage extends EPackage {
 	EOperation getAPI__GetPathByRelativePath__String();
 
 	/**
-	 * Returns the meta object for the '{@link edu.uoc.som.openapi.API#getSchemaByName(java.lang.String) <em>Get Schema By Name</em>}' operation.
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.API#getDefinitionByName(java.lang.String) <em>Get Definition By Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Schema By Name</em>' operation.
-	 * @see edu.uoc.som.openapi.API#getSchemaByName(java.lang.String)
+	 * @return the meta object for the '<em>Get Definition By Name</em>' operation.
+	 * @see edu.uoc.som.openapi.API#getDefinitionByName(java.lang.String)
 	 * @generated
 	 */
-	EOperation getAPI__GetSchemaByName__String();
+	EOperation getAPI__GetDefinitionByName__String();
 
 	/**
 	 * Returns the meta object for the '{@link edu.uoc.som.openapi.API#getParameterByRef(java.lang.String) <em>Get Parameter By Ref</em>}' operation.
@@ -3998,17 +4090,6 @@ public interface OpenAPIPackage extends EPackage {
 	EClass getSchema();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.Schema#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see edu.uoc.som.openapi.Schema#getName()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EAttribute getSchema_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.Schema#getTitle <em>Title</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4075,10 +4156,10 @@ public interface OpenAPIPackage extends EPackage {
 	EAttribute getSchema_ReadOnly();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.uoc.som.openapi.Schema#getProperties <em>Properties</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi.Schema#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Properties</em>'.
+	 * @return the meta object for the containment reference list '<em>Properties</em>'.
 	 * @see edu.uoc.som.openapi.Schema#getProperties()
 	 * @see #getSchema()
 	 * @generated
@@ -4152,17 +4233,6 @@ public interface OpenAPIPackage extends EPackage {
 	EReference getSchema_Required();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.uoc.som.openapi.Schema#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Value</em>'.
-	 * @see edu.uoc.som.openapi.Schema#getValue()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EReference getSchema_Value();
-
-	/**
 	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.Schema#getAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4172,16 +4242,6 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSchema_AdditonalPropertiesAllowed();
-
-	/**
-	 * Returns the meta object for the '{@link edu.uoc.som.openapi.Schema#getRef() <em>Get Ref</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Ref</em>' operation.
-	 * @see edu.uoc.som.openapi.Schema#getRef()
-	 * @generated
-	 */
-	EOperation getSchema__GetRef();
 
 	/**
 	 * Returns the meta object for the '{@link edu.uoc.som.openapi.Schema#getPropertyByName(java.lang.String) <em>Get Property By Name</em>}' operation.
@@ -4770,6 +4830,79 @@ public interface OpenAPIPackage extends EPackage {
 	EReference getSecurityRequirement_SecuritySchema();
 
 	/**
+	 * Returns the meta object for class '{@link edu.uoc.som.openapi.Definition <em>Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Definition</em>'.
+	 * @see edu.uoc.som.openapi.Definition
+	 * @generated
+	 */
+	EClass getDefinition();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.uoc.som.openapi.Definition#getSchema <em>Schema</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Schema</em>'.
+	 * @see edu.uoc.som.openapi.Definition#getSchema()
+	 * @see #getDefinition()
+	 * @generated
+	 */
+	EReference getDefinition_Schema();
+
+	/**
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.Definition#getRef() <em>Get Ref</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Ref</em>' operation.
+	 * @see edu.uoc.som.openapi.Definition#getRef()
+	 * @generated
+	 */
+	EOperation getDefinition__GetRef();
+
+	/**
+	 * Returns the meta object for class '{@link edu.uoc.som.openapi.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Named Element</em>'.
+	 * @see edu.uoc.som.openapi.NamedElement
+	 * @generated
+	 */
+	EClass getNamedElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.NamedElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see edu.uoc.som.openapi.NamedElement#getName()
+	 * @see #getNamedElement()
+	 * @generated
+	 */
+	EAttribute getNamedElement_Name();
+
+	/**
+	 * Returns the meta object for class '{@link edu.uoc.som.openapi.Property <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Property</em>'.
+	 * @see edu.uoc.som.openapi.Property
+	 * @generated
+	 */
+	EClass getProperty();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.uoc.som.openapi.Property#getSchema <em>Schema</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Schema</em>'.
+	 * @see edu.uoc.som.openapi.Property#getSchema()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EReference getProperty_Schema();
+
+	/**
 	 * Returns the meta object for enum '{@link edu.uoc.som.openapi.SchemeType <em>Scheme Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5117,7 +5250,7 @@ public interface OpenAPIPackage extends EPackage {
 		EReference API__PATHS = eINSTANCE.getAPI_Paths();
 
 		/**
-		 * The meta object literal for the '<em><b>Definitions</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Definitions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5147,14 +5280,6 @@ public interface OpenAPIPackage extends EPackage {
 		 * @generated
 		 */
 		EReference API__TAGS = eINSTANCE.getAPI_Tags();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Ref</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation API___GET_REF = eINSTANCE.getAPI__GetRef();
 
 		/**
 		 * The meta object literal for the '<em><b>Paths Is Set</b></em>' operation.
@@ -5197,12 +5322,12 @@ public interface OpenAPIPackage extends EPackage {
 		EOperation API___GET_PATH_BY_RELATIVE_PATH__STRING = eINSTANCE.getAPI__GetPathByRelativePath__String();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Schema By Name</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Definition By Name</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation API___GET_SCHEMA_BY_NAME__STRING = eINSTANCE.getAPI__GetSchemaByName__String();
+		EOperation API___GET_DEFINITION_BY_NAME__STRING = eINSTANCE.getAPI__GetDefinitionByName__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Parameter By Ref</b></em>' operation.
@@ -5663,14 +5788,6 @@ public interface OpenAPIPackage extends EPackage {
 		EClass SCHEMA = eINSTANCE.getSchema();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA__NAME = eINSTANCE.getSchema_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5719,7 +5836,7 @@ public interface OpenAPIPackage extends EPackage {
 		EAttribute SCHEMA__READ_ONLY = eINSTANCE.getSchema_ReadOnly();
 
 		/**
-		 * The meta object literal for the '<em><b>Properties</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5775,28 +5892,12 @@ public interface OpenAPIPackage extends EPackage {
 		EReference SCHEMA__REQUIRED = eINSTANCE.getSchema_Required();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCHEMA__VALUE = eINSTANCE.getSchema_Value();
-
-		/**
 		 * The meta object literal for the '<em><b>Additonal Properties Allowed</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute SCHEMA__ADDITONAL_PROPERTIES_ALLOWED = eINSTANCE.getSchema_AdditonalPropertiesAllowed();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Ref</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SCHEMA___GET_REF = eINSTANCE.getSchema__GetRef();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Property By Name</b></em>' operation.
@@ -6271,6 +6372,68 @@ public interface OpenAPIPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SECURITY_REQUIREMENT__SECURITY_SCHEMA = eINSTANCE.getSecurityRequirement_SecuritySchema();
+
+		/**
+		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.DefinitionImpl <em>Definition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.uoc.som.openapi.impl.DefinitionImpl
+		 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getDefinition()
+		 * @generated
+		 */
+		EClass DEFINITION = eINSTANCE.getDefinition();
+
+		/**
+		 * The meta object literal for the '<em><b>Schema</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEFINITION__SCHEMA = eINSTANCE.getDefinition_Schema();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Ref</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DEFINITION___GET_REF = eINSTANCE.getDefinition__GetRef();
+
+		/**
+		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.NamedElementImpl <em>Named Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.uoc.som.openapi.impl.NamedElementImpl
+		 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getNamedElement()
+		 * @generated
+		 */
+		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
+
+		/**
+		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.PropertyImpl <em>Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.uoc.som.openapi.impl.PropertyImpl
+		 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getProperty()
+		 * @generated
+		 */
+		EClass PROPERTY = eINSTANCE.getProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Schema</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY__SCHEMA = eINSTANCE.getProperty_Schema();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi.SchemeType <em>Scheme Type</em>}' enum.

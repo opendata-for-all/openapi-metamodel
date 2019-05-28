@@ -6,6 +6,7 @@ import edu.uoc.som.openapi.APIKeyLocation;
 import edu.uoc.som.openapi.ArrayContext;
 import edu.uoc.som.openapi.CollectionFormat;
 import edu.uoc.som.openapi.Contact;
+import edu.uoc.som.openapi.Definition;
 import edu.uoc.som.openapi.Example;
 import edu.uoc.som.openapi.ExternalDocs;
 import edu.uoc.som.openapi.ExternalDocsContext;
@@ -16,6 +17,7 @@ import edu.uoc.som.openapi.JSONDataType;
 import edu.uoc.som.openapi.JSONPointer;
 import edu.uoc.som.openapi.JSONSchemaSubset;
 import edu.uoc.som.openapi.License;
+import edu.uoc.som.openapi.NamedElement;
 import edu.uoc.som.openapi.OAuth2FlowType;
 import edu.uoc.som.openapi.OpenAPIFactory;
 import edu.uoc.som.openapi.OpenAPIPackage;
@@ -25,6 +27,7 @@ import edu.uoc.som.openapi.ParameterContext;
 import edu.uoc.som.openapi.ParameterDeclaringContext;
 import edu.uoc.som.openapi.ParameterLocation;
 import edu.uoc.som.openapi.Path;
+import edu.uoc.som.openapi.Property;
 import edu.uoc.som.openapi.Response;
 import edu.uoc.som.openapi.ResponseDeclaringContext;
 import edu.uoc.som.openapi.Root;
@@ -261,6 +264,27 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	private EClass securityRequirementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass definitionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass namedElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propertyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -738,7 +762,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getAPI__GetRef() {
+	public EOperation getAPI__PathsIsSet() {
 		return apiEClass.getEOperations().get(0);
 	}
 
@@ -748,7 +772,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getAPI__PathsIsSet() {
+	public EOperation getAPI__GetAllOperations() {
 		return apiEClass.getEOperations().get(1);
 	}
 
@@ -758,7 +782,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getAPI__GetAllOperations() {
+	public EOperation getAPI__GetSchemaByReference__String() {
 		return apiEClass.getEOperations().get(2);
 	}
 
@@ -768,7 +792,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getAPI__GetSchemaByReference__String() {
+	public EOperation getAPI__GetOperationById__String() {
 		return apiEClass.getEOperations().get(3);
 	}
 
@@ -778,7 +802,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getAPI__GetOperationById__String() {
+	public EOperation getAPI__GetPathByRelativePath__String() {
 		return apiEClass.getEOperations().get(4);
 	}
 
@@ -788,7 +812,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getAPI__GetPathByRelativePath__String() {
+	public EOperation getAPI__GetDefinitionByName__String() {
 		return apiEClass.getEOperations().get(5);
 	}
 
@@ -798,7 +822,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getAPI__GetSchemaByName__String() {
+	public EOperation getAPI__GetParameterByRef__String() {
 		return apiEClass.getEOperations().get(6);
 	}
 
@@ -808,18 +832,8 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getAPI__GetParameterByRef__String() {
-		return apiEClass.getEOperations().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getAPI__GetSecuritySchemaByName__String() {
-		return apiEClass.getEOperations().get(8);
+		return apiEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -1358,7 +1372,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSchema_Name() {
+	public EAttribute getSchema_Title() {
 		return (EAttribute)schemaEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1368,7 +1382,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSchema_Title() {
+	public EAttribute getSchema_MaxProperties() {
 		return (EAttribute)schemaEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1378,7 +1392,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSchema_MaxProperties() {
+	public EAttribute getSchema_MinProperties() {
 		return (EAttribute)schemaEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1388,7 +1402,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSchema_MinProperties() {
+	public EAttribute getSchema_Example() {
 		return (EAttribute)schemaEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1398,7 +1412,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSchema_Example() {
+	public EAttribute getSchema_Discriminator() {
 		return (EAttribute)schemaEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1408,7 +1422,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSchema_Discriminator() {
+	public EAttribute getSchema_ReadOnly() {
 		return (EAttribute)schemaEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1418,18 +1432,8 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSchema_ReadOnly() {
-		return (EAttribute)schemaEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getSchema_Properties() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(7);
+		return (EReference)schemaEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1439,7 +1443,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 */
 	@Override
 	public EReference getSchema_AllOf() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(8);
+		return (EReference)schemaEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1449,7 +1453,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 */
 	@Override
 	public EReference getSchema_Items() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(9);
+		return (EReference)schemaEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1459,7 +1463,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 */
 	@Override
 	public EReference getSchema_Xml() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(10);
+		return (EReference)schemaEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1469,7 +1473,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 */
 	@Override
 	public EReference getSchema_AdditonalProperties() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(11);
+		return (EReference)schemaEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1479,7 +1483,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 */
 	@Override
 	public EReference getSchema_DeclaringContext() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(12);
+		return (EReference)schemaEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -1489,17 +1493,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 */
 	@Override
 	public EReference getSchema_Required() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSchema_Value() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(14);
+		return (EReference)schemaEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1509,17 +1503,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 */
 	@Override
 	public EAttribute getSchema_AdditonalPropertiesAllowed() {
-		return (EAttribute)schemaEClass.getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getSchema__GetRef() {
-		return schemaEClass.getEOperations().get(0);
+		return (EAttribute)schemaEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -1529,7 +1513,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 */
 	@Override
 	public EOperation getSchema__GetPropertyByName__String() {
-		return schemaEClass.getEOperations().get(1);
+		return schemaEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2078,6 +2062,76 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getDefinition() {
+		return definitionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDefinition_Schema() {
+		return (EReference)definitionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getDefinition__GetRef() {
+		return definitionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getNamedElement() {
+		return namedElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNamedElement_Name() {
+		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getProperty() {
+		return propertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getProperty_Schema() {
+		return (EReference)propertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getSchemeType() {
 		return schemeTypeEEnum;
 	}
@@ -2208,13 +2262,12 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		createEReference(apiEClass, API__RESPONSES);
 		createEReference(apiEClass, API__SECURITY_DEFINITIONS);
 		createEReference(apiEClass, API__TAGS);
-		createEOperation(apiEClass, API___GET_REF);
 		createEOperation(apiEClass, API___PATHS_IS_SET);
 		createEOperation(apiEClass, API___GET_ALL_OPERATIONS);
 		createEOperation(apiEClass, API___GET_SCHEMA_BY_REFERENCE__STRING);
 		createEOperation(apiEClass, API___GET_OPERATION_BY_ID__STRING);
 		createEOperation(apiEClass, API___GET_PATH_BY_RELATIVE_PATH__STRING);
-		createEOperation(apiEClass, API___GET_SCHEMA_BY_NAME__STRING);
+		createEOperation(apiEClass, API___GET_DEFINITION_BY_NAME__STRING);
 		createEOperation(apiEClass, API___GET_PARAMETER_BY_REF__STRING);
 		createEOperation(apiEClass, API___GET_SECURITY_SCHEMA_BY_NAME__STRING);
 
@@ -2279,7 +2332,6 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		itemsDefinitionEClass = createEClass(ITEMS_DEFINITION);
 
 		schemaEClass = createEClass(SCHEMA);
-		createEAttribute(schemaEClass, SCHEMA__NAME);
 		createEAttribute(schemaEClass, SCHEMA__TITLE);
 		createEAttribute(schemaEClass, SCHEMA__MAX_PROPERTIES);
 		createEAttribute(schemaEClass, SCHEMA__MIN_PROPERTIES);
@@ -2293,9 +2345,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		createEReference(schemaEClass, SCHEMA__ADDITONAL_PROPERTIES);
 		createEReference(schemaEClass, SCHEMA__DECLARING_CONTEXT);
 		createEReference(schemaEClass, SCHEMA__REQUIRED);
-		createEReference(schemaEClass, SCHEMA__VALUE);
 		createEAttribute(schemaEClass, SCHEMA__ADDITONAL_PROPERTIES_ALLOWED);
-		createEOperation(schemaEClass, SCHEMA___GET_REF);
 		createEOperation(schemaEClass, SCHEMA___GET_PROPERTY_BY_NAME__STRING);
 
 		responseEClass = createEClass(RESPONSE);
@@ -2369,6 +2419,16 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		createEReference(securityRequirementEClass, SECURITY_REQUIREMENT__SECURITY_SCOPES);
 		createEReference(securityRequirementEClass, SECURITY_REQUIREMENT__SECURITY_SCHEMA);
 
+		definitionEClass = createEClass(DEFINITION);
+		createEReference(definitionEClass, DEFINITION__SCHEMA);
+		createEOperation(definitionEClass, DEFINITION___GET_REF);
+
+		namedElementEClass = createEClass(NAMED_ELEMENT);
+		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
+
+		propertyEClass = createEClass(PROPERTY);
+		createEReference(propertyEClass, PROPERTY__SCHEMA);
+
 		// Create enums
 		schemeTypeEEnum = createEEnum(SCHEME_TYPE);
 		parameterLocationEEnum = createEEnum(PARAMETER_LOCATION);
@@ -2437,6 +2497,8 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		headerEClass.getESuperTypes().add(this.getJSONSchemaSubset());
 		headerEClass.getESuperTypes().add(this.getArrayContext());
 		tagEClass.getESuperTypes().add(this.getExternalDocsContext());
+		definitionEClass.getESuperTypes().add(this.getNamedElement());
+		propertyEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(jsonSchemaSubsetEClass, JSONSchemaSubset.class, "JSONSchemaSubset", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2472,12 +2534,10 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEAttribute(getAPI_Consumes(), ecorePackage.getEString(), "consumes", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAPI_Produces(), ecorePackage.getEString(), "produces", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPI_Paths(), this.getPath(), this.getPath_Api(), "paths", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAPI_Definitions(), this.getSchema(), null, "definitions", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAPI_Definitions(), this.getDefinition(), null, "definitions", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPI_Responses(), this.getResponse(), null, "responses", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPI_SecurityDefinitions(), this.getSecuritySchema(), null, "securityDefinitions", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPI_Tags(), this.getTag(), null, "tags", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getAPI__GetRef(), ecorePackage.getEString(), "getRef", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getAPI__PathsIsSet(), ecorePackage.getEBoolean(), "pathsIsSet", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -2492,7 +2552,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		op = initEOperation(getAPI__GetPathByRelativePath__String(), this.getPath(), "getPathByRelativePath", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "relativePath", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getAPI__GetSchemaByName__String(), this.getSchema(), "getSchemaByName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getAPI__GetDefinitionByName__String(), this.getDefinition(), "getDefinitionByName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getAPI__GetParameterByRef__String(), this.getParameter(), "getParameterByRef", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2569,26 +2629,22 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEClass(itemsDefinitionEClass, ItemsDefinition.class, "ItemsDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(schemaEClass, Schema.class, "Schema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSchema_Name(), ecorePackage.getEString(), "name", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchema_Title(), ecorePackage.getEString(), "title", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchema_MaxProperties(), ecorePackage.getEIntegerObject(), "maxProperties", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchema_MinProperties(), ecorePackage.getEIntegerObject(), "minProperties", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchema_Example(), ecorePackage.getEString(), "example", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchema_Discriminator(), ecorePackage.getEString(), "discriminator", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchema_ReadOnly(), ecorePackage.getEBooleanObject(), "readOnly", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchema_Properties(), this.getSchema(), null, "properties", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchema_Properties(), this.getProperty(), null, "properties", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchema_AllOf(), this.getSchema(), null, "allOf", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchema_Items(), this.getSchema(), null, "items", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchema_Xml(), this.getXMLElement(), null, "xml", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchema_AdditonalProperties(), this.getSchema(), null, "additonalProperties", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchema_DeclaringContext(), this.getSchemaDeclaringContext(), null, "declaringContext", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchema_Required(), this.getSchema(), null, "required", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchema_Value(), this.getSchema(), null, "value", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchema_AdditonalPropertiesAllowed(), ecorePackage.getEBooleanObject(), "additonalPropertiesAllowed", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getSchema__GetRef(), ecorePackage.getEString(), "getRef", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getSchema__GetPropertyByName__String(), this.getSchema(), "getPropertyByName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSchema__GetPropertyByName__String(), this.getProperty(), "getPropertyByName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(responseEClass, Response.class, "Response", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2663,6 +2719,17 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEClass(securityRequirementEClass, SecurityRequirement.class, "SecurityRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSecurityRequirement_SecurityScopes(), this.getSecurityScope(), null, "securityScopes", null, 0, -1, SecurityRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSecurityRequirement_SecuritySchema(), this.getSecuritySchema(), null, "securitySchema", null, 0, 1, SecurityRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(definitionEClass, Definition.class, "Definition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDefinition_Schema(), this.getSchema(), null, "schema", null, 1, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getDefinition__GetRef(), ecorePackage.getEString(), "getRef", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProperty_Schema(), this.getSchema(), null, "schema", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(schemeTypeEEnum, SchemeType.class, "SchemeType");

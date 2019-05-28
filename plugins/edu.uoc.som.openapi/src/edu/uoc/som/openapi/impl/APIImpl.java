@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import edu.uoc.som.openapi.API;
+import edu.uoc.som.openapi.Definition;
 import edu.uoc.som.openapi.ExternalDocs;
 import edu.uoc.som.openapi.ExternalDocsContext;
 import edu.uoc.som.openapi.Info;
@@ -221,14 +222,14 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	protected EList<Path> paths;
 
 	/**
-	 * The cached value of the '{@link #getDefinitions() <em>Definitions</em>}' reference list.
+	 * The cached value of the '{@link #getDefinitions() <em>Definitions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDefinitions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Schema> definitions;
+	protected EList<Definition> definitions;
 
 	/**
 	 * The cached value of the '{@link #getResponses() <em>Responses</em>}' containment reference list.
@@ -286,7 +287,9 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 */
 	@Override
 	public String getRef() {
-		return "#";
+		// TODO: implement this method to return the 'Ref' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -552,9 +555,9 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 * @generated
 	 */
 	@Override
-	public EList<Schema> getDefinitions() {
+	public EList<Definition> getDefinitions() {
 		if (definitions == null) {
-			definitions = new EObjectResolvingEList<Schema>(Schema.class, this, OpenAPIPackage.API__DEFINITIONS);
+			definitions = new EObjectContainmentEList<Definition>(Definition.class, this, OpenAPIPackage.API__DEFINITIONS);
 		}
 		return definitions;
 	}
@@ -633,12 +636,12 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 */
 	@Override
 	public Schema getSchemaByReference(final String ref) {
-		List<Schema> schemas = this.getDefinitions();
-		for (Schema schema : schemas) {
-			if (schema.getRef().equalsIgnoreCase(ref))
-				return schema;
-		}
-		return null;		
+				List<Definition> definitions = this.getDefinitions();
+				for (Definition definition : definitions) {
+					if (definition.getSchema().getRef().equalsIgnoreCase(ref))
+						return definition.getSchema();
+				}
+				return null;	
 	}
 
 	/**
@@ -677,12 +680,12 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 * @generated
 	 */
 	@Override
-	public Schema getSchemaByName(final String name) {
-		for (Schema schema : getDefinitions()) {
-			if (schema.getName().equalsIgnoreCase(name))
-				return schema;
-		}
-		return null;
+	public Definition getDefinitionByName(final String name) {
+		for (Definition definition : getDefinitions()) {
+					if (definition.getName().equalsIgnoreCase(name))
+						return definition;
+				}
+				return null;
 	}
 
 	/**
@@ -744,6 +747,8 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 				return basicSetInfo(null, msgs);
 			case OpenAPIPackage.API__PATHS:
 				return ((InternalEList<?>)getPaths()).basicRemove(otherEnd, msgs);
+			case OpenAPIPackage.API__DEFINITIONS:
+				return ((InternalEList<?>)getDefinitions()).basicRemove(otherEnd, msgs);
 			case OpenAPIPackage.API__RESPONSES:
 				return ((InternalEList<?>)getResponses()).basicRemove(otherEnd, msgs);
 			case OpenAPIPackage.API__SECURITY_DEFINITIONS:
@@ -848,7 +853,7 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 				return;
 			case OpenAPIPackage.API__DEFINITIONS:
 				getDefinitions().clear();
-				getDefinitions().addAll((Collection<? extends Schema>)newValue);
+				getDefinitions().addAll((Collection<? extends Definition>)newValue);
 				return;
 			case OpenAPIPackage.API__RESPONSES:
 				getResponses().clear();
@@ -1073,8 +1078,8 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 				return getOperationById((String)arguments.get(0));
 			case OpenAPIPackage.API___GET_PATH_BY_RELATIVE_PATH__STRING:
 				return getPathByRelativePath((String)arguments.get(0));
-			case OpenAPIPackage.API___GET_SCHEMA_BY_NAME__STRING:
-				return getSchemaByName((String)arguments.get(0));
+			case OpenAPIPackage.API___GET_DEFINITION_BY_NAME__STRING:
+				return getDefinitionByName((String)arguments.get(0));
 			case OpenAPIPackage.API___GET_PARAMETER_BY_REF__STRING:
 				return getParameterByRef((String)arguments.get(0));
 			case OpenAPIPackage.API___GET_SECURITY_SCHEMA_BY_NAME__STRING:

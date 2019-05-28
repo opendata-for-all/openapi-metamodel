@@ -262,6 +262,12 @@ public class OpenAPIValidator extends EObjectValidator {
 				return validateArrayContext((ArrayContext)value, diagnostics, context);
 			case OpenAPIPackage.SECURITY_REQUIREMENT:
 				return validateSecurityRequirement((SecurityRequirement)value, diagnostics, context);
+			case OpenAPIPackage.DEFINITION:
+				return validateDefinition((Definition)value, diagnostics, context);
+			case OpenAPIPackage.NAMED_ELEMENT:
+				return validateNamedElement((NamedElement)value, diagnostics, context);
+			case OpenAPIPackage.PROPERTY:
+				return validateProperty((Property)value, diagnostics, context);
 			case OpenAPIPackage.SCHEME_TYPE:
 				return validateSchemeType((SchemeType)value, diagnostics, context);
 			case OpenAPIPackage.PARAMETER_LOCATION:
@@ -1194,6 +1200,33 @@ public class OpenAPIValidator extends EObjectValidator {
 	 */
 	public boolean validateSecurityRequirement(SecurityRequirement securityRequirement, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(securityRequirement, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDefinition(Definition definition, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(definition, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateNamedElement(NamedElement namedElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(namedElement, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateProperty(Property property, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(property, diagnostics, context);
 	}
 
 	/**
