@@ -42,11 +42,6 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="API"/>
     </eAnnotations>
-    <eOperations name="getRef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="return &quot;#&quot;;"/>
-      </eAnnotations>
-    </eOperations>
     <eOperations name="pathsIsSet" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="body" value="return pathsIsSet();"/>
@@ -59,7 +54,7 @@
     </eOperations>
     <eOperations name="getSchemaByReference" eType="#//Schema">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="List&lt;Schema> schemas = this.getDefinitions();&#xD;&#xA;for (Schema schema : schemas) {&#xD;&#xA;&#x9;if (schema.getRef().equalsIgnoreCase(ref))&#xD;&#xA;&#x9;&#x9;return schema;&#xD;&#xA;}&#xD;&#xA;return null;&#x9;&#x9;"/>
+        <details key="body" value="&#x9;&#x9;List&lt;Definition> definitions = this.getDefinitions();&#xA;&#x9;&#x9;for (Definition definition : definitions) {&#xA;&#x9;&#x9;&#x9;if (definition.getSchema().getRef().equalsIgnoreCase(ref))&#xA;&#x9;&#x9;&#x9;&#x9;return definition.getSchema();&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;return null;&#x9;"/>
       </eAnnotations>
       <eParameters name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
@@ -75,9 +70,9 @@
       </eAnnotations>
       <eParameters name="relativePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="getSchemaByName" eType="#//Schema">
+    <eOperations name="getDefinitionByName" eType="#//Definition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="for (Schema schema : getDefinitions()) {&#xD;&#xA;&#x9;if (schema.getName().equalsIgnoreCase(name))&#xD;&#xA;&#x9;&#x9;return schema;&#xD;&#xA;}&#xD;&#xA;return null;"/>
+        <details key="body" value="for (Definition definition : getDefinitions()) {&#xA;&#x9;&#x9;&#x9;if (definition.getName().equalsIgnoreCase(name))&#xA;&#x9;&#x9;&#x9;&#x9;return definition;&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;return null;"/>
       </eAnnotations>
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
@@ -106,7 +101,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="paths" upperBound="-1"
         eType="#//Path" unsettable="true" containment="true" eOpposite="#//Path/api"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="definitions" upperBound="-1"
-        eType="#//Schema"/>
+        eType="#//Definition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="responses" upperBound="-1"
         eType="#//Response" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityDefinitions" upperBound="-1"
@@ -249,18 +244,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ItemsDefinition" eSuperTypes="#//JSONSchemaSubset #//ArrayContext"/>
   <eClassifiers xsi:type="ecore:EClass" name="Schema" eSuperTypes="#//JSONSchemaSubset #//SchemaDeclaringContext #//JSONPointer #//ExternalDocsContext">
-    <eOperations name="getRef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eOperations name="getPropertyByName" eType="#//Property">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="if (getDeclaringContext() instanceof edu.uoc.som.openapi.API) {&#xD;&#xA;&#x9;return ((edu.uoc.som.openapi.API) getDeclaringContext()).getRef() + &quot;/definitions/&quot; + getName();&#xD;&#xA;&#x9;} else if (getDeclaringContext() instanceof Schema) {&#xD;&#xA;Schema context = (Schema) getDeclaringContext();&#x9;&#xD;&#xA;if (context.getProperties().contains(this))&#xD;&#xA;&#x9;return context.getRef() + &quot;/properties/&quot; + getName();&#xD;&#xA;else if (context.getItems().equals(this))&#xD;&#xA;&#x9;return context.getRef() + &quot;/items&quot;;&#xD;&#xA;else if (context.getAdditonalProperties().equals(this))&#xD;&#xA;&#x9;return context.getRef() + &quot;/additionalProperties&quot;;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;return &quot;&quot;;"/>
-      </eAnnotations>
-    </eOperations>
-    <eOperations name="getPropertyByName" eType="#//Schema">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="for (Schema property : getProperties())&#xD;&#xA;&#x9;if (property.getName().equals(name))&#xD;&#xA;&#x9;&#x9;return property;&#xD;&#xA;return null;"/>
+        <details key="body" value="for (Property property : getProperties())&#xA;&#x9;&#x9;&#x9;if (property.getName().equals(name))&#xA;&#x9;&#x9;&#x9;&#x9;return property;&#xA;&#x9;&#x9;return null;"/>
       </eAnnotations>
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxProperties" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minProperties" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
@@ -268,7 +257,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="discriminator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//Schema"/>
+        eType="#//Property" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="allOf" upperBound="-1"
         eType="#//Schema"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" eType="#//Schema"/>
@@ -278,7 +267,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="declaringContext" eType="#//SchemaDeclaringContext"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="required" upperBound="-1"
         eType="#//Schema"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Schema"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="additonalPropertiesAllowed"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
   </eClassifiers>
@@ -414,5 +402,21 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityScopes" upperBound="-1"
         eType="#//SecurityScope"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="securitySchema" eType="#//SecuritySchema"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Definition" eSuperTypes="#//NamedElement">
+    <eOperations name="getRef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return &quot;#/definitions/&quot;+name;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schema" lowerBound="1"
+        eType="#//Schema"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schema" lowerBound="1"
+        eType="#//Schema"/>
   </eClassifiers>
 </ecore:EPackage>
