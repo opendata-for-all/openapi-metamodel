@@ -638,7 +638,7 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	public Schema getSchemaByReference(final String ref) {
 				List<Definition> definitions = this.getDefinitions();
 				for (Definition definition : definitions) {
-					if (definition.getSchema().getRef().equalsIgnoreCase(ref))
+					if (definition.getRef().equalsIgnoreCase(ref))
 						return definition.getSchema();
 				}
 				return null;	

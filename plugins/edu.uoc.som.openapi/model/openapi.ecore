@@ -54,7 +54,7 @@
     </eOperations>
     <eOperations name="getSchemaByReference" eType="#//Schema">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="&#x9;&#x9;List&lt;Definition> definitions = this.getDefinitions();&#xA;&#x9;&#x9;for (Definition definition : definitions) {&#xA;&#x9;&#x9;&#x9;if (definition.getSchema().getRef().equalsIgnoreCase(ref))&#xA;&#x9;&#x9;&#x9;&#x9;return definition.getSchema();&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;return null;&#x9;"/>
+        <details key="body" value="List&lt;Definition> definitions = this.getDefinitions();&#xA;&#x9;&#x9;&#x9;&#x9;for (Definition definition : definitions) {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;if (definition.getRef().equalsIgnoreCase(ref))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;return definition.getSchema();&#xA;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;return null;&#x9;"/>
       </eAnnotations>
       <eParameters name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
