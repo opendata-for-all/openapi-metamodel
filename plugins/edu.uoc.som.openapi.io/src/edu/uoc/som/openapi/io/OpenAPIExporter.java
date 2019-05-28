@@ -4,12 +4,14 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import edu.uoc.som.openapi.API;
+import edu.uoc.som.openapi.Definition;
 import edu.uoc.som.openapi.Info;
 import edu.uoc.som.openapi.JSONDataType;
 import edu.uoc.som.openapi.Operation;
 import edu.uoc.som.openapi.Parameter;
 import edu.uoc.som.openapi.ParameterLocation;
 import edu.uoc.som.openapi.Path;
+import edu.uoc.som.openapi.Property;
 import edu.uoc.som.openapi.Response;
 import edu.uoc.som.openapi.Root;
 import edu.uoc.som.openapi.Schema;
@@ -218,10 +220,10 @@ public class OpenAPIExporter {
 	}
 
 	private static void generateDefinitions(API api, JsonObject jsonDefinitions) {
-		for (Schema schema : api.getDefinitions()) {
+		for (Definition definition : api.getDefinitions()) {
 			JsonObject schemaJson = new JsonObject();
-			jsonDefinitions.add(schema.getName(), schemaJson);
-			generateSchema(schema, schemaJson);
+			jsonDefinitions.add(definition.getName(), schemaJson);
+			generateSchema(definition.getSchema(), schemaJson);
 		}
 
 	}
@@ -231,10 +233,10 @@ public class OpenAPIExporter {
 		if (!schema.getProperties().isEmpty()) {
 			JsonObject propertiesJson = new JsonObject();
 			schemaJson.add("properties", propertiesJson);
-			for (Schema property : schema.getProperties()) {
+			for (Property property : schema.getProperties()) {
 				JsonObject propertyJson = new JsonObject();
 				propertiesJson.add(property.getName(), propertyJson);
-				generateSchemaProperty(property, propertyJson);
+				generateSchemaProperty(property.getSchema(), propertyJson);
 			}
 
 		}
