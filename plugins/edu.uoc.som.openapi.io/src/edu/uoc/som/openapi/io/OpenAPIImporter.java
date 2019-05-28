@@ -19,6 +19,7 @@ import edu.uoc.som.openapi.API;
 import edu.uoc.som.openapi.APIKeyLocation;
 import edu.uoc.som.openapi.CollectionFormat;
 import edu.uoc.som.openapi.Contact;
+import edu.uoc.som.openapi.Definition;
 import edu.uoc.som.openapi.Example;
 import edu.uoc.som.openapi.ExternalDocs;
 import edu.uoc.som.openapi.Header;
@@ -32,6 +33,7 @@ import edu.uoc.som.openapi.Operation;
 import edu.uoc.som.openapi.Parameter;
 import edu.uoc.som.openapi.ParameterLocation;
 import edu.uoc.som.openapi.Path;
+import edu.uoc.som.openapi.Property;
 import edu.uoc.som.openapi.Response;
 import edu.uoc.som.openapi.Root;
 import edu.uoc.som.openapi.Schema;
@@ -236,14 +238,16 @@ public class OpenAPIImporter {
 		JsonObject definitionsObject = jsonElement.getAsJsonObject();
 		Set<Entry<String, JsonElement>> definitions = definitionsObject.entrySet();
 		for (Entry<String, JsonElement> definitionElement : definitions) {
+			Definition definition = openAPIFactory.createDefinition();
+			definition.setName(definitionElement.getKey());
 			Schema schema = openAPIFactory.createSchema();
-			schema.setName(definitionElement.getKey());
+			definition.setSchema(schema);
 			root.getSchemas().add(schema);
 			schema.setDeclaringContext(root.getApi());
-			root.getApi().getDefinitions().add(schema);
+			root.getApi().getDefinitions().add(definition);
 		}
 		for (Entry<String, JsonElement> definitionElement : definitions) {
-			importSchema(definitionElement.getValue().getAsJsonObject(),root.getApi().getSchemaByName(definitionElement.getKey()),root);
+			importSchema(definitionElement.getValue().getAsJsonObject(),root.getApi().getDefinitionByName(definitionElement.getKey()).getSchema(),root);
 		}
 	}
 
@@ -293,22 +297,23 @@ public class OpenAPIImporter {
 		if (schemaObject.has("properties")) {
 			Set<Entry<String, JsonElement>> properties = schemaObject.get("properties").getAsJsonObject().entrySet();
 			for (Entry<String, JsonElement> jsonProperty : properties) {
-				
-				Schema property = openAPIFactory.createSchema();
+				Property property = openAPIFactory.createProperty();
+				Schema propertyValue = openAPIFactory.createSchema();
 				property.setName(jsonProperty.getKey());
-				property.setDeclaringContext(schema);
-				root.getSchemas().add(property);
+				property.setSchema(propertyValue);
+				propertyValue.setDeclaringContext(schema);
+				root.getSchemas().add(propertyValue);
 				schema.getProperties().add(property);
 				JsonObject value = jsonProperty.getValue().getAsJsonObject();
 				if(value.has("$ref")) {
 					String ref = value.get("$ref").getAsString();
 					Schema referencedchema = root.getApi().getSchemaByReference(ref);
 					if(value != null) {
-						property.setValue(referencedchema);
+						property.setSchema(referencedchema);
 					}
 				}
 				else
-				importSchema(jsonProperty.getValue().getAsJsonObject(), property, root);
+				importSchema(jsonProperty.getValue().getAsJsonObject(), property.getSchema(), root);
 			}
 		}
 		if (schemaObject.has("additionalProperties")) {
