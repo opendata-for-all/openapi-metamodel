@@ -266,7 +266,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Schema> required;
+	protected EList<Property> required;
 
 	/**
 	 * The default value of the '{@link #getAdditonalPropertiesAllowed() <em>Additonal Properties Allowed</em>}' attribute.
@@ -699,9 +699,9 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * @generated
 	 */
 	@Override
-	public EList<Schema> getRequired() {
+	public EList<Property> getRequired() {
 		if (required == null) {
-			required = new EObjectResolvingEList<Schema>(Schema.class, this, OpenAPIPackage.SCHEMA__REQUIRED);
+			required = new EObjectResolvingEList<Property>(Property.class, this, OpenAPIPackage.SCHEMA__REQUIRED);
 		}
 		return required;
 	}
@@ -859,7 +859,7 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 				return;
 			case OpenAPIPackage.SCHEMA__REQUIRED:
 				getRequired().clear();
-				getRequired().addAll((Collection<? extends Schema>)newValue);
+				getRequired().addAll((Collection<? extends Property>)newValue);
 				return;
 			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
 				setAdditonalPropertiesAllowed((Boolean)newValue);

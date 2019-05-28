@@ -266,7 +266,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="additonalProperties" eType="#//Schema"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="declaringContext" eType="#//SchemaDeclaringContext"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="required" upperBound="-1"
-        eType="#//Schema"/>
+        eType="#//Property"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="additonalPropertiesAllowed"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
   </eClassifiers>

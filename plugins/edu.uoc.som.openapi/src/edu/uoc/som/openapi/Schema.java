@@ -328,7 +328,7 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 
 	/**
 	 * Returns the value of the '<em><b>Required</b></em>' reference list.
-	 * The list contents are of type {@link edu.uoc.som.openapi.Schema}.
+	 * The list contents are of type {@link edu.uoc.som.openapi.Property}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Required</em>' reference list isn't clear,
@@ -340,7 +340,7 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPo
 	 * @model
 	 * @generated
 	 */
-	EList<Schema> getRequired();
+	EList<Property> getRequired();
 
 	/**
 	 * Returns the value of the '<em><b>Additonal Properties Allowed</b></em>' attribute.
