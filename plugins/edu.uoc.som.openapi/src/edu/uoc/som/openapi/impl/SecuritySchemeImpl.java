@@ -5,7 +5,7 @@ package edu.uoc.som.openapi.impl;
 import edu.uoc.som.openapi.APIKeyLocation;
 import edu.uoc.som.openapi.OAuth2FlowType;
 import edu.uoc.som.openapi.OpenAPIPackage;
-import edu.uoc.som.openapi.SecuritySchema;
+import edu.uoc.som.openapi.SecurityScheme;
 import edu.uoc.som.openapi.SecuritySchemeType;
 import edu.uoc.som.openapi.SecurityScope;
 
@@ -29,26 +29,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Security Schema</b></em>'.
+ * An implementation of the model object '<em><b>Security Scheme</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl#getType <em>Type</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl#getName <em>Name</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl#getLocation <em>Location</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl#getFlow <em>Flow</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl#getAuthorizationUrl <em>Authorization Url</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl#getTokenUrl <em>Token Url</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl#getReferenceName <em>Reference Name</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl#getScopes <em>Scopes</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemeImpl#getType <em>Type</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemeImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemeImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemeImpl#getFlow <em>Flow</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemeImpl#getAuthorizationUrl <em>Authorization Url</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemeImpl#getTokenUrl <em>Token Url</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemeImpl#getReferenceName <em>Reference Name</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.SecuritySchemeImpl#getScopes <em>Scopes</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements SecuritySchema {
+public class SecuritySchemeImpl extends MinimalEObjectImpl.Container implements SecurityScheme {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -224,7 +224,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SecuritySchemaImpl() {
+	protected SecuritySchemeImpl() {
 		super();
 	}
 
@@ -235,7 +235,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return OpenAPIPackage.Literals.SECURITY_SCHEMA;
+		return OpenAPIPackage.Literals.SECURITY_SCHEME;
 	}
 
 	/**
@@ -258,7 +258,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 		SecuritySchemeType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEMA__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEME__TYPE, oldType, type));
 	}
 
 	/**
@@ -281,7 +281,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEMA__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEME__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -304,7 +304,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEMA__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEME__NAME, oldName, name));
 	}
 
 	/**
@@ -327,7 +327,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 		APIKeyLocation oldLocation = location;
 		location = newLocation == null ? LOCATION_EDEFAULT : newLocation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEMA__LOCATION, oldLocation, location));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEME__LOCATION, oldLocation, location));
 	}
 
 	/**
@@ -350,7 +350,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 		OAuth2FlowType oldFlow = flow;
 		flow = newFlow == null ? FLOW_EDEFAULT : newFlow;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEMA__FLOW, oldFlow, flow));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEME__FLOW, oldFlow, flow));
 	}
 
 	/**
@@ -373,7 +373,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 		String oldAuthorizationUrl = authorizationUrl;
 		authorizationUrl = newAuthorizationUrl;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEMA__AUTHORIZATION_URL, oldAuthorizationUrl, authorizationUrl));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEME__AUTHORIZATION_URL, oldAuthorizationUrl, authorizationUrl));
 	}
 
 	/**
@@ -396,7 +396,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 		String oldTokenUrl = tokenUrl;
 		tokenUrl = newTokenUrl;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEMA__TOKEN_URL, oldTokenUrl, tokenUrl));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEME__TOKEN_URL, oldTokenUrl, tokenUrl));
 	}
 
 	/**
@@ -419,7 +419,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 		String oldReferenceName = referenceName;
 		referenceName = newReferenceName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEMA__REFERENCE_NAME, oldReferenceName, referenceName));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_SCHEME__REFERENCE_NAME, oldReferenceName, referenceName));
 	}
 
 	/**
@@ -430,7 +430,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public EList<SecurityScope> getScopes() {
 		if (scopes == null) {
-			scopes = new EObjectContainmentEList<SecurityScope>(SecurityScope.class, this, OpenAPIPackage.SECURITY_SCHEMA__SCOPES);
+			scopes = new EObjectContainmentEList<SecurityScope>(SecurityScope.class, this, OpenAPIPackage.SECURITY_SCHEME__SCOPES);
 		}
 		return scopes;
 	}
@@ -456,7 +456,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case OpenAPIPackage.SECURITY_SCHEMA__SCOPES:
+			case OpenAPIPackage.SECURITY_SCHEME__SCOPES:
 				return ((InternalEList<?>)getScopes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -470,23 +470,23 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case OpenAPIPackage.SECURITY_SCHEMA__TYPE:
+			case OpenAPIPackage.SECURITY_SCHEME__TYPE:
 				return getType();
-			case OpenAPIPackage.SECURITY_SCHEMA__DESCRIPTION:
+			case OpenAPIPackage.SECURITY_SCHEME__DESCRIPTION:
 				return getDescription();
-			case OpenAPIPackage.SECURITY_SCHEMA__NAME:
+			case OpenAPIPackage.SECURITY_SCHEME__NAME:
 				return getName();
-			case OpenAPIPackage.SECURITY_SCHEMA__LOCATION:
+			case OpenAPIPackage.SECURITY_SCHEME__LOCATION:
 				return getLocation();
-			case OpenAPIPackage.SECURITY_SCHEMA__FLOW:
+			case OpenAPIPackage.SECURITY_SCHEME__FLOW:
 				return getFlow();
-			case OpenAPIPackage.SECURITY_SCHEMA__AUTHORIZATION_URL:
+			case OpenAPIPackage.SECURITY_SCHEME__AUTHORIZATION_URL:
 				return getAuthorizationUrl();
-			case OpenAPIPackage.SECURITY_SCHEMA__TOKEN_URL:
+			case OpenAPIPackage.SECURITY_SCHEME__TOKEN_URL:
 				return getTokenUrl();
-			case OpenAPIPackage.SECURITY_SCHEMA__REFERENCE_NAME:
+			case OpenAPIPackage.SECURITY_SCHEME__REFERENCE_NAME:
 				return getReferenceName();
-			case OpenAPIPackage.SECURITY_SCHEMA__SCOPES:
+			case OpenAPIPackage.SECURITY_SCHEME__SCOPES:
 				return getScopes();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -501,31 +501,31 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case OpenAPIPackage.SECURITY_SCHEMA__TYPE:
+			case OpenAPIPackage.SECURITY_SCHEME__TYPE:
 				setType((SecuritySchemeType)newValue);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__DESCRIPTION:
+			case OpenAPIPackage.SECURITY_SCHEME__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__NAME:
+			case OpenAPIPackage.SECURITY_SCHEME__NAME:
 				setName((String)newValue);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__LOCATION:
+			case OpenAPIPackage.SECURITY_SCHEME__LOCATION:
 				setLocation((APIKeyLocation)newValue);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__FLOW:
+			case OpenAPIPackage.SECURITY_SCHEME__FLOW:
 				setFlow((OAuth2FlowType)newValue);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__AUTHORIZATION_URL:
+			case OpenAPIPackage.SECURITY_SCHEME__AUTHORIZATION_URL:
 				setAuthorizationUrl((String)newValue);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__TOKEN_URL:
+			case OpenAPIPackage.SECURITY_SCHEME__TOKEN_URL:
 				setTokenUrl((String)newValue);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__REFERENCE_NAME:
+			case OpenAPIPackage.SECURITY_SCHEME__REFERENCE_NAME:
 				setReferenceName((String)newValue);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__SCOPES:
+			case OpenAPIPackage.SECURITY_SCHEME__SCOPES:
 				getScopes().clear();
 				getScopes().addAll((Collection<? extends SecurityScope>)newValue);
 				return;
@@ -541,31 +541,31 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case OpenAPIPackage.SECURITY_SCHEMA__TYPE:
+			case OpenAPIPackage.SECURITY_SCHEME__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__DESCRIPTION:
+			case OpenAPIPackage.SECURITY_SCHEME__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__NAME:
+			case OpenAPIPackage.SECURITY_SCHEME__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__LOCATION:
+			case OpenAPIPackage.SECURITY_SCHEME__LOCATION:
 				setLocation(LOCATION_EDEFAULT);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__FLOW:
+			case OpenAPIPackage.SECURITY_SCHEME__FLOW:
 				setFlow(FLOW_EDEFAULT);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__AUTHORIZATION_URL:
+			case OpenAPIPackage.SECURITY_SCHEME__AUTHORIZATION_URL:
 				setAuthorizationUrl(AUTHORIZATION_URL_EDEFAULT);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__TOKEN_URL:
+			case OpenAPIPackage.SECURITY_SCHEME__TOKEN_URL:
 				setTokenUrl(TOKEN_URL_EDEFAULT);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__REFERENCE_NAME:
+			case OpenAPIPackage.SECURITY_SCHEME__REFERENCE_NAME:
 				setReferenceName(REFERENCE_NAME_EDEFAULT);
 				return;
-			case OpenAPIPackage.SECURITY_SCHEMA__SCOPES:
+			case OpenAPIPackage.SECURITY_SCHEME__SCOPES:
 				getScopes().clear();
 				return;
 		}
@@ -580,23 +580,23 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case OpenAPIPackage.SECURITY_SCHEMA__TYPE:
+			case OpenAPIPackage.SECURITY_SCHEME__TYPE:
 				return type != TYPE_EDEFAULT;
-			case OpenAPIPackage.SECURITY_SCHEMA__DESCRIPTION:
+			case OpenAPIPackage.SECURITY_SCHEME__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case OpenAPIPackage.SECURITY_SCHEMA__NAME:
+			case OpenAPIPackage.SECURITY_SCHEME__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case OpenAPIPackage.SECURITY_SCHEMA__LOCATION:
+			case OpenAPIPackage.SECURITY_SCHEME__LOCATION:
 				return location != LOCATION_EDEFAULT;
-			case OpenAPIPackage.SECURITY_SCHEMA__FLOW:
+			case OpenAPIPackage.SECURITY_SCHEME__FLOW:
 				return flow != FLOW_EDEFAULT;
-			case OpenAPIPackage.SECURITY_SCHEMA__AUTHORIZATION_URL:
+			case OpenAPIPackage.SECURITY_SCHEME__AUTHORIZATION_URL:
 				return AUTHORIZATION_URL_EDEFAULT == null ? authorizationUrl != null : !AUTHORIZATION_URL_EDEFAULT.equals(authorizationUrl);
-			case OpenAPIPackage.SECURITY_SCHEMA__TOKEN_URL:
+			case OpenAPIPackage.SECURITY_SCHEME__TOKEN_URL:
 				return TOKEN_URL_EDEFAULT == null ? tokenUrl != null : !TOKEN_URL_EDEFAULT.equals(tokenUrl);
-			case OpenAPIPackage.SECURITY_SCHEMA__REFERENCE_NAME:
+			case OpenAPIPackage.SECURITY_SCHEME__REFERENCE_NAME:
 				return REFERENCE_NAME_EDEFAULT == null ? referenceName != null : !REFERENCE_NAME_EDEFAULT.equals(referenceName);
-			case OpenAPIPackage.SECURITY_SCHEMA__SCOPES:
+			case OpenAPIPackage.SECURITY_SCHEME__SCOPES:
 				return scopes != null && !scopes.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -610,7 +610,7 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case OpenAPIPackage.SECURITY_SCHEMA___GET_SECURITY_SCOPE_BY_NAME__STRING:
+			case OpenAPIPackage.SECURITY_SCHEME___GET_SECURITY_SCOPE_BY_NAME__STRING:
 				return getSecurityScopeByName((String)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
@@ -646,4 +646,4 @@ public class SecuritySchemaImpl extends MinimalEObjectImpl.Container implements 
 		return result.toString();
 	}
 
-} //SecuritySchemaImpl
+} //SecuritySchemeImpl

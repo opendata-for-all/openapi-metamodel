@@ -128,8 +128,8 @@ public class OpenAPIAdapterFactory extends AdapterFactoryImpl {
 				return createTagAdapter();
 			}
 			@Override
-			public Adapter caseSecuritySchema(SecuritySchema object) {
-				return createSecuritySchemaAdapter();
+			public Adapter caseSecurityScheme(SecurityScheme object) {
+				return createSecuritySchemeAdapter();
 			}
 			@Override
 			public Adapter caseExample(Example object) {
@@ -426,16 +426,16 @@ public class OpenAPIAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.uoc.som.openapi.SecuritySchema <em>Security Schema</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.uoc.som.openapi.SecurityScheme <em>Security Scheme</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.uoc.som.openapi.SecuritySchema
+	 * @see edu.uoc.som.openapi.SecurityScheme
 	 * @generated
 	 */
-	public Adapter createSecuritySchemaAdapter() {
+	public Adapter createSecuritySchemeAdapter() {
 		return null;
 	}
 

@@ -2300,14 +2300,14 @@ public interface OpenAPIPackage extends EPackage {
 	int TAG_OPERATION_COUNT = EXTERNAL_DOCS_CONTEXT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl <em>Security Schema</em>}' class.
+	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.SecuritySchemeImpl <em>Security Scheme</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.uoc.som.openapi.impl.SecuritySchemaImpl
-	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getSecuritySchema()
+	 * @see edu.uoc.som.openapi.impl.SecuritySchemeImpl
+	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getSecurityScheme()
 	 * @generated
 	 */
-	int SECURITY_SCHEMA = 15;
+	int SECURITY_SCHEME = 15;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2316,7 +2316,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEMA__TYPE = 0;
+	int SECURITY_SCHEME__TYPE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2325,7 +2325,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEMA__DESCRIPTION = 1;
+	int SECURITY_SCHEME__DESCRIPTION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2334,7 +2334,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEMA__NAME = 2;
+	int SECURITY_SCHEME__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -2343,7 +2343,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEMA__LOCATION = 3;
+	int SECURITY_SCHEME__LOCATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Flow</b></em>' attribute.
@@ -2352,7 +2352,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEMA__FLOW = 4;
+	int SECURITY_SCHEME__FLOW = 4;
 
 	/**
 	 * The feature id for the '<em><b>Authorization Url</b></em>' attribute.
@@ -2361,7 +2361,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEMA__AUTHORIZATION_URL = 5;
+	int SECURITY_SCHEME__AUTHORIZATION_URL = 5;
 
 	/**
 	 * The feature id for the '<em><b>Token Url</b></em>' attribute.
@@ -2370,7 +2370,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEMA__TOKEN_URL = 6;
+	int SECURITY_SCHEME__TOKEN_URL = 6;
 
 	/**
 	 * The feature id for the '<em><b>Reference Name</b></em>' attribute.
@@ -2379,7 +2379,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEMA__REFERENCE_NAME = 7;
+	int SECURITY_SCHEME__REFERENCE_NAME = 7;
 
 	/**
 	 * The feature id for the '<em><b>Scopes</b></em>' containment reference list.
@@ -2388,16 +2388,16 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEMA__SCOPES = 8;
+	int SECURITY_SCHEME__SCOPES = 8;
 
 	/**
-	 * The number of structural features of the '<em>Security Schema</em>' class.
+	 * The number of structural features of the '<em>Security Scheme</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEMA_FEATURE_COUNT = 9;
+	int SECURITY_SCHEME_FEATURE_COUNT = 9;
 
 	/**
 	 * The operation id for the '<em>Get Security Scope By Name</em>' operation.
@@ -2406,16 +2406,16 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEMA___GET_SECURITY_SCOPE_BY_NAME__STRING = 0;
+	int SECURITY_SCHEME___GET_SECURITY_SCOPE_BY_NAME__STRING = 0;
 
 	/**
-	 * The number of operations of the '<em>Security Schema</em>' class.
+	 * The number of operations of the '<em>Security Scheme</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_SCHEMA_OPERATION_COUNT = 1;
+	int SECURITY_SCHEME_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.ExampleImpl <em>Example</em>}' class.
@@ -4383,123 +4383,123 @@ public interface OpenAPIPackage extends EPackage {
 	EAttribute getTag_Description();
 
 	/**
-	 * Returns the meta object for class '{@link edu.uoc.som.openapi.SecuritySchema <em>Security Schema</em>}'.
+	 * Returns the meta object for class '{@link edu.uoc.som.openapi.SecurityScheme <em>Security Scheme</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Security Schema</em>'.
-	 * @see edu.uoc.som.openapi.SecuritySchema
+	 * @return the meta object for class '<em>Security Scheme</em>'.
+	 * @see edu.uoc.som.openapi.SecurityScheme
 	 * @generated
 	 */
-	EClass getSecuritySchema();
+	EClass getSecurityScheme();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.SecuritySchema#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.SecurityScheme#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see edu.uoc.som.openapi.SecuritySchema#getType()
-	 * @see #getSecuritySchema()
+	 * @see edu.uoc.som.openapi.SecurityScheme#getType()
+	 * @see #getSecurityScheme()
 	 * @generated
 	 */
-	EAttribute getSecuritySchema_Type();
+	EAttribute getSecurityScheme_Type();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.SecuritySchema#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.SecurityScheme#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see edu.uoc.som.openapi.SecuritySchema#getDescription()
-	 * @see #getSecuritySchema()
+	 * @see edu.uoc.som.openapi.SecurityScheme#getDescription()
+	 * @see #getSecurityScheme()
 	 * @generated
 	 */
-	EAttribute getSecuritySchema_Description();
+	EAttribute getSecurityScheme_Description();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.SecuritySchema#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.SecurityScheme#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see edu.uoc.som.openapi.SecuritySchema#getName()
-	 * @see #getSecuritySchema()
+	 * @see edu.uoc.som.openapi.SecurityScheme#getName()
+	 * @see #getSecurityScheme()
 	 * @generated
 	 */
-	EAttribute getSecuritySchema_Name();
+	EAttribute getSecurityScheme_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.SecuritySchema#getLocation <em>Location</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.SecurityScheme#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Location</em>'.
-	 * @see edu.uoc.som.openapi.SecuritySchema#getLocation()
-	 * @see #getSecuritySchema()
+	 * @see edu.uoc.som.openapi.SecurityScheme#getLocation()
+	 * @see #getSecurityScheme()
 	 * @generated
 	 */
-	EAttribute getSecuritySchema_Location();
+	EAttribute getSecurityScheme_Location();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.SecuritySchema#getFlow <em>Flow</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.SecurityScheme#getFlow <em>Flow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Flow</em>'.
-	 * @see edu.uoc.som.openapi.SecuritySchema#getFlow()
-	 * @see #getSecuritySchema()
+	 * @see edu.uoc.som.openapi.SecurityScheme#getFlow()
+	 * @see #getSecurityScheme()
 	 * @generated
 	 */
-	EAttribute getSecuritySchema_Flow();
+	EAttribute getSecurityScheme_Flow();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.SecuritySchema#getAuthorizationUrl <em>Authorization Url</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.SecurityScheme#getAuthorizationUrl <em>Authorization Url</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Authorization Url</em>'.
-	 * @see edu.uoc.som.openapi.SecuritySchema#getAuthorizationUrl()
-	 * @see #getSecuritySchema()
+	 * @see edu.uoc.som.openapi.SecurityScheme#getAuthorizationUrl()
+	 * @see #getSecurityScheme()
 	 * @generated
 	 */
-	EAttribute getSecuritySchema_AuthorizationUrl();
+	EAttribute getSecurityScheme_AuthorizationUrl();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.SecuritySchema#getTokenUrl <em>Token Url</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.SecurityScheme#getTokenUrl <em>Token Url</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Token Url</em>'.
-	 * @see edu.uoc.som.openapi.SecuritySchema#getTokenUrl()
-	 * @see #getSecuritySchema()
+	 * @see edu.uoc.som.openapi.SecurityScheme#getTokenUrl()
+	 * @see #getSecurityScheme()
 	 * @generated
 	 */
-	EAttribute getSecuritySchema_TokenUrl();
+	EAttribute getSecurityScheme_TokenUrl();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.SecuritySchema#getReferenceName <em>Reference Name</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.SecurityScheme#getReferenceName <em>Reference Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Reference Name</em>'.
-	 * @see edu.uoc.som.openapi.SecuritySchema#getReferenceName()
-	 * @see #getSecuritySchema()
+	 * @see edu.uoc.som.openapi.SecurityScheme#getReferenceName()
+	 * @see #getSecurityScheme()
 	 * @generated
 	 */
-	EAttribute getSecuritySchema_ReferenceName();
+	EAttribute getSecurityScheme_ReferenceName();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi.SecuritySchema#getScopes <em>Scopes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi.SecurityScheme#getScopes <em>Scopes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Scopes</em>'.
-	 * @see edu.uoc.som.openapi.SecuritySchema#getScopes()
-	 * @see #getSecuritySchema()
+	 * @see edu.uoc.som.openapi.SecurityScheme#getScopes()
+	 * @see #getSecurityScheme()
 	 * @generated
 	 */
-	EReference getSecuritySchema_Scopes();
+	EReference getSecurityScheme_Scopes();
 
 	/**
-	 * Returns the meta object for the '{@link edu.uoc.som.openapi.SecuritySchema#getSecurityScopeByName(java.lang.String) <em>Get Security Scope By Name</em>}' operation.
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.SecurityScheme#getSecurityScopeByName(java.lang.String) <em>Get Security Scope By Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Security Scope By Name</em>' operation.
-	 * @see edu.uoc.som.openapi.SecuritySchema#getSecurityScopeByName(java.lang.String)
+	 * @see edu.uoc.som.openapi.SecurityScheme#getSecurityScopeByName(java.lang.String)
 	 * @generated
 	 */
-	EOperation getSecuritySchema__GetSecurityScopeByName__String();
+	EOperation getSecurityScheme__GetSecurityScopeByName__String();
 
 	/**
 	 * Returns the meta object for class '{@link edu.uoc.som.openapi.Example <em>Example</em>}'.
@@ -6010,14 +6010,14 @@ public interface OpenAPIPackage extends EPackage {
 		EAttribute TAG__DESCRIPTION = eINSTANCE.getTag_Description();
 
 		/**
-		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.SecuritySchemaImpl <em>Security Schema</em>}' class.
+		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.SecuritySchemeImpl <em>Security Scheme</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.uoc.som.openapi.impl.SecuritySchemaImpl
-		 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getSecuritySchema()
+		 * @see edu.uoc.som.openapi.impl.SecuritySchemeImpl
+		 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getSecurityScheme()
 		 * @generated
 		 */
-		EClass SECURITY_SCHEMA = eINSTANCE.getSecuritySchema();
+		EClass SECURITY_SCHEME = eINSTANCE.getSecurityScheme();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -6025,7 +6025,7 @@ public interface OpenAPIPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SECURITY_SCHEMA__TYPE = eINSTANCE.getSecuritySchema_Type();
+		EAttribute SECURITY_SCHEME__TYPE = eINSTANCE.getSecurityScheme_Type();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -6033,7 +6033,7 @@ public interface OpenAPIPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SECURITY_SCHEMA__DESCRIPTION = eINSTANCE.getSecuritySchema_Description();
+		EAttribute SECURITY_SCHEME__DESCRIPTION = eINSTANCE.getSecurityScheme_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -6041,7 +6041,7 @@ public interface OpenAPIPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SECURITY_SCHEMA__NAME = eINSTANCE.getSecuritySchema_Name();
+		EAttribute SECURITY_SCHEME__NAME = eINSTANCE.getSecurityScheme_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
@@ -6049,7 +6049,7 @@ public interface OpenAPIPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SECURITY_SCHEMA__LOCATION = eINSTANCE.getSecuritySchema_Location();
+		EAttribute SECURITY_SCHEME__LOCATION = eINSTANCE.getSecurityScheme_Location();
 
 		/**
 		 * The meta object literal for the '<em><b>Flow</b></em>' attribute feature.
@@ -6057,7 +6057,7 @@ public interface OpenAPIPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SECURITY_SCHEMA__FLOW = eINSTANCE.getSecuritySchema_Flow();
+		EAttribute SECURITY_SCHEME__FLOW = eINSTANCE.getSecurityScheme_Flow();
 
 		/**
 		 * The meta object literal for the '<em><b>Authorization Url</b></em>' attribute feature.
@@ -6065,7 +6065,7 @@ public interface OpenAPIPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SECURITY_SCHEMA__AUTHORIZATION_URL = eINSTANCE.getSecuritySchema_AuthorizationUrl();
+		EAttribute SECURITY_SCHEME__AUTHORIZATION_URL = eINSTANCE.getSecurityScheme_AuthorizationUrl();
 
 		/**
 		 * The meta object literal for the '<em><b>Token Url</b></em>' attribute feature.
@@ -6073,7 +6073,7 @@ public interface OpenAPIPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SECURITY_SCHEMA__TOKEN_URL = eINSTANCE.getSecuritySchema_TokenUrl();
+		EAttribute SECURITY_SCHEME__TOKEN_URL = eINSTANCE.getSecurityScheme_TokenUrl();
 
 		/**
 		 * The meta object literal for the '<em><b>Reference Name</b></em>' attribute feature.
@@ -6081,7 +6081,7 @@ public interface OpenAPIPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SECURITY_SCHEMA__REFERENCE_NAME = eINSTANCE.getSecuritySchema_ReferenceName();
+		EAttribute SECURITY_SCHEME__REFERENCE_NAME = eINSTANCE.getSecurityScheme_ReferenceName();
 
 		/**
 		 * The meta object literal for the '<em><b>Scopes</b></em>' containment reference list feature.
@@ -6089,7 +6089,7 @@ public interface OpenAPIPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SECURITY_SCHEMA__SCOPES = eINSTANCE.getSecuritySchema_Scopes();
+		EReference SECURITY_SCHEME__SCOPES = eINSTANCE.getSecurityScheme_Scopes();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Security Scope By Name</b></em>' operation.
@@ -6097,7 +6097,7 @@ public interface OpenAPIPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SECURITY_SCHEMA___GET_SECURITY_SCOPE_BY_NAME__STRING = eINSTANCE.getSecuritySchema__GetSecurityScopeByName__String();
+		EOperation SECURITY_SCHEME___GET_SECURITY_SCOPE_BY_NAME__STRING = eINSTANCE.getSecurityScheme__GetSecurityScopeByName__String();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.ExampleImpl <em>Example</em>}' class.

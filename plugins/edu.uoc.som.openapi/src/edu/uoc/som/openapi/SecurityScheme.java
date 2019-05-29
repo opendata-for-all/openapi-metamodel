@@ -8,49 +8,45 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Security Schema</b></em>'.
+ * A representation of the model object '<em><b>Security Scheme</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link edu.uoc.som.openapi.SecuritySchema#getType <em>Type</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.SecuritySchema#getDescription <em>Description</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.SecuritySchema#getName <em>Name</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.SecuritySchema#getLocation <em>Location</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.SecuritySchema#getFlow <em>Flow</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.SecuritySchema#getAuthorizationUrl <em>Authorization Url</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.SecuritySchema#getTokenUrl <em>Token Url</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.SecuritySchema#getReferenceName <em>Reference Name</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.SecuritySchema#getScopes <em>Scopes</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.SecurityScheme#getType <em>Type</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.SecurityScheme#getDescription <em>Description</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.SecurityScheme#getName <em>Name</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.SecurityScheme#getLocation <em>Location</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.SecurityScheme#getFlow <em>Flow</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.SecurityScheme#getAuthorizationUrl <em>Authorization Url</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.SecurityScheme#getTokenUrl <em>Token Url</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.SecurityScheme#getReferenceName <em>Reference Name</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.SecurityScheme#getScopes <em>Scopes</em>}</li>
  * </ul>
  *
- * @see edu.uoc.som.openapi.OpenAPIPackage#getSecuritySchema()
+ * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityScheme()
  * @model
  * @generated
  */
-public interface SecuritySchema extends EObject {
+public interface SecurityScheme extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link edu.uoc.som.openapi.SecuritySchemeType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see edu.uoc.som.openapi.SecuritySchemeType
 	 * @see #setType(SecuritySchemeType)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecuritySchema_Type()
+	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityScheme_Type()
 	 * @model
 	 * @generated
 	 */
 	SecuritySchemeType getType();
 
 	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.SecuritySchema#getType <em>Type</em>}' attribute.
+	 * Sets the value of the '{@link edu.uoc.som.openapi.SecurityScheme#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type</em>' attribute.
@@ -63,21 +59,17 @@ public interface SecuritySchema extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecuritySchema_Description()
+	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityScheme_Description()
 	 * @model
 	 * @generated
 	 */
 	String getDescription();
 
 	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.SecuritySchema#getDescription <em>Description</em>}' attribute.
+	 * Sets the value of the '{@link edu.uoc.som.openapi.SecurityScheme#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Description</em>' attribute.
@@ -89,21 +81,17 @@ public interface SecuritySchema extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecuritySchema_Name()
+	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityScheme_Name()
 	 * @model
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.SecuritySchema#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link edu.uoc.som.openapi.SecurityScheme#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -116,22 +104,18 @@ public interface SecuritySchema extends EObject {
 	 * Returns the value of the '<em><b>Location</b></em>' attribute.
 	 * The literals are from the enumeration {@link edu.uoc.som.openapi.APIKeyLocation}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Location</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Location</em>' attribute.
 	 * @see edu.uoc.som.openapi.APIKeyLocation
 	 * @see #setLocation(APIKeyLocation)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecuritySchema_Location()
+	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityScheme_Location()
 	 * @model
 	 * @generated
 	 */
 	APIKeyLocation getLocation();
 
 	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.SecuritySchema#getLocation <em>Location</em>}' attribute.
+	 * Sets the value of the '{@link edu.uoc.som.openapi.SecurityScheme#getLocation <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Location</em>' attribute.
@@ -145,22 +129,18 @@ public interface SecuritySchema extends EObject {
 	 * Returns the value of the '<em><b>Flow</b></em>' attribute.
 	 * The literals are from the enumeration {@link edu.uoc.som.openapi.OAuth2FlowType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Flow</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Flow</em>' attribute.
 	 * @see edu.uoc.som.openapi.OAuth2FlowType
 	 * @see #setFlow(OAuth2FlowType)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecuritySchema_Flow()
+	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityScheme_Flow()
 	 * @model
 	 * @generated
 	 */
 	OAuth2FlowType getFlow();
 
 	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.SecuritySchema#getFlow <em>Flow</em>}' attribute.
+	 * Sets the value of the '{@link edu.uoc.som.openapi.SecurityScheme#getFlow <em>Flow</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Flow</em>' attribute.
@@ -173,21 +153,17 @@ public interface SecuritySchema extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Authorization Url</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Authorization Url</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Authorization Url</em>' attribute.
 	 * @see #setAuthorizationUrl(String)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecuritySchema_AuthorizationUrl()
+	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityScheme_AuthorizationUrl()
 	 * @model
 	 * @generated
 	 */
 	String getAuthorizationUrl();
 
 	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.SecuritySchema#getAuthorizationUrl <em>Authorization Url</em>}' attribute.
+	 * Sets the value of the '{@link edu.uoc.som.openapi.SecurityScheme#getAuthorizationUrl <em>Authorization Url</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Authorization Url</em>' attribute.
@@ -199,21 +175,17 @@ public interface SecuritySchema extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Token Url</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Token Url</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Token Url</em>' attribute.
 	 * @see #setTokenUrl(String)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecuritySchema_TokenUrl()
+	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityScheme_TokenUrl()
 	 * @model
 	 * @generated
 	 */
 	String getTokenUrl();
 
 	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.SecuritySchema#getTokenUrl <em>Token Url</em>}' attribute.
+	 * Sets the value of the '{@link edu.uoc.som.openapi.SecurityScheme#getTokenUrl <em>Token Url</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Token Url</em>' attribute.
@@ -225,21 +197,17 @@ public interface SecuritySchema extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Reference Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Reference Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Reference Name</em>' attribute.
 	 * @see #setReferenceName(String)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecuritySchema_ReferenceName()
+	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityScheme_ReferenceName()
 	 * @model
 	 * @generated
 	 */
 	String getReferenceName();
 
 	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.SecuritySchema#getReferenceName <em>Reference Name</em>}' attribute.
+	 * Sets the value of the '{@link edu.uoc.som.openapi.SecurityScheme#getReferenceName <em>Reference Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Reference Name</em>' attribute.
@@ -252,13 +220,9 @@ public interface SecuritySchema extends EObject {
 	 * Returns the value of the '<em><b>Scopes</b></em>' containment reference list.
 	 * The list contents are of type {@link edu.uoc.som.openapi.SecurityScope}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Scopes</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Scopes</em>' containment reference list.
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecuritySchema_Scopes()
+	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityScheme_Scopes()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -272,4 +236,4 @@ public interface SecuritySchema extends EObject {
 	 */
 	SecurityScope getSecurityScopeByName(String name);
 
-} // SecuritySchema
+} // SecurityScheme

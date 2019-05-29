@@ -37,7 +37,7 @@ import edu.uoc.som.openapi.SchemaDeclaringContext;
 import edu.uoc.som.openapi.SchemeType;
 import edu.uoc.som.openapi.SecurityContext;
 import edu.uoc.som.openapi.SecurityRequirement;
-import edu.uoc.som.openapi.SecuritySchema;
+import edu.uoc.som.openapi.SecurityScheme;
 import edu.uoc.som.openapi.SecuritySchemeType;
 import edu.uoc.som.openapi.SecurityScope;
 import edu.uoc.som.openapi.Tag;
@@ -172,7 +172,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass securitySchemaEClass = null;
+	private EClass securitySchemeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1642,8 +1642,8 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getSecuritySchema() {
-		return securitySchemaEClass;
+	public EClass getSecurityScheme() {
+		return securitySchemeEClass;
 	}
 
 	/**
@@ -1652,8 +1652,8 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSecuritySchema_Type() {
-		return (EAttribute)securitySchemaEClass.getEStructuralFeatures().get(0);
+	public EAttribute getSecurityScheme_Type() {
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1662,8 +1662,8 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSecuritySchema_Description() {
-		return (EAttribute)securitySchemaEClass.getEStructuralFeatures().get(1);
+	public EAttribute getSecurityScheme_Description() {
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1672,8 +1672,8 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSecuritySchema_Name() {
-		return (EAttribute)securitySchemaEClass.getEStructuralFeatures().get(2);
+	public EAttribute getSecurityScheme_Name() {
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1682,8 +1682,8 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSecuritySchema_Location() {
-		return (EAttribute)securitySchemaEClass.getEStructuralFeatures().get(3);
+	public EAttribute getSecurityScheme_Location() {
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1692,8 +1692,8 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSecuritySchema_Flow() {
-		return (EAttribute)securitySchemaEClass.getEStructuralFeatures().get(4);
+	public EAttribute getSecurityScheme_Flow() {
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1702,8 +1702,8 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSecuritySchema_AuthorizationUrl() {
-		return (EAttribute)securitySchemaEClass.getEStructuralFeatures().get(5);
+	public EAttribute getSecurityScheme_AuthorizationUrl() {
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1712,8 +1712,8 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSecuritySchema_TokenUrl() {
-		return (EAttribute)securitySchemaEClass.getEStructuralFeatures().get(6);
+	public EAttribute getSecurityScheme_TokenUrl() {
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1722,8 +1722,8 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSecuritySchema_ReferenceName() {
-		return (EAttribute)securitySchemaEClass.getEStructuralFeatures().get(7);
+	public EAttribute getSecurityScheme_ReferenceName() {
+		return (EAttribute)securitySchemeEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1732,8 +1732,8 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getSecuritySchema_Scopes() {
-		return (EReference)securitySchemaEClass.getEStructuralFeatures().get(8);
+	public EReference getSecurityScheme_Scopes() {
+		return (EReference)securitySchemeEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1742,8 +1742,8 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getSecuritySchema__GetSecurityScopeByName__String() {
-		return securitySchemaEClass.getEOperations().get(0);
+	public EOperation getSecurityScheme__GetSecurityScopeByName__String() {
+		return securitySchemeEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2363,17 +2363,17 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		createEAttribute(tagEClass, TAG__NAME);
 		createEAttribute(tagEClass, TAG__DESCRIPTION);
 
-		securitySchemaEClass = createEClass(SECURITY_SCHEMA);
-		createEAttribute(securitySchemaEClass, SECURITY_SCHEMA__TYPE);
-		createEAttribute(securitySchemaEClass, SECURITY_SCHEMA__DESCRIPTION);
-		createEAttribute(securitySchemaEClass, SECURITY_SCHEMA__NAME);
-		createEAttribute(securitySchemaEClass, SECURITY_SCHEMA__LOCATION);
-		createEAttribute(securitySchemaEClass, SECURITY_SCHEMA__FLOW);
-		createEAttribute(securitySchemaEClass, SECURITY_SCHEMA__AUTHORIZATION_URL);
-		createEAttribute(securitySchemaEClass, SECURITY_SCHEMA__TOKEN_URL);
-		createEAttribute(securitySchemaEClass, SECURITY_SCHEMA__REFERENCE_NAME);
-		createEReference(securitySchemaEClass, SECURITY_SCHEMA__SCOPES);
-		createEOperation(securitySchemaEClass, SECURITY_SCHEMA___GET_SECURITY_SCOPE_BY_NAME__STRING);
+		securitySchemeEClass = createEClass(SECURITY_SCHEME);
+		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__TYPE);
+		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__DESCRIPTION);
+		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__NAME);
+		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__LOCATION);
+		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__FLOW);
+		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__AUTHORIZATION_URL);
+		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__TOKEN_URL);
+		createEAttribute(securitySchemeEClass, SECURITY_SCHEME__REFERENCE_NAME);
+		createEReference(securitySchemeEClass, SECURITY_SCHEME__SCOPES);
+		createEOperation(securitySchemeEClass, SECURITY_SCHEME___GET_SECURITY_SCOPE_BY_NAME__STRING);
 
 		exampleEClass = createEClass(EXAMPLE);
 		createEAttribute(exampleEClass, EXAMPLE__MIME_TYPE);
@@ -2536,7 +2536,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEReference(getAPI_Paths(), this.getPath(), this.getPath_Api(), "paths", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPI_Definitions(), this.getDefinition(), null, "definitions", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPI_Responses(), this.getResponse(), null, "responses", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAPI_SecurityDefinitions(), this.getSecuritySchema(), null, "securityDefinitions", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAPI_SecurityDefinitions(), this.getSecurityScheme(), null, "securityDefinitions", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPI_Tags(), this.getTag(), null, "tags", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getAPI__PathsIsSet(), ecorePackage.getEBoolean(), "pathsIsSet", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2558,7 +2558,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		op = initEOperation(getAPI__GetParameterByRef__String(), this.getParameter(), "getParameterByRef", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "ref", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getAPI__GetSecuritySchemaByName__String(), this.getSecuritySchema(), "getSecuritySchemaByName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getAPI__GetSecuritySchemaByName__String(), this.getSecurityScheme(), "getSecuritySchemaByName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(infoEClass, Info.class, "Info", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2662,18 +2662,18 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEAttribute(getTag_Name(), ecorePackage.getEString(), "name", null, 0, 1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTag_Description(), ecorePackage.getEString(), "description", null, 0, 1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(securitySchemaEClass, SecuritySchema.class, "SecuritySchema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSecuritySchema_Type(), this.getSecuritySchemeType(), "type", null, 0, 1, SecuritySchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSecuritySchema_Description(), ecorePackage.getEString(), "description", null, 0, 1, SecuritySchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSecuritySchema_Name(), ecorePackage.getEString(), "name", null, 0, 1, SecuritySchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSecuritySchema_Location(), this.getAPIKeyLocation(), "location", null, 0, 1, SecuritySchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSecuritySchema_Flow(), this.getOAuth2FlowType(), "flow", null, 0, 1, SecuritySchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSecuritySchema_AuthorizationUrl(), ecorePackage.getEString(), "authorizationUrl", null, 0, 1, SecuritySchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSecuritySchema_TokenUrl(), ecorePackage.getEString(), "tokenUrl", null, 0, 1, SecuritySchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSecuritySchema_ReferenceName(), ecorePackage.getEString(), "referenceName", null, 0, 1, SecuritySchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSecuritySchema_Scopes(), this.getSecurityScope(), null, "scopes", null, 0, -1, SecuritySchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(securitySchemeEClass, SecurityScheme.class, "SecurityScheme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSecurityScheme_Type(), this.getSecuritySchemeType(), "type", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSecurityScheme_Description(), ecorePackage.getEString(), "description", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSecurityScheme_Name(), ecorePackage.getEString(), "name", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSecurityScheme_Location(), this.getAPIKeyLocation(), "location", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSecurityScheme_Flow(), this.getOAuth2FlowType(), "flow", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSecurityScheme_AuthorizationUrl(), ecorePackage.getEString(), "authorizationUrl", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSecurityScheme_TokenUrl(), ecorePackage.getEString(), "tokenUrl", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSecurityScheme_ReferenceName(), ecorePackage.getEString(), "referenceName", null, 0, 1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSecurityScheme_Scopes(), this.getSecurityScope(), null, "scopes", null, 0, -1, SecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getSecuritySchema__GetSecurityScopeByName__String(), this.getSecurityScope(), "getSecurityScopeByName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSecurityScheme__GetSecurityScopeByName__String(), this.getSecurityScope(), "getSecurityScopeByName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(exampleEClass, Example.class, "Example", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2718,7 +2718,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 
 		initEClass(securityRequirementEClass, SecurityRequirement.class, "SecurityRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSecurityRequirement_SecurityScopes(), this.getSecurityScope(), null, "securityScopes", null, 0, -1, SecurityRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSecurityRequirement_SecuritySchema(), this.getSecuritySchema(), null, "securitySchema", null, 0, 1, SecurityRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSecurityRequirement_SecuritySchema(), this.getSecurityScheme(), null, "securitySchema", null, 0, 1, SecurityRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(definitionEClass, Definition.class, "Definition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDefinition_Schema(), this.getSchema(), null, "schema", null, 1, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

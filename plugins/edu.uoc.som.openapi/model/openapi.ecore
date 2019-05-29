@@ -82,9 +82,9 @@
       </eAnnotations>
       <eParameters name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="getSecuritySchemaByName" eType="#//SecuritySchema">
+    <eOperations name="getSecuritySchemaByName" eType="#//SecurityScheme">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="for(SecuritySchema securitySchema: getSecurityDefinitions())&#xD;&#xA;&#x9;if(securitySchema.getReferenceName().equals(name))&#xD;&#xA;&#x9;&#x9;return securitySchema;&#xD;&#xA;return null&#x9;;"/>
+        <details key="body" value="for(SecurityScheme securityScheme: getSecurityDefinitions())&#xA;&#x9;&#x9;&#x9;if(securityScheme.getReferenceName().equals(name))&#xA;&#x9;&#x9;&#x9;&#x9;return securityScheme;&#xA;&#x9;&#x9;return null&#x9;;"/>
       </eAnnotations>
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
@@ -105,7 +105,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="responses" upperBound="-1"
         eType="#//Response" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityDefinitions" upperBound="-1"
-        eType="#//SecuritySchema" containment="true"/>
+        eType="#//SecurityScheme" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tags" upperBound="-1" eType="#//Tag"
         containment="true"/>
   </eClassifiers>
@@ -287,7 +287,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SecuritySchema">
+  <eClassifiers xsi:type="ecore:EClass" name="SecurityScheme">
     <eOperations name="getSecurityScopeByName" eType="#//SecurityScope">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="body" value="for(SecurityScope securityScope: getScopes())&#xD;&#xA;&#x9;if(securityScope.getName().equals(name))&#xD;&#xA;&#x9;&#x9;return securityScope;&#xD;&#xA;return null;"/>
@@ -401,7 +401,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="SecurityRequirement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityScopes" upperBound="-1"
         eType="#//SecurityScope"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="securitySchema" eType="#//SecuritySchema"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securitySchema" eType="#//SecurityScheme"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Definition" eSuperTypes="#//NamedElement">
     <eOperations name="getRef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">

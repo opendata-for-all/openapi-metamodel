@@ -49,12 +49,12 @@ public interface SecurityRequirement extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Security Schema</em>' reference.
-	 * @see #setSecuritySchema(SecuritySchema)
+	 * @see #setSecuritySchema(SecurityScheme)
 	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityRequirement_SecuritySchema()
 	 * @model
 	 * @generated
 	 */
-	SecuritySchema getSecuritySchema();
+	SecurityScheme getSecuritySchema();
 
 	/**
 	 * Sets the value of the '{@link edu.uoc.som.openapi.SecurityRequirement#getSecuritySchema <em>Security Schema</em>}' reference.
@@ -64,6 +64,6 @@ public interface SecurityRequirement extends EObject {
 	 * @see #getSecuritySchema()
 	 * @generated
 	 */
-	void setSecuritySchema(SecuritySchema value);
+	void setSecuritySchema(SecurityScheme value);
 
 } // SecurityRequirement

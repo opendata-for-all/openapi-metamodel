@@ -71,7 +71,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 			case OpenAPIPackage.RESPONSE: return createResponse();
 			case OpenAPIPackage.HEADER: return createHeader();
 			case OpenAPIPackage.TAG: return createTag();
-			case OpenAPIPackage.SECURITY_SCHEMA: return createSecuritySchema();
+			case OpenAPIPackage.SECURITY_SCHEME: return createSecurityScheme();
 			case OpenAPIPackage.EXAMPLE: return createExample();
 			case OpenAPIPackage.XML_ELEMENT: return createXMLElement();
 			case OpenAPIPackage.SECURITY_SCOPE: return createSecurityScope();
@@ -297,9 +297,9 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	 * @generated
 	 */
 	@Override
-	public SecuritySchema createSecuritySchema() {
-		SecuritySchemaImpl securitySchema = new SecuritySchemaImpl();
-		return securitySchema;
+	public SecurityScheme createSecurityScheme() {
+		SecuritySchemeImpl securityScheme = new SecuritySchemeImpl();
+		return securityScheme;
 	}
 
 	/**

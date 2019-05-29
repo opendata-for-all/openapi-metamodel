@@ -148,13 +148,13 @@ public interface OpenAPIFactory extends EFactory {
 	Tag createTag();
 
 	/**
-	 * Returns a new object of class '<em>Security Schema</em>'.
+	 * Returns a new object of class '<em>Security Scheme</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Security Schema</em>'.
+	 * @return a new object of class '<em>Security Scheme</em>'.
 	 * @generated
 	 */
-	SecuritySchema createSecuritySchema();
+	SecurityScheme createSecurityScheme();
 
 	/**
 	 * Returns a new object of class '<em>Example</em>'.

@@ -263,7 +263,7 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 
 	/**
 	 * Returns the value of the '<em><b>Security Definitions</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.uoc.som.openapi.SecuritySchema}.
+	 * The list contents are of type {@link edu.uoc.som.openapi.SecurityScheme}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Security Definitions</em>' containment reference list isn't clear,
@@ -275,7 +275,7 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SecuritySchema> getSecurityDefinitions();
+	EList<SecurityScheme> getSecurityDefinitions();
 
 	/**
 	 * Returns the value of the '<em><b>Tags</b></em>' containment reference list.
@@ -313,7 +313,7 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='\t\tList&lt;Definition&gt; definitions = this.getDefinitions();\n\t\tfor (Definition definition : definitions) {\n\t\t\tif (definition.getSchema().getRef().equalsIgnoreCase(ref))\n\t\t\t\treturn definition.getSchema();\n\t\t}\n\t\treturn null;\t'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='List&lt;Definition&gt; definitions = this.getDefinitions();\n\t\t\t\tfor (Definition definition : definitions) {\n\t\t\t\t\tif (definition.getRef().equalsIgnoreCase(ref))\n\t\t\t\t\t\treturn definition.getSchema();\n\t\t\t\t}\n\t\t\t\treturn null;\t'"
 	 * @generated
 	 */
 	Schema getSchemaByReference(String ref);
@@ -353,9 +353,9 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for(SecuritySchema securitySchema: getSecurityDefinitions())\r\n\tif(securitySchema.getReferenceName().equals(name))\r\n\t\treturn securitySchema;\r\nreturn null\t;'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for(SecurityScheme securityScheme: getSecurityDefinitions())\n\t\t\tif(securityScheme.getReferenceName().equals(name))\n\t\t\t\treturn securityScheme;\n\t\treturn null\t;'"
 	 * @generated
 	 */
-	SecuritySchema getSecuritySchemaByName(String name);
+	SecurityScheme getSecuritySchemaByName(String name);
 
 } // API

@@ -39,7 +39,7 @@ import edu.uoc.som.openapi.SchemaDeclaringContext;
 import edu.uoc.som.openapi.SchemeType;
 import edu.uoc.som.openapi.SecurityContext;
 import edu.uoc.som.openapi.SecurityRequirement;
-import edu.uoc.som.openapi.SecuritySchema;
+import edu.uoc.som.openapi.SecurityScheme;
 import edu.uoc.som.openapi.Tag;
 
 /**
@@ -249,7 +249,7 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SecuritySchema> securityDefinitions;
+	protected EList<SecurityScheme> securityDefinitions;
 
 	/**
 	 * The cached value of the '{@link #getTags() <em>Tags</em>}' containment reference list.
@@ -581,9 +581,9 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 * @generated
 	 */
 	@Override
-	public EList<SecuritySchema> getSecurityDefinitions() {
+	public EList<SecurityScheme> getSecurityDefinitions() {
 		if (securityDefinitions == null) {
-			securityDefinitions = new EObjectContainmentEList<SecuritySchema>(SecuritySchema.class, this, OpenAPIPackage.API__SECURITY_DEFINITIONS);
+			securityDefinitions = new EObjectContainmentEList<SecurityScheme>(SecurityScheme.class, this, OpenAPIPackage.API__SECURITY_DEFINITIONS);
 		}
 		return securityDefinitions;
 	}
@@ -636,12 +636,12 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 */
 	@Override
 	public Schema getSchemaByReference(final String ref) {
-				List<Definition> definitions = this.getDefinitions();
-				for (Definition definition : definitions) {
-					if (definition.getRef().equalsIgnoreCase(ref))
-						return definition.getSchema();
-				}
-				return null;	
+		List<Definition> definitions = this.getDefinitions();
+						for (Definition definition : definitions) {
+							if (definition.getRef().equalsIgnoreCase(ref))
+								return definition.getSchema();
+						}
+						return null;	
 	}
 
 	/**
@@ -709,11 +709,11 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 * @generated
 	 */
 	@Override
-	public SecuritySchema getSecuritySchemaByName(final String name) {
-		for(SecuritySchema securitySchema: getSecurityDefinitions())
-			if(securitySchema.getReferenceName().equals(name))
-				return securitySchema;
-		return null	;
+	public SecurityScheme getSecuritySchemaByName(final String name) {
+		for(SecurityScheme securityScheme: getSecurityDefinitions())
+					if(securityScheme.getReferenceName().equals(name))
+						return securityScheme;
+				return null	;
 	}
 
 	/**
@@ -861,7 +861,7 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 				return;
 			case OpenAPIPackage.API__SECURITY_DEFINITIONS:
 				getSecurityDefinitions().clear();
-				getSecurityDefinitions().addAll((Collection<? extends SecuritySchema>)newValue);
+				getSecurityDefinitions().addAll((Collection<? extends SecurityScheme>)newValue);
 				return;
 			case OpenAPIPackage.API__TAGS:
 				getTags().clear();

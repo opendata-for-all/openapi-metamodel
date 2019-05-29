@@ -234,8 +234,8 @@ public class OpenAPIValidator extends EObjectValidator {
 				return validateHeader((Header)value, diagnostics, context);
 			case OpenAPIPackage.TAG:
 				return validateTag((Tag)value, diagnostics, context);
-			case OpenAPIPackage.SECURITY_SCHEMA:
-				return validateSecuritySchema((SecuritySchema)value, diagnostics, context);
+			case OpenAPIPackage.SECURITY_SCHEME:
+				return validateSecurityScheme((SecurityScheme)value, diagnostics, context);
 			case OpenAPIPackage.EXAMPLE:
 				return validateExample((Example)value, diagnostics, context);
 			case OpenAPIPackage.XML_ELEMENT:
@@ -1081,8 +1081,8 @@ public class OpenAPIValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateSecuritySchema(SecuritySchema securitySchema, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(securitySchema, diagnostics, context);
+	public boolean validateSecurityScheme(SecurityScheme securityScheme, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(securityScheme, diagnostics, context);
 	}
 
 	/**
