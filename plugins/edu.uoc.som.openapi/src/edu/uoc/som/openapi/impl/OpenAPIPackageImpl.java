@@ -2072,16 +2072,6 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getDefinition_Schema() {
-		return (EReference)definitionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getDefinition__GetRef() {
 		return definitionEClass.getEOperations().get(0);
 	}
@@ -2114,16 +2104,6 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	@Override
 	public EClass getProperty() {
 		return propertyEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getProperty_Schema() {
-		return (EReference)propertyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2420,14 +2400,12 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		createEReference(securityRequirementEClass, SECURITY_REQUIREMENT__SECURITY_SCHEMA);
 
 		definitionEClass = createEClass(DEFINITION);
-		createEReference(definitionEClass, DEFINITION__SCHEMA);
 		createEOperation(definitionEClass, DEFINITION___GET_REF);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
 		propertyEClass = createEClass(PROPERTY);
-		createEReference(propertyEClass, PROPERTY__SCHEMA);
 
 		// Create enums
 		schemeTypeEEnum = createEEnum(SCHEME_TYPE);
@@ -2498,7 +2476,9 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		headerEClass.getESuperTypes().add(this.getArrayContext());
 		tagEClass.getESuperTypes().add(this.getExternalDocsContext());
 		definitionEClass.getESuperTypes().add(this.getNamedElement());
+		definitionEClass.getESuperTypes().add(this.getSchemaContext());
 		propertyEClass.getESuperTypes().add(this.getNamedElement());
+		propertyEClass.getESuperTypes().add(this.getSchemaContext());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(jsonSchemaSubsetEClass, JSONSchemaSubset.class, "JSONSchemaSubset", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2721,7 +2701,6 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEReference(getSecurityRequirement_SecuritySchema(), this.getSecurityScheme(), null, "securitySchema", null, 0, 1, SecurityRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(definitionEClass, Definition.class, "Definition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDefinition_Schema(), this.getSchema(), null, "schema", null, 1, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDefinition__GetRef(), ecorePackage.getEString(), "getRef", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -2729,7 +2708,6 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProperty_Schema(), this.getSchema(), null, "schema", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(schemeTypeEEnum, SchemeType.class, "SchemeType");

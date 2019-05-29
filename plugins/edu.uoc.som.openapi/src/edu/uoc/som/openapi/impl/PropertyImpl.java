@@ -6,6 +6,7 @@ import edu.uoc.som.openapi.OpenAPIPackage;
 import edu.uoc.som.openapi.Property;
 import edu.uoc.som.openapi.Schema;
 
+import edu.uoc.som.openapi.SchemaContext;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -153,6 +154,38 @@ public class PropertyImpl extends NamedElementImpl implements Property {
 				return schema != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == SchemaContext.class) {
+			switch (derivedFeatureID) {
+				case OpenAPIPackage.PROPERTY__SCHEMA: return OpenAPIPackage.SCHEMA_CONTEXT__SCHEMA;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == SchemaContext.class) {
+			switch (baseFeatureID) {
+				case OpenAPIPackage.SCHEMA_CONTEXT__SCHEMA: return OpenAPIPackage.PROPERTY__SCHEMA;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //PropertyImpl

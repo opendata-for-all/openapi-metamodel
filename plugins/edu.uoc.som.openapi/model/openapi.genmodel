@@ -273,14 +273,11 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi.ecore#//SecurityRequirement/securitySchema"/>
     </genClasses>
     <genClasses ecoreClass="openapi.ecore#//Definition">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi.ecore#//Definition/schema"/>
       <genOperations ecoreOperation="openapi.ecore#//Definition/getRef" body="return &quot;#/definitions/&quot;+name;"/>
     </genClasses>
     <genClasses image="false" ecoreClass="openapi.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//NamedElement/name"/>
     </genClasses>
-    <genClasses ecoreClass="openapi.ecore#//Property">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi.ecore#//Property/schema"/>
-    </genClasses>
+    <genClasses ecoreClass="openapi.ecore#//Property"/>
   </genPackages>
 </genmodel:GenModel>

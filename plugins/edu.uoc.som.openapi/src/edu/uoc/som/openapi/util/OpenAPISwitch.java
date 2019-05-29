@@ -274,6 +274,7 @@ public class OpenAPISwitch<T> extends Switch<T> {
 				Definition definition = (Definition)theEObject;
 				T result = caseDefinition(definition);
 				if (result == null) result = caseNamedElement(definition);
+				if (result == null) result = caseSchemaContext(definition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -287,6 +288,7 @@ public class OpenAPISwitch<T> extends Switch<T> {
 				Property property = (Property)theEObject;
 				T result = caseProperty(property);
 				if (result == null) result = caseNamedElement(property);
+				if (result == null) result = caseSchemaContext(property);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

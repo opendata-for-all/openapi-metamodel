@@ -4840,17 +4840,6 @@ public interface OpenAPIPackage extends EPackage {
 	EClass getDefinition();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.uoc.som.openapi.Definition#getSchema <em>Schema</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Schema</em>'.
-	 * @see edu.uoc.som.openapi.Definition#getSchema()
-	 * @see #getDefinition()
-	 * @generated
-	 */
-	EReference getDefinition_Schema();
-
-	/**
 	 * Returns the meta object for the '{@link edu.uoc.som.openapi.Definition#getRef() <em>Get Ref</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4890,17 +4879,6 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getProperty();
-
-	/**
-	 * Returns the meta object for the reference '{@link edu.uoc.som.openapi.Property#getSchema <em>Schema</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Schema</em>'.
-	 * @see edu.uoc.som.openapi.Property#getSchema()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EReference getProperty_Schema();
 
 	/**
 	 * Returns the meta object for enum '{@link edu.uoc.som.openapi.SchemeType <em>Scheme Type</em>}'.
@@ -6384,14 +6362,6 @@ public interface OpenAPIPackage extends EPackage {
 		EClass DEFINITION = eINSTANCE.getDefinition();
 
 		/**
-		 * The meta object literal for the '<em><b>Schema</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DEFINITION__SCHEMA = eINSTANCE.getDefinition_Schema();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Ref</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6426,14 +6396,6 @@ public interface OpenAPIPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PROPERTY = eINSTANCE.getProperty();
-
-		/**
-		 * The meta object literal for the '<em><b>Schema</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPERTY__SCHEMA = eINSTANCE.getProperty_Schema();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi.SchemeType <em>Scheme Type</em>}' enum.
