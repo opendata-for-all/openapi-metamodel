@@ -39,7 +39,7 @@ import edu.uoc.som.openapi.Root;
 import edu.uoc.som.openapi.Schema;
 import edu.uoc.som.openapi.SchemeType;
 import edu.uoc.som.openapi.SecurityRequirement;
-import edu.uoc.som.openapi.SecuritySchema;
+import edu.uoc.som.openapi.SecurityScheme;
 import edu.uoc.som.openapi.SecuritySchemeType;
 import edu.uoc.som.openapi.SecurityScope;
 import edu.uoc.som.openapi.Tag;
@@ -185,15 +185,15 @@ public class OpenAPIImporter {
 		JsonObject securityDefinitionsObject = jsonElement.getAsJsonObject();
 		Set<Entry<String, JsonElement>> securityDefinitions = securityDefinitionsObject.entrySet();
 		for (Entry<String, JsonElement> securityDefinitionElement : securityDefinitions) {
-			SecuritySchema securityDefinition = openAPIFactory.createSecuritySchema();
+			SecurityScheme securityDefinition = openAPIFactory.createSecurityScheme();
 			securityDefinition.setReferenceName(securityDefinitionElement.getKey());
 			root.getApi().getSecurityDefinitions().add(securityDefinition);
-			importSecuritySchema(securityDefinitionElement.getValue(), securityDefinition);
+			importSecurityScheme(securityDefinitionElement.getValue(), securityDefinition);
 		}
 
 	}
 
-	private  void importSecuritySchema(JsonElement jsonElement, SecuritySchema securitySchema) {
+	private  void importSecurityScheme(JsonElement jsonElement, SecurityScheme securitySchema) {
 		JsonObject jsonObject = jsonElement.getAsJsonObject();
 		if (jsonObject.has("type"))
 			securitySchema.setType(SecuritySchemeType.get(jsonObject.get("type").getAsString()));
@@ -538,10 +538,10 @@ public class OpenAPIImporter {
 	private  void importSecurityRequirement(JsonElement securityElement, SecurityRequirement security, API api) {
 		Set<Entry<String, JsonElement>> securityAttributes = securityElement.getAsJsonObject().entrySet();
 		Entry<String, JsonElement> first = (Entry<String, JsonElement>) securityAttributes.toArray()[0];
-		SecuritySchema securitySchema = api.getSecuritySchemaByName(first.getKey());
-		security.setSecuritySchema(securitySchema);
+		SecurityScheme securityScheme = api.getSecuritySchemaByName(first.getKey());
+		security.setSecuritySchema(securityScheme);
 		for (JsonElement value : first.getValue().getAsJsonArray())
-			security.getSecurityScopes().add(securitySchema.getSecurityScopeByName( value.getAsString()));
+			security.getSecurityScopes().add(securityScheme.getSecurityScopeByName( value.getAsString()));
 
 	}
 
