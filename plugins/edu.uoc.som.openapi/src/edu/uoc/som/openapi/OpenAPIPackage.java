@@ -333,22 +333,13 @@ public interface OpenAPIPackage extends EPackage {
 	int API = 2;
 
 	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int API__REF = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Security Requirements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__SECURITY_REQUIREMENTS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
+	int API__SECURITY_REQUIREMENTS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
@@ -357,7 +348,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__PARAMETERS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 2;
+	int API__PARAMETERS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>External Docs</b></em>' containment reference.
@@ -366,7 +357,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__EXTERNAL_DOCS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 3;
+	int API__EXTERNAL_DOCS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Swagger</b></em>' attribute.
@@ -375,7 +366,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__SWAGGER = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 4;
+	int API__SWAGGER = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Info</b></em>' containment reference.
@@ -384,7 +375,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__INFO = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 5;
+	int API__INFO = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Host</b></em>' attribute.
@@ -393,7 +384,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__HOST = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 6;
+	int API__HOST = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Base Path</b></em>' attribute.
@@ -402,7 +393,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__BASE_PATH = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 7;
+	int API__BASE_PATH = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Schemes</b></em>' attribute list.
@@ -411,7 +402,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__SCHEMES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 8;
+	int API__SCHEMES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Consumes</b></em>' attribute list.
@@ -420,7 +411,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__CONSUMES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 9;
+	int API__CONSUMES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Produces</b></em>' attribute list.
@@ -429,7 +420,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__PRODUCES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 10;
+	int API__PRODUCES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Paths</b></em>' containment reference list.
@@ -438,7 +429,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__PATHS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 11;
+	int API__PATHS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Definitions</b></em>' containment reference list.
@@ -447,7 +438,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__DEFINITIONS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 12;
+	int API__DEFINITIONS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Responses</b></em>' containment reference list.
@@ -456,7 +447,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__RESPONSES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 13;
+	int API__RESPONSES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Security Definitions</b></em>' containment reference list.
@@ -465,7 +456,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__SECURITY_DEFINITIONS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 14;
+	int API__SECURITY_DEFINITIONS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Tags</b></em>' containment reference list.
@@ -474,7 +465,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API__TAGS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 15;
+	int API__TAGS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 14;
 
 	/**
 	 * The number of structural features of the '<em>API</em>' class.
@@ -483,7 +474,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int API_FEATURE_COUNT = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 16;
+	int API_FEATURE_COUNT = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Paths Is Set</em>' operation.
@@ -1295,22 +1286,13 @@ public interface OpenAPIPackage extends EPackage {
 	int PARAMETER__MULTIPLE_OF = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 16;
 
 	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER__REF = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 17;
-
-	/**
 	 * The feature id for the '<em><b>Collection Format</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__COLLECTION_FORMAT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 18;
+	int PARAMETER__COLLECTION_FORMAT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Items</b></em>' containment reference.
@@ -1319,7 +1301,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__ITEMS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 19;
+	int PARAMETER__ITEMS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1328,7 +1310,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__NAME = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 20;
+	int PARAMETER__NAME = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -1337,7 +1319,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__LOCATION = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 21;
+	int PARAMETER__LOCATION = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
@@ -1346,7 +1328,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__REQUIRED = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 22;
+	int PARAMETER__REQUIRED = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Allow Emply Value</b></em>' attribute.
@@ -1355,7 +1337,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__ALLOW_EMPLY_VALUE = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 23;
+	int PARAMETER__ALLOW_EMPLY_VALUE = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 22;
 
 	/**
 	 * The feature id for the '<em><b>Reference Name</b></em>' attribute.
@@ -1364,7 +1346,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__REFERENCE_NAME = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 24;
+	int PARAMETER__REFERENCE_NAME = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 23;
 
 	/**
 	 * The feature id for the '<em><b>Declaring Context</b></em>' reference.
@@ -1373,7 +1355,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__DECLARING_CONTEXT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 25;
+	int PARAMETER__DECLARING_CONTEXT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 24;
 
 	/**
 	 * The feature id for the '<em><b>Example</b></em>' attribute.
@@ -1382,7 +1364,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__EXAMPLE = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 26;
+	int PARAMETER__EXAMPLE = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 25;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -1391,7 +1373,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 27;
+	int PARAMETER_FEATURE_COUNT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 26;
 
 	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
@@ -1747,22 +1729,13 @@ public interface OpenAPIPackage extends EPackage {
 	int SCHEMA__MULTIPLE_OF = JSON_SCHEMA_SUBSET__MULTIPLE_OF;
 
 	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__REF = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>External Docs</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__EXTERNAL_DOCS = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 1;
+	int SCHEMA__EXTERNAL_DOCS = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1771,7 +1744,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__TITLE = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 2;
+	int SCHEMA__TITLE = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Max Properties</b></em>' attribute.
@@ -1780,7 +1753,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__MAX_PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 3;
+	int SCHEMA__MAX_PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Min Properties</b></em>' attribute.
@@ -1789,7 +1762,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__MIN_PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 4;
+	int SCHEMA__MIN_PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Example</b></em>' attribute.
@@ -1798,7 +1771,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__EXAMPLE = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 5;
+	int SCHEMA__EXAMPLE = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Discriminator</b></em>' attribute.
@@ -1807,7 +1780,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__DISCRIMINATOR = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 6;
+	int SCHEMA__DISCRIMINATOR = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Read Only</b></em>' attribute.
@@ -1816,7 +1789,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__READ_ONLY = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 7;
+	int SCHEMA__READ_ONLY = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -1825,7 +1798,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 8;
+	int SCHEMA__PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>All Of</b></em>' reference list.
@@ -1834,7 +1807,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__ALL_OF = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 9;
+	int SCHEMA__ALL_OF = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Items</b></em>' reference.
@@ -1843,7 +1816,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__ITEMS = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 10;
+	int SCHEMA__ITEMS = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Xml</b></em>' containment reference.
@@ -1852,7 +1825,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__XML = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 11;
+	int SCHEMA__XML = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Additonal Properties</b></em>' reference.
@@ -1861,7 +1834,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__ADDITONAL_PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 12;
+	int SCHEMA__ADDITONAL_PROPERTIES = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Declaring Context</b></em>' reference.
@@ -1870,7 +1843,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__DECLARING_CONTEXT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 13;
+	int SCHEMA__DECLARING_CONTEXT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Required</b></em>' reference list.
@@ -1879,7 +1852,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__REQUIRED = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 14;
+	int SCHEMA__REQUIRED = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Additonal Properties Allowed</b></em>' attribute.
@@ -1888,7 +1861,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__ADDITONAL_PROPERTIES_ALLOWED = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 15;
+	int SCHEMA__ADDITONAL_PROPERTIES_ALLOWED = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 14;
 
 	/**
 	 * The number of structural features of the '<em>Schema</em>' class.
@@ -1897,7 +1870,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_FEATURE_COUNT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 16;
+	int SCHEMA_FEATURE_COUNT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Get Property By Name</em>' operation.
@@ -2215,7 +2188,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getExternalDocsContext()
 	 * @generated
 	 */
-	int EXTERNAL_DOCS_CONTEXT = 26;
+	int EXTERNAL_DOCS_CONTEXT = 25;
 
 	/**
 	 * The feature id for the '<em><b>External Docs</b></em>' containment reference.
@@ -2611,43 +2584,6 @@ public interface OpenAPIPackage extends EPackage {
 	int RESPONSE_DECLARING_CONTEXT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.JSONPointerImpl <em>JSON Pointer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.uoc.som.openapi.impl.JSONPointerImpl
-	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getJSONPointer()
-	 * @generated
-	 */
-	int JSON_POINTER = 22;
-
-	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JSON_POINTER__REF = 0;
-
-	/**
-	 * The number of structural features of the '<em>JSON Pointer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JSON_POINTER_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>JSON Pointer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JSON_POINTER_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.SecurityContextImpl <em>Security Context</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2655,7 +2591,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getSecurityContext()
 	 * @generated
 	 */
-	int SECURITY_CONTEXT = 23;
+	int SECURITY_CONTEXT = 22;
 
 	/**
 	 * The feature id for the '<em><b>Security Requirements</b></em>' containment reference list.
@@ -2692,7 +2628,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getParameterContext()
 	 * @generated
 	 */
-	int PARAMETER_CONTEXT = 24;
+	int PARAMETER_CONTEXT = 23;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
@@ -2729,7 +2665,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getSchemaContext()
 	 * @generated
 	 */
-	int SCHEMA_CONTEXT = 25;
+	int SCHEMA_CONTEXT = 24;
 
 	/**
 	 * The feature id for the '<em><b>Schema</b></em>' reference.
@@ -2766,7 +2702,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getArrayContext()
 	 * @generated
 	 */
-	int ARRAY_CONTEXT = 27;
+	int ARRAY_CONTEXT = 26;
 
 	/**
 	 * The feature id for the '<em><b>Collection Format</b></em>' attribute.
@@ -2812,7 +2748,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getSecurityRequirement()
 	 * @generated
 	 */
-	int SECURITY_REQUIREMENT = 28;
+	int SECURITY_REQUIREMENT = 27;
 
 	/**
 	 * The feature id for the '<em><b>Security Scopes</b></em>' reference list.
@@ -2858,7 +2794,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getNamedElement()
 	 * @generated
 	 */
-	int NAMED_ELEMENT = 30;
+	int NAMED_ELEMENT = 29;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2895,7 +2831,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getDefinition()
 	 * @generated
 	 */
-	int DEFINITION = 29;
+	int DEFINITION = 28;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2950,7 +2886,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getProperty()
 	 * @generated
 	 */
-	int PROPERTY = 31;
+	int PROPERTY = 30;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2996,7 +2932,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getSchemeType()
 	 * @generated
 	 */
-	int SCHEME_TYPE = 32;
+	int SCHEME_TYPE = 31;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.ParameterLocation <em>Parameter Location</em>}' enum.
@@ -3006,7 +2942,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getParameterLocation()
 	 * @generated
 	 */
-	int PARAMETER_LOCATION = 33;
+	int PARAMETER_LOCATION = 32;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.CollectionFormat <em>Collection Format</em>}' enum.
@@ -3016,7 +2952,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getCollectionFormat()
 	 * @generated
 	 */
-	int COLLECTION_FORMAT = 34;
+	int COLLECTION_FORMAT = 33;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.OAuth2FlowType <em>OAuth2 Flow Type</em>}' enum.
@@ -3026,7 +2962,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getOAuth2FlowType()
 	 * @generated
 	 */
-	int OAUTH2_FLOW_TYPE = 35;
+	int OAUTH2_FLOW_TYPE = 34;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.APIKeyLocation <em>API Key Location</em>}' enum.
@@ -3036,7 +2972,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getAPIKeyLocation()
 	 * @generated
 	 */
-	int API_KEY_LOCATION = 36;
+	int API_KEY_LOCATION = 35;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.SecuritySchemeType <em>Security Scheme Type</em>}' enum.
@@ -3046,7 +2982,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getSecuritySchemeType()
 	 * @generated
 	 */
-	int SECURITY_SCHEME_TYPE = 37;
+	int SECURITY_SCHEME_TYPE = 36;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.JSONDataType <em>JSON Data Type</em>}' enum.
@@ -3056,7 +2992,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getJSONDataType()
 	 * @generated
 	 */
-	int JSON_DATA_TYPE = 38;
+	int JSON_DATA_TYPE = 37;
 
 
 	/**
@@ -4661,27 +4597,6 @@ public interface OpenAPIPackage extends EPackage {
 	EClass getResponseDeclaringContext();
 
 	/**
-	 * Returns the meta object for class '{@link edu.uoc.som.openapi.JSONPointer <em>JSON Pointer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>JSON Pointer</em>'.
-	 * @see edu.uoc.som.openapi.JSONPointer
-	 * @generated
-	 */
-	EClass getJSONPointer();
-
-	/**
-	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.JSONPointer#getRef <em>Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ref</em>'.
-	 * @see edu.uoc.som.openapi.JSONPointer#getRef()
-	 * @see #getJSONPointer()
-	 * @generated
-	 */
-	EAttribute getJSONPointer_Ref();
-
-	/**
 	 * Returns the meta object for class '{@link edu.uoc.som.openapi.SecurityContext <em>Security Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6208,24 +6123,6 @@ public interface OpenAPIPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RESPONSE_DECLARING_CONTEXT = eINSTANCE.getResponseDeclaringContext();
-
-		/**
-		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.JSONPointerImpl <em>JSON Pointer</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.uoc.som.openapi.impl.JSONPointerImpl
-		 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getJSONPointer()
-		 * @generated
-		 */
-		EClass JSON_POINTER = eINSTANCE.getJSONPointer();
-
-		/**
-		 * The meta object literal for the '<em><b>Ref</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JSON_POINTER__REF = eINSTANCE.getJSONPointer_Ref();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.SecurityContextImpl <em>Security Context</em>}' class.

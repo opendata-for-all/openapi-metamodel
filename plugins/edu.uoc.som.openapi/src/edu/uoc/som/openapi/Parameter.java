@@ -26,7 +26,7 @@ package edu.uoc.som.openapi;
  *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL requiredName='not name.oclIsUndefined()' requiredLocation='not location = ParameterLocation::unspecified'"
  * @generated
  */
-public interface Parameter extends SchemaDeclaringContext, SchemaContext, JSONSchemaSubset, JSONPointer, ArrayContext {
+public interface Parameter extends SchemaDeclaringContext, SchemaContext, JSONSchemaSubset, ArrayContext {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

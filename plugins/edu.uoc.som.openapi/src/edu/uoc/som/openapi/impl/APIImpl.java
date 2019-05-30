@@ -26,7 +26,6 @@ import edu.uoc.som.openapi.Definition;
 import edu.uoc.som.openapi.ExternalDocs;
 import edu.uoc.som.openapi.ExternalDocsContext;
 import edu.uoc.som.openapi.Info;
-import edu.uoc.som.openapi.JSONPointer;
 import edu.uoc.som.openapi.OpenAPIPackage;
 import edu.uoc.som.openapi.Operation;
 import edu.uoc.som.openapi.Parameter;
@@ -50,7 +49,6 @@ import edu.uoc.som.openapi.Tag;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link edu.uoc.som.openapi.impl.APIImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.APIImpl#getSecurityRequirements <em>Security Requirements</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.APIImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.APIImpl#getExternalDocs <em>External Docs</em>}</li>
@@ -71,16 +69,6 @@ import edu.uoc.som.openapi.Tag;
  * @generated
  */
 public class APIImpl extends ParameterDeclaringContextImpl implements API {
-	/**
-	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String REF_EDEFAULT = null;
-
 	/**
 	 * The cached value of the '{@link #getSecurityRequirements() <em>Security Requirements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -278,18 +266,6 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	@Override
 	protected EClass eStaticClass() {
 		return OpenAPIPackage.Literals.API;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getRef() {
-		// TODO: implement this method to return the 'Ref' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -767,8 +743,6 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case OpenAPIPackage.API__REF:
-				return getRef();
 			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
 				return getSecurityRequirements();
 			case OpenAPIPackage.API__PARAMETERS:
@@ -936,8 +910,6 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case OpenAPIPackage.API__REF:
-				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
 			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
 				return securityRequirements != null && !securityRequirements.isEmpty();
 			case OpenAPIPackage.API__PARAMETERS:
@@ -984,12 +956,6 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 				default: return -1;
 			}
 		}
-		if (baseClass == JSONPointer.class) {
-			switch (derivedFeatureID) {
-				case OpenAPIPackage.API__REF: return OpenAPIPackage.JSON_POINTER__REF;
-				default: return -1;
-			}
-		}
 		if (baseClass == SecurityContext.class) {
 			switch (derivedFeatureID) {
 				case OpenAPIPackage.API__SECURITY_REQUIREMENTS: return OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENTS;
@@ -1025,12 +991,6 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == SchemaDeclaringContext.class) {
 			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == JSONPointer.class) {
-			switch (baseFeatureID) {
-				case OpenAPIPackage.JSON_POINTER__REF: return OpenAPIPackage.API__REF;
 				default: return -1;
 			}
 		}

@@ -14,7 +14,6 @@ import edu.uoc.som.openapi.Header;
 import edu.uoc.som.openapi.Info;
 import edu.uoc.som.openapi.ItemsDefinition;
 import edu.uoc.som.openapi.JSONDataType;
-import edu.uoc.som.openapi.JSONPointer;
 import edu.uoc.som.openapi.JSONSchemaSubset;
 import edu.uoc.som.openapi.License;
 import edu.uoc.som.openapi.NamedElement;
@@ -215,13 +214,6 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	private EClass responseDeclaringContextEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass jsonPointerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1902,26 +1894,6 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getJSONPointer() {
-		return jsonPointerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getJSONPointer_Ref() {
-		return (EAttribute)jsonPointerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getSecurityContext() {
 		return securityContextEClass;
 	}
@@ -2376,9 +2348,6 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 
 		responseDeclaringContextEClass = createEClass(RESPONSE_DECLARING_CONTEXT);
 
-		jsonPointerEClass = createEClass(JSON_POINTER);
-		createEAttribute(jsonPointerEClass, JSON_POINTER__REF);
-
 		securityContextEClass = createEClass(SECURITY_CONTEXT);
 		createEReference(securityContextEClass, SECURITY_CONTEXT__SECURITY_REQUIREMENTS);
 
@@ -2447,7 +2416,6 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		// Add supertypes to classes
 		apiEClass.getESuperTypes().add(this.getParameterDeclaringContext());
 		apiEClass.getESuperTypes().add(this.getSchemaDeclaringContext());
-		apiEClass.getESuperTypes().add(this.getJSONPointer());
 		apiEClass.getESuperTypes().add(this.getSecurityContext());
 		apiEClass.getESuperTypes().add(this.getParameterContext());
 		apiEClass.getESuperTypes().add(this.getExternalDocsContext());
@@ -2462,13 +2430,11 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		parameterEClass.getESuperTypes().add(this.getSchemaDeclaringContext());
 		parameterEClass.getESuperTypes().add(this.getSchemaContext());
 		parameterEClass.getESuperTypes().add(this.getJSONSchemaSubset());
-		parameterEClass.getESuperTypes().add(this.getJSONPointer());
 		parameterEClass.getESuperTypes().add(this.getArrayContext());
 		itemsDefinitionEClass.getESuperTypes().add(this.getJSONSchemaSubset());
 		itemsDefinitionEClass.getESuperTypes().add(this.getArrayContext());
 		schemaEClass.getESuperTypes().add(this.getJSONSchemaSubset());
 		schemaEClass.getESuperTypes().add(this.getSchemaDeclaringContext());
-		schemaEClass.getESuperTypes().add(this.getJSONPointer());
 		schemaEClass.getESuperTypes().add(this.getExternalDocsContext());
 		responseEClass.getESuperTypes().add(this.getSchemaDeclaringContext());
 		responseEClass.getESuperTypes().add(this.getSchemaContext());
@@ -2676,9 +2642,6 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEClass(schemaDeclaringContextEClass, SchemaDeclaringContext.class, "SchemaDeclaringContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(responseDeclaringContextEClass, ResponseDeclaringContext.class, "ResponseDeclaringContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(jsonPointerEClass, JSONPointer.class, "JSONPointer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getJSONPointer_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, JSONPointer.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(securityContextEClass, SecurityContext.class, "SecurityContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSecurityContext_SecurityRequirements(), this.getSecurityRequirement(), null, "securityRequirements", null, 0, -1, SecurityContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

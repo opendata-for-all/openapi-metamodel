@@ -33,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, JSONPointer, ExternalDocsContext {
+public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, ExternalDocsContext {
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->

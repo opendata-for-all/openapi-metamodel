@@ -6,7 +6,6 @@ import edu.uoc.som.openapi.ArrayContext;
 import edu.uoc.som.openapi.CollectionFormat;
 import edu.uoc.som.openapi.ItemsDefinition;
 import edu.uoc.som.openapi.JSONDataType;
-import edu.uoc.som.openapi.JSONPointer;
 import edu.uoc.som.openapi.JSONSchemaSubset;
 import edu.uoc.som.openapi.OpenAPIPackage;
 import edu.uoc.som.openapi.Parameter;
@@ -54,7 +53,6 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getEnum <em>Enum</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getDefault <em>Default</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getMultipleOf <em>Multiple Of</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getCollectionFormat <em>Collection Format</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getItems <em>Items</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getName <em>Name</em>}</li>
@@ -388,16 +386,6 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * @ordered
 	 */
 	protected Double multipleOf = MULTIPLE_OF_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String REF_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getCollectionFormat() <em>Collection Format</em>}' attribute.
@@ -982,18 +970,6 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * @generated
 	 */
 	@Override
-	public String getRef() {
-		// TODO: implement this method to return the 'Ref' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public CollectionFormat getCollectionFormat() {
 		return collectionFormat;
 	}
@@ -1291,8 +1267,6 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 				return getDefault();
 			case OpenAPIPackage.PARAMETER__MULTIPLE_OF:
 				return getMultipleOf();
-			case OpenAPIPackage.PARAMETER__REF:
-				return getRef();
 			case OpenAPIPackage.PARAMETER__COLLECTION_FORMAT:
 				return getCollectionFormat();
 			case OpenAPIPackage.PARAMETER__ITEMS:
@@ -1540,8 +1514,6 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 				return DEFAULT_EDEFAULT == null ? default_ != null : !DEFAULT_EDEFAULT.equals(default_);
 			case OpenAPIPackage.PARAMETER__MULTIPLE_OF:
 				return MULTIPLE_OF_EDEFAULT == null ? multipleOf != null : !MULTIPLE_OF_EDEFAULT.equals(multipleOf);
-			case OpenAPIPackage.PARAMETER__REF:
-				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
 			case OpenAPIPackage.PARAMETER__COLLECTION_FORMAT:
 				return collectionFormat != COLLECTION_FORMAT_EDEFAULT;
 			case OpenAPIPackage.PARAMETER__ITEMS:
@@ -1598,12 +1570,6 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 				default: return -1;
 			}
 		}
-		if (baseClass == JSONPointer.class) {
-			switch (derivedFeatureID) {
-				case OpenAPIPackage.PARAMETER__REF: return OpenAPIPackage.JSON_POINTER__REF;
-				default: return -1;
-			}
-		}
 		if (baseClass == ArrayContext.class) {
 			switch (derivedFeatureID) {
 				case OpenAPIPackage.PARAMETER__COLLECTION_FORMAT: return OpenAPIPackage.ARRAY_CONTEXT__COLLECTION_FORMAT;
@@ -1645,12 +1611,6 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 				case OpenAPIPackage.JSON_SCHEMA_SUBSET__ENUM: return OpenAPIPackage.PARAMETER__ENUM;
 				case OpenAPIPackage.JSON_SCHEMA_SUBSET__DEFAULT: return OpenAPIPackage.PARAMETER__DEFAULT;
 				case OpenAPIPackage.JSON_SCHEMA_SUBSET__MULTIPLE_OF: return OpenAPIPackage.PARAMETER__MULTIPLE_OF;
-				default: return -1;
-			}
-		}
-		if (baseClass == JSONPointer.class) {
-			switch (baseFeatureID) {
-				case OpenAPIPackage.JSON_POINTER__REF: return OpenAPIPackage.PARAMETER__REF;
 				default: return -1;
 			}
 		}

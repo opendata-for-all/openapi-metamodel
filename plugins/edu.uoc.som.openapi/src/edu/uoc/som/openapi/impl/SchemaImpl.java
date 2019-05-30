@@ -4,7 +4,6 @@ package edu.uoc.som.openapi.impl;
 
 import edu.uoc.som.openapi.ExternalDocs;
 import edu.uoc.som.openapi.ExternalDocsContext;
-import edu.uoc.som.openapi.JSONPointer;
 import edu.uoc.som.openapi.OpenAPIPackage;
 import edu.uoc.som.openapi.Property;
 import edu.uoc.som.openapi.Schema;
@@ -37,7 +36,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getExternalDocs <em>External Docs</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getMaxProperties <em>Max Properties</em>}</li>
@@ -58,16 +56,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
-	/**
-	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String REF_EDEFAULT = null;
-
 	/**
 	 * The cached value of the '{@link #getExternalDocs() <em>External Docs</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -305,18 +293,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	@Override
 	protected EClass eStaticClass() {
 		return OpenAPIPackage.Literals.SCHEMA;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getRef() {
-		// TODO: implement this method to return the 'Ref' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -768,8 +744,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case OpenAPIPackage.SCHEMA__REF:
-				return getRef();
 			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
 				return getExternalDocs();
 			case OpenAPIPackage.SCHEMA__TITLE:
@@ -933,8 +907,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case OpenAPIPackage.SCHEMA__REF:
-				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
 			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
 				return externalDocs != null;
 			case OpenAPIPackage.SCHEMA__TITLE:
@@ -981,12 +953,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 				default: return -1;
 			}
 		}
-		if (baseClass == JSONPointer.class) {
-			switch (derivedFeatureID) {
-				case OpenAPIPackage.SCHEMA__REF: return OpenAPIPackage.JSON_POINTER__REF;
-				default: return -1;
-			}
-		}
 		if (baseClass == ExternalDocsContext.class) {
 			switch (derivedFeatureID) {
 				case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS: return OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS;
@@ -1005,12 +971,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == SchemaDeclaringContext.class) {
 			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == JSONPointer.class) {
-			switch (baseFeatureID) {
-				case OpenAPIPackage.JSON_POINTER__REF: return OpenAPIPackage.SCHEMA__REF;
 				default: return -1;
 			}
 		}

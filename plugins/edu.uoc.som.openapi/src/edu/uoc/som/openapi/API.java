@@ -33,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  *        extendedMetaData="name='API'"
  * @generated
  */
-public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, JSONPointer, SecurityContext, ParameterContext, ExternalDocsContext, ResponseDeclaringContext {
+public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, SecurityContext, ParameterContext, ExternalDocsContext, ResponseDeclaringContext {
 	/**
 	 * Returns the value of the '<em><b>Swagger</b></em>' attribute.
 	 * <!-- begin-user-doc -->

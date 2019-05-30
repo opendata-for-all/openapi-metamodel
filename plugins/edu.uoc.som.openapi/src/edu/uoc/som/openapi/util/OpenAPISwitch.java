@@ -83,7 +83,6 @@ public class OpenAPISwitch<T> extends Switch<T> {
 				T result = caseAPI(api);
 				if (result == null) result = caseParameterDeclaringContext(api);
 				if (result == null) result = caseSchemaDeclaringContext(api);
-				if (result == null) result = caseJSONPointer(api);
 				if (result == null) result = caseSecurityContext(api);
 				if (result == null) result = caseParameterContext(api);
 				if (result == null) result = caseExternalDocsContext(api);
@@ -140,7 +139,6 @@ public class OpenAPISwitch<T> extends Switch<T> {
 				if (result == null) result = caseSchemaDeclaringContext(parameter);
 				if (result == null) result = caseSchemaContext(parameter);
 				if (result == null) result = caseJSONSchemaSubset(parameter);
-				if (result == null) result = caseJSONPointer(parameter);
 				if (result == null) result = caseArrayContext(parameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -158,7 +156,6 @@ public class OpenAPISwitch<T> extends Switch<T> {
 				T result = caseSchema(schema);
 				if (result == null) result = caseJSONSchemaSubset(schema);
 				if (result == null) result = caseSchemaDeclaringContext(schema);
-				if (result == null) result = caseJSONPointer(schema);
 				if (result == null) result = caseExternalDocsContext(schema);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -225,12 +222,6 @@ public class OpenAPISwitch<T> extends Switch<T> {
 			case OpenAPIPackage.RESPONSE_DECLARING_CONTEXT: {
 				ResponseDeclaringContext responseDeclaringContext = (ResponseDeclaringContext)theEObject;
 				T result = caseResponseDeclaringContext(responseDeclaringContext);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case OpenAPIPackage.JSON_POINTER: {
-				JSONPointer jsonPointer = (JSONPointer)theEObject;
-				T result = caseJSONPointer(jsonPointer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -623,21 +614,6 @@ public class OpenAPISwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseResponseDeclaringContext(ResponseDeclaringContext object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>JSON Pointer</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>JSON Pointer</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseJSONPointer(JSONPointer object) {
 		return null;
 	}
 

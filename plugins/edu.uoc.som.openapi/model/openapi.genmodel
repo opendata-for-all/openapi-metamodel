@@ -249,9 +249,6 @@
     <genClasses image="false" ecoreClass="openapi.ecore#//ParameterDeclaringContext"/>
     <genClasses image="false" ecoreClass="openapi.ecore#//SchemaDeclaringContext"/>
     <genClasses image="false" ecoreClass="openapi.ecore#//ResponseDeclaringContext"/>
-    <genClasses image="false" ecoreClass="openapi.ecore#//JSONPointer">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute openapi.ecore#//JSONPointer/ref"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="openapi.ecore#//SecurityContext">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi.ecore#//SecurityContext/securityRequirements"/>
     </genClasses>
