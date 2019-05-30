@@ -52,13 +52,13 @@ public class OpenAPIExporter {
 		if (!api.getPaths().isEmpty()) {
 			JsonObject jsonPaths = new JsonObject();
 			jsonObject.add("paths", jsonPaths);
-			generatePaths(api, jsonPaths);
+			generatePaths(root, jsonPaths);
 
 		}
 		if (!api.getDefinitions().isEmpty()) {
 			JsonObject jsonDefintions = new JsonObject();
 			jsonObject.add("definitions", jsonDefintions);
-			generateDefinitions(api, jsonDefintions);
+			generateDefinitions(root, jsonDefintions);
 
 		}
 		return jsonObject;
@@ -71,43 +71,43 @@ public class OpenAPIExporter {
 
 	}
 
-	private static void generatePaths(API api, JsonObject jsonPaths) {
-		for (Path path : api.getPaths()) {
+	private static void generatePaths(Root root, JsonObject jsonPaths) {
+		for (Path path : root.getApi().getPaths()) {
 			JsonObject jsonOperations = new JsonObject();
 			jsonPaths.add(path.getRelativePath(), jsonOperations);
-			generateOperations(path, jsonOperations);
+			generateOperations(root, path, jsonOperations);
 		}
 
 	}
 
-	private static void generateOperations(Path path, JsonObject jsonOperations) {
+	private static void generateOperations(Root root, Path path, JsonObject jsonOperations) {
 		if (path.getGet() != null) {
 			JsonObject jsonOperation = new JsonObject();
 			jsonOperations.add("get", jsonOperation);
-			generateOperation(path.getGet(), jsonOperation);
+			generateOperation(root, path.getGet(), jsonOperation);
 
 		}
 		if (path.getPost() != null) {
 			JsonObject jsonOperation = new JsonObject();
 			jsonOperations.add("post", jsonOperation);
-			generateOperation(path.getPost(), jsonOperation);
+			generateOperation(root, path.getPost(), jsonOperation);
 
 		}
 		if (path.getPut() != null) {
 			JsonObject jsonOperation = new JsonObject();
 			jsonOperations.add("put", jsonOperation);
-			generateOperation(path.getPut(), jsonOperation);
+			generateOperation(root, path.getPut(), jsonOperation);
 
 		}
 		if (path.getDelete() != null) {
 			JsonObject jsonOperation = new JsonObject();
 			jsonOperations.add("delete", jsonOperation);
-			generateOperation(path.getDelete(), jsonOperation);
+			generateOperation(root, path.getDelete(), jsonOperation);
 
 		}
 	}
 
-	private static void generateOperation(Operation operation, JsonObject jsonOperation) {
+	private static void generateOperation(Root root, Operation operation, JsonObject jsonOperation) {
 		if (!operation.getTagReferences().isEmpty()) {
 			JsonArray tags = new JsonArray();
 			for (String tag : operation.getTagReferences())
@@ -141,7 +141,7 @@ public class OpenAPIExporter {
 			for (Parameter parameter : operation.getParameters()) {
 				JsonObject parameterJson = new JsonObject();
 				paramatersJson.add(parameterJson);
-				generateParameter(parameter, parameterJson);
+				generateParameter(root, parameter, parameterJson);
 			}
 			jsonOperation.add("parameters", paramatersJson);
 		}
@@ -151,7 +151,7 @@ public class OpenAPIExporter {
 			for (Response response : operation.getResponses()) {
 				JsonObject responseJson = new JsonObject();
 				responsesJson.add(response.getCode(), responseJson);
-				generateResponse(response, responseJson);
+				generateResponse(root, response, responseJson);
 			}
 		}
 		if (!operation.getSchemes().isEmpty()) {
@@ -165,7 +165,7 @@ public class OpenAPIExporter {
 
 	}
 
-	private static void generateParameter(Parameter parameter, JsonObject parameterJson) {
+	private static void generateParameter(Root root, Parameter parameter, JsonObject parameterJson) {
 		parameterJson.addProperty("name", parameter.getName());
 		parameterJson.addProperty("in", parameter.getLocation().getLiteral());
 		if (!parameter.getType().equals(JSONDataType.UNSPECIFIED))
@@ -183,7 +183,7 @@ public class OpenAPIExporter {
 		if (parameter.getLocation().equals(ParameterLocation.BODY)) {
 			if (parameter.getSchema().getType().equals(JSONDataType.OBJECT)) {
 				JsonObject refSchema = new JsonObject();
-				refSchema.addProperty("$ref", parameter.getSchema().getRef());
+				refSchema.addProperty("$ref", OpenAPIUtils.getDefinitionFromSchema(root.getApi(), parameter.getSchema()).getRef());
 				parameterJson.add("schema", refSchema);
 
 			} else {
@@ -193,13 +193,15 @@ public class OpenAPIExporter {
 
 	}
 
-	private static void generateResponse(Response response, JsonObject responseJson) {
+	private static void generateResponse(Root root, Response response, JsonObject responseJson) {
 		responseJson.addProperty("description", response.getDescription());
 		if (response.getSchema() != null) {
 			if (response.getSchema().getType().equals(JSONDataType.OBJECT)) {
+				if(response.getSchema().getDeclaringContext()== root.getApi()) {
 				JsonObject refSchema = new JsonObject();
-				refSchema.addProperty("$ref", response.getSchema().getRef());
+				refSchema.addProperty("$ref", OpenAPIUtils.getDefinitionFromSchema(root.getApi(),response.getSchema()).getRef());
 				responseJson.add("schema", refSchema);
+				}
 
 			} else {
 				if (response.getSchema().getType().equals(JSONDataType.ARRAY)) {
@@ -208,7 +210,7 @@ public class OpenAPIExporter {
 					schemaArray.addProperty("type", JSONDataType.ARRAY.getLiteral());
 					if (response.getSchema().getItems().getType().equals(JSONDataType.OBJECT)) {
 						JsonObject refSchema = new JsonObject();
-						refSchema.addProperty("$ref", response.getSchema().getItems().getRef());
+						refSchema.addProperty("$ref",OpenAPIUtils.getDefinitionFromSchema(root.getApi(), response.getSchema().getItems()).getRef());
 						schemaArray.add("items", refSchema);
 					}
 
@@ -219,16 +221,16 @@ public class OpenAPIExporter {
 
 	}
 
-	private static void generateDefinitions(API api, JsonObject jsonDefinitions) {
-		for (Definition definition : api.getDefinitions()) {
+	private static void generateDefinitions(Root root, JsonObject jsonDefinitions) {
+		for (Definition definition : root.getApi().getDefinitions()) {
 			JsonObject schemaJson = new JsonObject();
 			jsonDefinitions.add(definition.getName(), schemaJson);
-			generateSchema(definition.getSchema(), schemaJson);
+			generateSchema(root, definition.getSchema(), schemaJson);
 		}
 
 	}
 
-	private static void generateSchema(Schema schema, JsonObject schemaJson) {
+	private static void generateSchema(Root root, Schema schema, JsonObject schemaJson) {
 		schemaJson.addProperty("type", schema.getType().getLiteral());
 		if (!schema.getProperties().isEmpty()) {
 			JsonObject propertiesJson = new JsonObject();
@@ -236,21 +238,21 @@ public class OpenAPIExporter {
 			for (Property property : schema.getProperties()) {
 				JsonObject propertyJson = new JsonObject();
 				propertiesJson.add(property.getName(), propertyJson);
-				generateSchemaProperty(property.getSchema(), propertyJson);
+				generateSchemaProperty(root,property.getSchema(), propertyJson);
 			}
 
 		}
 	}
 
-	private static void generateSchemaProperty(Schema property, JsonObject propertyJson) {
+	private static void generateSchemaProperty(Root root, Schema property, JsonObject propertyJson) {
 		if (property.getType().equals(JSONDataType.OBJECT)) {
-			propertyJson.addProperty("$ref", property.getRef());
+			propertyJson.addProperty("$ref", OpenAPIUtils.getDefinitionFromSchema(root.getApi(),property).getRef());
 		} else {
 			if (property.getType().equals(JSONDataType.ARRAY)) {
 				propertyJson.addProperty("type", JSONDataType.ARRAY.getLiteral());
 				JsonObject items = new JsonObject();
 				if (property.getItems().getType().equals(JSONDataType.OBJECT))
-					items.addProperty("$ref", property.getItems().getRef());
+					items.addProperty("$ref", OpenAPIUtils.getDefinitionFromSchema(root.getApi(),property.getItems()).getRef());
 				else
 					items.addProperty("type", property.getItems().getType().getLiteral());
 				propertyJson.add("items", items);
