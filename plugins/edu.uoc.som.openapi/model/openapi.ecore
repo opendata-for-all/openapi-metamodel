@@ -29,7 +29,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="responses" upperBound="-1"
         eType="#//Response" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="API" eSuperTypes="#//ParameterDeclaringContext #//SchemaDeclaringContext #//JSONPointer #//SecurityContext #//ParameterContext #//ExternalDocsContext #//ResponseDeclaringContext">
+  <eClassifiers xsi:type="ecore:EClass" name="API" eSuperTypes="#//ParameterDeclaringContext #//SchemaDeclaringContext #//SecurityContext #//ParameterContext #//ExternalDocsContext #//ResponseDeclaringContext">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="requiredSwaggerVersion correctSwaggerVersion requiredInfoReference requiredPaths"/>
     </eAnnotations>
@@ -226,7 +226,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//SchemaDeclaringContext #//SchemaContext #//JSONSchemaSubset #//JSONPointer #//ArrayContext">
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//SchemaDeclaringContext #//SchemaContext #//JSONSchemaSubset #//ArrayContext">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="requiredName requiredLocation"/>
     </eAnnotations>
@@ -243,7 +243,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="example" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ItemsDefinition" eSuperTypes="#//JSONSchemaSubset #//ArrayContext"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Schema" eSuperTypes="#//JSONSchemaSubset #//SchemaDeclaringContext #//JSONPointer #//ExternalDocsContext">
+  <eClassifiers xsi:type="ecore:EClass" name="Schema" eSuperTypes="#//JSONSchemaSubset #//SchemaDeclaringContext #//ExternalDocsContext">
     <eOperations name="getPropertyByName" eType="#//Property">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="body" value="for (Property property : getProperties())&#xA;&#x9;&#x9;&#x9;if (property.getName().equals(name))&#xA;&#x9;&#x9;&#x9;&#x9;return property;&#xA;&#x9;&#x9;return null;"/>
@@ -323,10 +323,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="ParameterDeclaringContext" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="SchemaDeclaringContext" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ResponseDeclaringContext" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="JSONPointer" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SecurityContext" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityRequirements" upperBound="-1"
         eType="#//SecurityRequirement" containment="true"/>
