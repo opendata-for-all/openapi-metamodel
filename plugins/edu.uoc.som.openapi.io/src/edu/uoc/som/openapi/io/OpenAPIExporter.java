@@ -77,7 +77,7 @@ public class OpenAPIExporter {
 			if(info.getContact().getUrl()!=null)
 				jsonContact.addProperty("url", info.getContact().getUrl());
 			if(info.getContact().getEmail()!=null)
-				jsonContact.addProperty("url", info.getContact().getEmail());
+				jsonContact.addProperty("email", info.getContact().getEmail());
 			jsonInfo.add("contact", jsonContact);
 		}
 		if(info.getLicense()!= null) {
