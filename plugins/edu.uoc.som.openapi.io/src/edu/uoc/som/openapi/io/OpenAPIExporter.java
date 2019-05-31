@@ -16,6 +16,7 @@ import edu.uoc.som.openapi.Response;
 import edu.uoc.som.openapi.Root;
 import edu.uoc.som.openapi.Schema;
 import edu.uoc.som.openapi.SchemeType;
+import edu.uoc.som.openapi.util.OpenAPIUtils;
 
 
 public class OpenAPIExporter {
