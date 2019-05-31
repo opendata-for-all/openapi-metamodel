@@ -14,7 +14,7 @@ public class IOUtils {
 	public static void saveOpenAPIDefintion(JsonObject jsonDefinition, File output) throws IOException {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String jsonOutput = gson.toJson(jsonDefinition); 
-		FileWriter fileWritter = new FileWriter(output.getPath(), true);
+		FileWriter fileWritter = new FileWriter(output.getPath(), false);
 		BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
 		bufferWritter.write(jsonOutput);
 		bufferWritter.close();
