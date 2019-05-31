@@ -4,7 +4,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import edu.uoc.som.openapi.API;
-import edu.uoc.som.openapi.Definition;
 import edu.uoc.som.openapi.Info;
 import edu.uoc.som.openapi.JSONDataType;
 import edu.uoc.som.openapi.Operation;
@@ -15,7 +14,6 @@ import edu.uoc.som.openapi.Property;
 import edu.uoc.som.openapi.Response;
 import edu.uoc.som.openapi.Schema;
 import edu.uoc.som.openapi.SchemeType;
-import edu.uoc.som.openapi.util.OpenAPIUtils;
 
 
 public class OpenAPIExporter {
@@ -61,6 +59,7 @@ public class OpenAPIExporter {
 			generateDefinitions(api, jsonDefintions);
 
 		}
+		
 		return jsonObject;
 
 	}
@@ -203,7 +202,7 @@ public class OpenAPIExporter {
 		if (parameter.getLocation().equals(ParameterLocation.BODY)) {
 			if (parameter.getSchema().getType().equals(JSONDataType.OBJECT)) {
 				JsonObject refSchema = new JsonObject();
-				refSchema.addProperty("$ref", OpenAPIUtils.getDefinitionFromSchema(api, parameter.getSchema()).getRef());
+				refSchema.addProperty("$ref", parameter.getSchema().getRef());
 				parameterJson.add("schema", refSchema);
 
 			} else {
@@ -219,7 +218,7 @@ public class OpenAPIExporter {
 			if (response.getSchema().getType().equals(JSONDataType.OBJECT)) {
 				if(response.getSchema().getDeclaringContext()== api) {
 				JsonObject refSchema = new JsonObject();
-				refSchema.addProperty("$ref", OpenAPIUtils.getDefinitionFromSchema(api,response.getSchema()).getRef());
+				refSchema.addProperty("$ref", response.getSchema().getRef());
 				responseJson.add("schema", refSchema);
 				}
 
@@ -230,7 +229,7 @@ public class OpenAPIExporter {
 					schemaArray.addProperty("type", JSONDataType.ARRAY.getLiteral());
 					if (response.getSchema().getItems().getType().equals(JSONDataType.OBJECT)) {
 						JsonObject refSchema = new JsonObject();
-						refSchema.addProperty("$ref",OpenAPIUtils.getDefinitionFromSchema(api, response.getSchema().getItems()).getRef());
+						refSchema.addProperty("$ref",response.getSchema().getItems().getRef());
 						schemaArray.add("items", refSchema);
 					}
 
@@ -242,10 +241,10 @@ public class OpenAPIExporter {
 	}
 
 	private static void generateDefinitions(API api, JsonObject jsonDefinitions) {
-		for (Definition definition : api.getDefinitions()) {
+		for (Schema definition : api.getDefinitions()) {
 			JsonObject schemaJson = new JsonObject();
-			jsonDefinitions.add(definition.getName(), schemaJson);
-			generateSchema(api, definition.getSchema(), schemaJson);
+			jsonDefinitions.add(definition.getReferenceName(), schemaJson);
+			generateSchema(api, definition, schemaJson);
 		}
 
 	}
@@ -257,7 +256,7 @@ public class OpenAPIExporter {
 			schemaJson.add("properties", propertiesJson);
 			for (Property property : schema.getProperties()) {
 				JsonObject propertyJson = new JsonObject();
-				propertiesJson.add(property.getName(), propertyJson);
+				propertiesJson.add(property.getReferenceName(), propertyJson);
 				generateSchemaProperty(api,property.getSchema(), propertyJson);
 			}
 
@@ -266,13 +265,13 @@ public class OpenAPIExporter {
 
 	private static void generateSchemaProperty(API api, Schema property, JsonObject propertyJson) {
 		if (property.getType().equals(JSONDataType.OBJECT)) {
-			propertyJson.addProperty("$ref", OpenAPIUtils.getDefinitionFromSchema(api,property).getRef());
+			propertyJson.addProperty("$ref", property.getRef());
 		} else {
 			if (property.getType().equals(JSONDataType.ARRAY)) {
 				propertyJson.addProperty("type", JSONDataType.ARRAY.getLiteral());
 				JsonObject items = new JsonObject();
 				if (property.getItems().getType().equals(JSONDataType.OBJECT))
-					items.addProperty("$ref", OpenAPIUtils.getDefinitionFromSchema(api,property.getItems()).getRef());
+					items.addProperty("$ref", property.getItems().getRef());
 				else
 					items.addProperty("type", property.getItems().getType().getLiteral());
 				propertyJson.add("items", items);
