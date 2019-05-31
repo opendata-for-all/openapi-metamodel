@@ -16,7 +16,6 @@ package edu.uoc.som.openapi;
  *   <li>{@link edu.uoc.som.openapi.Parameter#getLocation <em>Location</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Parameter#getRequired <em>Required</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Parameter#getAllowEmplyValue <em>Allow Emply Value</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.Parameter#getReferenceName <em>Reference Name</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Parameter#getDeclaringContext <em>Declaring Context</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Parameter#getExample <em>Example</em>}</li>
  * </ul>
@@ -26,7 +25,7 @@ package edu.uoc.som.openapi;
  *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL requiredName='not name.oclIsUndefined()' requiredLocation='not location = ParameterLocation::unspecified'"
  * @generated
  */
-public interface Parameter extends SchemaDeclaringContext, SchemaContext, JSONSchemaSubset, ArrayContext {
+public interface Parameter extends SchemaDeclaringContext, SchemaContext, JSONSchemaSubset, ArrayContext, ReferenceableElement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -133,32 +132,6 @@ public interface Parameter extends SchemaDeclaringContext, SchemaContext, JSONSc
 	 * @generated
 	 */
 	void setAllowEmplyValue(Boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Reference Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Reference Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reference Name</em>' attribute.
-	 * @see #setReferenceName(String)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getParameter_ReferenceName()
-	 * @model
-	 * @generated
-	 */
-	String getReferenceName();
-
-	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.Parameter#getReferenceName <em>Reference Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reference Name</em>' attribute.
-	 * @see #getReferenceName()
-	 * @generated
-	 */
-	void setReferenceName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Declaring Context</b></em>' reference.

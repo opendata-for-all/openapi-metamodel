@@ -33,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, ExternalDocsContext {
+public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, ExternalDocsContext, ReferenceableElement {
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -371,7 +371,7 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, Extern
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for (Property property : getProperties())\n\t\t\tif (property.getName().equals(name))\n\t\t\t\treturn property;\n\t\treturn null;'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for (Property property : getProperties())\n\t\t\tif (property.getReferenceName().equals(name))\n\t\t\t\treturn property;\n\t\treturn null;'"
 	 * @generated
 	 */
 	Property getPropertyByName(String name);

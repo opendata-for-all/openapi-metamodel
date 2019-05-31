@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class PropertyImpl extends NamedElementImpl implements Property {
+public class PropertyImpl extends ReferenceableElementImpl implements Property {
 	/**
 	 * The cached value of the '{@link #getSchema() <em>Schema</em>}' reference.
 	 * <!-- begin-user-doc -->

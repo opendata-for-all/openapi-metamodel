@@ -5,11 +5,15 @@ package edu.uoc.som.openapi.impl;
 import edu.uoc.som.openapi.Example;
 import edu.uoc.som.openapi.Header;
 import edu.uoc.som.openapi.OpenAPIPackage;
+import edu.uoc.som.openapi.Parameter;
+import edu.uoc.som.openapi.ReferenceableElement;
 import edu.uoc.som.openapi.Response;
 import edu.uoc.som.openapi.ResponseDeclaringContext;
 import edu.uoc.som.openapi.Schema;
 import edu.uoc.som.openapi.SchemaContext;
+import edu.uoc.som.openapi.SecurityScheme;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -34,12 +38,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link edu.uoc.som.openapi.impl.ResponseImpl#getSchema <em>Schema</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.ResponseImpl#getReferenceName <em>Reference Name</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ResponseImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ResponseImpl#getHeaders <em>Headers</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ResponseImpl#getExamples <em>Examples</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ResponseImpl#getCode <em>Code</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ResponseImpl#getDeclaringContext <em>Declaring Context</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.ResponseImpl#getReferenceName <em>Reference Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,6 +58,26 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * @ordered
 	 */
 	protected Schema schema;
+
+	/**
+	 * The default value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REFERENCE_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String referenceName = REFERENCE_NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -124,26 +148,6 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * @ordered
 	 */
 	protected ResponseDeclaringContext declaringContext;
-
-	/**
-	 * The default value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferenceName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String REFERENCE_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferenceName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String referenceName = REFERENCE_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -322,6 +326,24 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 	 * @generated
 	 */
 	@Override
+	public String getRef() {
+				if(this instanceof Schema)
+					return "#/definitions/"+referenceName;
+				if(this instanceof Parameter)
+					return "#/parameters/"+referenceName;
+				if(this instanceof Response)
+					return "#/responses/"+referenceName;
+				if(this instanceof SecurityScheme)
+					return "#/securityDefinitions/"+referenceName;
+				return "unkown";
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getReferenceName() {
 		return referenceName;
 	}
@@ -366,6 +388,8 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 			case OpenAPIPackage.RESPONSE__SCHEMA:
 				if (resolve) return getSchema();
 				return basicGetSchema();
+			case OpenAPIPackage.RESPONSE__REFERENCE_NAME:
+				return getReferenceName();
 			case OpenAPIPackage.RESPONSE__DESCRIPTION:
 				return getDescription();
 			case OpenAPIPackage.RESPONSE__HEADERS:
@@ -377,8 +401,6 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 			case OpenAPIPackage.RESPONSE__DECLARING_CONTEXT:
 				if (resolve) return getDeclaringContext();
 				return basicGetDeclaringContext();
-			case OpenAPIPackage.RESPONSE__REFERENCE_NAME:
-				return getReferenceName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -394,6 +416,9 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 		switch (featureID) {
 			case OpenAPIPackage.RESPONSE__SCHEMA:
 				setSchema((Schema)newValue);
+				return;
+			case OpenAPIPackage.RESPONSE__REFERENCE_NAME:
+				setReferenceName((String)newValue);
 				return;
 			case OpenAPIPackage.RESPONSE__DESCRIPTION:
 				setDescription((String)newValue);
@@ -412,9 +437,6 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 			case OpenAPIPackage.RESPONSE__DECLARING_CONTEXT:
 				setDeclaringContext((ResponseDeclaringContext)newValue);
 				return;
-			case OpenAPIPackage.RESPONSE__REFERENCE_NAME:
-				setReferenceName((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -429,6 +451,9 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 		switch (featureID) {
 			case OpenAPIPackage.RESPONSE__SCHEMA:
 				setSchema((Schema)null);
+				return;
+			case OpenAPIPackage.RESPONSE__REFERENCE_NAME:
+				setReferenceName(REFERENCE_NAME_EDEFAULT);
 				return;
 			case OpenAPIPackage.RESPONSE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
@@ -445,9 +470,6 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 			case OpenAPIPackage.RESPONSE__DECLARING_CONTEXT:
 				setDeclaringContext((ResponseDeclaringContext)null);
 				return;
-			case OpenAPIPackage.RESPONSE__REFERENCE_NAME:
-				setReferenceName(REFERENCE_NAME_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -462,6 +484,8 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 		switch (featureID) {
 			case OpenAPIPackage.RESPONSE__SCHEMA:
 				return schema != null;
+			case OpenAPIPackage.RESPONSE__REFERENCE_NAME:
+				return REFERENCE_NAME_EDEFAULT == null ? referenceName != null : !REFERENCE_NAME_EDEFAULT.equals(referenceName);
 			case OpenAPIPackage.RESPONSE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case OpenAPIPackage.RESPONSE__HEADERS:
@@ -472,8 +496,6 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
 			case OpenAPIPackage.RESPONSE__DECLARING_CONTEXT:
 				return declaringContext != null;
-			case OpenAPIPackage.RESPONSE__REFERENCE_NAME:
-				return REFERENCE_NAME_EDEFAULT == null ? referenceName != null : !REFERENCE_NAME_EDEFAULT.equals(referenceName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -488,6 +510,12 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 		if (baseClass == SchemaContext.class) {
 			switch (derivedFeatureID) {
 				case OpenAPIPackage.RESPONSE__SCHEMA: return OpenAPIPackage.SCHEMA_CONTEXT__SCHEMA;
+				default: return -1;
+			}
+		}
+		if (baseClass == ReferenceableElement.class) {
+			switch (derivedFeatureID) {
+				case OpenAPIPackage.RESPONSE__REFERENCE_NAME: return OpenAPIPackage.REFERENCEABLE_ELEMENT__REFERENCE_NAME;
 				default: return -1;
 			}
 		}
@@ -507,7 +535,48 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 				default: return -1;
 			}
 		}
+		if (baseClass == ReferenceableElement.class) {
+			switch (baseFeatureID) {
+				case OpenAPIPackage.REFERENCEABLE_ELEMENT__REFERENCE_NAME: return OpenAPIPackage.RESPONSE__REFERENCE_NAME;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == SchemaContext.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == ReferenceableElement.class) {
+			switch (baseOperationID) {
+				case OpenAPIPackage.REFERENCEABLE_ELEMENT___GET_REF: return OpenAPIPackage.RESPONSE___GET_REF;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case OpenAPIPackage.RESPONSE___GET_REF:
+				return getRef();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -520,12 +589,12 @@ public class ResponseImpl extends SchemaDeclaringContextImpl implements Response
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (description: ");
+		result.append(" (referenceName: ");
+		result.append(referenceName);
+		result.append(", description: ");
 		result.append(description);
 		result.append(", code: ");
 		result.append(code);
-		result.append(", referenceName: ");
-		result.append(referenceName);
 		result.append(')');
 		return result.toString();
 	}

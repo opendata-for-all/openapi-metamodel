@@ -13,6 +13,6 @@ package edu.uoc.som.openapi;
  * @model
  * @generated
  */
-public interface Property extends NamedElement, SchemaContext {
+public interface Property extends ReferenceableElement, SchemaContext {
 
 } // Property

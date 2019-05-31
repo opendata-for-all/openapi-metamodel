@@ -4,8 +4,6 @@ package edu.uoc.som.openapi;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Security Scheme</b></em>'.
@@ -22,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.uoc.som.openapi.SecurityScheme#getFlow <em>Flow</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.SecurityScheme#getAuthorizationUrl <em>Authorization Url</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.SecurityScheme#getTokenUrl <em>Token Url</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.SecurityScheme#getReferenceName <em>Reference Name</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.SecurityScheme#getScopes <em>Scopes</em>}</li>
  * </ul>
  *
@@ -30,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SecurityScheme extends EObject {
+public interface SecurityScheme extends ReferenceableElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link edu.uoc.som.openapi.SecuritySchemeType}.
@@ -193,28 +190,6 @@ public interface SecurityScheme extends EObject {
 	 * @generated
 	 */
 	void setTokenUrl(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Reference Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reference Name</em>' attribute.
-	 * @see #setReferenceName(String)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityScheme_ReferenceName()
-	 * @model
-	 * @generated
-	 */
-	String getReferenceName();
-
-	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.SecurityScheme#getReferenceName <em>Reference Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reference Name</em>' attribute.
-	 * @see #getReferenceName()
-	 * @generated
-	 */
-	void setReferenceName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Scopes</b></em>' containment reference list.
