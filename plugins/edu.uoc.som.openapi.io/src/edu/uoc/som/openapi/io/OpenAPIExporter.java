@@ -66,9 +66,29 @@ public class OpenAPIExporter {
 	}
 
 	private void generateInfo(Info info, JsonObject jsonInfo) {
-		jsonInfo.addProperty("title", info.getTitle());
-		jsonInfo.addProperty("version", info.getVersion());
-
+		
+		jsonInfo.addProperty("title", info.getTitle());	
+		if(info.getTermsOfService() != null)
+			jsonInfo.addProperty("termsOfService", info.getTermsOfService());
+		if(info.getContact()!= null) {
+			JsonObject jsonContact = new JsonObject();
+			if(info.getContact().getName()!=null)
+				jsonContact.addProperty("name", info.getContact().getName());
+			if(info.getContact().getUrl()!=null)
+				jsonContact.addProperty("url", info.getContact().getUrl());
+			if(info.getContact().getEmail()!=null)
+				jsonContact.addProperty("url", info.getContact().getEmail());
+			jsonInfo.add("contact", jsonContact);
+		}
+		if(info.getLicense()!= null) {
+			JsonObject jsonLicense = new JsonObject();
+			if(info.getLicense().getName()!= null)
+				jsonLicense.addProperty("name", info.getLicense().getName());
+			if(info.getLicense().getUrl() != null)
+				jsonLicense.addProperty("url", info.getLicense().getUrl());
+			jsonInfo.add("license", jsonLicense);
+		}
+			jsonInfo.addProperty("version", info.getVersion());
 	}
 
 	private void generatePaths(API api, JsonObject jsonPaths) {
