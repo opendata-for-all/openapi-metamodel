@@ -9,4 +9,5 @@ Require-Bundle: edu.uoc.som.openapi;bundle-version="1.0.2"
 Bundle-ClassPath: lib/gson-2.6.2.jar,
  .
 Export-Package: com.google.gson,
- edu.uoc.som.openapi.io
+ edu.uoc.som.openapi.io,
+ edu.uoc.som.openapi.io.utils
