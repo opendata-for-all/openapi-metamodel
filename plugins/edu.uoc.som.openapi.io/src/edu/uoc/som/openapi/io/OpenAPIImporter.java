@@ -536,7 +536,7 @@ public class OpenAPIImporter {
 		Set<Entry<String, JsonElement>> securityAttributes = securityElement.getAsJsonObject().entrySet();
 		Entry<String, JsonElement> first = (Entry<String, JsonElement>) securityAttributes.toArray()[0];
 		SecurityScheme securityScheme = api.getSecuritySchemaByName(first.getKey());
-		security.setSecuritySchema(securityScheme);
+		security.setSecurityScheme(securityScheme);
 		for (JsonElement value : first.getValue().getAsJsonArray())
 			security.getSecurityScopes().add(securityScheme.getSecurityScopeByName( value.getAsString()));
 
