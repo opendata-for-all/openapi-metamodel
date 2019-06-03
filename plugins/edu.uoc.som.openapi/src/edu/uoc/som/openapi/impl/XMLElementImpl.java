@@ -23,8 +23,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link edu.uoc.som.openapi.impl.XMLElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.XMLElementImpl#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.XMLElementImpl#getPrefix <em>Prefix</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.XMLElementImpl#isAttribute <em>Attribute</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.XMLElementImpl#isWrapped <em>Wrapped</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.XMLElementImpl#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.XMLElementImpl#getWrapped <em>Wrapped</em>}</li>
  * </ul>
  *
  * @generated
@@ -91,44 +91,44 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	protected String prefix = PREFIX_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isAttribute() <em>Attribute</em>}' attribute.
+	 * The default value of the '{@link #getAttribute() <em>Attribute</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isAttribute()
+	 * @see #getAttribute()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean ATTRIBUTE_EDEFAULT = false;
+	protected static final Boolean ATTRIBUTE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #isAttribute() <em>Attribute</em>}' attribute.
+	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isAttribute()
+	 * @see #getAttribute()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean attribute = ATTRIBUTE_EDEFAULT;
+	protected Boolean attribute = ATTRIBUTE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isWrapped() <em>Wrapped</em>}' attribute.
+	 * The default value of the '{@link #getWrapped() <em>Wrapped</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isWrapped()
+	 * @see #getWrapped()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean WRAPPED_EDEFAULT = false;
+	protected static final Boolean WRAPPED_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #isWrapped() <em>Wrapped</em>}' attribute.
+	 * The cached value of the '{@link #getWrapped() <em>Wrapped</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isWrapped()
+	 * @see #getWrapped()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean wrapped = WRAPPED_EDEFAULT;
+	protected Boolean wrapped = WRAPPED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -224,7 +224,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	 * @generated
 	 */
 	@Override
-	public boolean isAttribute() {
+	public Boolean getAttribute() {
 		return attribute;
 	}
 
@@ -234,8 +234,8 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	 * @generated
 	 */
 	@Override
-	public void setAttribute(boolean newAttribute) {
-		boolean oldAttribute = attribute;
+	public void setAttribute(Boolean newAttribute) {
+		Boolean oldAttribute = attribute;
 		attribute = newAttribute;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.XML_ELEMENT__ATTRIBUTE, oldAttribute, attribute));
@@ -247,7 +247,7 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	 * @generated
 	 */
 	@Override
-	public boolean isWrapped() {
+	public Boolean getWrapped() {
 		return wrapped;
 	}
 
@@ -257,8 +257,8 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 	 * @generated
 	 */
 	@Override
-	public void setWrapped(boolean newWrapped) {
-		boolean oldWrapped = wrapped;
+	public void setWrapped(Boolean newWrapped) {
+		Boolean oldWrapped = wrapped;
 		wrapped = newWrapped;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.XML_ELEMENT__WRAPPED, oldWrapped, wrapped));
@@ -279,9 +279,9 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 			case OpenAPIPackage.XML_ELEMENT__PREFIX:
 				return getPrefix();
 			case OpenAPIPackage.XML_ELEMENT__ATTRIBUTE:
-				return isAttribute();
+				return getAttribute();
 			case OpenAPIPackage.XML_ELEMENT__WRAPPED:
-				return isWrapped();
+				return getWrapped();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -355,9 +355,9 @@ public class XMLElementImpl extends MinimalEObjectImpl.Container implements XMLE
 			case OpenAPIPackage.XML_ELEMENT__PREFIX:
 				return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
 			case OpenAPIPackage.XML_ELEMENT__ATTRIBUTE:
-				return attribute != ATTRIBUTE_EDEFAULT;
+				return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals(attribute);
 			case OpenAPIPackage.XML_ELEMENT__WRAPPED:
-				return wrapped != WRAPPED_EDEFAULT;
+				return WRAPPED_EDEFAULT == null ? wrapped != null : !WRAPPED_EDEFAULT.equals(wrapped);
 		}
 		return super.eIsSet(featureID);
 	}

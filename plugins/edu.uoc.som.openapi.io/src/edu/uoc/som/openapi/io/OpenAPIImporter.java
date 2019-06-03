@@ -19,7 +19,6 @@ import edu.uoc.som.openapi.API;
 import edu.uoc.som.openapi.APIKeyLocation;
 import edu.uoc.som.openapi.CollectionFormat;
 import edu.uoc.som.openapi.Contact;
-import edu.uoc.som.openapi.Definition;
 import edu.uoc.som.openapi.Example;
 import edu.uoc.som.openapi.ExternalDocs;
 import edu.uoc.som.openapi.Header;
@@ -161,7 +160,7 @@ public class OpenAPIImporter {
 		JsonArray securityArray = jsonElement.getAsJsonArray();
 		for (JsonElement securityElement : securityArray) {
 			SecurityRequirement security = openAPIFactory.createSecurityRequirement();
-			api.getSecurityRequirements().add(security);
+			api.getSecurity().add(security);
 			importSecurityRequirement(securityElement, security, api);
 		}
 
@@ -238,16 +237,14 @@ public class OpenAPIImporter {
 		JsonObject definitionsObject = jsonElement.getAsJsonObject();
 		Set<Entry<String, JsonElement>> definitions = definitionsObject.entrySet();
 		for (Entry<String, JsonElement> definitionElement : definitions) {
-			Definition definition = openAPIFactory.createDefinition();
-			definition.setName(definitionElement.getKey());
 			Schema schema = openAPIFactory.createSchema();
-			definition.setSchema(schema);
+			schema.setReferenceName(definitionElement.getKey());
 			root.getSchemas().add(schema);
 			schema.setDeclaringContext(root.getApi());
-			root.getApi().getDefinitions().add(definition);
+			root.getApi().getDefinitions().add(schema);
 		}
 		for (Entry<String, JsonElement> definitionElement : definitions) {
-			importSchema(definitionElement.getValue().getAsJsonObject(),root.getApi().getDefinitionByName(definitionElement.getKey()).getSchema(),root);
+			importSchema(definitionElement.getValue().getAsJsonObject(),root.getApi().getSchemaByName(definitionElement.getKey()),root);
 		}
 	}
 
@@ -299,7 +296,7 @@ public class OpenAPIImporter {
 			for (Entry<String, JsonElement> jsonProperty : properties) {
 				Property property = openAPIFactory.createProperty();
 				Schema propertyValue = openAPIFactory.createSchema();
-				property.setName(jsonProperty.getKey());
+				property.setReferenceName(jsonProperty.getKey());
 				property.setSchema(propertyValue);
 				propertyValue.setDeclaringContext(schema);
 				root.getSchemas().add(propertyValue);
@@ -527,7 +524,7 @@ public class OpenAPIImporter {
 			JsonArray securityArray = jsonObject.get("security").getAsJsonArray();
 			for (JsonElement securityElement : securityArray) {
 				SecurityRequirement security = openAPIFactory.createSecurityRequirement();
-				aPIOperation.getSecurityRequirements().add(security);
+				aPIOperation.getSecurity().add(security);
 				importSecurityRequirement(securityElement, security, root.getApi());
 
 			}
@@ -539,7 +536,7 @@ public class OpenAPIImporter {
 		Set<Entry<String, JsonElement>> securityAttributes = securityElement.getAsJsonObject().entrySet();
 		Entry<String, JsonElement> first = (Entry<String, JsonElement>) securityAttributes.toArray()[0];
 		SecurityScheme securityScheme = api.getSecuritySchemaByName(first.getKey());
-		security.setSecuritySchema(securityScheme);
+		security.setSecurityScheme(securityScheme);
 		for (JsonElement value : first.getValue().getAsJsonArray())
 			security.getSecurityScopes().add(securityScheme.getSecurityScopeByName( value.getAsString()));
 
@@ -760,7 +757,7 @@ public class OpenAPIImporter {
 		}
 		if (infoObject.has("description"))
 			info.setDescription(infoObject.get("description").getAsString());
-		if (infoObject.has("termsOfServices"))
+		if (infoObject.has("termsOfService"))
 			info.setTermsOfService(infoObject.get("termsOfService").getAsString());
 		if (infoObject.has("contact"))
 			importContact(infoObject.get("contact"), info);

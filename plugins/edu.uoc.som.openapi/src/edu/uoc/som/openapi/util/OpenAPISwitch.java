@@ -83,7 +83,6 @@ public class OpenAPISwitch<T> extends Switch<T> {
 				T result = caseAPI(api);
 				if (result == null) result = caseParameterDeclaringContext(api);
 				if (result == null) result = caseSchemaDeclaringContext(api);
-				if (result == null) result = caseJSONPointer(api);
 				if (result == null) result = caseSecurityContext(api);
 				if (result == null) result = caseParameterContext(api);
 				if (result == null) result = caseExternalDocsContext(api);
@@ -140,8 +139,8 @@ public class OpenAPISwitch<T> extends Switch<T> {
 				if (result == null) result = caseSchemaDeclaringContext(parameter);
 				if (result == null) result = caseSchemaContext(parameter);
 				if (result == null) result = caseJSONSchemaSubset(parameter);
-				if (result == null) result = caseJSONPointer(parameter);
 				if (result == null) result = caseArrayContext(parameter);
+				if (result == null) result = caseReferenceableElement(parameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -158,8 +157,8 @@ public class OpenAPISwitch<T> extends Switch<T> {
 				T result = caseSchema(schema);
 				if (result == null) result = caseJSONSchemaSubset(schema);
 				if (result == null) result = caseSchemaDeclaringContext(schema);
-				if (result == null) result = caseJSONPointer(schema);
 				if (result == null) result = caseExternalDocsContext(schema);
+				if (result == null) result = caseReferenceableElement(schema);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -168,6 +167,7 @@ public class OpenAPISwitch<T> extends Switch<T> {
 				T result = caseResponse(response);
 				if (result == null) result = caseSchemaDeclaringContext(response);
 				if (result == null) result = caseSchemaContext(response);
+				if (result == null) result = caseReferenceableElement(response);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -189,6 +189,7 @@ public class OpenAPISwitch<T> extends Switch<T> {
 			case OpenAPIPackage.SECURITY_SCHEME: {
 				SecurityScheme securityScheme = (SecurityScheme)theEObject;
 				T result = caseSecurityScheme(securityScheme);
+				if (result == null) result = caseReferenceableElement(securityScheme);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -228,12 +229,6 @@ public class OpenAPISwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case OpenAPIPackage.JSON_POINTER: {
-				JSONPointer jsonPointer = (JSONPointer)theEObject;
-				T result = caseJSONPointer(jsonPointer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case OpenAPIPackage.SECURITY_CONTEXT: {
 				SecurityContext securityContext = (SecurityContext)theEObject;
 				T result = caseSecurityContext(securityContext);
@@ -270,24 +265,16 @@ public class OpenAPISwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case OpenAPIPackage.DEFINITION: {
-				Definition definition = (Definition)theEObject;
-				T result = caseDefinition(definition);
-				if (result == null) result = caseNamedElement(definition);
-				if (result == null) result = caseSchemaContext(definition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case OpenAPIPackage.NAMED_ELEMENT: {
-				NamedElement namedElement = (NamedElement)theEObject;
-				T result = caseNamedElement(namedElement);
+			case OpenAPIPackage.REFERENCEABLE_ELEMENT: {
+				ReferenceableElement referenceableElement = (ReferenceableElement)theEObject;
+				T result = caseReferenceableElement(referenceableElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case OpenAPIPackage.PROPERTY: {
 				Property property = (Property)theEObject;
 				T result = caseProperty(property);
-				if (result == null) result = caseNamedElement(property);
+				if (result == null) result = caseReferenceableElement(property);
 				if (result == null) result = caseSchemaContext(property);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -627,21 +614,6 @@ public class OpenAPISwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>JSON Pointer</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>JSON Pointer</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseJSONPointer(JSONPointer object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Security Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -732,32 +704,17 @@ public class OpenAPISwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Definition</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Referenceable Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Definition</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Referenceable Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDefinition(Definition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNamedElement(NamedElement object) {
+	public T caseReferenceableElement(ReferenceableElement object) {
 		return null;
 	}
 

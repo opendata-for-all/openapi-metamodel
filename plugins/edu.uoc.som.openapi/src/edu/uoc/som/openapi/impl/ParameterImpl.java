@@ -6,15 +6,18 @@ import edu.uoc.som.openapi.ArrayContext;
 import edu.uoc.som.openapi.CollectionFormat;
 import edu.uoc.som.openapi.ItemsDefinition;
 import edu.uoc.som.openapi.JSONDataType;
-import edu.uoc.som.openapi.JSONPointer;
 import edu.uoc.som.openapi.JSONSchemaSubset;
 import edu.uoc.som.openapi.OpenAPIPackage;
 import edu.uoc.som.openapi.Parameter;
 import edu.uoc.som.openapi.ParameterDeclaringContext;
 import edu.uoc.som.openapi.ParameterLocation;
+import edu.uoc.som.openapi.ReferenceableElement;
+import edu.uoc.som.openapi.Response;
 import edu.uoc.som.openapi.Schema;
 import edu.uoc.som.openapi.SchemaContext;
+import edu.uoc.som.openapi.SecurityScheme;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -54,14 +57,13 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getEnum <em>Enum</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getDefault <em>Default</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getMultipleOf <em>Multiple Of</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getCollectionFormat <em>Collection Format</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getItems <em>Items</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getReferenceName <em>Reference Name</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getName <em>Name</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getRequired <em>Required</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getAllowEmplyValue <em>Allow Emply Value</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getReferenceName <em>Reference Name</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getDeclaringContext <em>Declaring Context</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.ParameterImpl#getExample <em>Example</em>}</li>
  * </ul>
@@ -390,16 +392,6 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	protected Double multipleOf = MULTIPLE_OF_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String REF_EDEFAULT = null;
-
-	/**
 	 * The default value of the '{@link #getCollectionFormat() <em>Collection Format</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -428,6 +420,26 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * @ordered
 	 */
 	protected ItemsDefinition items;
+
+	/**
+	 * The default value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REFERENCE_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String referenceName = REFERENCE_NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -508,26 +520,6 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * @ordered
 	 */
 	protected Boolean allowEmplyValue = ALLOW_EMPLY_VALUE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferenceName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String REFERENCE_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferenceName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String referenceName = REFERENCE_NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getDeclaringContext() <em>Declaring Context</em>}' reference.
@@ -982,18 +974,6 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * @generated
 	 */
 	@Override
-	public String getRef() {
-		// TODO: implement this method to return the 'Ref' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public CollectionFormat getCollectionFormat() {
 		return collectionFormat;
 	}
@@ -1240,6 +1220,24 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * @generated
 	 */
 	@Override
+	public String getRef() {
+				if(this instanceof Schema)
+					return "#/definitions/"+referenceName;
+				if(this instanceof Parameter)
+					return "#/parameters/"+referenceName;
+				if(this instanceof Response)
+					return "#/responses/"+referenceName;
+				if(this instanceof SecurityScheme)
+					return "#/securityDefinitions/"+referenceName;
+				return "unkown";
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case OpenAPIPackage.PARAMETER__ITEMS:
@@ -1291,12 +1289,12 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 				return getDefault();
 			case OpenAPIPackage.PARAMETER__MULTIPLE_OF:
 				return getMultipleOf();
-			case OpenAPIPackage.PARAMETER__REF:
-				return getRef();
 			case OpenAPIPackage.PARAMETER__COLLECTION_FORMAT:
 				return getCollectionFormat();
 			case OpenAPIPackage.PARAMETER__ITEMS:
 				return getItems();
+			case OpenAPIPackage.PARAMETER__REFERENCE_NAME:
+				return getReferenceName();
 			case OpenAPIPackage.PARAMETER__NAME:
 				return getName();
 			case OpenAPIPackage.PARAMETER__LOCATION:
@@ -1305,8 +1303,6 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 				return getRequired();
 			case OpenAPIPackage.PARAMETER__ALLOW_EMPLY_VALUE:
 				return getAllowEmplyValue();
-			case OpenAPIPackage.PARAMETER__REFERENCE_NAME:
-				return getReferenceName();
 			case OpenAPIPackage.PARAMETER__DECLARING_CONTEXT:
 				if (resolve) return getDeclaringContext();
 				return basicGetDeclaringContext();
@@ -1383,6 +1379,9 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 			case OpenAPIPackage.PARAMETER__ITEMS:
 				setItems((ItemsDefinition)newValue);
 				return;
+			case OpenAPIPackage.PARAMETER__REFERENCE_NAME:
+				setReferenceName((String)newValue);
+				return;
 			case OpenAPIPackage.PARAMETER__NAME:
 				setName((String)newValue);
 				return;
@@ -1394,9 +1393,6 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 				return;
 			case OpenAPIPackage.PARAMETER__ALLOW_EMPLY_VALUE:
 				setAllowEmplyValue((Boolean)newValue);
-				return;
-			case OpenAPIPackage.PARAMETER__REFERENCE_NAME:
-				setReferenceName((String)newValue);
 				return;
 			case OpenAPIPackage.PARAMETER__DECLARING_CONTEXT:
 				setDeclaringContext((ParameterDeclaringContext)newValue);
@@ -1473,6 +1469,9 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 			case OpenAPIPackage.PARAMETER__ITEMS:
 				setItems((ItemsDefinition)null);
 				return;
+			case OpenAPIPackage.PARAMETER__REFERENCE_NAME:
+				setReferenceName(REFERENCE_NAME_EDEFAULT);
+				return;
 			case OpenAPIPackage.PARAMETER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -1484,9 +1483,6 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 				return;
 			case OpenAPIPackage.PARAMETER__ALLOW_EMPLY_VALUE:
 				setAllowEmplyValue(ALLOW_EMPLY_VALUE_EDEFAULT);
-				return;
-			case OpenAPIPackage.PARAMETER__REFERENCE_NAME:
-				setReferenceName(REFERENCE_NAME_EDEFAULT);
 				return;
 			case OpenAPIPackage.PARAMETER__DECLARING_CONTEXT:
 				setDeclaringContext((ParameterDeclaringContext)null);
@@ -1540,12 +1536,12 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 				return DEFAULT_EDEFAULT == null ? default_ != null : !DEFAULT_EDEFAULT.equals(default_);
 			case OpenAPIPackage.PARAMETER__MULTIPLE_OF:
 				return MULTIPLE_OF_EDEFAULT == null ? multipleOf != null : !MULTIPLE_OF_EDEFAULT.equals(multipleOf);
-			case OpenAPIPackage.PARAMETER__REF:
-				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
 			case OpenAPIPackage.PARAMETER__COLLECTION_FORMAT:
 				return collectionFormat != COLLECTION_FORMAT_EDEFAULT;
 			case OpenAPIPackage.PARAMETER__ITEMS:
 				return items != null;
+			case OpenAPIPackage.PARAMETER__REFERENCE_NAME:
+				return REFERENCE_NAME_EDEFAULT == null ? referenceName != null : !REFERENCE_NAME_EDEFAULT.equals(referenceName);
 			case OpenAPIPackage.PARAMETER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case OpenAPIPackage.PARAMETER__LOCATION:
@@ -1554,8 +1550,6 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 				return REQUIRED_EDEFAULT == null ? required != null : !REQUIRED_EDEFAULT.equals(required);
 			case OpenAPIPackage.PARAMETER__ALLOW_EMPLY_VALUE:
 				return ALLOW_EMPLY_VALUE_EDEFAULT == null ? allowEmplyValue != null : !ALLOW_EMPLY_VALUE_EDEFAULT.equals(allowEmplyValue);
-			case OpenAPIPackage.PARAMETER__REFERENCE_NAME:
-				return REFERENCE_NAME_EDEFAULT == null ? referenceName != null : !REFERENCE_NAME_EDEFAULT.equals(referenceName);
 			case OpenAPIPackage.PARAMETER__DECLARING_CONTEXT:
 				return declaringContext != null;
 			case OpenAPIPackage.PARAMETER__EXAMPLE:
@@ -1598,16 +1592,16 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 				default: return -1;
 			}
 		}
-		if (baseClass == JSONPointer.class) {
-			switch (derivedFeatureID) {
-				case OpenAPIPackage.PARAMETER__REF: return OpenAPIPackage.JSON_POINTER__REF;
-				default: return -1;
-			}
-		}
 		if (baseClass == ArrayContext.class) {
 			switch (derivedFeatureID) {
 				case OpenAPIPackage.PARAMETER__COLLECTION_FORMAT: return OpenAPIPackage.ARRAY_CONTEXT__COLLECTION_FORMAT;
 				case OpenAPIPackage.PARAMETER__ITEMS: return OpenAPIPackage.ARRAY_CONTEXT__ITEMS;
+				default: return -1;
+			}
+		}
+		if (baseClass == ReferenceableElement.class) {
+			switch (derivedFeatureID) {
+				case OpenAPIPackage.PARAMETER__REFERENCE_NAME: return OpenAPIPackage.REFERENCEABLE_ELEMENT__REFERENCE_NAME;
 				default: return -1;
 			}
 		}
@@ -1648,12 +1642,6 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 				default: return -1;
 			}
 		}
-		if (baseClass == JSONPointer.class) {
-			switch (baseFeatureID) {
-				case OpenAPIPackage.JSON_POINTER__REF: return OpenAPIPackage.PARAMETER__REF;
-				default: return -1;
-			}
-		}
 		if (baseClass == ArrayContext.class) {
 			switch (baseFeatureID) {
 				case OpenAPIPackage.ARRAY_CONTEXT__COLLECTION_FORMAT: return OpenAPIPackage.PARAMETER__COLLECTION_FORMAT;
@@ -1661,7 +1649,58 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 				default: return -1;
 			}
 		}
+		if (baseClass == ReferenceableElement.class) {
+			switch (baseFeatureID) {
+				case OpenAPIPackage.REFERENCEABLE_ELEMENT__REFERENCE_NAME: return OpenAPIPackage.PARAMETER__REFERENCE_NAME;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == SchemaContext.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == JSONSchemaSubset.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == ArrayContext.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == ReferenceableElement.class) {
+			switch (baseOperationID) {
+				case OpenAPIPackage.REFERENCEABLE_ELEMENT___GET_REF: return OpenAPIPackage.PARAMETER___GET_REF;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case OpenAPIPackage.PARAMETER___GET_REF:
+				return getRef();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -1708,6 +1747,8 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		result.append(multipleOf);
 		result.append(", collectionFormat: ");
 		result.append(collectionFormat);
+		result.append(", referenceName: ");
+		result.append(referenceName);
 		result.append(", name: ");
 		result.append(name);
 		result.append(", location: ");
@@ -1716,8 +1757,6 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 		result.append(required);
 		result.append(", allowEmplyValue: ");
 		result.append(allowEmplyValue);
-		result.append(", referenceName: ");
-		result.append(referenceName);
 		result.append(", example: ");
 		result.append(example);
 		result.append(')');

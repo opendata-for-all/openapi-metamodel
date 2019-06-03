@@ -4,11 +4,14 @@ package edu.uoc.som.openapi.impl;
 
 import edu.uoc.som.openapi.ExternalDocs;
 import edu.uoc.som.openapi.ExternalDocsContext;
-import edu.uoc.som.openapi.JSONPointer;
 import edu.uoc.som.openapi.OpenAPIPackage;
+import edu.uoc.som.openapi.Parameter;
 import edu.uoc.som.openapi.Property;
+import edu.uoc.som.openapi.ReferenceableElement;
+import edu.uoc.som.openapi.Response;
 import edu.uoc.som.openapi.Schema;
 import edu.uoc.som.openapi.SchemaDeclaringContext;
+import edu.uoc.som.openapi.SecurityScheme;
 import edu.uoc.som.openapi.XMLElement;
 
 import java.lang.reflect.InvocationTargetException;
@@ -37,8 +40,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getExternalDocs <em>External Docs</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getReferenceName <em>Reference Name</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getMaxProperties <em>Max Properties</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getMinProperties <em>Min Properties</em>}</li>
@@ -59,16 +62,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	/**
-	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRef()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String REF_EDEFAULT = null;
-
-	/**
 	 * The cached value of the '{@link #getExternalDocs() <em>External Docs</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,6 +70,26 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * @ordered
 	 */
 	protected ExternalDocs externalDocs;
+
+	/**
+	 * The default value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REFERENCE_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String referenceName = REFERENCE_NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
@@ -313,18 +326,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * @generated
 	 */
 	@Override
-	public String getRef() {
-		// TODO: implement this method to return the 'Ref' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public ExternalDocs getExternalDocs() {
 		return externalDocs;
 	}
@@ -362,6 +363,29 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__EXTERNAL_DOCS, newExternalDocs, newExternalDocs));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getReferenceName() {
+		return referenceName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setReferenceName(String newReferenceName) {
+		String oldReferenceName = referenceName;
+		referenceName = newReferenceName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SCHEMA__REFERENCE_NAME, oldReferenceName, referenceName));
 	}
 
 	/**
@@ -737,9 +761,27 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	@Override
 	public Property getPropertyByName(final String name) {
 		for (Property property : getProperties())
-					if (property.getName().equals(name))
+					if (property.getReferenceName().equals(name))
 						return property;
 				return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getRef() {
+				if(this instanceof Schema)
+					return "#/definitions/"+referenceName;
+				if(this instanceof Parameter)
+					return "#/parameters/"+referenceName;
+				if(this instanceof Response)
+					return "#/responses/"+referenceName;
+				if(this instanceof SecurityScheme)
+					return "#/securityDefinitions/"+referenceName;
+				return "unkown";
 	}
 
 	/**
@@ -768,10 +810,10 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case OpenAPIPackage.SCHEMA__REF:
-				return getRef();
 			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
 				return getExternalDocs();
+			case OpenAPIPackage.SCHEMA__REFERENCE_NAME:
+				return getReferenceName();
 			case OpenAPIPackage.SCHEMA__TITLE:
 				return getTitle();
 			case OpenAPIPackage.SCHEMA__MAX_PROPERTIES:
@@ -818,6 +860,9 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		switch (featureID) {
 			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
 				setExternalDocs((ExternalDocs)newValue);
+				return;
+			case OpenAPIPackage.SCHEMA__REFERENCE_NAME:
+				setReferenceName((String)newValue);
 				return;
 			case OpenAPIPackage.SCHEMA__TITLE:
 				setTitle((String)newValue);
@@ -879,6 +924,9 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
 				setExternalDocs((ExternalDocs)null);
 				return;
+			case OpenAPIPackage.SCHEMA__REFERENCE_NAME:
+				setReferenceName(REFERENCE_NAME_EDEFAULT);
+				return;
 			case OpenAPIPackage.SCHEMA__TITLE:
 				setTitle(TITLE_EDEFAULT);
 				return;
@@ -933,10 +981,10 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case OpenAPIPackage.SCHEMA__REF:
-				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
 			case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS:
 				return externalDocs != null;
+			case OpenAPIPackage.SCHEMA__REFERENCE_NAME:
+				return REFERENCE_NAME_EDEFAULT == null ? referenceName != null : !REFERENCE_NAME_EDEFAULT.equals(referenceName);
 			case OpenAPIPackage.SCHEMA__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 			case OpenAPIPackage.SCHEMA__MAX_PROPERTIES:
@@ -981,15 +1029,15 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 				default: return -1;
 			}
 		}
-		if (baseClass == JSONPointer.class) {
-			switch (derivedFeatureID) {
-				case OpenAPIPackage.SCHEMA__REF: return OpenAPIPackage.JSON_POINTER__REF;
-				default: return -1;
-			}
-		}
 		if (baseClass == ExternalDocsContext.class) {
 			switch (derivedFeatureID) {
 				case OpenAPIPackage.SCHEMA__EXTERNAL_DOCS: return OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS;
+				default: return -1;
+			}
+		}
+		if (baseClass == ReferenceableElement.class) {
+			switch (derivedFeatureID) {
+				case OpenAPIPackage.SCHEMA__REFERENCE_NAME: return OpenAPIPackage.REFERENCEABLE_ELEMENT__REFERENCE_NAME;
 				default: return -1;
 			}
 		}
@@ -1008,15 +1056,15 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 				default: return -1;
 			}
 		}
-		if (baseClass == JSONPointer.class) {
-			switch (baseFeatureID) {
-				case OpenAPIPackage.JSON_POINTER__REF: return OpenAPIPackage.SCHEMA__REF;
-				default: return -1;
-			}
-		}
 		if (baseClass == ExternalDocsContext.class) {
 			switch (baseFeatureID) {
 				case OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS: return OpenAPIPackage.SCHEMA__EXTERNAL_DOCS;
+				default: return -1;
+			}
+		}
+		if (baseClass == ReferenceableElement.class) {
+			switch (baseFeatureID) {
+				case OpenAPIPackage.REFERENCEABLE_ELEMENT__REFERENCE_NAME: return OpenAPIPackage.SCHEMA__REFERENCE_NAME;
 				default: return -1;
 			}
 		}
@@ -1029,10 +1077,38 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * @generated
 	 */
 	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == SchemaDeclaringContext.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == ExternalDocsContext.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == ReferenceableElement.class) {
+			switch (baseOperationID) {
+				case OpenAPIPackage.REFERENCEABLE_ELEMENT___GET_REF: return OpenAPIPackage.SCHEMA___GET_REF;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case OpenAPIPackage.SCHEMA___GET_PROPERTY_BY_NAME__STRING:
 				return getPropertyByName((String)arguments.get(0));
+			case OpenAPIPackage.SCHEMA___GET_REF:
+				return getRef();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -1047,7 +1123,9 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (title: ");
+		result.append(" (referenceName: ");
+		result.append(referenceName);
+		result.append(", title: ");
 		result.append(title);
 		result.append(", maxProperties: ");
 		result.append(maxProperties);

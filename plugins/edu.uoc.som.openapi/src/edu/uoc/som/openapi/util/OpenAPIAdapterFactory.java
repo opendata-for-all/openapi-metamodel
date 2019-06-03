@@ -156,10 +156,6 @@ public class OpenAPIAdapterFactory extends AdapterFactoryImpl {
 				return createResponseDeclaringContextAdapter();
 			}
 			@Override
-			public Adapter caseJSONPointer(JSONPointer object) {
-				return createJSONPointerAdapter();
-			}
-			@Override
 			public Adapter caseSecurityContext(SecurityContext object) {
 				return createSecurityContextAdapter();
 			}
@@ -184,12 +180,8 @@ public class OpenAPIAdapterFactory extends AdapterFactoryImpl {
 				return createSecurityRequirementAdapter();
 			}
 			@Override
-			public Adapter caseDefinition(Definition object) {
-				return createDefinitionAdapter();
-			}
-			@Override
-			public Adapter caseNamedElement(NamedElement object) {
-				return createNamedElementAdapter();
+			public Adapter caseReferenceableElement(ReferenceableElement object) {
+				return createReferenceableElementAdapter();
 			}
 			@Override
 			public Adapter caseProperty(Property object) {
@@ -524,20 +516,6 @@ public class OpenAPIAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.uoc.som.openapi.JSONPointer <em>JSON Pointer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.uoc.som.openapi.JSONPointer
-	 * @generated
-	 */
-	public Adapter createJSONPointerAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link edu.uoc.som.openapi.SecurityContext <em>Security Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -622,30 +600,16 @@ public class OpenAPIAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.uoc.som.openapi.Definition <em>Definition</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.uoc.som.openapi.ReferenceableElement <em>Referenceable Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.uoc.som.openapi.Definition
+	 * @see edu.uoc.som.openapi.ReferenceableElement
 	 * @generated
 	 */
-	public Adapter createDefinitionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link edu.uoc.som.openapi.NamedElement <em>Named Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.uoc.som.openapi.NamedElement
-	 * @generated
-	 */
-	public Adapter createNamedElementAdapter() {
+	public Adapter createReferenceableElementAdapter() {
 		return null;
 	}
 

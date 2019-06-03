@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link edu.uoc.som.openapi.impl.SecurityRequirementImpl#getSecurityScopes <em>Security Scopes</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.SecurityRequirementImpl#getSecuritySchema <em>Security Schema</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.SecurityRequirementImpl#getSecurityScheme <em>Security Scheme</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,14 +47,14 @@ public class SecurityRequirementImpl extends MinimalEObjectImpl.Container implem
 	protected EList<SecurityScope> securityScopes;
 
 	/**
-	 * The cached value of the '{@link #getSecuritySchema() <em>Security Schema</em>}' reference.
+	 * The cached value of the '{@link #getSecurityScheme() <em>Security Scheme</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSecuritySchema()
+	 * @see #getSecurityScheme()
 	 * @generated
 	 * @ordered
 	 */
-	protected SecurityScheme securitySchema;
+	protected SecurityScheme securityScheme;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -94,16 +94,16 @@ public class SecurityRequirementImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	@Override
-	public SecurityScheme getSecuritySchema() {
-		if (securitySchema != null && securitySchema.eIsProxy()) {
-			InternalEObject oldSecuritySchema = (InternalEObject)securitySchema;
-			securitySchema = (SecurityScheme)eResolveProxy(oldSecuritySchema);
-			if (securitySchema != oldSecuritySchema) {
+	public SecurityScheme getSecurityScheme() {
+		if (securityScheme != null && securityScheme.eIsProxy()) {
+			InternalEObject oldSecurityScheme = (InternalEObject)securityScheme;
+			securityScheme = (SecurityScheme)eResolveProxy(oldSecurityScheme);
+			if (securityScheme != oldSecurityScheme) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OpenAPIPackage.SECURITY_REQUIREMENT__SECURITY_SCHEMA, oldSecuritySchema, securitySchema));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OpenAPIPackage.SECURITY_REQUIREMENT__SECURITY_SCHEME, oldSecurityScheme, securityScheme));
 			}
 		}
-		return securitySchema;
+		return securityScheme;
 	}
 
 	/**
@@ -111,8 +111,8 @@ public class SecurityRequirementImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SecurityScheme basicGetSecuritySchema() {
-		return securitySchema;
+	public SecurityScheme basicGetSecurityScheme() {
+		return securityScheme;
 	}
 
 	/**
@@ -121,11 +121,11 @@ public class SecurityRequirementImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	@Override
-	public void setSecuritySchema(SecurityScheme newSecuritySchema) {
-		SecurityScheme oldSecuritySchema = securitySchema;
-		securitySchema = newSecuritySchema;
+	public void setSecurityScheme(SecurityScheme newSecurityScheme) {
+		SecurityScheme oldSecurityScheme = securityScheme;
+		securityScheme = newSecurityScheme;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_REQUIREMENT__SECURITY_SCHEMA, oldSecuritySchema, securitySchema));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.SECURITY_REQUIREMENT__SECURITY_SCHEME, oldSecurityScheme, securityScheme));
 	}
 
 	/**
@@ -138,9 +138,9 @@ public class SecurityRequirementImpl extends MinimalEObjectImpl.Container implem
 		switch (featureID) {
 			case OpenAPIPackage.SECURITY_REQUIREMENT__SECURITY_SCOPES:
 				return getSecurityScopes();
-			case OpenAPIPackage.SECURITY_REQUIREMENT__SECURITY_SCHEMA:
-				if (resolve) return getSecuritySchema();
-				return basicGetSecuritySchema();
+			case OpenAPIPackage.SECURITY_REQUIREMENT__SECURITY_SCHEME:
+				if (resolve) return getSecurityScheme();
+				return basicGetSecurityScheme();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -158,8 +158,8 @@ public class SecurityRequirementImpl extends MinimalEObjectImpl.Container implem
 				getSecurityScopes().clear();
 				getSecurityScopes().addAll((Collection<? extends SecurityScope>)newValue);
 				return;
-			case OpenAPIPackage.SECURITY_REQUIREMENT__SECURITY_SCHEMA:
-				setSecuritySchema((SecurityScheme)newValue);
+			case OpenAPIPackage.SECURITY_REQUIREMENT__SECURITY_SCHEME:
+				setSecurityScheme((SecurityScheme)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,8 +176,8 @@ public class SecurityRequirementImpl extends MinimalEObjectImpl.Container implem
 			case OpenAPIPackage.SECURITY_REQUIREMENT__SECURITY_SCOPES:
 				getSecurityScopes().clear();
 				return;
-			case OpenAPIPackage.SECURITY_REQUIREMENT__SECURITY_SCHEMA:
-				setSecuritySchema((SecurityScheme)null);
+			case OpenAPIPackage.SECURITY_REQUIREMENT__SECURITY_SCHEME:
+				setSecurityScheme((SecurityScheme)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -193,8 +193,8 @@ public class SecurityRequirementImpl extends MinimalEObjectImpl.Container implem
 		switch (featureID) {
 			case OpenAPIPackage.SECURITY_REQUIREMENT__SECURITY_SCOPES:
 				return securityScopes != null && !securityScopes.isEmpty();
-			case OpenAPIPackage.SECURITY_REQUIREMENT__SECURITY_SCHEMA:
-				return securitySchema != null;
+			case OpenAPIPackage.SECURITY_REQUIREMENT__SECURITY_SCHEME:
+				return securityScheme != null;
 		}
 		return super.eIsSet(featureID);
 	}

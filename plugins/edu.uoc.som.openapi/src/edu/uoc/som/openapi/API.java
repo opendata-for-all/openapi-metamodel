@@ -33,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  *        extendedMetaData="name='API'"
  * @generated
  */
-public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, JSONPointer, SecurityContext, ParameterContext, ExternalDocsContext, ResponseDeclaringContext {
+public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, SecurityContext, ParameterContext, ExternalDocsContext, ResponseDeclaringContext {
 	/**
 	 * Returns the value of the '<em><b>Swagger</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -231,7 +231,7 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 
 	/**
 	 * Returns the value of the '<em><b>Definitions</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.uoc.som.openapi.Definition}.
+	 * The list contents are of type {@link edu.uoc.som.openapi.Schema}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Definitions</em>' reference list isn't clear,
@@ -243,7 +243,7 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Definition> getDefinitions();
+	EList<Schema> getDefinitions();
 
 	/**
 	 * Returns the value of the '<em><b>Responses</b></em>' containment reference list.
@@ -313,7 +313,7 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='List&lt;Definition&gt; definitions = this.getDefinitions();\n\t\t\t\tfor (Definition definition : definitions) {\n\t\t\t\t\tif (definition.getRef().equalsIgnoreCase(ref))\n\t\t\t\t\t\treturn definition.getSchema();\n\t\t\t\t}\n\t\t\t\treturn null;\t'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='\t\tList&lt;Schema&gt; definitions = this.getDefinitions();\n\t\tfor (Schema definition : definitions) {\n\t\t\tString temp = definition.getRef();\n\t\t\tif (temp.equalsIgnoreCase(ref))\n\t\t\t\treturn definition;\n\t\t}\n\t\treturn null;'"
 	 * @generated
 	 */
 	Schema getSchemaByReference(String ref);
@@ -337,10 +337,10 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for (Definition definition : getDefinitions()) {\n\t\t\tif (definition.getName().equalsIgnoreCase(name))\n\t\t\t\treturn definition;\n\t\t}\n\t\treturn null;'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='\t\tfor (Schema definition : getDefinitions()) {\n\t\t\t\t\tif (definition.getReferenceName().equalsIgnoreCase(name))\n\t\t\t\t\t\treturn definition;\n\t\t\t\t}\n\t\t\t\treturn null;'"
 	 * @generated
 	 */
-	Definition getDefinitionByName(String name);
+	Schema getSchemaByName(String name);
 
 	/**
 	 * <!-- begin-user-doc -->

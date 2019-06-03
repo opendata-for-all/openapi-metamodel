@@ -248,8 +248,6 @@ public class OpenAPIValidator extends EObjectValidator {
 				return validateSchemaDeclaringContext((SchemaDeclaringContext)value, diagnostics, context);
 			case OpenAPIPackage.RESPONSE_DECLARING_CONTEXT:
 				return validateResponseDeclaringContext((ResponseDeclaringContext)value, diagnostics, context);
-			case OpenAPIPackage.JSON_POINTER:
-				return validateJSONPointer((JSONPointer)value, diagnostics, context);
 			case OpenAPIPackage.SECURITY_CONTEXT:
 				return validateSecurityContext((SecurityContext)value, diagnostics, context);
 			case OpenAPIPackage.PARAMETER_CONTEXT:
@@ -262,10 +260,8 @@ public class OpenAPIValidator extends EObjectValidator {
 				return validateArrayContext((ArrayContext)value, diagnostics, context);
 			case OpenAPIPackage.SECURITY_REQUIREMENT:
 				return validateSecurityRequirement((SecurityRequirement)value, diagnostics, context);
-			case OpenAPIPackage.DEFINITION:
-				return validateDefinition((Definition)value, diagnostics, context);
-			case OpenAPIPackage.NAMED_ELEMENT:
-				return validateNamedElement((NamedElement)value, diagnostics, context);
+			case OpenAPIPackage.REFERENCEABLE_ELEMENT:
+				return validateReferenceableElement((ReferenceableElement)value, diagnostics, context);
 			case OpenAPIPackage.PROPERTY:
 				return validateProperty((Property)value, diagnostics, context);
 			case OpenAPIPackage.SCHEME_TYPE:
@@ -1144,15 +1140,6 @@ public class OpenAPIValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateJSONPointer(JSONPointer jsonPointer, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(jsonPointer, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateSecurityContext(SecurityContext securityContext, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(securityContext, diagnostics, context);
 	}
@@ -1207,17 +1194,8 @@ public class OpenAPIValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDefinition(Definition definition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(definition, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateNamedElement(NamedElement namedElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(namedElement, diagnostics, context);
+	public boolean validateReferenceableElement(ReferenceableElement referenceableElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(referenceableElement, diagnostics, context);
 	}
 
 	/**

@@ -22,11 +22,9 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import edu.uoc.som.openapi.API;
-import edu.uoc.som.openapi.Definition;
 import edu.uoc.som.openapi.ExternalDocs;
 import edu.uoc.som.openapi.ExternalDocsContext;
 import edu.uoc.som.openapi.Info;
-import edu.uoc.som.openapi.JSONPointer;
 import edu.uoc.som.openapi.OpenAPIPackage;
 import edu.uoc.som.openapi.Operation;
 import edu.uoc.som.openapi.Parameter;
@@ -50,8 +48,7 @@ import edu.uoc.som.openapi.Tag;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link edu.uoc.som.openapi.impl.APIImpl#getRef <em>Ref</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.APIImpl#getSecurityRequirements <em>Security Requirements</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.APIImpl#getSecurity <em>Security</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.APIImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.APIImpl#getExternalDocs <em>External Docs</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.APIImpl#getSwagger <em>Swagger</em>}</li>
@@ -72,24 +69,14 @@ import edu.uoc.som.openapi.Tag;
  */
 public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	/**
-	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
+	 * The cached value of the '{@link #getSecurity() <em>Security</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRef()
+	 * @see #getSecurity()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String REF_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSecurityRequirements() <em>Security Requirements</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSecurityRequirements()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SecurityRequirement> securityRequirements;
+	protected EList<SecurityRequirement> security;
 
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' reference list.
@@ -229,7 +216,7 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Definition> definitions;
+	protected EList<Schema> definitions;
 
 	/**
 	 * The cached value of the '{@link #getResponses() <em>Responses</em>}' containment reference list.
@@ -286,23 +273,11 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 * @generated
 	 */
 	@Override
-	public String getRef() {
-		// TODO: implement this method to return the 'Ref' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<SecurityRequirement> getSecurityRequirements() {
-		if (securityRequirements == null) {
-			securityRequirements = new EObjectContainmentEList<SecurityRequirement>(SecurityRequirement.class, this, OpenAPIPackage.API__SECURITY_REQUIREMENTS);
+	public EList<SecurityRequirement> getSecurity() {
+		if (security == null) {
+			security = new EObjectContainmentEList<SecurityRequirement>(SecurityRequirement.class, this, OpenAPIPackage.API__SECURITY);
 		}
-		return securityRequirements;
+		return security;
 	}
 
 	/**
@@ -555,9 +530,9 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 * @generated
 	 */
 	@Override
-	public EList<Definition> getDefinitions() {
+	public EList<Schema> getDefinitions() {
 		if (definitions == null) {
-			definitions = new EObjectContainmentEList<Definition>(Definition.class, this, OpenAPIPackage.API__DEFINITIONS);
+			definitions = new EObjectContainmentEList<Schema>(Schema.class, this, OpenAPIPackage.API__DEFINITIONS);
 		}
 		return definitions;
 	}
@@ -636,12 +611,13 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 */
 	@Override
 	public Schema getSchemaByReference(final String ref) {
-		List<Definition> definitions = this.getDefinitions();
-						for (Definition definition : definitions) {
-							if (definition.getRef().equalsIgnoreCase(ref))
-								return definition.getSchema();
-						}
-						return null;	
+				List<Schema> definitions = this.getDefinitions();
+				for (Schema definition : definitions) {
+					String temp = definition.getRef();
+					if (temp.equalsIgnoreCase(ref))
+						return definition;
+				}
+				return null;
 	}
 
 	/**
@@ -680,12 +656,12 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 * @generated
 	 */
 	@Override
-	public Definition getDefinitionByName(final String name) {
-		for (Definition definition : getDefinitions()) {
-					if (definition.getName().equalsIgnoreCase(name))
-						return definition;
-				}
-				return null;
+	public Schema getSchemaByName(final String name) {
+				for (Schema definition : getDefinitions()) {
+							if (definition.getReferenceName().equalsIgnoreCase(name))
+								return definition;
+						}
+						return null;
 	}
 
 	/**
@@ -739,8 +715,8 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
-				return ((InternalEList<?>)getSecurityRequirements()).basicRemove(otherEnd, msgs);
+			case OpenAPIPackage.API__SECURITY:
+				return ((InternalEList<?>)getSecurity()).basicRemove(otherEnd, msgs);
 			case OpenAPIPackage.API__EXTERNAL_DOCS:
 				return basicSetExternalDocs(null, msgs);
 			case OpenAPIPackage.API__INFO:
@@ -767,10 +743,8 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case OpenAPIPackage.API__REF:
-				return getRef();
-			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
-				return getSecurityRequirements();
+			case OpenAPIPackage.API__SECURITY:
+				return getSecurity();
 			case OpenAPIPackage.API__PARAMETERS:
 				return getParameters();
 			case OpenAPIPackage.API__EXTERNAL_DOCS:
@@ -812,9 +786,9 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
-				getSecurityRequirements().clear();
-				getSecurityRequirements().addAll((Collection<? extends SecurityRequirement>)newValue);
+			case OpenAPIPackage.API__SECURITY:
+				getSecurity().clear();
+				getSecurity().addAll((Collection<? extends SecurityRequirement>)newValue);
 				return;
 			case OpenAPIPackage.API__PARAMETERS:
 				getParameters().clear();
@@ -853,7 +827,7 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 				return;
 			case OpenAPIPackage.API__DEFINITIONS:
 				getDefinitions().clear();
-				getDefinitions().addAll((Collection<? extends Definition>)newValue);
+				getDefinitions().addAll((Collection<? extends Schema>)newValue);
 				return;
 			case OpenAPIPackage.API__RESPONSES:
 				getResponses().clear();
@@ -879,8 +853,8 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
-				getSecurityRequirements().clear();
+			case OpenAPIPackage.API__SECURITY:
+				getSecurity().clear();
 				return;
 			case OpenAPIPackage.API__PARAMETERS:
 				getParameters().clear();
@@ -936,10 +910,8 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case OpenAPIPackage.API__REF:
-				return REF_EDEFAULT == null ? getRef() != null : !REF_EDEFAULT.equals(getRef());
-			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
-				return securityRequirements != null && !securityRequirements.isEmpty();
+			case OpenAPIPackage.API__SECURITY:
+				return security != null && !security.isEmpty();
 			case OpenAPIPackage.API__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
 			case OpenAPIPackage.API__EXTERNAL_DOCS:
@@ -984,15 +956,9 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 				default: return -1;
 			}
 		}
-		if (baseClass == JSONPointer.class) {
-			switch (derivedFeatureID) {
-				case OpenAPIPackage.API__REF: return OpenAPIPackage.JSON_POINTER__REF;
-				default: return -1;
-			}
-		}
 		if (baseClass == SecurityContext.class) {
 			switch (derivedFeatureID) {
-				case OpenAPIPackage.API__SECURITY_REQUIREMENTS: return OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENTS;
+				case OpenAPIPackage.API__SECURITY: return OpenAPIPackage.SECURITY_CONTEXT__SECURITY;
 				default: return -1;
 			}
 		}
@@ -1028,15 +994,9 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 				default: return -1;
 			}
 		}
-		if (baseClass == JSONPointer.class) {
-			switch (baseFeatureID) {
-				case OpenAPIPackage.JSON_POINTER__REF: return OpenAPIPackage.API__REF;
-				default: return -1;
-			}
-		}
 		if (baseClass == SecurityContext.class) {
 			switch (baseFeatureID) {
-				case OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENTS: return OpenAPIPackage.API__SECURITY_REQUIREMENTS;
+				case OpenAPIPackage.SECURITY_CONTEXT__SECURITY: return OpenAPIPackage.API__SECURITY;
 				default: return -1;
 			}
 		}
@@ -1078,8 +1038,8 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 				return getOperationById((String)arguments.get(0));
 			case OpenAPIPackage.API___GET_PATH_BY_RELATIVE_PATH__STRING:
 				return getPathByRelativePath((String)arguments.get(0));
-			case OpenAPIPackage.API___GET_DEFINITION_BY_NAME__STRING:
-				return getDefinitionByName((String)arguments.get(0));
+			case OpenAPIPackage.API___GET_SCHEMA_BY_NAME__STRING:
+				return getSchemaByName((String)arguments.get(0));
 			case OpenAPIPackage.API___GET_PARAMETER_BY_REF__STRING:
 				return getParameterByRef((String)arguments.get(0));
 			case OpenAPIPackage.API___GET_SECURITY_SCHEMA_BY_NAME__STRING:
