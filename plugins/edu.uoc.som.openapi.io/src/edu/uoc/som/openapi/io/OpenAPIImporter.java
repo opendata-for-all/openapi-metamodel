@@ -160,7 +160,7 @@ public class OpenAPIImporter {
 		JsonArray securityArray = jsonElement.getAsJsonArray();
 		for (JsonElement securityElement : securityArray) {
 			SecurityRequirement security = openAPIFactory.createSecurityRequirement();
-			api.getSecurityRequirements().add(security);
+			api.getSecurity().add(security);
 			importSecurityRequirement(securityElement, security, api);
 		}
 
@@ -524,7 +524,7 @@ public class OpenAPIImporter {
 			JsonArray securityArray = jsonObject.get("security").getAsJsonArray();
 			for (JsonElement securityElement : securityArray) {
 				SecurityRequirement security = openAPIFactory.createSecurityRequirement();
-				aPIOperation.getSecurityRequirements().add(security);
+				aPIOperation.getSecurity().add(security);
 				importSecurityRequirement(securityElement, security, root.getApi());
 
 			}
