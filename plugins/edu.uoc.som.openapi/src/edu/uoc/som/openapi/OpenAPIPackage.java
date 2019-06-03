@@ -2851,13 +2851,13 @@ public interface OpenAPIPackage extends EPackage {
 	int SECURITY_REQUIREMENT__SECURITY_SCOPES = 0;
 
 	/**
-	 * The feature id for the '<em><b>Security Schema</b></em>' reference.
+	 * The feature id for the '<em><b>Security Scheme</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_REQUIREMENT__SECURITY_SCHEMA = 1;
+	int SECURITY_REQUIREMENT__SECURITY_SCHEME = 1;
 
 	/**
 	 * The number of structural features of the '<em>Security Requirement</em>' class.
@@ -4709,15 +4709,15 @@ public interface OpenAPIPackage extends EPackage {
 	EReference getSecurityRequirement_SecurityScopes();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.uoc.som.openapi.SecurityRequirement#getSecuritySchema <em>Security Schema</em>}'.
+	 * Returns the meta object for the reference '{@link edu.uoc.som.openapi.SecurityRequirement#getSecurityScheme <em>Security Scheme</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Security Schema</em>'.
-	 * @see edu.uoc.som.openapi.SecurityRequirement#getSecuritySchema()
+	 * @return the meta object for the reference '<em>Security Scheme</em>'.
+	 * @see edu.uoc.som.openapi.SecurityRequirement#getSecurityScheme()
 	 * @see #getSecurityRequirement()
 	 * @generated
 	 */
-	EReference getSecurityRequirement_SecuritySchema();
+	EReference getSecurityRequirement_SecurityScheme();
 
 	/**
 	 * Returns the meta object for class '{@link edu.uoc.som.openapi.ReferenceableElement <em>Referenceable Element</em>}'.
@@ -6182,12 +6182,12 @@ public interface OpenAPIPackage extends EPackage {
 		EReference SECURITY_REQUIREMENT__SECURITY_SCOPES = eINSTANCE.getSecurityRequirement_SecurityScopes();
 
 		/**
-		 * The meta object literal for the '<em><b>Security Schema</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Security Scheme</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SECURITY_REQUIREMENT__SECURITY_SCHEMA = eINSTANCE.getSecurityRequirement_SecuritySchema();
+		EReference SECURITY_REQUIREMENT__SECURITY_SCHEME = eINSTANCE.getSecurityRequirement_SecurityScheme();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.ReferenceableElementImpl <em>Referenceable Element</em>}' class.

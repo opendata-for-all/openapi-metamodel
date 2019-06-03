@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link edu.uoc.som.openapi.SecurityRequirement#getSecurityScopes <em>Security Scopes</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.SecurityRequirement#getSecuritySchema <em>Security Schema</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.SecurityRequirement#getSecurityScheme <em>Security Scheme</em>}</li>
  * </ul>
  *
  * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityRequirement()
@@ -41,29 +41,25 @@ public interface SecurityRequirement extends EObject {
 	EList<SecurityScope> getSecurityScopes();
 
 	/**
-	 * Returns the value of the '<em><b>Security Schema</b></em>' reference.
+	 * Returns the value of the '<em><b>Security Scheme</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Security Schema</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Security Schema</em>' reference.
-	 * @see #setSecuritySchema(SecurityScheme)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityRequirement_SecuritySchema()
+	 * @return the value of the '<em>Security Scheme</em>' reference.
+	 * @see #setSecurityScheme(SecurityScheme)
+	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityRequirement_SecurityScheme()
 	 * @model
 	 * @generated
 	 */
-	SecurityScheme getSecuritySchema();
+	SecurityScheme getSecurityScheme();
 
 	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.SecurityRequirement#getSecuritySchema <em>Security Schema</em>}' reference.
+	 * Sets the value of the '{@link edu.uoc.som.openapi.SecurityRequirement#getSecurityScheme <em>Security Scheme</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Security Schema</em>' reference.
-	 * @see #getSecuritySchema()
+	 * @param value the new value of the '<em>Security Scheme</em>' reference.
+	 * @see #getSecurityScheme()
 	 * @generated
 	 */
-	void setSecuritySchema(SecurityScheme value);
+	void setSecurityScheme(SecurityScheme value);
 
 } // SecurityRequirement

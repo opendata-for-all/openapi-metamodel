@@ -1986,7 +1986,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getSecurityRequirement_SecuritySchema() {
+	public EReference getSecurityRequirement_SecurityScheme() {
 		return (EReference)securityRequirementEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -2315,7 +2315,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 
 		securityRequirementEClass = createEClass(SECURITY_REQUIREMENT);
 		createEReference(securityRequirementEClass, SECURITY_REQUIREMENT__SECURITY_SCOPES);
-		createEReference(securityRequirementEClass, SECURITY_REQUIREMENT__SECURITY_SCHEMA);
+		createEReference(securityRequirementEClass, SECURITY_REQUIREMENT__SECURITY_SCHEME);
 
 		referenceableElementEClass = createEClass(REFERENCEABLE_ELEMENT);
 		createEAttribute(referenceableElementEClass, REFERENCEABLE_ELEMENT__REFERENCE_NAME);
@@ -2607,7 +2607,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 
 		initEClass(securityRequirementEClass, SecurityRequirement.class, "SecurityRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSecurityRequirement_SecurityScopes(), this.getSecurityScope(), null, "securityScopes", null, 0, -1, SecurityRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSecurityRequirement_SecuritySchema(), this.getSecurityScheme(), null, "securitySchema", null, 0, 1, SecurityRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSecurityRequirement_SecurityScheme(), this.getSecurityScheme(), null, "securityScheme", null, 0, 1, SecurityRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(referenceableElementEClass, ReferenceableElement.class, "ReferenceableElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getReferenceableElement_ReferenceName(), ecorePackage.getEString(), "referenceName", null, 1, 1, ReferenceableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

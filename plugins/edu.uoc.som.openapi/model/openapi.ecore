@@ -394,7 +394,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="SecurityRequirement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityScopes" upperBound="-1"
         eType="#//SecurityScope"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="securitySchema" eType="#//SecurityScheme"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityScheme" eType="#//SecurityScheme"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReferenceableElement" abstract="true">
     <eOperations name="getRef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
