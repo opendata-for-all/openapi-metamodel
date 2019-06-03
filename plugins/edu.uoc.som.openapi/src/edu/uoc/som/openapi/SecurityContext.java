@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link edu.uoc.som.openapi.SecurityContext#getSecurityRequirements <em>Security Requirements</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.SecurityContext#getSecurity <em>Security</em>}</li>
  * </ul>
  *
  * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityContext()
@@ -24,19 +24,15 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface SecurityContext extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Security Requirements</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Security</b></em>' containment reference list.
 	 * The list contents are of type {@link edu.uoc.som.openapi.SecurityRequirement}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Security Requirements</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Security Requirements</em>' containment reference list.
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityContext_SecurityRequirements()
+	 * @return the value of the '<em>Security</em>' containment reference list.
+	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSecurityContext_Security()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SecurityRequirement> getSecurityRequirements();
+	EList<SecurityRequirement> getSecurity();
 
 } // SecurityContext

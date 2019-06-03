@@ -48,7 +48,7 @@ import edu.uoc.som.openapi.Tag;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link edu.uoc.som.openapi.impl.APIImpl#getSecurityRequirements <em>Security Requirements</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.APIImpl#getSecurity <em>Security</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.APIImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.APIImpl#getExternalDocs <em>External Docs</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.APIImpl#getSwagger <em>Swagger</em>}</li>
@@ -69,14 +69,14 @@ import edu.uoc.som.openapi.Tag;
  */
 public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	/**
-	 * The cached value of the '{@link #getSecurityRequirements() <em>Security Requirements</em>}' containment reference list.
+	 * The cached value of the '{@link #getSecurity() <em>Security</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSecurityRequirements()
+	 * @see #getSecurity()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SecurityRequirement> securityRequirements;
+	protected EList<SecurityRequirement> security;
 
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' reference list.
@@ -273,11 +273,11 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 * @generated
 	 */
 	@Override
-	public EList<SecurityRequirement> getSecurityRequirements() {
-		if (securityRequirements == null) {
-			securityRequirements = new EObjectContainmentEList<SecurityRequirement>(SecurityRequirement.class, this, OpenAPIPackage.API__SECURITY_REQUIREMENTS);
+	public EList<SecurityRequirement> getSecurity() {
+		if (security == null) {
+			security = new EObjectContainmentEList<SecurityRequirement>(SecurityRequirement.class, this, OpenAPIPackage.API__SECURITY);
 		}
-		return securityRequirements;
+		return security;
 	}
 
 	/**
@@ -715,8 +715,8 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
-				return ((InternalEList<?>)getSecurityRequirements()).basicRemove(otherEnd, msgs);
+			case OpenAPIPackage.API__SECURITY:
+				return ((InternalEList<?>)getSecurity()).basicRemove(otherEnd, msgs);
 			case OpenAPIPackage.API__EXTERNAL_DOCS:
 				return basicSetExternalDocs(null, msgs);
 			case OpenAPIPackage.API__INFO:
@@ -743,8 +743,8 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
-				return getSecurityRequirements();
+			case OpenAPIPackage.API__SECURITY:
+				return getSecurity();
 			case OpenAPIPackage.API__PARAMETERS:
 				return getParameters();
 			case OpenAPIPackage.API__EXTERNAL_DOCS:
@@ -786,9 +786,9 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
-				getSecurityRequirements().clear();
-				getSecurityRequirements().addAll((Collection<? extends SecurityRequirement>)newValue);
+			case OpenAPIPackage.API__SECURITY:
+				getSecurity().clear();
+				getSecurity().addAll((Collection<? extends SecurityRequirement>)newValue);
 				return;
 			case OpenAPIPackage.API__PARAMETERS:
 				getParameters().clear();
@@ -853,8 +853,8 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
-				getSecurityRequirements().clear();
+			case OpenAPIPackage.API__SECURITY:
+				getSecurity().clear();
 				return;
 			case OpenAPIPackage.API__PARAMETERS:
 				getParameters().clear();
@@ -910,8 +910,8 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case OpenAPIPackage.API__SECURITY_REQUIREMENTS:
-				return securityRequirements != null && !securityRequirements.isEmpty();
+			case OpenAPIPackage.API__SECURITY:
+				return security != null && !security.isEmpty();
 			case OpenAPIPackage.API__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
 			case OpenAPIPackage.API__EXTERNAL_DOCS:
@@ -958,7 +958,7 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 		}
 		if (baseClass == SecurityContext.class) {
 			switch (derivedFeatureID) {
-				case OpenAPIPackage.API__SECURITY_REQUIREMENTS: return OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENTS;
+				case OpenAPIPackage.API__SECURITY: return OpenAPIPackage.SECURITY_CONTEXT__SECURITY;
 				default: return -1;
 			}
 		}
@@ -996,7 +996,7 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 		}
 		if (baseClass == SecurityContext.class) {
 			switch (baseFeatureID) {
-				case OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENTS: return OpenAPIPackage.API__SECURITY_REQUIREMENTS;
+				case OpenAPIPackage.SECURITY_CONTEXT__SECURITY: return OpenAPIPackage.API__SECURITY;
 				default: return -1;
 			}
 		}

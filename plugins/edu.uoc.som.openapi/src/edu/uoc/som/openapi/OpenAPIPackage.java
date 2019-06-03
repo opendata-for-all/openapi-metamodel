@@ -333,13 +333,13 @@ public interface OpenAPIPackage extends EPackage {
 	int API = 2;
 
 	/**
-	 * The feature id for the '<em><b>Security Requirements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Security</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API__SECURITY_REQUIREMENTS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
+	int API__SECURITY = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
@@ -878,13 +878,13 @@ public interface OpenAPIPackage extends EPackage {
 	int OPERATION = 7;
 
 	/**
-	 * The feature id for the '<em><b>Security Requirements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Security</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__SECURITY_REQUIREMENTS = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
+	int OPERATION__SECURITY = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' reference list.
@@ -2685,13 +2685,13 @@ public interface OpenAPIPackage extends EPackage {
 	int SECURITY_CONTEXT = 22;
 
 	/**
-	 * The feature id for the '<em><b>Security Requirements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Security</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_CONTEXT__SECURITY_REQUIREMENTS = 0;
+	int SECURITY_CONTEXT__SECURITY = 0;
 
 	/**
 	 * The number of structural features of the '<em>Security Context</em>' class.
@@ -4582,15 +4582,15 @@ public interface OpenAPIPackage extends EPackage {
 	EClass getSecurityContext();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi.SecurityContext#getSecurityRequirements <em>Security Requirements</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi.SecurityContext#getSecurity <em>Security</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Security Requirements</em>'.
-	 * @see edu.uoc.som.openapi.SecurityContext#getSecurityRequirements()
+	 * @return the meta object for the containment reference list '<em>Security</em>'.
+	 * @see edu.uoc.som.openapi.SecurityContext#getSecurity()
 	 * @see #getSecurityContext()
 	 * @generated
 	 */
-	EReference getSecurityContext_SecurityRequirements();
+	EReference getSecurityContext_Security();
 
 	/**
 	 * Returns the meta object for class '{@link edu.uoc.som.openapi.ParameterContext <em>Parameter Context</em>}'.
@@ -6076,12 +6076,12 @@ public interface OpenAPIPackage extends EPackage {
 		EClass SECURITY_CONTEXT = eINSTANCE.getSecurityContext();
 
 		/**
-		 * The meta object literal for the '<em><b>Security Requirements</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Security</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SECURITY_CONTEXT__SECURITY_REQUIREMENTS = eINSTANCE.getSecurityContext_SecurityRequirements();
+		EReference SECURITY_CONTEXT__SECURITY = eINSTANCE.getSecurityContext_Security();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.ParameterContextImpl <em>Parameter Context</em>}' class.

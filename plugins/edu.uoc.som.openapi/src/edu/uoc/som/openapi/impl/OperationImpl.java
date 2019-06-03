@@ -40,7 +40,7 @@ import edu.uoc.som.openapi.SecurityRequirement;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link edu.uoc.som.openapi.impl.OperationImpl#getSecurityRequirements <em>Security Requirements</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.OperationImpl#getSecurity <em>Security</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.OperationImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.OperationImpl#getExternalDocs <em>External Docs</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.OperationImpl#getTagReferences <em>Tag References</em>}</li>
@@ -58,14 +58,14 @@ import edu.uoc.som.openapi.SecurityRequirement;
  */
 public class OperationImpl extends ParameterDeclaringContextImpl implements Operation {
 	/**
-	 * The cached value of the '{@link #getSecurityRequirements() <em>Security Requirements</em>}' containment reference list.
+	 * The cached value of the '{@link #getSecurity() <em>Security</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSecurityRequirements()
+	 * @see #getSecurity()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SecurityRequirement> securityRequirements;
+	protected EList<SecurityRequirement> security;
 
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' reference list.
@@ -242,11 +242,11 @@ public class OperationImpl extends ParameterDeclaringContextImpl implements Oper
 	 * @generated
 	 */
 	@Override
-	public EList<SecurityRequirement> getSecurityRequirements() {
-		if (securityRequirements == null) {
-			securityRequirements = new EObjectContainmentEList<SecurityRequirement>(SecurityRequirement.class, this, OpenAPIPackage.OPERATION__SECURITY_REQUIREMENTS);
+	public EList<SecurityRequirement> getSecurity() {
+		if (security == null) {
+			security = new EObjectContainmentEList<SecurityRequirement>(SecurityRequirement.class, this, OpenAPIPackage.OPERATION__SECURITY);
 		}
-		return securityRequirements;
+		return security;
 	}
 
 	/**
@@ -560,8 +560,8 @@ public class OperationImpl extends ParameterDeclaringContextImpl implements Oper
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case OpenAPIPackage.OPERATION__SECURITY_REQUIREMENTS:
-				return ((InternalEList<?>)getSecurityRequirements()).basicRemove(otherEnd, msgs);
+			case OpenAPIPackage.OPERATION__SECURITY:
+				return ((InternalEList<?>)getSecurity()).basicRemove(otherEnd, msgs);
 			case OpenAPIPackage.OPERATION__EXTERNAL_DOCS:
 				return basicSetExternalDocs(null, msgs);
 		}
@@ -576,8 +576,8 @@ public class OperationImpl extends ParameterDeclaringContextImpl implements Oper
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case OpenAPIPackage.OPERATION__SECURITY_REQUIREMENTS:
-				return getSecurityRequirements();
+			case OpenAPIPackage.OPERATION__SECURITY:
+				return getSecurity();
 			case OpenAPIPackage.OPERATION__PARAMETERS:
 				return getParameters();
 			case OpenAPIPackage.OPERATION__EXTERNAL_DOCS:
@@ -613,9 +613,9 @@ public class OperationImpl extends ParameterDeclaringContextImpl implements Oper
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case OpenAPIPackage.OPERATION__SECURITY_REQUIREMENTS:
-				getSecurityRequirements().clear();
-				getSecurityRequirements().addAll((Collection<? extends SecurityRequirement>)newValue);
+			case OpenAPIPackage.OPERATION__SECURITY:
+				getSecurity().clear();
+				getSecurity().addAll((Collection<? extends SecurityRequirement>)newValue);
 				return;
 			case OpenAPIPackage.OPERATION__PARAMETERS:
 				getParameters().clear();
@@ -668,8 +668,8 @@ public class OperationImpl extends ParameterDeclaringContextImpl implements Oper
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case OpenAPIPackage.OPERATION__SECURITY_REQUIREMENTS:
-				getSecurityRequirements().clear();
+			case OpenAPIPackage.OPERATION__SECURITY:
+				getSecurity().clear();
 				return;
 			case OpenAPIPackage.OPERATION__PARAMETERS:
 				getParameters().clear();
@@ -716,8 +716,8 @@ public class OperationImpl extends ParameterDeclaringContextImpl implements Oper
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case OpenAPIPackage.OPERATION__SECURITY_REQUIREMENTS:
-				return securityRequirements != null && !securityRequirements.isEmpty();
+			case OpenAPIPackage.OPERATION__SECURITY:
+				return security != null && !security.isEmpty();
 			case OpenAPIPackage.OPERATION__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
 			case OpenAPIPackage.OPERATION__EXTERNAL_DOCS:
@@ -753,7 +753,7 @@ public class OperationImpl extends ParameterDeclaringContextImpl implements Oper
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == SecurityContext.class) {
 			switch (derivedFeatureID) {
-				case OpenAPIPackage.OPERATION__SECURITY_REQUIREMENTS: return OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENTS;
+				case OpenAPIPackage.OPERATION__SECURITY: return OpenAPIPackage.SECURITY_CONTEXT__SECURITY;
 				default: return -1;
 			}
 		}
@@ -786,7 +786,7 @@ public class OperationImpl extends ParameterDeclaringContextImpl implements Oper
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == SecurityContext.class) {
 			switch (baseFeatureID) {
-				case OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENTS: return OpenAPIPackage.OPERATION__SECURITY_REQUIREMENTS;
+				case OpenAPIPackage.SECURITY_CONTEXT__SECURITY: return OpenAPIPackage.OPERATION__SECURITY;
 				default: return -1;
 			}
 		}

@@ -28,22 +28,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link edu.uoc.som.openapi.impl.SecurityContextImpl#getSecurityRequirements <em>Security Requirements</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.SecurityContextImpl#getSecurity <em>Security</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class SecurityContextImpl extends MinimalEObjectImpl.Container implements SecurityContext {
 	/**
-	 * The cached value of the '{@link #getSecurityRequirements() <em>Security Requirements</em>}' containment reference list.
+	 * The cached value of the '{@link #getSecurity() <em>Security</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSecurityRequirements()
+	 * @see #getSecurity()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SecurityRequirement> securityRequirements;
-
+	protected EList<SecurityRequirement> security;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,11 +68,11 @@ public abstract class SecurityContextImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 */
 	@Override
-	public EList<SecurityRequirement> getSecurityRequirements() {
-		if (securityRequirements == null) {
-			securityRequirements = new EObjectContainmentEList<SecurityRequirement>(SecurityRequirement.class, this, OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENTS);
+	public EList<SecurityRequirement> getSecurity() {
+		if (security == null) {
+			security = new EObjectContainmentEList<SecurityRequirement>(SecurityRequirement.class, this, OpenAPIPackage.SECURITY_CONTEXT__SECURITY);
 		}
-		return securityRequirements;
+		return security;
 	}
 
 	/**
@@ -84,8 +83,8 @@ public abstract class SecurityContextImpl extends MinimalEObjectImpl.Container i
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENTS:
-				return ((InternalEList<?>)getSecurityRequirements()).basicRemove(otherEnd, msgs);
+			case OpenAPIPackage.SECURITY_CONTEXT__SECURITY:
+				return ((InternalEList<?>)getSecurity()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -98,8 +97,8 @@ public abstract class SecurityContextImpl extends MinimalEObjectImpl.Container i
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENTS:
-				return getSecurityRequirements();
+			case OpenAPIPackage.SECURITY_CONTEXT__SECURITY:
+				return getSecurity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,9 +112,9 @@ public abstract class SecurityContextImpl extends MinimalEObjectImpl.Container i
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENTS:
-				getSecurityRequirements().clear();
-				getSecurityRequirements().addAll((Collection<? extends SecurityRequirement>)newValue);
+			case OpenAPIPackage.SECURITY_CONTEXT__SECURITY:
+				getSecurity().clear();
+				getSecurity().addAll((Collection<? extends SecurityRequirement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -129,8 +128,8 @@ public abstract class SecurityContextImpl extends MinimalEObjectImpl.Container i
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENTS:
-				getSecurityRequirements().clear();
+			case OpenAPIPackage.SECURITY_CONTEXT__SECURITY:
+				getSecurity().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -144,8 +143,8 @@ public abstract class SecurityContextImpl extends MinimalEObjectImpl.Container i
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case OpenAPIPackage.SECURITY_CONTEXT__SECURITY_REQUIREMENTS:
-				return securityRequirements != null && !securityRequirements.isEmpty();
+			case OpenAPIPackage.SECURITY_CONTEXT__SECURITY:
+				return security != null && !security.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

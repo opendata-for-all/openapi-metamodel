@@ -1866,7 +1866,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getSecurityContext_SecurityRequirements() {
+	public EReference getSecurityContext_Security() {
 		return (EReference)securityContextEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2298,7 +2298,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		responseDeclaringContextEClass = createEClass(RESPONSE_DECLARING_CONTEXT);
 
 		securityContextEClass = createEClass(SECURITY_CONTEXT);
-		createEReference(securityContextEClass, SECURITY_CONTEXT__SECURITY_REQUIREMENTS);
+		createEReference(securityContextEClass, SECURITY_CONTEXT__SECURITY);
 
 		parameterContextEClass = createEClass(PARAMETER_CONTEXT);
 		createEReference(parameterContextEClass, PARAMETER_CONTEXT__PARAMETERS);
@@ -2590,7 +2590,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEClass(responseDeclaringContextEClass, ResponseDeclaringContext.class, "ResponseDeclaringContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(securityContextEClass, SecurityContext.class, "SecurityContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSecurityContext_SecurityRequirements(), this.getSecurityRequirement(), null, "securityRequirements", null, 0, -1, SecurityContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSecurityContext_Security(), this.getSecurityRequirement(), null, "security", null, 0, -1, SecurityContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterContextEClass, ParameterContext.class, "ParameterContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameterContext_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, ParameterContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
