@@ -321,7 +321,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="SchemaDeclaringContext" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ResponseDeclaringContext" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="SecurityContext" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="securityRequirements" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="security" upperBound="-1"
         eType="#//SecurityRequirement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParameterContext" abstract="true">

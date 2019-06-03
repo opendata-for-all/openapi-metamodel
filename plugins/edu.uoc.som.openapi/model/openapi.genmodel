@@ -247,7 +247,7 @@
     <genClasses image="false" ecoreClass="openapi.ecore#//SchemaDeclaringContext"/>
     <genClasses image="false" ecoreClass="openapi.ecore#//ResponseDeclaringContext"/>
     <genClasses image="false" ecoreClass="openapi.ecore#//SecurityContext">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi.ecore#//SecurityContext/securityRequirements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi.ecore#//SecurityContext/security"/>
     </genClasses>
     <genClasses image="false" ecoreClass="openapi.ecore#//ParameterContext">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi.ecore#//ParameterContext/parameters"/>
