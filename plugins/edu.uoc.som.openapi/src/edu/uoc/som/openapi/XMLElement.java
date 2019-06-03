@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.uoc.som.openapi.XMLElement#getName <em>Name</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.XMLElement#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.XMLElement#getPrefix <em>Prefix</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.XMLElement#isAttribute <em>Attribute</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.XMLElement#isWrapped <em>Wrapped</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.XMLElement#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.XMLElement#getWrapped <em>Wrapped</em>}</li>
  * </ul>
  *
  * @see edu.uoc.som.openapi.OpenAPIPackage#getXMLElement()
@@ -106,53 +106,45 @@ public interface XMLElement extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Attribute</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Attribute</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attribute</em>' attribute.
-	 * @see #setAttribute(boolean)
+	 * @see #setAttribute(Boolean)
 	 * @see edu.uoc.som.openapi.OpenAPIPackage#getXMLElement_Attribute()
 	 * @model
 	 * @generated
 	 */
-	boolean isAttribute();
+	Boolean getAttribute();
 
 	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.XMLElement#isAttribute <em>Attribute</em>}' attribute.
+	 * Sets the value of the '{@link edu.uoc.som.openapi.XMLElement#getAttribute <em>Attribute</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Attribute</em>' attribute.
-	 * @see #isAttribute()
+	 * @see #getAttribute()
 	 * @generated
 	 */
-	void setAttribute(boolean value);
+	void setAttribute(Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Wrapped</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Wrapped</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Wrapped</em>' attribute.
-	 * @see #setWrapped(boolean)
+	 * @see #setWrapped(Boolean)
 	 * @see edu.uoc.som.openapi.OpenAPIPackage#getXMLElement_Wrapped()
 	 * @model
 	 * @generated
 	 */
-	boolean isWrapped();
+	Boolean getWrapped();
 
 	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.XMLElement#isWrapped <em>Wrapped</em>}' attribute.
+	 * Sets the value of the '{@link edu.uoc.som.openapi.XMLElement#getWrapped <em>Wrapped</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Wrapped</em>' attribute.
-	 * @see #isWrapped()
+	 * @see #getWrapped()
 	 * @generated
 	 */
-	void setWrapped(boolean value);
+	void setWrapped(Boolean value);
 
 } // XMLElement

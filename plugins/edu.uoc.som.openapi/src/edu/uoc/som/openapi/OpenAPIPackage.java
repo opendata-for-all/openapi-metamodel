@@ -4488,22 +4488,22 @@ public interface OpenAPIPackage extends EPackage {
 	EAttribute getXMLElement_Prefix();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.XMLElement#isAttribute <em>Attribute</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.XMLElement#getAttribute <em>Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Attribute</em>'.
-	 * @see edu.uoc.som.openapi.XMLElement#isAttribute()
+	 * @see edu.uoc.som.openapi.XMLElement#getAttribute()
 	 * @see #getXMLElement()
 	 * @generated
 	 */
 	EAttribute getXMLElement_Attribute();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.XMLElement#isWrapped <em>Wrapped</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.XMLElement#getWrapped <em>Wrapped</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Wrapped</em>'.
-	 * @see edu.uoc.som.openapi.XMLElement#isWrapped()
+	 * @see edu.uoc.som.openapi.XMLElement#getWrapped()
 	 * @see #getXMLElement()
 	 * @generated
 	 */
