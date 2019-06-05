@@ -535,21 +535,21 @@ public class OperationImpl extends ParameterDeclaringContextImpl implements Oper
 	@Override
 	public String getMethod() {
 		Path path = ((Path)eContainer);
-		if(path.getGet().equals(this))
+		if(path.getGet()!= null && path.getGet().equals(this))
 			return "GET";
-		if(path.getPost().equals(this))
+		if(path.getPost()!= null && path.getPost().equals(this))
 			return "POST";
-		if(path.getPut().equals(this))
+		if(path.getPut()!= null && path.getPut().equals(this))
 			return "PUT";
-		if(path.getDelete().equals(this))
+		if(path.getDelete()!=null && path.getDelete().equals(this))
 			return "DELETE";
-		if(path.getOptions().equals(this))
+		if(path.getOptions()!= null && path.getOptions().equals(this))
 			return "OPTIONS";
-		if(path.getHead().equals(this))
+		if(path.getHead()!= null && path.getHead().equals(this))
 			return "HEAD";
-		if(path.getPatch().equals(this))
+		if(path.getPatch()!=null && path.getPatch().equals(this))
 			return "PATCH";
-		return null;
+		return null;	
 	}
 
 	/**

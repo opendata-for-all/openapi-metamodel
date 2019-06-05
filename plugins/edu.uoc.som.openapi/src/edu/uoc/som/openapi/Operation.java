@@ -255,7 +255,7 @@ public interface Operation extends ParameterDeclaringContext, SecurityContext, P
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='Path path = ((Path)eContainer);\r\nif(path.getGet().equals(this))\r\n\treturn \"GET\";\r\nif(path.getPost().equals(this))\r\n\treturn \"POST\";\r\nif(path.getPut().equals(this))\r\n\treturn \"PUT\";\r\nif(path.getDelete().equals(this))\r\n\treturn \"DELETE\";\r\nif(path.getOptions().equals(this))\r\n\treturn \"OPTIONS\";\r\nif(path.getHead().equals(this))\r\n\treturn \"HEAD\";\r\nif(path.getPatch().equals(this))\r\n\treturn \"PATCH\";\r\nreturn null;'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='Path path = ((Path)eContainer);\nif(path.getGet()!= null &amp;&amp; path.getGet().equals(this))\n\treturn \"GET\";\nif(path.getPost()!= null &amp;&amp; path.getPost().equals(this))\n\treturn \"POST\";\nif(path.getPut()!= null &amp;&amp; path.getPut().equals(this))\n\treturn \"PUT\";\nif(path.getDelete()!=null &amp;&amp; path.getDelete().equals(this))\n\treturn \"DELETE\";\nif(path.getOptions()!= null &amp;&amp; path.getOptions().equals(this))\n\treturn \"OPTIONS\";\nif(path.getHead()!= null &amp;&amp; path.getHead().equals(this))\n\treturn \"HEAD\";\nif(path.getPatch()!=null &amp;&amp; path.getPatch().equals(this))\n\treturn \"PATCH\";\nreturn null;\t'"
 	 * @generated
 	 */
 	String getMethod();
