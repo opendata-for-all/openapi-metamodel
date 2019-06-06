@@ -355,7 +355,6 @@ public interface JSONSchemaSubset extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Unique Items</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Unique Items</em>' attribute isn't clear,
@@ -365,7 +364,7 @@ public interface JSONSchemaSubset extends EObject {
 	 * @return the value of the '<em>Unique Items</em>' attribute.
 	 * @see #setUniqueItems(Boolean)
 	 * @see edu.uoc.som.openapi.OpenAPIPackage#getJSONSchemaSubset_UniqueItems()
-	 * @model default="false"
+	 * @model
 	 * @generated
 	 */
 	Boolean getUniqueItems();

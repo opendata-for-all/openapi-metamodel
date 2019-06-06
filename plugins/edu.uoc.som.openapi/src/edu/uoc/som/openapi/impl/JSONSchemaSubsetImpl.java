@@ -296,7 +296,7 @@ public abstract class JSONSchemaSubsetImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean UNIQUE_ITEMS_EDEFAULT = Boolean.FALSE;
+	protected static final Boolean UNIQUE_ITEMS_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getUniqueItems() <em>Unique Items</em>}' attribute.

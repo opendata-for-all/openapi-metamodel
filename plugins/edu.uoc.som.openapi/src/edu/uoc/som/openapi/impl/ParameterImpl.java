@@ -329,7 +329,7 @@ public class ParameterImpl extends SchemaDeclaringContextImpl implements Paramet
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean UNIQUE_ITEMS_EDEFAULT = Boolean.FALSE;
+	protected static final Boolean UNIQUE_ITEMS_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getUniqueItems() <em>Unique Items</em>}' attribute.
