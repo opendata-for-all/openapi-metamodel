@@ -1,5 +1,8 @@
 package edu.uoc.som.openapi.io;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -30,6 +33,7 @@ import edu.uoc.som.openapi.Tag;
 
 public class OpenAPIExporter {
 
+	Map<String, Schema> schemaMap = new HashMap<String, Schema>();
 
 	public JsonObject toJson(API api) {
 		JsonObject jsonObject = new JsonObject();
@@ -250,7 +254,7 @@ public class OpenAPIExporter {
 		// TODO parameters
 	}
 
-	private static void generateOperation(API api, Operation operation, JsonObject jsonOperation) {
+	private void generateOperation(API api, Operation operation, JsonObject jsonOperation) {
 		if (!operation.getTagReferences().isEmpty()) {
 			JsonArray tags = new JsonArray();
 			for (String tag : operation.getTagReferences())
@@ -324,7 +328,7 @@ public class OpenAPIExporter {
 
 	}
 
-	private static void generateParameter(API api, Parameter parameter, JsonObject parameterJson) {
+	private void generateParameter(API api, Parameter parameter, JsonObject parameterJson) {
 		parameterJson.addProperty("name", parameter.getName());
 		parameterJson.addProperty("in", parameter.getLocation().getLiteral());
 		if (!parameter.getType().equals(JSONDataType.UNSPECIFIED))
@@ -390,7 +394,7 @@ public class OpenAPIExporter {
 		
 	}
 
-	private static void generateItems(ItemsDefinition itemsDefinition, JsonObject itemsDefinitionJson) {
+	private void generateItems(ItemsDefinition itemsDefinition, JsonObject itemsDefinitionJson) {
 		if(!itemsDefinition.getType().equals(JSONDataType.UNSPECIFIED))
 			itemsDefinitionJson.addProperty("type", itemsDefinition.getType().getLiteral());
 		if(itemsDefinition.getFormat()!= null)
@@ -437,7 +441,7 @@ public class OpenAPIExporter {
 		
 	}
 
-	private static void generateResponse(API api, Response response, JsonObject responseJson) {
+	private void generateResponse(API api, Response response, JsonObject responseJson) {
 		responseJson.addProperty("description", response.getDescription());
 		if (response.getSchema() != null) {
 			if (response.getSchema().getType().equals(JSONDataType.OBJECT)) {
@@ -526,7 +530,7 @@ public class OpenAPIExporter {
 
 	}
 
-	private static void generateDefinitions(API api, JsonObject jsonDefinitions) {
+	private void generateDefinitions(API api, JsonObject jsonDefinitions) {
 		for (Schema definition : api.getDefinitions()) {
 			JsonObject schemaJson = new JsonObject();
 			jsonDefinitions.add(definition.getReferenceName(), schemaJson);
@@ -535,10 +539,18 @@ public class OpenAPIExporter {
 
 	}
 
-	private static void generateSchema(API api, Schema schema, JsonObject schemaJson) {
+	private void generateSchema(API api, Schema schema, JsonObject schemaJson) {
+		if(schema.getReferenceName()!= null) {
+		 Schema referencedSchema =	schemaMap.get(schema.getRef());
+		 if(referencedSchema!=null) {
+			 schemaJson.addProperty("$ref", referencedSchema.getRef());
+			 return;
+		 }
+		 else 
+			 schemaMap.put(schema.getRef(), schema);
+		}
 		if(!schema.getType().equals(JSONDataType.UNSPECIFIED))
-			schemaJson.addProperty("type", schema.getType().getLiteral());
-		
+			schemaJson.addProperty("type", schema.getType().getLiteral());	
 		if(schema.getFormat()!= null)
 			schemaJson.addProperty("format", schema.getFormat());
 		if(schema.getTitle()!=null)
@@ -606,7 +618,8 @@ public class OpenAPIExporter {
 			for (Property property : schema.getProperties()) {
 				JsonObject propertyJson = new JsonObject();
 				propertiesJson.add(property.getReferenceName(), propertyJson);
-				generateSchemaProperty(api,property.getSchema(), propertyJson);
+//				generateSchemaProperty(api,property.getSchema(), propertyJson);
+				generateSchema(api, property.getSchema(), propertyJson);
 			}
 		}
 		if(schema.getAdditonalPropertiesAllowed()!=null) {
@@ -645,24 +658,25 @@ public class OpenAPIExporter {
 			schemaJson.addProperty("example", schema.getExample());
 	}
 
-	private static void generateSchemaProperty(API api, Schema property, JsonObject propertyJson) {
-		if (property.getType().equals(JSONDataType.OBJECT)) {
-			propertyJson.addProperty("$ref", property.getRef());
-		} else {
-			if (property.getType().equals(JSONDataType.ARRAY)) {
-				propertyJson.addProperty("type", JSONDataType.ARRAY.getLiteral());
-				JsonObject items = new JsonObject();
-				if (property.getItems().getType().equals(JSONDataType.OBJECT))
-					items.addProperty("$ref", property.getItems().getRef());
-				else
-					items.addProperty("type", property.getItems().getType().getLiteral());
-				propertyJson.add("items", items);
-
-			} else {
-				propertyJson.addProperty("type", property.getType().getLiteral());
-			}
-		}
-	}
+//	private static void generateSchemaProperty(API api, Schema property, JsonObject propertyJson) {
+//		if (property.getType() != null)
+//			if (property.getType().equals(JSONDataType.OBJECT)) {
+//				propertyJson.addProperty("$ref", property.getRef());
+//			} else {
+//				if (property.getType().equals(JSONDataType.ARRAY)) {
+//					propertyJson.addProperty("type", JSONDataType.ARRAY.getLiteral());
+//					JsonObject items = new JsonObject();
+//					if (property.getItems().getType().equals(JSONDataType.OBJECT))
+//						items.addProperty("$ref", property.getItems().getRef());
+//					else
+//						items.addProperty("type", property.getItems().getType().getLiteral());
+//					propertyJson.add("items", items);
+//
+//				} else {
+//					propertyJson.addProperty("type", property.getType().getLiteral());
+//				}
+//			}
+//	}
 	private static void generateSecurityScheme(API api, SecurityScheme securityScheme, JsonObject jsonSecurityScheme) {
 		if(!securityScheme.getType().equals(SecuritySchemeType.UNSPECIFIED))
 			jsonSecurityScheme.addProperty("type", securityScheme.getType().getLiteral());
