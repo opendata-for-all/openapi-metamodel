@@ -643,7 +643,7 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	@Override
 	public Path getPathByRelativePath(final String relativePath) {
 		for(Path path: getPaths()) {
-			if(path.getRelativePath().equalsIgnoreCase(relativePath)) {
+			if(path.getRelativePath() != null && path.getRelativePath().equalsIgnoreCase(relativePath)) {
 				return path;
 			}
 		}

@@ -105,7 +105,7 @@
       <genOperations ecoreOperation="openapi.ecore#//API/getOperationById" body="EList&lt;Operation> allOperations = getAllOperations();&#xD;&#xA;for (Operation operation : allOperations) {&#xD;&#xA;&#x9;if (operation.getOperationId().equals(operationId))&#xD;&#xA;&#x9;&#x9;return operation;&#xD;&#xA;}&#xD;&#xA;return null;">
         <genParameters ecoreParameter="openapi.ecore#//API/getOperationById/operationId"/>
       </genOperations>
-      <genOperations ecoreOperation="openapi.ecore#//API/getPathByRelativePath" body="for(Path path: getPaths()) {&#xD;&#xA;&#x9;if(path.getRelativePath().equalsIgnoreCase(relativePath)) {&#xD;&#xA;&#x9;&#x9;return path;&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;return null;">
+      <genOperations ecoreOperation="openapi.ecore#//API/getPathByRelativePath" body="for(Path path: getPaths()) {&#xA;&#x9;if(path.getRelativePath() != null &amp;&amp; path.getRelativePath().equalsIgnoreCase(relativePath)) {&#xA;&#x9;&#x9;return path;&#xA;&#x9;}&#xA;}&#xA;return null;">
         <genParameters ecoreParameter="openapi.ecore#//API/getPathByRelativePath/relativePath"/>
       </genOperations>
       <genOperations ecoreOperation="openapi.ecore#//API/getSchemaByName" body="&#x9;&#x9;for (Schema definition : getDefinitions()) {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;if (definition.getReferenceName().equalsIgnoreCase(name))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;return definition;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;return null;">

@@ -329,7 +329,7 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for(Path path: getPaths()) {\r\n\tif(path.getRelativePath().equalsIgnoreCase(relativePath)) {\r\n\t\treturn path;\r\n\t}\r\n}\r\nreturn null;'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for(Path path: getPaths()) {\n\tif(path.getRelativePath() != null &amp;&amp; path.getRelativePath().equalsIgnoreCase(relativePath)) {\n\t\treturn path;\n\t}\n}\nreturn null;'"
 	 * @generated
 	 */
 	Path getPathByRelativePath(String relativePath);
