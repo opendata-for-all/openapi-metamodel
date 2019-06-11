@@ -341,6 +341,7 @@ public class OpenAPIExporter {
 		if (parameter.getRequired() != null)
 			parameterJson.addProperty("required", parameter.getRequired());
 		if (parameter.getLocation().equals(ParameterLocation.BODY)) {
+			if(parameter.getSchema()!= null)
 			if (parameter.getSchema().getType().equals(JSONDataType.OBJECT)) {
 				JsonObject refSchema = new JsonObject();
 				refSchema.addProperty("$ref", parameter.getSchema().getRef());
