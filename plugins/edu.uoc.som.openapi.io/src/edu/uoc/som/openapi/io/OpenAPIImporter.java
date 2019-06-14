@@ -396,8 +396,9 @@ public class OpenAPIImporter {
 			schema.setExample(schemaObject.get("example").toString());
 		if (schemaObject.has("required")) {
 			for (JsonElement requiredItem : schemaObject.get("required").getAsJsonArray()) {
-				schema.getRequired().add(schema.getPropertyByName(requiredItem.getAsString()));
-			
+				Property property = schema.getPropertyByName(requiredItem.getAsString());
+				if (property!=null)
+					property.setRequired(true);
 			}
 		}
 	}

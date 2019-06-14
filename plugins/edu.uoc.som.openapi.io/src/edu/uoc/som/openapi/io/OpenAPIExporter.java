@@ -586,12 +586,14 @@ public class OpenAPIExporter {
 			schemaJson.addProperty("maxProperties", schema.getMaxProperties());
 		if (schema.getMinProperties() != null)
 			schemaJson.addProperty("minProperties", schema.getMinProperties());
-		if (!schema.getRequired().isEmpty()) {
+	
 			JsonArray requiredProperties = new JsonArray();
-			for (Property property : schema.getRequired())
-				requiredProperties.add(property.getReferenceName());
-			schemaJson.add("required", requiredProperties);
-		}
+			for (Property property : schema.getProperties())
+				if(property.getRequired()!= null && property.getRequired() == true)
+					requiredProperties.add(property.getReferenceName());
+			if(requiredProperties.size() != 0)
+				schemaJson.add("required", requiredProperties);
+		
 		if (!schema.getEnum().isEmpty()) {
 			JsonArray enumArray = new JsonArray();
 			for (String enumItem : schema.getEnum())

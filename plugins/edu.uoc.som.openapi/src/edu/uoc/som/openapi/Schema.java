@@ -25,7 +25,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link edu.uoc.som.openapi.Schema#getXml <em>Xml</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Schema#getAdditonalProperties <em>Additonal Properties</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Schema#getDeclaringContext <em>Declaring Context</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.Schema#getRequired <em>Required</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Schema#getAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}</li>
  * </ul>
  *
@@ -325,22 +324,6 @@ public interface Schema extends JSONSchemaSubset, SchemaDeclaringContext, Extern
 	 * @generated
 	 */
 	void setDeclaringContext(SchemaDeclaringContext value);
-
-	/**
-	 * Returns the value of the '<em><b>Required</b></em>' reference list.
-	 * The list contents are of type {@link edu.uoc.som.openapi.Property}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Required</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Required</em>' reference list.
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getSchema_Required()
-	 * @model
-	 * @generated
-	 */
-	EList<Property> getRequired();
 
 	/**
 	 * Returns the value of the '<em><b>Additonal Properties Allowed</b></em>' attribute.

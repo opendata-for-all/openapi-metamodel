@@ -1864,22 +1864,13 @@ public interface OpenAPIPackage extends EPackage {
 	int SCHEMA__DECLARING_CONTEXT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 13;
 
 	/**
-	 * The feature id for the '<em><b>Required</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__REQUIRED = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 14;
-
-	/**
 	 * The feature id for the '<em><b>Additonal Properties Allowed</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA__ADDITONAL_PROPERTIES_ALLOWED = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 15;
+	int SCHEMA__ADDITONAL_PROPERTIES_ALLOWED = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 14;
 
 	/**
 	 * The number of structural features of the '<em>Schema</em>' class.
@@ -1888,7 +1879,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_FEATURE_COUNT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 16;
+	int SCHEMA_FEATURE_COUNT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Get Ref</em>' operation.
@@ -2906,13 +2897,22 @@ public interface OpenAPIPackage extends EPackage {
 	int PROPERTY__SCHEMA = REFERENCEABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__REQUIRED = REFERENCEABLE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_FEATURE_COUNT = REFERENCEABLE_ELEMENT_FEATURE_COUNT + 1;
+	int PROPERTY_FEATURE_COUNT = REFERENCEABLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Ref</em>' operation.
@@ -4155,17 +4155,6 @@ public interface OpenAPIPackage extends EPackage {
 	EReference getSchema_DeclaringContext();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.uoc.som.openapi.Schema#getRequired <em>Required</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Required</em>'.
-	 * @see edu.uoc.som.openapi.Schema#getRequired()
-	 * @see #getSchema()
-	 * @generated
-	 */
-	EReference getSchema_Required();
-
-	/**
 	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.Schema#getAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4759,6 +4748,17 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.Property#getRequired <em>Required</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Required</em>'.
+	 * @see edu.uoc.som.openapi.Property#getRequired()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_Required();
 
 	/**
 	 * Returns the meta object for enum '{@link edu.uoc.som.openapi.SchemeType <em>Scheme Type</em>}'.
@@ -5734,14 +5734,6 @@ public interface OpenAPIPackage extends EPackage {
 		EReference SCHEMA__DECLARING_CONTEXT = eINSTANCE.getSchema_DeclaringContext();
 
 		/**
-		 * The meta object literal for the '<em><b>Required</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCHEMA__REQUIRED = eINSTANCE.getSchema_Required();
-
-		/**
 		 * The meta object literal for the '<em><b>Additonal Properties Allowed</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6224,6 +6216,14 @@ public interface OpenAPIPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PROPERTY = eINSTANCE.getProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__REQUIRED = eINSTANCE.getProperty_Required();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi.SchemeType <em>Scheme Type</em>}' enum.

@@ -263,8 +263,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="additonalProperties" eType="#//Schema"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="declaringContext" eType="#//SchemaDeclaringContext"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="required" upperBound="-1"
-        eType="#//Property"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="additonalPropertiesAllowed"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
   </eClassifiers>
@@ -404,5 +402,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenceName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//ReferenceableElement #//SchemaContext"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//ReferenceableElement #//SchemaContext">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+  </eClassifiers>
 </ecore:EPackage>
