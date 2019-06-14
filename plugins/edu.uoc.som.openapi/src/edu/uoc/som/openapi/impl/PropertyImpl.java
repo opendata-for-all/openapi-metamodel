@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link edu.uoc.som.openapi.impl.PropertyImpl#getSchema <em>Schema</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.impl.PropertyImpl#getRequired <em>Required</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,6 +38,25 @@ public class PropertyImpl extends ReferenceableElementImpl implements Property {
 	 * @ordered
 	 */
 	protected Schema schema;
+
+	/**
+	 * The default value of the '{@link #getRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean REQUIRED_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean required = REQUIRED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,11 +123,36 @@ public class PropertyImpl extends ReferenceableElementImpl implements Property {
 	 * @generated
 	 */
 	@Override
+	public Boolean getRequired() {
+		return required;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRequired(Boolean newRequired) {
+		Boolean oldRequired = required;
+		required = newRequired;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPIPackage.PROPERTY__REQUIRED, oldRequired, required));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case OpenAPIPackage.PROPERTY__SCHEMA:
 				if (resolve) return getSchema();
 				return basicGetSchema();
+			case OpenAPIPackage.PROPERTY__REQUIRED:
+				return getRequired();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -122,6 +167,9 @@ public class PropertyImpl extends ReferenceableElementImpl implements Property {
 		switch (featureID) {
 			case OpenAPIPackage.PROPERTY__SCHEMA:
 				setSchema((Schema)newValue);
+				return;
+			case OpenAPIPackage.PROPERTY__REQUIRED:
+				setRequired((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -138,6 +186,9 @@ public class PropertyImpl extends ReferenceableElementImpl implements Property {
 			case OpenAPIPackage.PROPERTY__SCHEMA:
 				setSchema((Schema)null);
 				return;
+			case OpenAPIPackage.PROPERTY__REQUIRED:
+				setRequired(REQUIRED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -152,6 +203,8 @@ public class PropertyImpl extends ReferenceableElementImpl implements Property {
 		switch (featureID) {
 			case OpenAPIPackage.PROPERTY__SCHEMA:
 				return schema != null;
+			case OpenAPIPackage.PROPERTY__REQUIRED:
+				return REQUIRED_EDEFAULT == null ? required != null : !REQUIRED_EDEFAULT.equals(required);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -186,6 +239,22 @@ public class PropertyImpl extends ReferenceableElementImpl implements Property {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (required: ");
+		result.append(required);
+		result.append(')');
+		return result.toString();
 	}
 
 } //PropertyImpl

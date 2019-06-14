@@ -54,7 +54,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getXml <em>Xml</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getAdditonalProperties <em>Additonal Properties</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getDeclaringContext <em>Declaring Context</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getRequired <em>Required</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.impl.SchemaImpl#getAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}</li>
  * </ul>
  *
@@ -270,16 +269,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * @ordered
 	 */
 	protected SchemaDeclaringContext declaringContext;
-
-	/**
-	 * The cached value of the '{@link #getRequired() <em>Required</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequired()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Property> required;
 
 	/**
 	 * The default value of the '{@link #getAdditonalPropertiesAllowed() <em>Additonal Properties Allowed</em>}' attribute.
@@ -723,19 +712,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * @generated
 	 */
 	@Override
-	public EList<Property> getRequired() {
-		if (required == null) {
-			required = new EObjectResolvingEList<Property>(Property.class, this, OpenAPIPackage.SCHEMA__REQUIRED);
-		}
-		return required;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Boolean getAdditonalPropertiesAllowed() {
 		return additonalPropertiesAllowed;
 	}
@@ -841,8 +817,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 			case OpenAPIPackage.SCHEMA__DECLARING_CONTEXT:
 				if (resolve) return getDeclaringContext();
 				return basicGetDeclaringContext();
-			case OpenAPIPackage.SCHEMA__REQUIRED:
-				return getRequired();
 			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
 				return getAdditonalPropertiesAllowed();
 		}
@@ -902,10 +876,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 			case OpenAPIPackage.SCHEMA__DECLARING_CONTEXT:
 				setDeclaringContext((SchemaDeclaringContext)newValue);
 				return;
-			case OpenAPIPackage.SCHEMA__REQUIRED:
-				getRequired().clear();
-				getRequired().addAll((Collection<? extends Property>)newValue);
-				return;
 			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
 				setAdditonalPropertiesAllowed((Boolean)newValue);
 				return;
@@ -963,9 +933,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 			case OpenAPIPackage.SCHEMA__DECLARING_CONTEXT:
 				setDeclaringContext((SchemaDeclaringContext)null);
 				return;
-			case OpenAPIPackage.SCHEMA__REQUIRED:
-				getRequired().clear();
-				return;
 			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
 				setAdditonalPropertiesAllowed(ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT);
 				return;
@@ -1009,8 +976,6 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 				return additonalProperties != null;
 			case OpenAPIPackage.SCHEMA__DECLARING_CONTEXT:
 				return declaringContext != null;
-			case OpenAPIPackage.SCHEMA__REQUIRED:
-				return required != null && !required.isEmpty();
 			case OpenAPIPackage.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
 				return ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT == null ? additonalPropertiesAllowed != null : !ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT.equals(additonalPropertiesAllowed);
 		}
