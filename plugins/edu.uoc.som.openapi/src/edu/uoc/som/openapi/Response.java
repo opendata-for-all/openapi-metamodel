@@ -2,8 +2,6 @@
  */
 package edu.uoc.som.openapi;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Response</b></em>'.
@@ -13,76 +11,16 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link edu.uoc.som.openapi.Response#getDescription <em>Description</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.Response#getHeaders <em>Headers</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.Response#getExamples <em>Examples</em>}</li>
  *   <li>{@link edu.uoc.som.openapi.Response#getCode <em>Code</em>}</li>
- *   <li>{@link edu.uoc.som.openapi.Response#getDeclaringContext <em>Declaring Context</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.Response#getResponseDefinition <em>Response Definition</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi.Response#getDefault <em>Default</em>}</li>
  * </ul>
  *
  * @see edu.uoc.som.openapi.OpenAPIPackage#getResponse()
  * @model
  * @generated
  */
-public interface Response extends SchemaDeclaringContext, SchemaContext, ReferenceableElement {
-	/**
-	 * Returns the value of the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see #setDescription(String)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getResponse_Description()
-	 * @model
-	 * @generated
-	 */
-	String getDescription();
-
-	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.Response#getDescription <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' attribute.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Headers</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.uoc.som.openapi.Header}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Headers</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Headers</em>' containment reference list.
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getResponse_Headers()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Header> getHeaders();
-
-	/**
-	 * Returns the value of the '<em><b>Examples</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.uoc.som.openapi.Example}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Examples</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Examples</em>' containment reference list.
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getResponse_Examples()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Example> getExamples();
-
+public interface Response extends ResponseDeclaringContext {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -92,12 +30,12 @@ public interface Response extends SchemaDeclaringContext, SchemaContext, Referen
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Code</em>' attribute.
-	 * @see #setCode(String)
+	 * @see #setCode(Integer)
 	 * @see edu.uoc.som.openapi.OpenAPIPackage#getResponse_Code()
 	 * @model
 	 * @generated
 	 */
-	String getCode();
+	Integer getCode();
 
 	/**
 	 * Sets the value of the '{@link edu.uoc.som.openapi.Response#getCode <em>Code</em>}' attribute.
@@ -107,32 +45,50 @@ public interface Response extends SchemaDeclaringContext, SchemaContext, Referen
 	 * @see #getCode()
 	 * @generated
 	 */
-	void setCode(String value);
+	void setCode(Integer value);
 
 	/**
-	 * Returns the value of the '<em><b>Declaring Context</b></em>' reference.
+	 * Returns the value of the '<em><b>Response Definition</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Declaring Context</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Declaring Context</em>' reference.
-	 * @see #setDeclaringContext(ResponseDeclaringContext)
-	 * @see edu.uoc.som.openapi.OpenAPIPackage#getResponse_DeclaringContext()
+	 * @return the value of the '<em>Response Definition</em>' reference.
+	 * @see #setResponseDefinition(ResponseDefinition)
+	 * @see edu.uoc.som.openapi.OpenAPIPackage#getResponse_ResponseDefinition()
 	 * @model
 	 * @generated
 	 */
-	ResponseDeclaringContext getDeclaringContext();
+	ResponseDefinition getResponseDefinition();
 
 	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi.Response#getDeclaringContext <em>Declaring Context</em>}' reference.
+	 * Sets the value of the '{@link edu.uoc.som.openapi.Response#getResponseDefinition <em>Response Definition</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Declaring Context</em>' reference.
-	 * @see #getDeclaringContext()
+	 * @param value the new value of the '<em>Response Definition</em>' reference.
+	 * @see #getResponseDefinition()
 	 * @generated
 	 */
-	void setDeclaringContext(ResponseDeclaringContext value);
+	void setResponseDefinition(ResponseDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Default</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default</em>' attribute.
+	 * @see #setDefault(Boolean)
+	 * @see edu.uoc.som.openapi.OpenAPIPackage#getResponse_Default()
+	 * @model
+	 * @generated
+	 */
+	Boolean getDefault();
+
+	/**
+	 * Sets the value of the '{@link edu.uoc.som.openapi.Response#getDefault <em>Default</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default</em>' attribute.
+	 * @see #getDefault()
+	 * @generated
+	 */
+	void setDefault(Boolean value);
 
 } // Response

@@ -47,7 +47,7 @@ public interface ReferenceableElement extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='\t\tif(this instanceof Schema)\n\t\t\treturn \"#/definitions/\"+referenceName;\n\t\tif(this instanceof Parameter)\n\t\t\treturn \"#/parameters/\"+referenceName;\n\t\tif(this instanceof Response)\n\t\t\treturn \"#/responses/\"+referenceName;\n\t\tif(this instanceof SecurityScheme)\n\t\t\treturn \"#/securityDefinitions/\"+referenceName;\n\t\treturn \"unkown\";'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='if(this instanceof Schema)\n\treturn \"#/definitions/\"+referenceName;\nif(this instanceof Parameter)\n\treturn \"#/parameters/\"+referenceName;\nif(this instanceof ResponseDefinition)\n\treturn \"#/responses/\"+referenceName;\nif(this instanceof SecurityScheme)\n\treturn \"#/securityDefinitions/\"+referenceName;\nreturn \"unkown\";'"
 	 * @generated
 	 */
 	String getRef();

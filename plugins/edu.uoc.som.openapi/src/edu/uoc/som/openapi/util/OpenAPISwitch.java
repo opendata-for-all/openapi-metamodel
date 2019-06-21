@@ -123,7 +123,6 @@ public class OpenAPISwitch<T> extends Switch<T> {
 				if (result == null) result = caseSecurityContext(operation);
 				if (result == null) result = caseParameterContext(operation);
 				if (result == null) result = caseExternalDocsContext(operation);
-				if (result == null) result = caseResponseDeclaringContext(operation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -162,12 +161,12 @@ public class OpenAPISwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case OpenAPIPackage.RESPONSE: {
-				Response response = (Response)theEObject;
-				T result = caseResponse(response);
-				if (result == null) result = caseSchemaDeclaringContext(response);
-				if (result == null) result = caseSchemaContext(response);
-				if (result == null) result = caseReferenceableElement(response);
+			case OpenAPIPackage.RESPONSE_DEFINITION: {
+				ResponseDefinition responseDefinition = (ResponseDefinition)theEObject;
+				T result = caseResponseDefinition(responseDefinition);
+				if (result == null) result = caseSchemaDeclaringContext(responseDefinition);
+				if (result == null) result = caseSchemaContext(responseDefinition);
+				if (result == null) result = caseReferenceableElement(responseDefinition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -276,6 +275,14 @@ public class OpenAPISwitch<T> extends Switch<T> {
 				T result = caseProperty(property);
 				if (result == null) result = caseReferenceableElement(property);
 				if (result == null) result = caseSchemaContext(property);
+				if (result == null) result = caseSchemaDeclaringContext(property);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case OpenAPIPackage.RESPONSE: {
+				Response response = (Response)theEObject;
+				T result = caseResponse(response);
+				if (result == null) result = caseResponseDeclaringContext(response);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -460,6 +467,21 @@ public class OpenAPISwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSchema(Schema object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Response Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Response Definition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResponseDefinition(ResponseDefinition object) {
 		return null;
 	}
 

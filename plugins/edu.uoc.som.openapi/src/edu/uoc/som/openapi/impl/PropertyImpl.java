@@ -7,6 +7,7 @@ import edu.uoc.som.openapi.Property;
 import edu.uoc.som.openapi.Schema;
 
 import edu.uoc.som.openapi.SchemaContext;
+import edu.uoc.som.openapi.SchemaDeclaringContext;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -222,6 +223,11 @@ public class PropertyImpl extends ReferenceableElementImpl implements Property {
 				default: return -1;
 			}
 		}
+		if (baseClass == SchemaDeclaringContext.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -235,6 +241,11 @@ public class PropertyImpl extends ReferenceableElementImpl implements Property {
 		if (baseClass == SchemaContext.class) {
 			switch (baseFeatureID) {
 				case OpenAPIPackage.SCHEMA_CONTEXT__SCHEMA: return OpenAPIPackage.PROPERTY__SCHEMA;
+				default: return -1;
+			}
+		}
+		if (baseClass == SchemaDeclaringContext.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

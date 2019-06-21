@@ -30,8 +30,8 @@ import edu.uoc.som.openapi.Operation;
 import edu.uoc.som.openapi.Parameter;
 import edu.uoc.som.openapi.ParameterContext;
 import edu.uoc.som.openapi.Path;
-import edu.uoc.som.openapi.Response;
 import edu.uoc.som.openapi.ResponseDeclaringContext;
+import edu.uoc.som.openapi.ResponseDefinition;
 import edu.uoc.som.openapi.Schema;
 import edu.uoc.som.openapi.SchemaDeclaringContext;
 import edu.uoc.som.openapi.SchemeType;
@@ -226,7 +226,7 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Response> responses;
+	protected EList<ResponseDefinition> responses;
 
 	/**
 	 * The cached value of the '{@link #getSecurityDefinitions() <em>Security Definitions</em>}' containment reference list.
@@ -543,9 +543,9 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 * @generated
 	 */
 	@Override
-	public EList<Response> getResponses() {
+	public EList<ResponseDefinition> getResponses() {
 		if (responses == null) {
-			responses = new EObjectContainmentEList<Response>(Response.class, this, OpenAPIPackage.API__RESPONSES);
+			responses = new EObjectContainmentEList<ResponseDefinition>(ResponseDefinition.class, this, OpenAPIPackage.API__RESPONSES);
 		}
 		return responses;
 	}
@@ -831,7 +831,7 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 				return;
 			case OpenAPIPackage.API__RESPONSES:
 				getResponses().clear();
-				getResponses().addAll((Collection<? extends Response>)newValue);
+				getResponses().addAll((Collection<? extends ResponseDefinition>)newValue);
 				return;
 			case OpenAPIPackage.API__SECURITY_DEFINITIONS:
 				getSecurityDefinitions().clear();

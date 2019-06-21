@@ -959,7 +959,7 @@ public interface OpenAPIPackage extends EPackage {
 	int OPERATION__PRODUCES = PARAMETER_DECLARING_CONTEXT_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Responses</b></em>' reference list.
+	 * The feature id for the '<em><b>Responses</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1909,14 +1909,14 @@ public interface OpenAPIPackage extends EPackage {
 	int SCHEMA_OPERATION_COUNT = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.ResponseImpl <em>Response</em>}' class.
+	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.ResponseDefinitionImpl <em>Response Definition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.uoc.som.openapi.impl.ResponseImpl
-	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getResponse()
+	 * @see edu.uoc.som.openapi.impl.ResponseDefinitionImpl
+	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getResponseDefinition()
 	 * @generated
 	 */
-	int RESPONSE = 12;
+	int RESPONSE_DEFINITION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Schema</b></em>' reference.
@@ -1925,7 +1925,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE__SCHEMA = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 0;
+	int RESPONSE_DEFINITION__SCHEMA = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Reference Name</b></em>' attribute.
@@ -1934,7 +1934,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE__REFERENCE_NAME = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 1;
+	int RESPONSE_DEFINITION__REFERENCE_NAME = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1943,7 +1943,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE__DESCRIPTION = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 2;
+	int RESPONSE_DEFINITION__DESCRIPTION = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Headers</b></em>' containment reference list.
@@ -1952,7 +1952,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE__HEADERS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 3;
+	int RESPONSE_DEFINITION__HEADERS = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Examples</b></em>' containment reference list.
@@ -1961,7 +1961,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE__EXAMPLES = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 4;
+	int RESPONSE_DEFINITION__EXAMPLES = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -1970,7 +1970,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE__CODE = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 5;
+	int RESPONSE_DEFINITION__CODE = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Declaring Context</b></em>' reference.
@@ -1979,16 +1979,16 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE__DECLARING_CONTEXT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 6;
+	int RESPONSE_DEFINITION__DECLARING_CONTEXT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 6;
 
 	/**
-	 * The number of structural features of the '<em>Response</em>' class.
+	 * The number of structural features of the '<em>Response Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_FEATURE_COUNT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 7;
+	int RESPONSE_DEFINITION_FEATURE_COUNT = SCHEMA_DECLARING_CONTEXT_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get Ref</em>' operation.
@@ -1997,16 +1997,26 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE___GET_REF = SCHEMA_DECLARING_CONTEXT_OPERATION_COUNT + 0;
+	int RESPONSE_DEFINITION___GET_REF = SCHEMA_DECLARING_CONTEXT_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Response</em>' class.
+	 * The number of operations of the '<em>Response Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_OPERATION_COUNT = SCHEMA_DECLARING_CONTEXT_OPERATION_COUNT + 1;
+	int RESPONSE_DEFINITION_OPERATION_COUNT = SCHEMA_DECLARING_CONTEXT_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.ResponseImpl <em>Response</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.uoc.som.openapi.impl.ResponseImpl
+	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getResponse()
+	 * @generated
+	 */
+	int RESPONSE = 30;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.HeaderImpl <em>Header</em>}' class.
@@ -2933,6 +2943,51 @@ public interface OpenAPIPackage extends EPackage {
 	int PROPERTY_OPERATION_COUNT = REFERENCEABLE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE__CODE = RESPONSE_DECLARING_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Response Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE__RESPONSE_DEFINITION = RESPONSE_DECLARING_CONTEXT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Default</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE__DEFAULT = RESPONSE_DECLARING_CONTEXT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Response</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE_FEATURE_COUNT = RESPONSE_DECLARING_CONTEXT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Response</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESPONSE_OPERATION_COUNT = RESPONSE_DECLARING_CONTEXT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.SchemeType <em>Scheme Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2940,7 +2995,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getSchemeType()
 	 * @generated
 	 */
-	int SCHEME_TYPE = 30;
+	int SCHEME_TYPE = 31;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.ParameterLocation <em>Parameter Location</em>}' enum.
@@ -2950,7 +3005,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getParameterLocation()
 	 * @generated
 	 */
-	int PARAMETER_LOCATION = 31;
+	int PARAMETER_LOCATION = 32;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.CollectionFormat <em>Collection Format</em>}' enum.
@@ -2960,7 +3015,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getCollectionFormat()
 	 * @generated
 	 */
-	int COLLECTION_FORMAT = 32;
+	int COLLECTION_FORMAT = 33;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.OAuth2FlowType <em>OAuth2 Flow Type</em>}' enum.
@@ -2970,7 +3025,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getOAuth2FlowType()
 	 * @generated
 	 */
-	int OAUTH2_FLOW_TYPE = 33;
+	int OAUTH2_FLOW_TYPE = 34;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.APIKeyLocation <em>API Key Location</em>}' enum.
@@ -2980,7 +3035,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getAPIKeyLocation()
 	 * @generated
 	 */
-	int API_KEY_LOCATION = 34;
+	int API_KEY_LOCATION = 35;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.SecuritySchemeType <em>Security Scheme Type</em>}' enum.
@@ -2990,7 +3045,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getSecuritySchemeType()
 	 * @generated
 	 */
-	int SECURITY_SCHEME_TYPE = 35;
+	int SECURITY_SCHEME_TYPE = 36;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.JSONDataType <em>JSON Data Type</em>}' enum.
@@ -3000,7 +3055,7 @@ public interface OpenAPIPackage extends EPackage {
 	 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getJSONDataType()
 	 * @generated
 	 */
-	int JSON_DATA_TYPE = 36;
+	int JSON_DATA_TYPE = 37;
 
 
 	/**
@@ -3812,10 +3867,10 @@ public interface OpenAPIPackage extends EPackage {
 	EAttribute getOperation_Produces();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.uoc.som.openapi.Operation#getResponses <em>Responses</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi.Operation#getResponses <em>Responses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Responses</em>'.
+	 * @return the meta object for the containment reference list '<em>Responses</em>'.
 	 * @see edu.uoc.som.openapi.Operation#getResponses()
 	 * @see #getOperation()
 	 * @generated
@@ -4176,6 +4231,71 @@ public interface OpenAPIPackage extends EPackage {
 	EOperation getSchema__GetPropertyByName__String();
 
 	/**
+	 * Returns the meta object for class '{@link edu.uoc.som.openapi.ResponseDefinition <em>Response Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Response Definition</em>'.
+	 * @see edu.uoc.som.openapi.ResponseDefinition
+	 * @generated
+	 */
+	EClass getResponseDefinition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.ResponseDefinition#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see edu.uoc.som.openapi.ResponseDefinition#getDescription()
+	 * @see #getResponseDefinition()
+	 * @generated
+	 */
+	EAttribute getResponseDefinition_Description();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi.ResponseDefinition#getHeaders <em>Headers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Headers</em>'.
+	 * @see edu.uoc.som.openapi.ResponseDefinition#getHeaders()
+	 * @see #getResponseDefinition()
+	 * @generated
+	 */
+	EReference getResponseDefinition_Headers();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi.ResponseDefinition#getExamples <em>Examples</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Examples</em>'.
+	 * @see edu.uoc.som.openapi.ResponseDefinition#getExamples()
+	 * @see #getResponseDefinition()
+	 * @generated
+	 */
+	EReference getResponseDefinition_Examples();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.ResponseDefinition#getCode <em>Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Code</em>'.
+	 * @see edu.uoc.som.openapi.ResponseDefinition#getCode()
+	 * @see #getResponseDefinition()
+	 * @generated
+	 */
+	EAttribute getResponseDefinition_Code();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.uoc.som.openapi.ResponseDefinition#getDeclaringContext <em>Declaring Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Declaring Context</em>'.
+	 * @see edu.uoc.som.openapi.ResponseDefinition#getDeclaringContext()
+	 * @see #getResponseDefinition()
+	 * @generated
+	 */
+	EReference getResponseDefinition_DeclaringContext();
+
+	/**
 	 * Returns the meta object for class '{@link edu.uoc.som.openapi.Response <em>Response</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4184,39 +4304,6 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getResponse();
-
-	/**
-	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.Response#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see edu.uoc.som.openapi.Response#getDescription()
-	 * @see #getResponse()
-	 * @generated
-	 */
-	EAttribute getResponse_Description();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi.Response#getHeaders <em>Headers</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Headers</em>'.
-	 * @see edu.uoc.som.openapi.Response#getHeaders()
-	 * @see #getResponse()
-	 * @generated
-	 */
-	EReference getResponse_Headers();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi.Response#getExamples <em>Examples</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Examples</em>'.
-	 * @see edu.uoc.som.openapi.Response#getExamples()
-	 * @see #getResponse()
-	 * @generated
-	 */
-	EReference getResponse_Examples();
 
 	/**
 	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.Response#getCode <em>Code</em>}'.
@@ -4230,15 +4317,26 @@ public interface OpenAPIPackage extends EPackage {
 	EAttribute getResponse_Code();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.uoc.som.openapi.Response#getDeclaringContext <em>Declaring Context</em>}'.
+	 * Returns the meta object for the reference '{@link edu.uoc.som.openapi.Response#getResponseDefinition <em>Response Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Declaring Context</em>'.
-	 * @see edu.uoc.som.openapi.Response#getDeclaringContext()
+	 * @return the meta object for the reference '<em>Response Definition</em>'.
+	 * @see edu.uoc.som.openapi.Response#getResponseDefinition()
 	 * @see #getResponse()
 	 * @generated
 	 */
-	EReference getResponse_DeclaringContext();
+	EReference getResponse_ResponseDefinition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.uoc.som.openapi.Response#getDefault <em>Default</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default</em>'.
+	 * @see edu.uoc.som.openapi.Response#getDefault()
+	 * @see #getResponse()
+	 * @generated
+	 */
+	EAttribute getResponse_Default();
 
 	/**
 	 * Returns the meta object for class '{@link edu.uoc.som.openapi.Header <em>Header</em>}'.
@@ -5470,7 +5568,7 @@ public interface OpenAPIPackage extends EPackage {
 		EAttribute OPERATION__PRODUCES = eINSTANCE.getOperation_Produces();
 
 		/**
-		 * The meta object literal for the '<em><b>Responses</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Responses</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5750,6 +5848,56 @@ public interface OpenAPIPackage extends EPackage {
 		EOperation SCHEMA___GET_PROPERTY_BY_NAME__STRING = eINSTANCE.getSchema__GetPropertyByName__String();
 
 		/**
+		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.ResponseDefinitionImpl <em>Response Definition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.uoc.som.openapi.impl.ResponseDefinitionImpl
+		 * @see edu.uoc.som.openapi.impl.OpenAPIPackageImpl#getResponseDefinition()
+		 * @generated
+		 */
+		EClass RESPONSE_DEFINITION = eINSTANCE.getResponseDefinition();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESPONSE_DEFINITION__DESCRIPTION = eINSTANCE.getResponseDefinition_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Headers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESPONSE_DEFINITION__HEADERS = eINSTANCE.getResponseDefinition_Headers();
+
+		/**
+		 * The meta object literal for the '<em><b>Examples</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESPONSE_DEFINITION__EXAMPLES = eINSTANCE.getResponseDefinition_Examples();
+
+		/**
+		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESPONSE_DEFINITION__CODE = eINSTANCE.getResponseDefinition_Code();
+
+		/**
+		 * The meta object literal for the '<em><b>Declaring Context</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESPONSE_DEFINITION__DECLARING_CONTEXT = eINSTANCE.getResponseDefinition_DeclaringContext();
+
+		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.ResponseImpl <em>Response</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5760,30 +5908,6 @@ public interface OpenAPIPackage extends EPackage {
 		EClass RESPONSE = eINSTANCE.getResponse();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESPONSE__DESCRIPTION = eINSTANCE.getResponse_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Headers</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESPONSE__HEADERS = eINSTANCE.getResponse_Headers();
-
-		/**
-		 * The meta object literal for the '<em><b>Examples</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESPONSE__EXAMPLES = eINSTANCE.getResponse_Examples();
-
-		/**
 		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5792,12 +5916,20 @@ public interface OpenAPIPackage extends EPackage {
 		EAttribute RESPONSE__CODE = eINSTANCE.getResponse_Code();
 
 		/**
-		 * The meta object literal for the '<em><b>Declaring Context</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Response Definition</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESPONSE__DECLARING_CONTEXT = eINSTANCE.getResponse_DeclaringContext();
+		EReference RESPONSE__RESPONSE_DEFINITION = eINSTANCE.getResponse_ResponseDefinition();
+
+		/**
+		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESPONSE__DEFAULT = eINSTANCE.getResponse_Default();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.HeaderImpl <em>Header</em>}' class.

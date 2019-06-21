@@ -26,7 +26,6 @@ import edu.uoc.som.openapi.ParameterContext;
 import edu.uoc.som.openapi.ParameterLocation;
 import edu.uoc.som.openapi.Path;
 import edu.uoc.som.openapi.Response;
-import edu.uoc.som.openapi.ResponseDeclaringContext;
 import edu.uoc.som.openapi.Schema;
 import edu.uoc.som.openapi.SchemeType;
 import edu.uoc.som.openapi.SecurityContext;
@@ -178,7 +177,7 @@ public class OperationImpl extends ParameterDeclaringContextImpl implements Oper
 	protected EList<String> produces;
 
 	/**
-	 * The cached value of the '{@link #getResponses() <em>Responses</em>}' reference list.
+	 * The cached value of the '{@link #getResponses() <em>Responses</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getResponses()
@@ -423,7 +422,7 @@ public class OperationImpl extends ParameterDeclaringContextImpl implements Oper
 	@Override
 	public EList<Response> getResponses() {
 		if (responses == null) {
-			responses = new EObjectResolvingEList<Response>(Response.class, this, OpenAPIPackage.OPERATION__RESPONSES);
+			responses = new EObjectContainmentEList<Response>(Response.class, this, OpenAPIPackage.OPERATION__RESPONSES);
 		}
 		return responses;
 	}
@@ -500,12 +499,12 @@ public class OperationImpl extends ParameterDeclaringContextImpl implements Oper
 	@Override
 	public Schema getProducedSchema() {
 		for(Response response: getResponses()) {
-			if((response.getCode().equals("200") ||response.getCode().equals("201"))   && (response.getSchema()!= null && response.getSchema().getType().equals(JSONDataType.ARRAY))) {
-				return response.getSchema().getItems();
+			if((response.getCode()!= null && (response.getCode() == 200 || response.getCode() == 201))   && response.getResponseDefinition()!=null && response.getResponseDefinition().getSchema()!= null && response.getResponseDefinition().getSchema().getType().equals(JSONDataType.ARRAY)) {
+				return response.getResponseDefinition().getSchema().getItems();
 			
 			}
-			if((response.getCode().equals("200") ||response.getCode().equals("201")) && (response.getSchema()!= null && response.getSchema().getType().equals(JSONDataType.OBJECT))) {
-				return response.getSchema();
+			if((response.getCode()!= null  && (response.getCode() == 200 || response.getCode() == 201)) &&  response.getResponseDefinition()!=null  && response.getResponseDefinition().getSchema()!= null && response.getResponseDefinition().getSchema().getType().equals(JSONDataType.OBJECT)) {
+				return response.getResponseDefinition().getSchema();
 			}
 		}
 		return null;
@@ -518,13 +517,12 @@ public class OperationImpl extends ParameterDeclaringContextImpl implements Oper
 	 */
 	@Override
 	public boolean IsProducingList() {
-		for (Response response : getResponses()) {
-			if ((response.getCode().equals("200") || response.getCode().equals("201"))
-					&& (response.getSchema() != null && response.getSchema().getType().equals(JSONDataType.ARRAY))) {
-				return true;
-			}
-		}
-		return false;
+		for(Response response: getResponses()) {
+					if((response.getCode()!= null && (response.getCode() == 200 || response.getCode() == 201))   && response.getResponseDefinition()!=null && response.getResponseDefinition().getSchema()!= null && response.getResponseDefinition().getSchema().getType().equals(JSONDataType.ARRAY)) {
+						return true;
+					}
+				}
+				return false;
 	}
 
 	/**
@@ -564,6 +562,8 @@ public class OperationImpl extends ParameterDeclaringContextImpl implements Oper
 				return ((InternalEList<?>)getSecurity()).basicRemove(otherEnd, msgs);
 			case OpenAPIPackage.OPERATION__EXTERNAL_DOCS:
 				return basicSetExternalDocs(null, msgs);
+			case OpenAPIPackage.OPERATION__RESPONSES:
+				return ((InternalEList<?>)getResponses()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -769,11 +769,6 @@ public class OperationImpl extends ParameterDeclaringContextImpl implements Oper
 				default: return -1;
 			}
 		}
-		if (baseClass == ResponseDeclaringContext.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -799,11 +794,6 @@ public class OperationImpl extends ParameterDeclaringContextImpl implements Oper
 		if (baseClass == ExternalDocsContext.class) {
 			switch (baseFeatureID) {
 				case OpenAPIPackage.EXTERNAL_DOCS_CONTEXT__EXTERNAL_DOCS: return OpenAPIPackage.OPERATION__EXTERNAL_DOCS;
-				default: return -1;
-			}
-		}
-		if (baseClass == ResponseDeclaringContext.class) {
-			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

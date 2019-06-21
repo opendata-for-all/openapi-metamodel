@@ -116,8 +116,8 @@ public class OpenAPIAdapterFactory extends AdapterFactoryImpl {
 				return createSchemaAdapter();
 			}
 			@Override
-			public Adapter caseResponse(Response object) {
-				return createResponseAdapter();
+			public Adapter caseResponseDefinition(ResponseDefinition object) {
+				return createResponseDefinitionAdapter();
 			}
 			@Override
 			public Adapter caseHeader(Header object) {
@@ -186,6 +186,10 @@ public class OpenAPIAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseProperty(Property object) {
 				return createPropertyAdapter();
+			}
+			@Override
+			public Adapter caseResponse(Response object) {
+				return createResponseAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -372,6 +376,20 @@ public class OpenAPIAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSchemaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.uoc.som.openapi.ResponseDefinition <em>Response Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.uoc.som.openapi.ResponseDefinition
+	 * @generated
+	 */
+	public Adapter createResponseDefinitionAdapter() {
 		return null;
 	}
 

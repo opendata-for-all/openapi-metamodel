@@ -228,8 +228,8 @@ public class OpenAPIValidator extends EObjectValidator {
 				return validateItemsDefinition((ItemsDefinition)value, diagnostics, context);
 			case OpenAPIPackage.SCHEMA:
 				return validateSchema((Schema)value, diagnostics, context);
-			case OpenAPIPackage.RESPONSE:
-				return validateResponse((Response)value, diagnostics, context);
+			case OpenAPIPackage.RESPONSE_DEFINITION:
+				return validateResponseDefinition((ResponseDefinition)value, diagnostics, context);
 			case OpenAPIPackage.HEADER:
 				return validateHeader((Header)value, diagnostics, context);
 			case OpenAPIPackage.TAG:
@@ -264,6 +264,8 @@ public class OpenAPIValidator extends EObjectValidator {
 				return validateReferenceableElement((ReferenceableElement)value, diagnostics, context);
 			case OpenAPIPackage.PROPERTY:
 				return validateProperty((Property)value, diagnostics, context);
+			case OpenAPIPackage.RESPONSE:
+				return validateResponse((Response)value, diagnostics, context);
 			case OpenAPIPackage.SCHEME_TYPE:
 				return validateSchemeType((SchemeType)value, diagnostics, context);
 			case OpenAPIPackage.PARAMETER_LOCATION:
@@ -1043,6 +1045,15 @@ public class OpenAPIValidator extends EObjectValidator {
 	 */
 	public boolean validateSchema(Schema schema, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(schema, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateResponseDefinition(ResponseDefinition responseDefinition, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(responseDefinition, diagnostics, context);
 	}
 
 	/**

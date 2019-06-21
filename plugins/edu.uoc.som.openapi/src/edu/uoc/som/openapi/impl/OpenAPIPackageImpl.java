@@ -28,6 +28,7 @@ import edu.uoc.som.openapi.Property;
 import edu.uoc.som.openapi.ReferenceableElement;
 import edu.uoc.som.openapi.Response;
 import edu.uoc.som.openapi.ResponseDeclaringContext;
+import edu.uoc.som.openapi.ResponseDefinition;
 import edu.uoc.som.openapi.Root;
 import edu.uoc.som.openapi.Schema;
 import edu.uoc.som.openapi.SchemaContext;
@@ -143,6 +144,13 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	private EClass schemaEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass responseDefinitionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1486,6 +1494,66 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getResponseDefinition() {
+		return responseDefinitionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getResponseDefinition_Description() {
+		return (EAttribute)responseDefinitionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getResponseDefinition_Headers() {
+		return (EReference)responseDefinitionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getResponseDefinition_Examples() {
+		return (EReference)responseDefinitionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getResponseDefinition_Code() {
+		return (EAttribute)responseDefinitionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getResponseDefinition_DeclaringContext() {
+		return (EReference)responseDefinitionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getResponse() {
 		return responseEClass;
 	}
@@ -1496,7 +1564,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getResponse_Description() {
+	public EAttribute getResponse_Code() {
 		return (EAttribute)responseEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1506,7 +1574,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getResponse_Headers() {
+	public EReference getResponse_ResponseDefinition() {
 		return (EReference)responseEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1516,28 +1584,8 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getResponse_Examples() {
-		return (EReference)responseEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getResponse_Code() {
-		return (EAttribute)responseEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getResponse_DeclaringContext() {
-		return (EReference)responseEClass.getEStructuralFeatures().get(4);
+	public EAttribute getResponse_Default() {
+		return (EAttribute)responseEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2250,12 +2298,12 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		createEAttribute(schemaEClass, SCHEMA__ADDITONAL_PROPERTIES_ALLOWED);
 		createEOperation(schemaEClass, SCHEMA___GET_PROPERTY_BY_NAME__STRING);
 
-		responseEClass = createEClass(RESPONSE);
-		createEAttribute(responseEClass, RESPONSE__DESCRIPTION);
-		createEReference(responseEClass, RESPONSE__HEADERS);
-		createEReference(responseEClass, RESPONSE__EXAMPLES);
-		createEAttribute(responseEClass, RESPONSE__CODE);
-		createEReference(responseEClass, RESPONSE__DECLARING_CONTEXT);
+		responseDefinitionEClass = createEClass(RESPONSE_DEFINITION);
+		createEAttribute(responseDefinitionEClass, RESPONSE_DEFINITION__DESCRIPTION);
+		createEReference(responseDefinitionEClass, RESPONSE_DEFINITION__HEADERS);
+		createEReference(responseDefinitionEClass, RESPONSE_DEFINITION__EXAMPLES);
+		createEAttribute(responseDefinitionEClass, RESPONSE_DEFINITION__CODE);
+		createEReference(responseDefinitionEClass, RESPONSE_DEFINITION__DECLARING_CONTEXT);
 
 		headerEClass = createEClass(HEADER);
 		createEAttribute(headerEClass, HEADER__NAME);
@@ -2323,6 +2371,11 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		propertyEClass = createEClass(PROPERTY);
 		createEAttribute(propertyEClass, PROPERTY__REQUIRED);
 
+		responseEClass = createEClass(RESPONSE);
+		createEAttribute(responseEClass, RESPONSE__CODE);
+		createEReference(responseEClass, RESPONSE__RESPONSE_DEFINITION);
+		createEAttribute(responseEClass, RESPONSE__DEFAULT);
+
 		// Create enums
 		schemeTypeEEnum = createEEnum(SCHEME_TYPE);
 		parameterLocationEEnum = createEEnum(PARAMETER_LOCATION);
@@ -2373,7 +2426,6 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		operationEClass.getESuperTypes().add(this.getSecurityContext());
 		operationEClass.getESuperTypes().add(this.getParameterContext());
 		operationEClass.getESuperTypes().add(this.getExternalDocsContext());
-		operationEClass.getESuperTypes().add(this.getResponseDeclaringContext());
 		parameterEClass.getESuperTypes().add(this.getSchemaDeclaringContext());
 		parameterEClass.getESuperTypes().add(this.getSchemaContext());
 		parameterEClass.getESuperTypes().add(this.getJSONSchemaSubset());
@@ -2385,15 +2437,17 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		schemaEClass.getESuperTypes().add(this.getSchemaDeclaringContext());
 		schemaEClass.getESuperTypes().add(this.getExternalDocsContext());
 		schemaEClass.getESuperTypes().add(this.getReferenceableElement());
-		responseEClass.getESuperTypes().add(this.getSchemaDeclaringContext());
-		responseEClass.getESuperTypes().add(this.getSchemaContext());
-		responseEClass.getESuperTypes().add(this.getReferenceableElement());
+		responseDefinitionEClass.getESuperTypes().add(this.getSchemaDeclaringContext());
+		responseDefinitionEClass.getESuperTypes().add(this.getSchemaContext());
+		responseDefinitionEClass.getESuperTypes().add(this.getReferenceableElement());
 		headerEClass.getESuperTypes().add(this.getJSONSchemaSubset());
 		headerEClass.getESuperTypes().add(this.getArrayContext());
 		tagEClass.getESuperTypes().add(this.getExternalDocsContext());
 		securitySchemeEClass.getESuperTypes().add(this.getReferenceableElement());
 		propertyEClass.getESuperTypes().add(this.getReferenceableElement());
 		propertyEClass.getESuperTypes().add(this.getSchemaContext());
+		propertyEClass.getESuperTypes().add(this.getSchemaDeclaringContext());
+		responseEClass.getESuperTypes().add(this.getResponseDeclaringContext());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(jsonSchemaSubsetEClass, JSONSchemaSubset.class, "JSONSchemaSubset", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2418,7 +2472,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEReference(getRoot_Api(), this.getAPI(), null, "api", null, 0, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRoot_Paramters(), this.getParameter(), null, "paramters", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRoot_Schemas(), this.getSchema(), null, "schemas", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoot_Responses(), this.getResponse(), null, "responses", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRoot_Responses(), this.getResponseDefinition(), null, "responses", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(apiEClass, edu.uoc.som.openapi.API.class, "API", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAPI_Swagger(), ecorePackage.getEString(), "swagger", null, 0, 1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2430,7 +2484,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEAttribute(getAPI_Produces(), ecorePackage.getEString(), "produces", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPI_Paths(), this.getPath(), this.getPath_Api(), "paths", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPI_Definitions(), this.getSchema(), null, "definitions", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAPI_Responses(), this.getResponse(), null, "responses", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAPI_Responses(), this.getResponseDefinition(), null, "responses", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPI_SecurityDefinitions(), this.getSecurityScheme(), null, "securityDefinitions", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPI_Tags(), this.getTag(), null, "tags", null, 0, -1, edu.uoc.som.openapi.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2494,7 +2548,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		initEAttribute(getOperation_OperationId(), ecorePackage.getEString(), "operationId", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Consumes(), ecorePackage.getEString(), "consumes", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Produces(), ecorePackage.getEString(), "produces", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperation_Responses(), this.getResponse(), null, "responses", null, 1, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Responses(), this.getResponse(), null, "responses", null, 1, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Schemes(), this.getSchemeType(), "schemes", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Deprecated(), ecorePackage.getEBooleanObject(), "deprecated", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2540,12 +2594,12 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		op = initEOperation(getSchema__GetPropertyByName__String(), this.getProperty(), "getPropertyByName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(responseEClass, Response.class, "Response", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getResponse_Description(), ecorePackage.getEString(), "description", null, 0, 1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResponse_Headers(), this.getHeader(), null, "headers", null, 0, -1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResponse_Examples(), this.getExample(), null, "examples", null, 0, -1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResponse_Code(), ecorePackage.getEString(), "code", null, 0, 1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResponse_DeclaringContext(), this.getResponseDeclaringContext(), null, "declaringContext", null, 0, 1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(responseDefinitionEClass, ResponseDefinition.class, "ResponseDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getResponseDefinition_Description(), ecorePackage.getEString(), "description", null, 0, 1, ResponseDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResponseDefinition_Headers(), this.getHeader(), null, "headers", null, 0, -1, ResponseDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResponseDefinition_Examples(), this.getExample(), null, "examples", null, 0, -1, ResponseDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResponseDefinition_Code(), ecorePackage.getEString(), "code", null, 0, 1, ResponseDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResponseDefinition_DeclaringContext(), this.getResponseDeclaringContext(), null, "declaringContext", null, 0, 1, ResponseDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(headerEClass, Header.class, "Header", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHeader_Name(), ecorePackage.getEString(), "name", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2615,6 +2669,11 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProperty_Required(), ecorePackage.getEBooleanObject(), "required", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(responseEClass, Response.class, "Response", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getResponse_Code(), ecorePackage.getEIntegerObject(), "code", null, 0, 1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResponse_ResponseDefinition(), this.getResponseDefinition(), null, "responseDefinition", null, 0, 1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResponse_Default(), ecorePackage.getEBooleanObject(), "default", null, 0, 1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(schemeTypeEEnum, SchemeType.class, "SchemeType");

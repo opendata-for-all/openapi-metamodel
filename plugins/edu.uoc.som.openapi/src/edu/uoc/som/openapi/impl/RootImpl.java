@@ -5,7 +5,7 @@ package edu.uoc.som.openapi.impl;
 import edu.uoc.som.openapi.API;
 import edu.uoc.som.openapi.OpenAPIPackage;
 import edu.uoc.som.openapi.Parameter;
-import edu.uoc.som.openapi.Response;
+import edu.uoc.som.openapi.ResponseDefinition;
 import edu.uoc.som.openapi.Root;
 import edu.uoc.som.openapi.Schema;
 
@@ -80,7 +80,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Response> responses;
+	protected EList<ResponseDefinition> responses;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -178,9 +178,9 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * @generated
 	 */
 	@Override
-	public EList<Response> getResponses() {
+	public EList<ResponseDefinition> getResponses() {
 		if (responses == null) {
-			responses = new EObjectContainmentEList<Response>(Response.class, this, OpenAPIPackage.ROOT__RESPONSES);
+			responses = new EObjectContainmentEList<ResponseDefinition>(ResponseDefinition.class, this, OpenAPIPackage.ROOT__RESPONSES);
 		}
 		return responses;
 	}
@@ -247,7 +247,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				return;
 			case OpenAPIPackage.ROOT__RESPONSES:
 				getResponses().clear();
-				getResponses().addAll((Collection<? extends Response>)newValue);
+				getResponses().addAll((Collection<? extends ResponseDefinition>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

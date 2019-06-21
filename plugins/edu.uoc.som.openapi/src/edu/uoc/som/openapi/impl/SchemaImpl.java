@@ -8,7 +8,7 @@ import edu.uoc.som.openapi.OpenAPIPackage;
 import edu.uoc.som.openapi.Parameter;
 import edu.uoc.som.openapi.Property;
 import edu.uoc.som.openapi.ReferenceableElement;
-import edu.uoc.som.openapi.Response;
+import edu.uoc.som.openapi.ResponseDefinition;
 import edu.uoc.som.openapi.Schema;
 import edu.uoc.som.openapi.SchemaDeclaringContext;
 import edu.uoc.som.openapi.SecurityScheme;
@@ -749,15 +749,15 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 */
 	@Override
 	public String getRef() {
-				if(this instanceof Schema)
-					return "#/definitions/"+referenceName;
-				if(this instanceof Parameter)
-					return "#/parameters/"+referenceName;
-				if(this instanceof Response)
-					return "#/responses/"+referenceName;
-				if(this instanceof SecurityScheme)
-					return "#/securityDefinitions/"+referenceName;
-				return "unkown";
+		if(this instanceof Schema)
+			return "#/definitions/"+referenceName;
+		if(this instanceof Parameter)
+			return "#/parameters/"+referenceName;
+		if(this instanceof ResponseDefinition)
+			return "#/responses/"+referenceName;
+		if(this instanceof SecurityScheme)
+			return "#/securityDefinitions/"+referenceName;
+		return "unkown";
 	}
 
 	/**

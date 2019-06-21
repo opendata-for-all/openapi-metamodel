@@ -68,7 +68,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 			case OpenAPIPackage.PARAMETER: return createParameter();
 			case OpenAPIPackage.ITEMS_DEFINITION: return createItemsDefinition();
 			case OpenAPIPackage.SCHEMA: return createSchema();
-			case OpenAPIPackage.RESPONSE: return createResponse();
+			case OpenAPIPackage.RESPONSE_DEFINITION: return createResponseDefinition();
 			case OpenAPIPackage.HEADER: return createHeader();
 			case OpenAPIPackage.TAG: return createTag();
 			case OpenAPIPackage.SECURITY_SCHEME: return createSecurityScheme();
@@ -77,6 +77,7 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 			case OpenAPIPackage.SECURITY_SCOPE: return createSecurityScope();
 			case OpenAPIPackage.SECURITY_REQUIREMENT: return createSecurityRequirement();
 			case OpenAPIPackage.PROPERTY: return createProperty();
+			case OpenAPIPackage.RESPONSE: return createResponse();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -255,6 +256,17 @@ public class OpenAPIFactoryImpl extends EFactoryImpl implements OpenAPIFactory {
 	public Schema createSchema() {
 		SchemaImpl schema = new SchemaImpl();
 		return schema;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResponseDefinition createResponseDefinition() {
+		ResponseDefinitionImpl responseDefinition = new ResponseDefinitionImpl();
+		return responseDefinition;
 	}
 
 	/**

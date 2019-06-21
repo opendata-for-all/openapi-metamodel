@@ -19,7 +19,7 @@ package edu.uoc.som.openapi;
  * @model
  * @generated
  */
-public interface Property extends ReferenceableElement, SchemaContext {
+public interface Property extends ReferenceableElement, SchemaContext, SchemaDeclaringContext {
 
 	/**
 	 * Returns the value of the '<em><b>Required</b></em>' attribute.

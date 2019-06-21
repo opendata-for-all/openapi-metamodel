@@ -121,6 +121,15 @@ public interface OpenAPIFactory extends EFactory {
 	Schema createSchema();
 
 	/**
+	 * Returns a new object of class '<em>Response Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Response Definition</em>'.
+	 * @generated
+	 */
+	ResponseDefinition createResponseDefinition();
+
+	/**
 	 * Returns a new object of class '<em>Response</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

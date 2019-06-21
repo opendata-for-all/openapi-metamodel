@@ -247,7 +247,7 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 
 	/**
 	 * Returns the value of the '<em><b>Responses</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.uoc.som.openapi.Response}.
+	 * The list contents are of type {@link edu.uoc.som.openapi.ResponseDefinition}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Responses</em>' containment reference list isn't clear,
@@ -259,7 +259,7 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Response> getResponses();
+	EList<ResponseDefinition> getResponses();
 
 	/**
 	 * Returns the value of the '<em><b>Security Definitions</b></em>' containment reference list.
