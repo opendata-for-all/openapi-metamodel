@@ -670,7 +670,7 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 	 * @generated
 	 */
 	@Override
-	public Parameter getParameterByRef(final String ref) {
+	public Parameter getParameterByReference(final String ref) {
 		String referenceName = ref.substring(ref.lastIndexOf("/")+1);
 		for (Parameter parameter : getParameters()) {
 		if(parameter.getReferenceName().equals(referenceName))
@@ -690,6 +690,21 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 					if(securityScheme.getReferenceName().equals(name))
 						return securityScheme;
 				return null	;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResponseDefinition getResponseDefinitionByReference(final String ref) {
+		for (ResponseDefinition respnseDefinition: responses) {
+			String temp = respnseDefinition.getRef();
+			if (temp.equalsIgnoreCase(ref))
+				return respnseDefinition;
+		}
+		return null;	
 	}
 
 	/**
@@ -1040,10 +1055,12 @@ public class APIImpl extends ParameterDeclaringContextImpl implements API {
 				return getPathByRelativePath((String)arguments.get(0));
 			case OpenAPIPackage.API___GET_SCHEMA_BY_NAME__STRING:
 				return getSchemaByName((String)arguments.get(0));
-			case OpenAPIPackage.API___GET_PARAMETER_BY_REF__STRING:
-				return getParameterByRef((String)arguments.get(0));
+			case OpenAPIPackage.API___GET_PARAMETER_BY_REFERENCE__STRING:
+				return getParameterByReference((String)arguments.get(0));
 			case OpenAPIPackage.API___GET_SECURITY_SCHEMA_BY_NAME__STRING:
 				return getSecuritySchemaByName((String)arguments.get(0));
+			case OpenAPIPackage.API___GET_RESPONSE_DEFINITION_BY_REFERENCE__STRING:
+				return getResponseDefinitionByReference((String)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -531,13 +531,13 @@ public interface OpenAPIPackage extends EPackage {
 	int API___GET_SCHEMA_BY_NAME__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Get Parameter By Ref</em>' operation.
+	 * The operation id for the '<em>Get Parameter By Reference</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API___GET_PARAMETER_BY_REF__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 6;
+	int API___GET_PARAMETER_BY_REFERENCE__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Security Schema By Name</em>' operation.
@@ -549,13 +549,22 @@ public interface OpenAPIPackage extends EPackage {
 	int API___GET_SECURITY_SCHEMA_BY_NAME__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 7;
 
 	/**
+	 * The operation id for the '<em>Get Response Definition By Reference</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API___GET_RESPONSE_DEFINITION_BY_REFERENCE__STRING = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 8;
+
+	/**
 	 * The number of operations of the '<em>API</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API_OPERATION_COUNT = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 8;
+	int API_OPERATION_COUNT = PARAMETER_DECLARING_CONTEXT_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi.impl.InfoImpl <em>Info</em>}' class.
@@ -3501,14 +3510,14 @@ public interface OpenAPIPackage extends EPackage {
 	EOperation getAPI__GetSchemaByName__String();
 
 	/**
-	 * Returns the meta object for the '{@link edu.uoc.som.openapi.API#getParameterByRef(java.lang.String) <em>Get Parameter By Ref</em>}' operation.
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.API#getParameterByReference(java.lang.String) <em>Get Parameter By Reference</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Parameter By Ref</em>' operation.
-	 * @see edu.uoc.som.openapi.API#getParameterByRef(java.lang.String)
+	 * @return the meta object for the '<em>Get Parameter By Reference</em>' operation.
+	 * @see edu.uoc.som.openapi.API#getParameterByReference(java.lang.String)
 	 * @generated
 	 */
-	EOperation getAPI__GetParameterByRef__String();
+	EOperation getAPI__GetParameterByReference__String();
 
 	/**
 	 * Returns the meta object for the '{@link edu.uoc.som.openapi.API#getSecuritySchemaByName(java.lang.String) <em>Get Security Schema By Name</em>}' operation.
@@ -3519,6 +3528,16 @@ public interface OpenAPIPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getAPI__GetSecuritySchemaByName__String();
+
+	/**
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi.API#getResponseDefinitionByReference(java.lang.String) <em>Get Response Definition By Reference</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Response Definition By Reference</em>' operation.
+	 * @see edu.uoc.som.openapi.API#getResponseDefinitionByReference(java.lang.String)
+	 * @generated
+	 */
+	EOperation getAPI__GetResponseDefinitionByReference__String();
 
 	/**
 	 * Returns the meta object for class '{@link edu.uoc.som.openapi.Info <em>Info</em>}'.
@@ -5286,12 +5305,12 @@ public interface OpenAPIPackage extends EPackage {
 		EOperation API___GET_SCHEMA_BY_NAME__STRING = eINSTANCE.getAPI__GetSchemaByName__String();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Parameter By Ref</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Parameter By Reference</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation API___GET_PARAMETER_BY_REF__STRING = eINSTANCE.getAPI__GetParameterByRef__String();
+		EOperation API___GET_PARAMETER_BY_REFERENCE__STRING = eINSTANCE.getAPI__GetParameterByReference__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Security Schema By Name</b></em>' operation.
@@ -5300,6 +5319,14 @@ public interface OpenAPIPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation API___GET_SECURITY_SCHEMA_BY_NAME__STRING = eINSTANCE.getAPI__GetSecuritySchemaByName__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Response Definition By Reference</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation API___GET_RESPONSE_DEFINITION_BY_REFERENCE__STRING = eINSTANCE.getAPI__GetResponseDefinitionByReference__String();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi.impl.InfoImpl <em>Info</em>}' class.

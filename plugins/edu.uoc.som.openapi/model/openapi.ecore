@@ -75,7 +75,7 @@
       </eAnnotations>
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="getParameterByRef" eType="#//Parameter">
+    <eOperations name="getParameterByReference" eType="#//Parameter">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="body" value="String referenceName = ref.substring(ref.lastIndexOf(&quot;/&quot;)+1);&#xD;&#xA;for (Parameter parameter : getParameters()) {&#xD;&#xA;if(parameter.getReferenceName().equals(referenceName))&#xD;&#xA;&#x9;return parameter;&#xD;&#xA;}&#xD;&#xA;return null;"/>
       </eAnnotations>
@@ -86,6 +86,12 @@
         <details key="body" value="for(SecurityScheme securityScheme: getSecurityDefinitions())&#xA;&#x9;&#x9;&#x9;if(securityScheme.getReferenceName().equals(name))&#xA;&#x9;&#x9;&#x9;&#x9;return securityScheme;&#xA;&#x9;&#x9;return null&#x9;;"/>
       </eAnnotations>
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getResponseDefinitionByReference" eType="#//ResponseDefinition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="for (ResponseDefinition respnseDefinition: responses) {&#xA;&#x9;String temp = respnseDefinition.getRef();&#xA;&#x9;if (temp.equalsIgnoreCase(ref))&#xA;&#x9;&#x9;return respnseDefinition;&#xA;}&#xA;return null;&#x9;"/>
+      </eAnnotations>
+      <eParameters name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="swagger" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="info" eType="#//Info" containment="true"/>

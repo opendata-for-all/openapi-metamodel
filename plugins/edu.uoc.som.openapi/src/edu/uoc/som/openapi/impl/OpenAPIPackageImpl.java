@@ -814,7 +814,7 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	 * @generated
 	 */
 	@Override
-	public EOperation getAPI__GetParameterByRef__String() {
+	public EOperation getAPI__GetParameterByReference__String() {
 		return apiEClass.getEOperations().get(6);
 	}
 
@@ -826,6 +826,16 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 	@Override
 	public EOperation getAPI__GetSecuritySchemaByName__String() {
 		return apiEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getAPI__GetResponseDefinitionByReference__String() {
+		return apiEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -2220,8 +2230,9 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		createEOperation(apiEClass, API___GET_OPERATION_BY_ID__STRING);
 		createEOperation(apiEClass, API___GET_PATH_BY_RELATIVE_PATH__STRING);
 		createEOperation(apiEClass, API___GET_SCHEMA_BY_NAME__STRING);
-		createEOperation(apiEClass, API___GET_PARAMETER_BY_REF__STRING);
+		createEOperation(apiEClass, API___GET_PARAMETER_BY_REFERENCE__STRING);
 		createEOperation(apiEClass, API___GET_SECURITY_SCHEMA_BY_NAME__STRING);
+		createEOperation(apiEClass, API___GET_RESPONSE_DEFINITION_BY_REFERENCE__STRING);
 
 		infoEClass = createEClass(INFO);
 		createEAttribute(infoEClass, INFO__TITLE);
@@ -2504,11 +2515,14 @@ public class OpenAPIPackageImpl extends EPackageImpl implements OpenAPIPackage {
 		op = initEOperation(getAPI__GetSchemaByName__String(), this.getSchema(), "getSchemaByName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getAPI__GetParameterByRef__String(), this.getParameter(), "getParameterByRef", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getAPI__GetParameterByReference__String(), this.getParameter(), "getParameterByReference", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "ref", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getAPI__GetSecuritySchemaByName__String(), this.getSecurityScheme(), "getSecuritySchemaByName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAPI__GetResponseDefinitionByReference__String(), this.getResponseDefinition(), "getResponseDefinitionByReference", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "ref", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(infoEClass, Info.class, "Info", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInfo_Title(), ecorePackage.getEString(), "title", null, 0, 1, Info.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

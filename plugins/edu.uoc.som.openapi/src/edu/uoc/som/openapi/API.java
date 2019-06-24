@@ -348,7 +348,7 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='String referenceName = ref.substring(ref.lastIndexOf(\"/\")+1);\r\nfor (Parameter parameter : getParameters()) {\r\nif(parameter.getReferenceName().equals(referenceName))\r\n\treturn parameter;\r\n}\r\nreturn null;'"
 	 * @generated
 	 */
-	Parameter getParameterByRef(String ref);
+	Parameter getParameterByReference(String ref);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -357,5 +357,13 @@ public interface API extends ParameterDeclaringContext, SchemaDeclaringContext, 
 	 * @generated
 	 */
 	SecurityScheme getSecuritySchemaByName(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='for (ResponseDefinition respnseDefinition: responses) {\n\tString temp = respnseDefinition.getRef();\n\tif (temp.equalsIgnoreCase(ref))\n\t\treturn respnseDefinition;\n}\nreturn null;\t'"
+	 * @generated
+	 */
+	ResponseDefinition getResponseDefinitionByReference(String ref);
 
 } // API

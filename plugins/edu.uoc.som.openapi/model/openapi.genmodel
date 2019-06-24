@@ -111,12 +111,17 @@
       <genOperations ecoreOperation="openapi.ecore#//API/getSchemaByName" body="&#x9;&#x9;for (Schema definition : getDefinitions()) {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;if (definition.getReferenceName().equalsIgnoreCase(name))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;return definition;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;return null;">
         <genParameters ecoreParameter="openapi.ecore#//API/getSchemaByName/name"/>
       </genOperations>
-      <genOperations ecoreOperation="openapi.ecore#//API/getParameterByRef" body="String referenceName = ref.substring(ref.lastIndexOf(&quot;/&quot;)+1);&#xD;&#xA;for (Parameter parameter : getParameters()) {&#xD;&#xA;if(parameter.getReferenceName().equals(referenceName))&#xD;&#xA;&#x9;return parameter;&#xD;&#xA;}&#xD;&#xA;return null;">
-        <genParameters ecoreParameter="openapi.ecore#//API/getParameterByRef/ref"/>
+      <genOperations ecoreOperation="openapi.ecore#//API/getParameterByReference"
+          body="String referenceName = ref.substring(ref.lastIndexOf(&quot;/&quot;)+1);&#xD;&#xA;for (Parameter parameter : getParameters()) {&#xD;&#xA;if(parameter.getReferenceName().equals(referenceName))&#xD;&#xA;&#x9;return parameter;&#xD;&#xA;}&#xD;&#xA;return null;">
+        <genParameters ecoreParameter="openapi.ecore#//API/getParameterByReference/ref"/>
       </genOperations>
       <genOperations ecoreOperation="openapi.ecore#//API/getSecuritySchemaByName"
           body="for(SecurityScheme securityScheme: getSecurityDefinitions())&#xA;&#x9;&#x9;&#x9;if(securityScheme.getReferenceName().equals(name))&#xA;&#x9;&#x9;&#x9;&#x9;return securityScheme;&#xA;&#x9;&#x9;return null&#x9;;">
         <genParameters ecoreParameter="openapi.ecore#//API/getSecuritySchemaByName/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="openapi.ecore#//API/getResponseDefinitionByReference"
+          body="for (ResponseDefinition respnseDefinition: responses) {&#xA;&#x9;String temp = respnseDefinition.getRef();&#xA;&#x9;if (temp.equalsIgnoreCase(ref))&#xA;&#x9;&#x9;return respnseDefinition;&#xA;}&#xA;return null;&#x9;">
+        <genParameters ecoreParameter="openapi.ecore#//API/getResponseDefinitionByReference/ref"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="openapi.ecore#//Info">
