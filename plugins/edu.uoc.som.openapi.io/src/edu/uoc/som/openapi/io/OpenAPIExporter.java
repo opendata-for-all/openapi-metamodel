@@ -22,7 +22,9 @@ import edu.uoc.som.openapi.ParameterLocation;
 import edu.uoc.som.openapi.Path;
 import edu.uoc.som.openapi.Property;
 import edu.uoc.som.openapi.Response;
+import edu.uoc.som.openapi.ResponseDefinition;
 import edu.uoc.som.openapi.Schema;
+import edu.uoc.som.openapi.SchemaDeclaringContext;
 import edu.uoc.som.openapi.SchemeType;
 import edu.uoc.som.openapi.SecurityRequirement;
 import edu.uoc.som.openapi.SecurityScheme;
@@ -152,16 +154,16 @@ public class OpenAPIExporter {
 		for (Parameter parameter : api.getParameters()) {
 			JsonObject jsonParameter = new JsonObject();
 			jsonParameters.add(parameter.getReferenceName(), jsonParameter);
-			generateParameter(api, parameter, jsonParameter);
+			generateParameter(api, parameter, true, jsonParameter);
 		}
 
 	}
 
 	private void generateResponses(API api, JsonObject jsonResponses) {
-		for (Response response : api.getResponses()) {
+		for (ResponseDefinition responseDefinition : api.getResponses()) {
 			JsonObject jsonResponse = new JsonObject();
-			jsonResponses.add(response.getReferenceName(), jsonResponse);
-			generateResponse(api, response, jsonResponse);
+			jsonResponses.add(responseDefinition.getReferenceName(), jsonResponse);
+			generateResponse(api, responseDefinition, true, jsonResponse);
 		}
 
 	}
@@ -251,7 +253,16 @@ public class OpenAPIExporter {
 			jsonOperations.add("delete", jsonOperation);
 			generateOperation(api, path.getPatch(), jsonOperation);
 		}
-		// TODO parameters
+		if(!path.getParameters().isEmpty()) {
+			JsonArray paramatersJson = new JsonArray();
+			for (Parameter parameter : path.getParameters()) {
+				JsonObject parameterJson = new JsonObject();
+				paramatersJson.add(parameterJson);
+				boolean s = path.equals(parameter.getDeclaringContext()) ;
+				generateParameter(api, parameter, s, parameterJson);
+			}
+			jsonOperations.add("parameters", paramatersJson);
+		}
 	}
 
 	private void generateOperation(API api, Operation operation, JsonObject jsonOperation) {
@@ -293,7 +304,8 @@ public class OpenAPIExporter {
 			for (Parameter parameter : operation.getParameters()) {
 				JsonObject parameterJson = new JsonObject();
 				paramatersJson.add(parameterJson);
-				generateParameter(api, parameter, parameterJson);
+				boolean s = operation.equals(parameter.getDeclaringContext()) || (parameter.getDeclaringContext() == null);
+				generateParameter(api, parameter, s, parameterJson);
 			}
 			jsonOperation.add("parameters", paramatersJson);
 		}
@@ -302,8 +314,10 @@ public class OpenAPIExporter {
 			jsonOperation.add("responses", responsesJson);
 			for (Response response : operation.getResponses()) {
 				JsonObject responseJson = new JsonObject();
-				responsesJson.add(response.getCode(), responseJson);
-				generateResponse(api, response, responseJson);
+				String key = (response.getDefault()!= null && response.getDefault().equals(Boolean.TRUE))? "default":response.getCode().toString();
+				responsesJson.add(key, responseJson);
+				boolean s = response.equals(response.getResponseDefinition().getDeclaringContext()) || (response.getResponseDefinition().getDeclaringContext() == null);
+				generateResponse(api, response.getResponseDefinition(),s,responseJson);
 			}
 		}
 		if (!operation.getSchemes().isEmpty()) {
@@ -328,7 +342,8 @@ public class OpenAPIExporter {
 
 	}
 
-	private void generateParameter(API api, Parameter parameter, JsonObject parameterJson) {
+	private void generateParameter(API api, Parameter parameter, boolean declaringContext, JsonObject parameterJson) {
+		if(declaringContext) {
 		parameterJson.addProperty("name", parameter.getName());
 		parameterJson.addProperty("in", parameter.getLocation().getLiteral());
 		if (!parameter.getType().equals(JSONDataType.UNSPECIFIED))
@@ -341,14 +356,11 @@ public class OpenAPIExporter {
 		if (parameter.getRequired() != null)
 			parameterJson.addProperty("required", parameter.getRequired());
 		if (parameter.getLocation().equals(ParameterLocation.BODY)) {
-			if(parameter.getSchema()!= null)
-			if (parameter.getSchema().getType().equals(JSONDataType.OBJECT)) {
-				JsonObject refSchema = new JsonObject();
-				refSchema.addProperty("$ref", parameter.getSchema().getRef());
-				parameterJson.add("schema", refSchema);
-
-			} else {
-				// TODO array and primitive
+			if(parameter.getSchema()!= null) {
+				boolean s = parameter.equals(parameter.getSchema().getDeclaringContext()) || (parameter.getSchema().getDeclaringContext() == null);
+				JsonObject schemaJson = new JsonObject();
+				parameterJson.add("schema", schemaJson);
+				generateSchema(api, parameter.getSchema(), s, schemaJson);
 			}
 		}
 		if (parameter.getAllowEmplyValue() != null)
@@ -392,8 +404,13 @@ public class OpenAPIExporter {
 		}
 		if (parameter.getMultipleOf() != null)
 			parameterJson.addProperty("multipleOf", parameter.getMultipleOf());
+		}
+		else {
+			parameterJson.addProperty("$ref", parameter.getRef());
+		}
 
 	}
+		
 
 	private void generateItems(ItemsDefinition itemsDefinition, JsonObject itemsDefinitionJson) {
 		if (!itemsDefinition.getType().equals(JSONDataType.UNSPECIFIED))
@@ -442,34 +459,18 @@ public class OpenAPIExporter {
 
 	}
 
-	private void generateResponse(API api, Response response, JsonObject responseJson) {
-		responseJson.addProperty("description", response.getDescription());
-		if (response.getSchema() != null) {
-			if (response.getSchema().getType().equals(JSONDataType.OBJECT)) {
-				if (response.getSchema().getDeclaringContext() == api) {
-					JsonObject refSchema = new JsonObject();
-					refSchema.addProperty("$ref", response.getSchema().getRef());
-					responseJson.add("schema", refSchema);
-				}
-
-			} else {
-				if (response.getSchema().getType().equals(JSONDataType.ARRAY)) {
-					JsonObject schemaArray = new JsonObject();
-					responseJson.add("schema", schemaArray);
-					schemaArray.addProperty("type", JSONDataType.ARRAY.getLiteral());
-					if (response.getSchema().getItems().getType().equals(JSONDataType.OBJECT)) {
-						JsonObject refSchema = new JsonObject();
-						refSchema.addProperty("$ref", response.getSchema().getItems().getRef());
-						schemaArray.add("items", refSchema);
-					}
-
-				}
-			}
-
+	private void generateResponse(API api, ResponseDefinition responseDefinition, boolean declaringContext, JsonObject responseJson) {
+		if(declaringContext) {
+		responseJson.addProperty("description", responseDefinition.getDescription());
+		if (responseDefinition.getSchema() != null) {
+			boolean s = responseDefinition.equals(responseDefinition.getSchema().getDeclaringContext()) || (responseDefinition.getSchema().getDeclaringContext() == null);
+			JsonObject schemaJson = new JsonObject();
+			responseJson.add("schema", schemaJson);
+			generateSchema(api, responseDefinition.getSchema(), s, schemaJson);
 		}
-		if (!response.getHeaders().isEmpty()) {
+		if (!responseDefinition.getHeaders().isEmpty()) {
 			JsonObject headerJson = new JsonObject();
-			for (Header header : response.getHeaders()) {
+			for (Header header : responseDefinition.getHeaders()) {
 				JsonObject headerItem = new JsonObject();
 				if (header.getDescription() != null)
 					headerItem.addProperty("description", header.getDescription());
@@ -521,12 +522,17 @@ public class OpenAPIExporter {
 			}
 			responseJson.add("headers", headerJson);
 		}
-		if (!response.getExamples().isEmpty()) {
+		if (!responseDefinition.getExamples().isEmpty()) {
 			JsonObject exampleJson = new JsonObject();
-			for (Example example : response.getExamples()) {
+			for (Example example : responseDefinition.getExamples()) {
 				exampleJson.addProperty(example.getMimeType(), example.getValue());
 			}
 			responseJson.add("examples", exampleJson);
+		}
+		}
+		else {
+			responseJson.addProperty("$ref", responseDefinition.getRef());
+		
 		}
 
 	}
@@ -535,21 +541,14 @@ public class OpenAPIExporter {
 		for (Schema definition : api.getDefinitions()) {
 			JsonObject schemaJson = new JsonObject();
 			jsonDefinitions.add(definition.getReferenceName(), schemaJson);
-			generateSchema(api, definition, schemaJson);
+			generateSchema(api, definition, true, schemaJson);
 		}
 
 	}
 
-	private void generateSchema(API api, Schema schema, JsonObject schemaJson) {
+	private void generateSchema(API api, Schema schema, boolean declaringContext, JsonObject schemaJson) {
 		if (schema != null) {
-			if (schema.getReferenceName() != null) {
-				Schema referencedSchema = schemaMap.get(schema.getRef());
-				if (referencedSchema != null) {
-					schemaJson.addProperty("$ref", referencedSchema.getRef());
-					return;
-				} else
-					schemaMap.put(schema.getRef(), schema);
-			}
+			if(declaringContext) {
 		if (!schema.getType().equals(JSONDataType.UNSPECIFIED))
 			schemaJson.addProperty("type", schema.getType().getLiteral());
 		if (schema.getFormat() != null)
@@ -603,14 +602,16 @@ public class OpenAPIExporter {
 
 		if (schema.getItems() != null) {
 			JsonObject itemsJson = new JsonObject();
-			generateSchema(api, schema.getItems(), itemsJson);
+			boolean s = schema.equals(schema.getItems().getDeclaringContext()) || (schema.getItems().getDeclaringContext() == null);
+			generateSchema(api, schema.getItems(), s,itemsJson);
 			schemaJson.add("items", itemsJson);
 		}
 		if (!schema.getAllOf().isEmpty()) {
 			JsonArray allOfJson = new JsonArray();
 			for (Schema allOfItem : schema.getAllOf()) {
 				JsonObject allOfItemJson = new JsonObject();
-				generateSchema(api, allOfItem, allOfItemJson);
+				boolean s = schema.equals(allOfItem.getDeclaringContext()) || (allOfItem.getDeclaringContext() == null);
+				generateSchema(api, allOfItem, s, allOfItemJson);
 				allOfJson.add(allOfItemJson);
 			}
 		}
@@ -620,8 +621,8 @@ public class OpenAPIExporter {
 			for (Property property : schema.getProperties()) {
 				JsonObject propertyJson = new JsonObject();
 				propertiesJson.add(property.getReferenceName(), propertyJson);
-//				generateSchemaProperty(api,property.getSchema(), propertyJson);
-				generateSchema(api, property.getSchema(), propertyJson);
+				boolean s = property.equals(property.getSchema().getDeclaringContext()) || (property.getSchema().getDeclaringContext() == null);
+				generateSchema(api, property.getSchema(), s,propertyJson);
 			}
 		}
 		if (schema.getAdditonalPropertiesAllowed() != null) {
@@ -629,7 +630,8 @@ public class OpenAPIExporter {
 		}
 		if (schema.getAdditonalProperties() != null) {
 			JsonObject additionalProperties = new JsonObject();
-			generateSchema(api, schema.getAdditonalProperties(), additionalProperties);
+			boolean s = schema.equals(schema.getAdditonalProperties().getDeclaringContext()) || (schema.getAdditonalProperties().getDeclaringContext() == null);
+			generateSchema(api, schema.getAdditonalProperties(), s, additionalProperties);
 			schemaJson.add("additionalProperties", additionalProperties);
 		}
 		if (schema.getDiscriminator() != null)
@@ -657,7 +659,13 @@ public class OpenAPIExporter {
 			schemaJson.add("externalDocs", externalDocs);
 		}
 		if (schema.getExample() != null)
-			schemaJson.addProperty("example", schema.getExample());}
+			schemaJson.addProperty("example", schema.getExample());
+			}
+			else{
+				schemaJson.addProperty("$ref", schema.getRef());
+			}
+		
+			}
 		
 	}
 

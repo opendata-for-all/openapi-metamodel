@@ -296,21 +296,23 @@ public class OpenAPIImporter {
 			Set<Entry<String, JsonElement>> properties = schemaObject.get("properties").getAsJsonObject().entrySet();
 			for (Entry<String, JsonElement> jsonProperty : properties) {
 				Property property = openAPIFactory.createProperty();
-				Schema propertyValue = openAPIFactory.createSchema();
 				property.setReferenceName(jsonProperty.getKey());
-				property.setSchema(propertyValue);
-				propertyValue.setDeclaringContext(schema);
-				root.getSchemas().add(propertyValue);
 				schema.getProperties().add(property);
 				JsonObject value = jsonProperty.getValue().getAsJsonObject();
 				if (value.has("$ref")) {
 					String ref = value.get("$ref").getAsString();
 					Schema referencedchema = root.getApi().getSchemaByReference(ref);
-					if (value != null) {
+					if (referencedchema != null) {
 						property.setSchema(referencedchema);
 					}
-				} else
+				} else {
+					Schema propertyValue = openAPIFactory.createSchema();
+					property.setSchema(propertyValue);
+					propertyValue.setDeclaringContext(property);
+					root.getSchemas().add(propertyValue);
 					importSchema(jsonProperty.getValue().getAsJsonObject(), property.getSchema(), root);
+				}
+
 			}
 		}
 		if (schemaObject.has("additionalProperties")) {
@@ -445,9 +447,20 @@ public class OpenAPIImporter {
 			if (pathObject.has("parameters")) {
 				JsonArray aPIParametersArray = pathObject.get("parameters").getAsJsonArray();
 				for (JsonElement aPIParameterElement : aPIParametersArray) {
-					Parameter aPIParameter = openAPIFactory.createParameter();
-					path.getParameters().add(aPIParameter);
-					importParameter(aPIParameterElement, aPIParameter, root);
+
+					if (aPIParameterElement.getAsJsonObject().has("$ref")) {
+						root.getApi()
+								.getParameterByReference(aPIParameterElement.getAsJsonObject().get("$ref").getAsString());
+
+					} else {
+						Parameter aPIParameter = openAPIFactory.createParameter();
+						aPIParameter.setDeclaringContext(path);
+						path.getParameters().add(aPIParameter);
+						root.getParamters().add(aPIParameter);
+						importParameter(aPIParameterElement, aPIParameter, root);
+					}
+				
+					
 				}
 			}
 
@@ -489,7 +502,8 @@ public class OpenAPIImporter {
 			JsonArray aPIParameterArray = jsonObject.get("parameters").getAsJsonArray();
 			for (JsonElement aPIParameterElement : aPIParameterArray) {
 				if (aPIParameterElement.getAsJsonObject().has("$ref")) {
-					root.getApi().getParameterByReference(aPIParameterElement.getAsJsonObject().get("$ref").getAsString());
+					root.getApi()
+							.getParameterByReference(aPIParameterElement.getAsJsonObject().get("$ref").getAsString());
 
 				} else {
 					Parameter aPIParameter = openAPIFactory.createParameter();
@@ -506,16 +520,16 @@ public class OpenAPIImporter {
 			for (Entry<String, JsonElement> responseElement : responses) {
 				Response response = openAPIFactory.createResponse();
 				aPIOperation.getResponses().add(response);
-				if(responseElement.getKey().equals("defaut"))
-				response.setDefault(Boolean.TRUE);
-				else 
-					response.setCode(Integer.getInteger(responseElement.getKey()));
+				if (responseElement.getKey().equals("default"))
+					response.setDefault(Boolean.TRUE);
+				else
+					response.setCode(Integer.valueOf(responseElement.getKey()));
 				JsonObject responseJson = responseElement.getValue().getAsJsonObject();
-				if(responseJson.has("$ref")) {
-					ResponseDefinition responseDefinition =  root.getApi().getResponseDefinitionByReference(responseJson.get("$ref").getAsString());
+				if (responseJson.has("$ref")) {
+					ResponseDefinition responseDefinition = root.getApi()
+							.getResponseDefinitionByReference(responseJson.get("$ref").getAsString());
 					response.setResponseDefinition(responseDefinition);
-				}
-				else {
+				} else {
 					ResponseDefinition responseDefinition = openAPIFactory.createResponseDefinition();
 					response.setResponseDefinition(responseDefinition);
 					responseDefinition.setDeclaringContext(response);
@@ -566,6 +580,7 @@ public class OpenAPIImporter {
 			else {
 				Schema schema = openAPIFactory.createSchema();
 				responseDefinition.setSchema(schema);
+				schema.setDeclaringContext(responseDefinition);
 				root.getSchemas().add(schema);
 				importSchema(responseObject.get("schema").getAsJsonObject(), schema, root);
 			}
