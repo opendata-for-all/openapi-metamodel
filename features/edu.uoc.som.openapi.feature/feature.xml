@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="edu.uoc.som.openapi.feature"
-      label="OpenAPI metamodel"
-      version="1.0.3.qualifier"
+      label="OpenAPI Metamodel"
+      version="2.0.0.qualifier"
       provider-name="SOM Research Lab">
 
    <description url="https://github.com/SOM-Research/openapi-metamodel">
@@ -10,7 +10,7 @@
    </description>
 
    <copyright url="http://som-research.uoc.edu">
-      SOM Resesearch Lab (c) 2018.
+      SOM Resesearch Lab (c) 2019.
    </copyright>
 
    <license url="https://www.eclipse.org/legal/epl-v20.html">
@@ -96,24 +96,29 @@ If it is not possible or desirable to put the notice in a particular file, then 
 You may add additional accurate notices of copyright ownership.
    </license>
 
+   <url>
+      <discovery label="Sources" url="https://github.com/opendata-for-all/openapi-metamodel"/>
+   </url>
+
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.ocl.ecore"/>
+      <import plugin="edu.uoc.som.openapi" version="2.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
          id="edu.uoc.som.openapi"
          download-size="0"
          install-size="0"
-         version="1.0.2.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="edu.uoc.som.openapi.io"
          download-size="0"
          install-size="0"
-         version="1.0.3.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
 </feature>
