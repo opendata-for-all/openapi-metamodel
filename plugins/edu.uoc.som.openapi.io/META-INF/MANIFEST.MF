@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: OpenAPI serializer
+Bundle-Name: OpenAPI Importrer/Exporter
 Bundle-SymbolicName: edu.uoc.som.openapi.io
-Bundle-Version: 1.0.3.qualifier
+Bundle-Version: 2.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: SOM Research Lab
-Require-Bundle: edu.uoc.som.openapi;bundle-version="1.0.2"
+Require-Bundle: edu.uoc.som.openapi;bundle-version="2.0.0"
 Bundle-ClassPath: lib/gson-2.6.2.jar,
  .
 Export-Package: com.google.gson,
