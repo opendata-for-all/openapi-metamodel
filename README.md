@@ -1,4 +1,4 @@
-# openapi-metamodel
+# OpenAPI metamodel
 EMF-based implementation of the OpenAPI metamodel.
 
 ## Eclipse update site:
