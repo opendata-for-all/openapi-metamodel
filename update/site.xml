@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/edu.uoc.som.openapi.feature_2.0.0.201906251044.jar" id="edu.uoc.som.openapi.feature" version="2.0.0.201906251044">
-      <category name="openapi"/>
+   <feature url="features/edu.uoc.som.openapi.feature_2.0.0.201907031456.jar" id="edu.uoc.som.openapi.feature" version="2.0.0.201907031456">
+      <category name="OpenAPI"/>
    </feature>
-   <category-def name="openapi" label="OpenAPI"/>
+   <category-def name="OpenAPI" label="OpenAPI"/>
 </site>
