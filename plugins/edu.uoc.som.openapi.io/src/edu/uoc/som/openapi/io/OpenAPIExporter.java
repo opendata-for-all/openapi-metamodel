@@ -614,6 +614,7 @@ public class OpenAPIExporter {
 				generateSchema(api, allOfItem, s, allOfItemJson);
 				allOfJson.add(allOfItemJson);
 			}
+			schemaJson.add("allOf", allOfJson);
 		}
 		if (!schema.getProperties().isEmpty()) {
 			JsonObject propertiesJson = new JsonObject();
