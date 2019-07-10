@@ -5,9 +5,7 @@ Bundle-SymbolicName: edu.uoc.som.openapi.io
 Bundle-Version: 2.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: SOM Research Lab
-Require-Bundle: edu.uoc.som.openapi;bundle-version="2.0.0"
-Bundle-ClassPath: lib/gson-2.6.2.jar,
- .
-Export-Package: com.google.gson,
- edu.uoc.som.openapi.io,
+Require-Bundle: edu.uoc.som.openapi2.mm;bundle-version="2.0.0",
+ com.google.gson;bundle-version="2.8.2"
+Export-Package: edu.uoc.som.openapi.io,
  edu.uoc.som.openapi.io.utils
