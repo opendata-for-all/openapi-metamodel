@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="edu.uoc.som.openapi.feature"
+      id="edu.uoc.som.openapi2.mm.feature"
       label="OpenAPI Metamodel"
       version="2.0.0.qualifier"
       provider-name="SOM Research Lab">
@@ -104,7 +104,6 @@ You may add additional accurate notices of copyright ownership.
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.ocl.ecore"/>
-      <import plugin="edu.uoc.som.openapi" version="2.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
