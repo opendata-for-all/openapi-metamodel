@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="edu.uoc.som.openapi2.mm.feature"
+      id="edu.uoc.som.openapi2.feature"
       label="OpenAPI Metamodel"
       version="2.0.0.qualifier"
       provider-name="SOM Research Lab">
