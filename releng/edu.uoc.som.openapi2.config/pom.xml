@@ -11,15 +11,6 @@
 		<eclipse-repo.url>http://download.eclipse.org/releases/oxygen</eclipse-repo.url>
 	</properties>
 
-	<repositories>
-		<repository>
-			<id>eclipse-release</id>
-			<url>${eclipse-repo.url}</url>
-			<layout>p2</layout>
-		</repository>
-
-	</repositories>
-
 	<build>
 		<plugins>
 			<plugin>
