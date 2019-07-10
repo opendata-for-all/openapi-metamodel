@@ -1,0 +1,16 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>edu.uoc.som.openapi2</groupId>
+		<artifactId>releng</artifactId>
+		<version>2.0.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>edu.som.uoc.openapi2</groupId>
+	<artifactId>edu.som.uoc.openapi2.target</artifactId>
+	<version>2.0.0-SNAPSHOT</version>
+	<packaging>eclipse-target-definition</packaging>
+</project>
