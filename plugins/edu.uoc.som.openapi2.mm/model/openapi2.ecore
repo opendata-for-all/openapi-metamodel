@@ -237,7 +237,7 @@
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
       <details key="requiredName" value="not name.oclIsUndefined()"/>
-      <details key="requiredLocation" value="not location = ParameterLocation::_'unspecified'"/>
+      <details key="requiredLocation" value="not (location = ParameterLocation::_'unspecified')"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="#//ParameterLocation"/>
