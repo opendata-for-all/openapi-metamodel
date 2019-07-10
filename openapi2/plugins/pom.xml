@@ -12,5 +12,6 @@
 
 	<modules>
 		<module>edu.uoc.som.openapi2.mm</module>
+		<module>edu.uoc.som.openapi2.io</module>
 	</modules>
 </project>
