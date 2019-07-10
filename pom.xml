@@ -16,6 +16,7 @@
 	<modules>
 		<module>plugins</module>
 		<module>features</module>
+		<module>utils</module>
         <module>releng</module>
 	</modules>
 
