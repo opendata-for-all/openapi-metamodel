@@ -6,7 +6,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho.version>1.0.0</tycho.version>
+		<tycho.version>1.3.0</tycho.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<eclipse-repo.url>http://download.eclipse.org/releases/oxygen</eclipse-repo.url>
 	</properties>
@@ -43,7 +43,7 @@
 				<target>
 						<artifact>
 							<groupId>edu.som.uoc.openapi2</groupId>
-							<artifactId>edu.som.uoc.openapi2</artifactId>
+							<artifactId>edu.som.uoc.openapi2.target</artifactId>
 							<version>2.0.0-SNAPSHOT</version>
 						</artifact>
 					</target>
