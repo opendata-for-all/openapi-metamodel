@@ -10,7 +10,4 @@
        	<relativePath>..</relativePath>
 	</parent>
 
-	<modules>
-        <module>edu.uoc.som.openapi.tycho.configuration</module>
-	</modules>
 </project>
