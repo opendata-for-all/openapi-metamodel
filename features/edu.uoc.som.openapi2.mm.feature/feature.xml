@@ -108,14 +108,7 @@ You may add additional accurate notices of copyright ownership.
    </requires>
 
    <plugin
-         id="edu.uoc.som.openapi"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="edu.uoc.som.openapi.io"
+         id="edu.uoc.som.openapi2.mm"
          download-size="0"
          install-size="0"
          version="0.0.0"
