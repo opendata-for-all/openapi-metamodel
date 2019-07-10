@@ -1,4 +1,4 @@
-package edu.uoc.som.openapi.io;
+package edu.uoc.som.openapi2.io;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,31 +6,30 @@ import java.util.Map;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-import edu.uoc.som.openapi.API;
-import edu.uoc.som.openapi.APIKeyLocation;
-import edu.uoc.som.openapi.CollectionFormat;
-import edu.uoc.som.openapi.Example;
-import edu.uoc.som.openapi.ExternalDocs;
-import edu.uoc.som.openapi.Header;
-import edu.uoc.som.openapi.Info;
-import edu.uoc.som.openapi.ItemsDefinition;
-import edu.uoc.som.openapi.JSONDataType;
-import edu.uoc.som.openapi.OAuth2FlowType;
-import edu.uoc.som.openapi.Operation;
-import edu.uoc.som.openapi.Parameter;
-import edu.uoc.som.openapi.ParameterLocation;
-import edu.uoc.som.openapi.Path;
-import edu.uoc.som.openapi.Property;
-import edu.uoc.som.openapi.Response;
-import edu.uoc.som.openapi.ResponseDefinition;
-import edu.uoc.som.openapi.Schema;
-import edu.uoc.som.openapi.SchemaDeclaringContext;
-import edu.uoc.som.openapi.SchemeType;
-import edu.uoc.som.openapi.SecurityRequirement;
-import edu.uoc.som.openapi.SecurityScheme;
-import edu.uoc.som.openapi.SecuritySchemeType;
-import edu.uoc.som.openapi.SecurityScope;
-import edu.uoc.som.openapi.Tag;
+import edu.uoc.som.openapi2.API;
+import edu.uoc.som.openapi2.APIKeyLocation;
+import edu.uoc.som.openapi2.CollectionFormat;
+import edu.uoc.som.openapi2.Example;
+import edu.uoc.som.openapi2.ExternalDocs;
+import edu.uoc.som.openapi2.Header;
+import edu.uoc.som.openapi2.Info;
+import edu.uoc.som.openapi2.ItemsDefinition;
+import edu.uoc.som.openapi2.JSONDataType;
+import edu.uoc.som.openapi2.OAuth2FlowType;
+import edu.uoc.som.openapi2.Operation;
+import edu.uoc.som.openapi2.Parameter;
+import edu.uoc.som.openapi2.ParameterLocation;
+import edu.uoc.som.openapi2.Path;
+import edu.uoc.som.openapi2.Property;
+import edu.uoc.som.openapi2.Response;
+import edu.uoc.som.openapi2.ResponseDefinition;
+import edu.uoc.som.openapi2.Schema;
+import edu.uoc.som.openapi2.SchemeType;
+import edu.uoc.som.openapi2.SecurityRequirement;
+import edu.uoc.som.openapi2.SecurityScheme;
+import edu.uoc.som.openapi2.SecuritySchemeType;
+import edu.uoc.som.openapi2.SecurityScope;
+import edu.uoc.som.openapi2.Tag;
 
 public class OpenAPIExporter {
 

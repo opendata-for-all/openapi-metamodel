@@ -1,4 +1,4 @@
-package edu.uoc.som.openapi.io.utils;
+package edu.uoc.som.openapi2.io.utils;
 
 import java.io.BufferedWriter;
 import java.io.File;

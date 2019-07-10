@@ -1,4 +1,4 @@
-package edu.uoc.som.openapi.io;
+package edu.uoc.som.openapi2.io;
 
 public class ExporterBuilder {
   
