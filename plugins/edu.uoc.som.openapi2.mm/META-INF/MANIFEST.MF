@@ -8,13 +8,7 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: edu.uoc.som.openapi,
- edu.uoc.som.openapi.impl,
- edu.uoc.som.openapi.util,
- openapi2,
- openapi2.impl,
- openapi2.util,
- edu.uoc.som.openapi2,
+Export-Package: edu.uoc.som.openapi2,
  edu.uoc.som.openapi2.impl,
  edu.uoc.som.openapi2.util
 Require-Bundle: org.eclipse.core.runtime,
