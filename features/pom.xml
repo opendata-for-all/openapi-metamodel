@@ -11,7 +11,7 @@
 	</parent>
 
 	<modules>
-		<module>edu.uoc.som.openapi.feature</module>
+		<module>edu.uoc.som.openapi2.mm.feature</module>
 	</modules>
 </project>
 
