@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: edu.uoc.som.openapi2.mm;singleton:=true
 Automatic-Module-Name: edu.uoc.som.openapi2.mm
-Bundle-Version: 2.0.0.qualifier
+Bundle-Version: 2.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
@@ -12,6 +12,5 @@ Export-Package: edu.uoc.som.openapi2,
  edu.uoc.som.openapi2.impl,
  edu.uoc.som.openapi2.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.ocl.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy
