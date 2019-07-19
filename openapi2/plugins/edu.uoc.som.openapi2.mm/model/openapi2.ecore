@@ -29,7 +29,6 @@
         eType="#//Response" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="API" eSuperTypes="#//ExternalDocsContainer #//SecurityContainer">
-    <eOperations name="pathsIsSet" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="getAllOperations" upperBound="-1" eType="#//Operation"/>
     <eOperations name="getSchemaByReference" eType="#//Schema">
       <eParameters name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -40,14 +39,8 @@
     <eOperations name="getPathByRelativePath" eType="#//Path">
       <eParameters name="relativePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="getSchemaByName" eType="#//Schema">
-      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
     <eOperations name="getParameterByReference" eType="#//Parameter">
       <eParameters name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-    <eOperations name="getSecuritySchemaByName" eType="#//SecurityScheme">
-      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="getResponseDefinitionByReference" eType="#//Response">
       <eParameters name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -68,20 +61,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="responses" upperBound="-1"
         eType="#//ResponseDefinitionEntry" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityDefinitions" upperBound="-1"
-        eType="#//SecurityScheme" containment="true"/>
+        eType="#//SecuritySchemeEntry" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tags" upperBound="-1" eType="#//Tag"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//ParameterEntry" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Info">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="requiredTitle requiredAPIVerison"/>
-    </eAnnotations>
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
-      <details key="requiredTitle" value="not self.title.oclIsUndefined()"/>
-      <details key="requiredAPIVerison" value="not self.version.oclIsUndefined()"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="termsOfService" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -97,20 +83,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="email" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="License">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="requiredName"/>
-    </eAnnotations>
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
-      <details key="requiredName" value="not self.name.oclIsUndefined()"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Path" eSuperTypes="#//ParameterContainer">
-    <eOperations name="getOperationByMethod" eType="#//Operation">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="switch(method) {&#xD;&#xA;&#x9;case &quot;GET&quot;: return getGet();&#xD;&#xA;&#x9;case &quot;POST&quot;: return getPost();&#xD;&#xA;&#x9;case &quot;PUT&quot;: return getPost();&#xD;&#xA;&#x9;case &quot;DELETE&quot;: return getDelete();&#xD;&#xA;&#x9;case &quot;PATCH&quot;: return getPatch();&#xD;&#xA;&#x9;case &quot;OPTIONS&quot;: return getOptions();&#xD;&#xA;&#x9;case &quot;HEAD&quot;: return getHead();&#xD;&#xA;&#x9;default: return null;&#xD;&#xA;}"/>
-      </eAnnotations>
+    <eOperations name="getOperationByHTTPMethod" eType="#//Operation">
       <eParameters name="method" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="relativePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -134,10 +111,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//ParameterContainer #//ExternalDocsContainer #//SecurityContainer">
     <eOperations name="getFullPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eOperations name="getConsumedSchema" eType="#//Schema"/>
-    <eOperations name="getProducedSchema" eType="#//Schema"/>
-    <eOperations name="IsProducingList" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eOperations name="getMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getHTTPMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tagReferences" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -191,7 +165,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="additonalPropertiesAllowed"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Response" eSuperTypes="#//SchemaContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="Response" eSuperTypes="#//SchemaContainer #//JSONPointer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="headers" upperBound="-1"
         eType="#//Header" containment="true"/>
@@ -207,7 +181,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SecurityScheme" eSuperTypes="#//JSONPointer">
+  <eClassifiers xsi:type="ecore:EClass" name="SecurityScheme">
     <eOperations name="getSecurityScopeByName" eType="#//SecurityScope">
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
@@ -335,5 +309,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="SecurityContainer" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="security" upperBound="-1"
         eType="#//SecurityRequirement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SecuritySchemeEntry" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//SecurityScheme"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

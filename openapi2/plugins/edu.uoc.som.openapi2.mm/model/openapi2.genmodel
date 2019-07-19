@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/edu.uoc.som.openapi2.mm/src" editDirectory="/edu.uoc.som.openapi2.mm.edit/src"
-    editorDirectory="/edu.uoc.som.openapi2.mm.editor/src" modelPluginID="edu.uoc.som.openapi2.mm"
-    templateDirectory="/edu.uoc.som.openapi2.mm/templates" dynamicTemplates="true"
-    modelName="OpenAPI" editPluginClass="edu.uoc.som.openapi2.mm.provider.OpenAPIEditPlugin"
-    editorPluginClass="edu.uoc.som.openapi2.mm.presentation.OpenAPIEditorPlugin" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    testSuiteClass="edu.uoc.som.openapi2.mm.tests.OpenAPIAllTests" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="8.0" copyrightFields="false" editPluginID="edu.uoc.som.openapi2.mm.edit"
-    editorPluginID="edu.uoc.som.openapi2.mm.editor" operationReflection="true" importOrganizing="true">
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/edu.uoc.som.openapi2.mm/src-gen" modelPluginID="edu.uoc.som.openapi2.mm"
+    modelName="Openapi2" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>openapi2.ecore</foreignModel>
-  <genPackages prefix="OpenAPI" basePackage="edu.uoc.som" disposableProviderFactory="true"
+  <genPackages prefix="OpenAPI2" basePackage="edu.uoc.som" disposableProviderFactory="true"
       ecorePackage="openapi2.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="openapi2.ecore#//SchemeType">
       <genEnumLiterals ecoreEnumLiteral="openapi2.ecore#//SchemeType/http"/>
@@ -87,7 +83,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//Root/responses"/>
     </genClasses>
     <genClasses ecoreClass="openapi2.ecore#//API">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//API/swagger"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//API/info"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//API/host"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//API/basePath"/>
@@ -99,30 +94,21 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//API/responses"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//API/securityDefinitions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//API/tags"/>
-      <genOperations ecoreOperation="openapi2.ecore#//API/pathsIsSet" body="return pathsIsSet();"/>
-      <genOperations ecoreOperation="openapi2.ecore#//API/getAllOperations" body="TreeIterator&lt;EObject> allElements = this.eAllContents();&#xD;&#xA;EList&lt;Operation> allOperations = ECollections.newBasicEList();&#xD;&#xA;while (allElements.hasNext()) {&#xD;&#xA;&#x9;org.eclipse.emf.ecore.EObject object = allElements.next();&#xD;&#xA;&#x9;if (object instanceof Operation) {&#xD;&#xA;&#x9;&#x9;allOperations.add((Operation) object);&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;return allOperations;"/>
-      <genOperations ecoreOperation="openapi2.ecore#//API/getSchemaByReference" body="&#x9;&#x9;List&lt;Schema> definitions = this.getDefinitions();&#xA;&#x9;&#x9;for (Schema definition : definitions) {&#xA;&#x9;&#x9;&#x9;String temp = definition.getRef();&#xA;&#x9;&#x9;&#x9;if (temp.equalsIgnoreCase(ref))&#xA;&#x9;&#x9;&#x9;&#x9;return definition;&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;return null;">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//API/parameters"/>
+      <genOperations ecoreOperation="openapi2.ecore#//API/getAllOperations"/>
+      <genOperations ecoreOperation="openapi2.ecore#//API/getSchemaByReference">
         <genParameters ecoreParameter="openapi2.ecore#//API/getSchemaByReference/ref"/>
       </genOperations>
-      <genOperations ecoreOperation="openapi2.ecore#//API/getOperationById" body="EList&lt;Operation> allOperations = getAllOperations();&#xD;&#xA;for (Operation operation : allOperations) {&#xD;&#xA;&#x9;if (operation.getOperationId().equals(operationId))&#xD;&#xA;&#x9;&#x9;return operation;&#xD;&#xA;}&#xD;&#xA;return null;">
+      <genOperations ecoreOperation="openapi2.ecore#//API/getOperationById">
         <genParameters ecoreParameter="openapi2.ecore#//API/getOperationById/operationId"/>
       </genOperations>
-      <genOperations ecoreOperation="openapi2.ecore#//API/getPathByRelativePath" body="for(Path path: getPaths()) {&#xA;&#x9;if(path.getRelativePath() != null &amp;&amp; path.getRelativePath().equalsIgnoreCase(relativePath)) {&#xA;&#x9;&#x9;return path;&#xA;&#x9;}&#xA;}&#xA;return null;">
+      <genOperations ecoreOperation="openapi2.ecore#//API/getPathByRelativePath">
         <genParameters ecoreParameter="openapi2.ecore#//API/getPathByRelativePath/relativePath"/>
       </genOperations>
-      <genOperations ecoreOperation="openapi2.ecore#//API/getSchemaByName" body="&#x9;&#x9;for (Schema definition : getDefinitions()) {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;if (definition.getReferenceName().equalsIgnoreCase(name))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;return definition;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;return null;">
-        <genParameters ecoreParameter="openapi2.ecore#//API/getSchemaByName/name"/>
-      </genOperations>
-      <genOperations ecoreOperation="openapi2.ecore#//API/getParameterByReference"
-          body="String referenceName = ref.substring(ref.lastIndexOf(&quot;/&quot;)+1);&#xD;&#xA;for (Parameter parameter : getParameters()) {&#xD;&#xA;if(parameter.getReferenceName().equals(referenceName))&#xD;&#xA;&#x9;return parameter;&#xD;&#xA;}&#xD;&#xA;return null;">
+      <genOperations ecoreOperation="openapi2.ecore#//API/getParameterByReference">
         <genParameters ecoreParameter="openapi2.ecore#//API/getParameterByReference/ref"/>
       </genOperations>
-      <genOperations ecoreOperation="openapi2.ecore#//API/getSecuritySchemaByName"
-          body="for(SecurityScheme securityScheme: getSecurityDefinitions())&#xA;&#x9;&#x9;&#x9;if(securityScheme.getReferenceName().equals(name))&#xA;&#x9;&#x9;&#x9;&#x9;return securityScheme;&#xA;&#x9;&#x9;return null&#x9;;">
-        <genParameters ecoreParameter="openapi2.ecore#//API/getSecuritySchemaByName/name"/>
-      </genOperations>
-      <genOperations ecoreOperation="openapi2.ecore#//API/getResponseDefinitionByReference"
-          body="for (ResponseDefinition respnseDefinition: responses) {&#xA;&#x9;String temp = respnseDefinition.getRef();&#xA;&#x9;if (temp.equalsIgnoreCase(ref))&#xA;&#x9;&#x9;return respnseDefinition;&#xA;}&#xA;return null;&#x9;">
+      <genOperations ecoreOperation="openapi2.ecore#//API/getResponseDefinitionByReference">
         <genParameters ecoreParameter="openapi2.ecore#//API/getResponseDefinitionByReference/ref"/>
       </genOperations>
     </genClasses>
@@ -153,8 +139,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//Path/head"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//Path/patch"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openapi2.ecore#//Path/api"/>
-      <genOperations ecoreOperation="openapi2.ecore#//Path/getOperationByMethod" body="switch(method) {&#xD;&#xA;&#x9;case &quot;GET&quot;: return getGet();&#xD;&#xA;&#x9;case &quot;POST&quot;: return getPost();&#xD;&#xA;&#x9;case &quot;PUT&quot;: return getPost();&#xD;&#xA;&#x9;case &quot;DELETE&quot;: return getDelete();&#xD;&#xA;&#x9;case &quot;PATCH&quot;: return getPatch();&#xD;&#xA;&#x9;case &quot;OPTIONS&quot;: return getOptions();&#xD;&#xA;&#x9;case &quot;HEAD&quot;: return getHead();&#xD;&#xA;&#x9;default: return null;&#xD;&#xA;}">
-        <genParameters ecoreParameter="openapi2.ecore#//Path/getOperationByMethod/method"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//Path/parameters"/>
+      <genOperations ecoreOperation="openapi2.ecore#//Path/getOperationByHTTPMethod">
+        <genParameters ecoreParameter="openapi2.ecore#//Path/getOperationByHTTPMethod/method"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="openapi2.ecore#//Operation">
@@ -167,13 +154,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//Operation/responses"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//Operation/schemes"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//Operation/deprecated"/>
-      <genOperations ecoreOperation="openapi2.ecore#//Operation/getFullPath" body="return ((Path)eContainer).getApi().getHost()&#xA;&#x9;&#x9;&#x9;&#x9;+ ((Path)eContainer).getApi().getBasePath() + ((Path)eContainer).getRelativePath();"/>
-      <genOperations ecoreOperation="openapi2.ecore#//Operation/getConsumedSchema"
-          body="for(Parameter parameter: getParameters())&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;if(parameter.getLocation().equals(ParameterLocation.BODY))&#xD;&#xA;&#x9;&#x9;if(parameter.getSchema().getType().equals(JSONDataType.ARRAY))&#xD;&#xA;&#x9;&#x9;&#x9;return parameter.getSchema().getItems();&#xD;&#xA;&#x9;&#x9;&#x9;else&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;return parameter.getSchema();&#xD;&#xA;&#x9;}&#xD;&#xA;return null;"/>
-      <genOperations ecoreOperation="openapi2.ecore#//Operation/getProducedSchema"
-          body="for(Response response: getResponses()) {&#xA;&#x9;if((response.getCode()!= null &amp;&amp; (response.getCode() == 200 || response.getCode() == 201))   &amp;&amp; response.getResponseDefinition()!=null &amp;&amp; response.getResponseDefinition().getSchema()!= null &amp;&amp; response.getResponseDefinition().getSchema().getType().equals(JSONDataType.ARRAY)) {&#xA;&#x9;&#x9;return response.getResponseDefinition().getSchema().getItems();&#xA;&#x9;&#xA;&#x9;}&#xA;&#x9;if((response.getCode()!= null  &amp;&amp; (response.getCode() == 200 || response.getCode() == 201)) &amp;&amp;  response.getResponseDefinition()!=null  &amp;&amp; response.getResponseDefinition().getSchema()!= null &amp;&amp; response.getResponseDefinition().getSchema().getType().equals(JSONDataType.OBJECT)) {&#xA;&#x9;&#x9;return response.getResponseDefinition().getSchema();&#xA;&#x9;}&#xA;}&#xA;return null;"/>
-      <genOperations ecoreOperation="openapi2.ecore#//Operation/IsProducingList" body="for(Response response: getResponses()) {&#xA;&#x9;&#x9;&#x9;if((response.getCode()!= null &amp;&amp; (response.getCode() == 200 || response.getCode() == 201))   &amp;&amp; response.getResponseDefinition()!=null &amp;&amp; response.getResponseDefinition().getSchema()!= null &amp;&amp; response.getResponseDefinition().getSchema().getType().equals(JSONDataType.ARRAY)) {&#xA;&#x9;&#x9;&#x9;&#x9;return true;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;return false;"/>
-      <genOperations ecoreOperation="openapi2.ecore#//Operation/getMethod" body="Path path = ((Path)eContainer);&#xA;if(path.getGet()!= null &amp;&amp; path.getGet().equals(this))&#xA;&#x9;return &quot;GET&quot;;&#xA;if(path.getPost()!= null &amp;&amp; path.getPost().equals(this))&#xA;&#x9;return &quot;POST&quot;;&#xA;if(path.getPut()!= null &amp;&amp; path.getPut().equals(this))&#xA;&#x9;return &quot;PUT&quot;;&#xA;if(path.getDelete()!=null &amp;&amp; path.getDelete().equals(this))&#xA;&#x9;return &quot;DELETE&quot;;&#xA;if(path.getOptions()!= null &amp;&amp; path.getOptions().equals(this))&#xA;&#x9;return &quot;OPTIONS&quot;;&#xA;if(path.getHead()!= null &amp;&amp; path.getHead().equals(this))&#xA;&#x9;return &quot;HEAD&quot;;&#xA;if(path.getPatch()!=null &amp;&amp; path.getPatch().equals(this))&#xA;&#x9;return &quot;PATCH&quot;;&#xA;return null;&#x9;"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//Operation/parameters"/>
+      <genOperations ecoreOperation="openapi2.ecore#//Operation/getFullPath"/>
+      <genOperations ecoreOperation="openapi2.ecore#//Operation/getHTTPMethod"/>
     </genClasses>
     <genClasses ecoreClass="openapi2.ecore#//ExternalDocs">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//ExternalDocs/description"/>
@@ -186,6 +169,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//Parameter/allowEmplyValue"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//Parameter/declaringContext"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//Parameter/example"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//Parameter/schema"/>
     </genClasses>
     <genClasses ecoreClass="openapi2.ecore#//ItemsDefinition"/>
     <genClasses ecoreClass="openapi2.ecore#//Schema">
@@ -202,16 +186,16 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//Schema/additonalProperties"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//Schema/declaringContext"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//Schema/additonalPropertiesAllowed"/>
-      <genOperations ecoreOperation="openapi2.ecore#//Schema/getPropertyByName" body="for (Property property : getProperties())&#xA;&#x9;&#x9;&#x9;if (property.getReferenceName().equals(name))&#xA;&#x9;&#x9;&#x9;&#x9;return property;&#xA;&#x9;&#x9;return null;">
+      <genOperations ecoreOperation="openapi2.ecore#//Schema/getPropertyByName">
         <genParameters ecoreParameter="openapi2.ecore#//Schema/getPropertyByName/name"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="openapi2.ecore#//ResponseDefinition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//ResponseDefinition/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//ResponseDefinition/headers"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//ResponseDefinition/examples"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//ResponseDefinition/code"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//ResponseDefinition/declaringContext"/>
+    <genClasses ecoreClass="openapi2.ecore#//Response">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//Response/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//Response/headers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//Response/examples"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//Response/declaringContext"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//Response/schema"/>
     </genClasses>
     <genClasses ecoreClass="openapi2.ecore#//Header">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//Header/name"/>
@@ -229,8 +213,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//SecurityScheme/authorizationUrl"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//SecurityScheme/tokenUrl"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//SecurityScheme/scopes"/>
-      <genOperations ecoreOperation="openapi2.ecore#//SecurityScheme/getSecurityScopeByName"
-          body="for(SecurityScope securityScope: getScopes())&#xD;&#xA;&#x9;if(securityScope.getName().equals(name))&#xD;&#xA;&#x9;&#x9;return securityScope;&#xD;&#xA;return null;">
+      <genOperations ecoreOperation="openapi2.ecore#//SecurityScheme/getSecurityScopeByName">
         <genParameters ecoreParameter="openapi2.ecore#//SecurityScheme/getSecurityScopeByName/name"/>
       </genOperations>
     </genClasses>
@@ -249,41 +232,50 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//SecurityScope/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//SecurityScope/description"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="openapi2.ecore#//ParameterDeclaringContext"/>
-    <genClasses image="false" ecoreClass="openapi2.ecore#//SchemaDeclaringContext"/>
-    <genClasses image="false" ecoreClass="openapi2.ecore#//ResponseDeclaringContext"/>
-    <genClasses image="false" ecoreClass="openapi2.ecore#//SecurityContext">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//SecurityContext/security"/>
+    <genClasses image="false" ecoreClass="openapi2.ecore#//ParameterContainer"/>
+    <genClasses image="false" ecoreClass="openapi2.ecore#//SchemaContainer"/>
+    <genClasses image="false" ecoreClass="openapi2.ecore#//ResponseContainer"/>
+    <genClasses image="false" ecoreClass="openapi2.ecore#//ExternalDocsContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//ExternalDocsContainer/externalDocs"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="openapi2.ecore#//ParameterContext">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//ParameterContext/parameters"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="openapi2.ecore#//SchemaContext">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//SchemaContext/schema"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="openapi2.ecore#//ExternalDocsContext">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//ExternalDocsContext/externalDocs"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="openapi2.ecore#//ArrayContext">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//ArrayContext/collectionFormat"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//ArrayContext/items"/>
+    <genClasses image="false" ecoreClass="openapi2.ecore#//ArrayContainer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//ArrayContainer/collectionFormat"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//ArrayContainer/items"/>
     </genClasses>
     <genClasses ecoreClass="openapi2.ecore#//SecurityRequirement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//SecurityRequirement/securityScopes"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//SecurityRequirement/securityScheme"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="openapi2.ecore#//ReferenceableElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//ReferenceableElement/referenceName"/>
-      <genOperations ecoreOperation="openapi2.ecore#//ReferenceableElement/getRef"
-          body="if(this instanceof Schema)&#xA;&#x9;return &quot;#/definitions/&quot;+referenceName;&#xA;if(this instanceof Parameter)&#xA;&#x9;return &quot;#/parameters/&quot;+referenceName;&#xA;if(this instanceof ResponseDefinition)&#xA;&#x9;return &quot;#/responses/&quot;+referenceName;&#xA;if(this instanceof SecurityScheme)&#xA;&#x9;return &quot;#/securityDefinitions/&quot;+referenceName;&#xA;return &quot;unkown&quot;;"/>
+    <genClasses image="false" ecoreClass="openapi2.ecore#//JSONPointer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//JSONPointer/ref"/>
     </genClasses>
     <genClasses ecoreClass="openapi2.ecore#//Property">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//Property/required"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//Property/schema"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//Property/name"/>
     </genClasses>
-    <genClasses ecoreClass="openapi2.ecore#//Response">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//Response/code"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//Response/responseDefinition"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//Response/default"/>
+    <genClasses ecoreClass="openapi2.ecore#//ResponseEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//ResponseEntry/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//ResponseEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="openapi2.ecore#//SchemaEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//SchemaEntry/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//SchemaEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="openapi2.ecore#//ResponseDefinitionEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//ResponseDefinitionEntry/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//ResponseDefinitionEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="openapi2.ecore#//ParameterEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//ParameterEntry/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//ParameterEntry/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="openapi2.ecore#//SecurityContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//SecurityContainer/security"/>
+    </genClasses>
+    <genClasses ecoreClass="openapi2.ecore#//SecuritySchemeEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//SecuritySchemeEntry/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//SecuritySchemeEntry/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
