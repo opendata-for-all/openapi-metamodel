@@ -1,0 +1,39 @@
+package edu.uoc.som.openapi2.io;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.Reader;
+import java.io.UnsupportedEncodingException;
+
+import edu.uoc.som.openapi2.API;
+import edu.uoc.som.openapi2.io.model.SerializationFormat;
+
+public class OpenAPI2Builder {
+
+
+	private SerializationFormat serializationFormat;
+	
+	
+	public OpenAPI2Builder() {
+		//JSON is the default format
+		serializationFormat = SerializationFormat.JSON;
+	}
+	
+	public OpenAPI2Builder setSerializationFormat(SerializationFormat serializationFormat){
+		this.serializationFormat = serializationFormat;
+		return this;
+	}
+	
+	public API fromFile(File file) throws FileNotFoundException, UnsupportedEncodingException {
+		OpenAPI2Importer importer = new OpenAPI2Importer();
+		return importer.createOpenAPI2ModelFromFile(file, serializationFormat);
+		
+	}
+
+	public API fromString(String text) {
+		OpenAPI2Importer importer = new OpenAPI2Importer();
+		return importer.createOpenAPI2ModelFromString(text, serializationFormat);
+	}
+	
+	
+}
