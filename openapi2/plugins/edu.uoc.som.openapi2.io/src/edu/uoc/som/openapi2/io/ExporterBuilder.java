@@ -1,12 +1,24 @@
 package edu.uoc.som.openapi2.io;
 
+import edu.uoc.som.openapi2.API;
+
 public class ExporterBuilder {
-  
-	public static OpenAPIExporter create() {
+	
+	
+	private boolean prettyPrinting;
+	
+	public ExporterBuilder() {
 		
-		
-		OpenAPIExporter openAPIExporter = new OpenAPIExporter();
-		
-		return openAPIExporter;
 	}
+	
+	public ExporterBuilder setJsonPrettyPrinting() {
+		prettyPrinting = true;
+		return this;
+	}
+  
+	public String exportJson(API openAPI2Model) {
+		OpenAPI2Exporter export = new OpenAPI2Exporter(openAPI2Model,prettyPrinting);
+		return export.toJsonFormat();
+	}
+	
 }
