@@ -243,8 +243,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//ArrayContainer/items"/>
     </genClasses>
     <genClasses ecoreClass="openapi2.ecore#//SecurityRequirement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//SecurityRequirement/securityScopes"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//SecurityRequirement/securityScheme"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//SecurityRequirement/securitySchemes"/>
     </genClasses>
     <genClasses image="false" ecoreClass="openapi2.ecore#//JSONPointer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//JSONPointer/ref"/>
@@ -276,6 +275,10 @@
     <genClasses ecoreClass="openapi2.ecore#//SecuritySchemeEntry">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//SecuritySchemeEntry/key"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//SecuritySchemeEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="openapi2.ecore#//RequiredSecurityScheme">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//RequiredSecurityScheme/securityScopes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2.ecore#//RequiredSecurityScheme/securityScheme"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

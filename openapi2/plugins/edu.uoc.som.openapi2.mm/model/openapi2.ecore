@@ -110,7 +110,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//Parameter"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//ParameterContainer #//ExternalDocsContainer #//SecurityContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//ParameterContainer #//ExternalDocsContainer #//SecurityContainer #//ResponseContainer">
     <eOperations name="getFullPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eOperations name="getHTTPMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tagReferences" upperBound="-1"
@@ -275,9 +275,8 @@
     <eLiterals name="null" value="7"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SecurityRequirement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="securityScopes" upperBound="-1"
-        eType="#//SecurityScope"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="securityScheme" eType="#//SecurityScheme"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securitySchemes" upperBound="-1"
+        eType="#//RequiredSecurityScheme" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JSONPointer" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -312,5 +311,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//SecurityScheme"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RequiredSecurityScheme">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityScopes" upperBound="-1"
+        eType="#//SecurityScope"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityScheme" eType="#//SecurityScheme"/>
   </eClassifiers>
 </ecore:EPackage>
