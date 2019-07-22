@@ -202,6 +202,15 @@ public interface OpenAPI2Factory extends EFactory {
 	Property createProperty();
 
 	/**
+	 * Returns a new object of class '<em>Required Security Scheme</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Required Security Scheme</em>'.
+	 * @generated
+	 */
+	RequiredSecurityScheme createRequiredSecurityScheme();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

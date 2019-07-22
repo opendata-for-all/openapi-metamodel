@@ -30,7 +30,7 @@ import org.eclipse.emf.common.util.EMap;
  * @model
  * @generated
  */
-public interface Operation extends ParameterContainer, ExternalDocsContainer, SecurityContainer {
+public interface Operation extends ParameterContainer, ExternalDocsContainer, SecurityContainer, ResponseContainer {
 	/**
 	 * Returns the value of the '<em><b>Tag References</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.

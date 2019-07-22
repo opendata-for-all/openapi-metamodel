@@ -202,6 +202,10 @@ public class OpenAPI2AdapterFactory extends AdapterFactoryImpl {
 				return createSecuritySchemeEntryAdapter();
 			}
 			@Override
+			public Adapter caseRequiredSecurityScheme(RequiredSecurityScheme object) {
+				return createRequiredSecuritySchemeAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -680,6 +684,20 @@ public class OpenAPI2AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSecuritySchemeEntryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.uoc.som.openapi2.RequiredSecurityScheme <em>Required Security Scheme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.uoc.som.openapi2.RequiredSecurityScheme
+	 * @generated
+	 */
+	public Adapter createRequiredSecuritySchemeAdapter() {
 		return null;
 	}
 

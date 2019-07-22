@@ -2578,22 +2578,13 @@ public interface OpenAPI2Package extends EPackage {
 	int SECURITY_REQUIREMENT = 24;
 
 	/**
-	 * The feature id for the '<em><b>Security Scopes</b></em>' reference list.
+	 * The feature id for the '<em><b>Security Schemes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_REQUIREMENT__SECURITY_SCOPES = 0;
-
-	/**
-	 * The feature id for the '<em><b>Security Scheme</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECURITY_REQUIREMENT__SECURITY_SCHEME = 1;
+	int SECURITY_REQUIREMENT__SECURITY_SCHEMES = 0;
 
 	/**
 	 * The number of structural features of the '<em>Security Requirement</em>' class.
@@ -2602,7 +2593,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_REQUIREMENT_FEATURE_COUNT = 2;
+	int SECURITY_REQUIREMENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Security Requirement</em>' class.
@@ -2972,6 +2963,52 @@ public interface OpenAPI2Package extends EPackage {
 	int SECURITY_SCHEME_ENTRY_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link edu.uoc.som.openapi2.impl.RequiredSecuritySchemeImpl <em>Required Security Scheme</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.uoc.som.openapi2.impl.RequiredSecuritySchemeImpl
+	 * @see edu.uoc.som.openapi2.impl.OpenAPI2PackageImpl#getRequiredSecurityScheme()
+	 * @generated
+	 */
+	int REQUIRED_SECURITY_SCHEME = 33;
+
+	/**
+	 * The feature id for the '<em><b>Security Scopes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_SECURITY_SCHEME__SECURITY_SCOPES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Security Scheme</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_SECURITY_SCHEME__SECURITY_SCHEME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Required Security Scheme</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_SECURITY_SCHEME_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Required Security Scheme</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_SECURITY_SCHEME_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi2.SchemeType <em>Scheme Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2979,7 +3016,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @see edu.uoc.som.openapi2.impl.OpenAPI2PackageImpl#getSchemeType()
 	 * @generated
 	 */
-	int SCHEME_TYPE = 33;
+	int SCHEME_TYPE = 34;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi2.ParameterLocation <em>Parameter Location</em>}' enum.
@@ -2989,7 +3026,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @see edu.uoc.som.openapi2.impl.OpenAPI2PackageImpl#getParameterLocation()
 	 * @generated
 	 */
-	int PARAMETER_LOCATION = 34;
+	int PARAMETER_LOCATION = 35;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi2.CollectionFormat <em>Collection Format</em>}' enum.
@@ -2999,7 +3036,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @see edu.uoc.som.openapi2.impl.OpenAPI2PackageImpl#getCollectionFormat()
 	 * @generated
 	 */
-	int COLLECTION_FORMAT = 35;
+	int COLLECTION_FORMAT = 36;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi2.OAuth2FlowType <em>OAuth2 Flow Type</em>}' enum.
@@ -3009,7 +3046,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @see edu.uoc.som.openapi2.impl.OpenAPI2PackageImpl#getOAuth2FlowType()
 	 * @generated
 	 */
-	int OAUTH2_FLOW_TYPE = 36;
+	int OAUTH2_FLOW_TYPE = 37;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi2.APIKeyLocation <em>API Key Location</em>}' enum.
@@ -3019,7 +3056,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @see edu.uoc.som.openapi2.impl.OpenAPI2PackageImpl#getAPIKeyLocation()
 	 * @generated
 	 */
-	int API_KEY_LOCATION = 37;
+	int API_KEY_LOCATION = 38;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi2.SecuritySchemeType <em>Security Scheme Type</em>}' enum.
@@ -3029,7 +3066,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @see edu.uoc.som.openapi2.impl.OpenAPI2PackageImpl#getSecuritySchemeType()
 	 * @generated
 	 */
-	int SECURITY_SCHEME_TYPE = 38;
+	int SECURITY_SCHEME_TYPE = 39;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi2.JSONDataType <em>JSON Data Type</em>}' enum.
@@ -3039,7 +3076,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @see edu.uoc.som.openapi2.impl.OpenAPI2PackageImpl#getJSONDataType()
 	 * @generated
 	 */
-	int JSON_DATA_TYPE = 39;
+	int JSON_DATA_TYPE = 40;
 
 
 	/**
@@ -4646,26 +4683,15 @@ public interface OpenAPI2Package extends EPackage {
 	EClass getSecurityRequirement();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.uoc.som.openapi2.SecurityRequirement#getSecurityScopes <em>Security Scopes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi2.SecurityRequirement#getSecuritySchemes <em>Security Schemes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Security Scopes</em>'.
-	 * @see edu.uoc.som.openapi2.SecurityRequirement#getSecurityScopes()
+	 * @return the meta object for the containment reference list '<em>Security Schemes</em>'.
+	 * @see edu.uoc.som.openapi2.SecurityRequirement#getSecuritySchemes()
 	 * @see #getSecurityRequirement()
 	 * @generated
 	 */
-	EReference getSecurityRequirement_SecurityScopes();
-
-	/**
-	 * Returns the meta object for the reference '{@link edu.uoc.som.openapi2.SecurityRequirement#getSecurityScheme <em>Security Scheme</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Security Scheme</em>'.
-	 * @see edu.uoc.som.openapi2.SecurityRequirement#getSecurityScheme()
-	 * @see #getSecurityRequirement()
-	 * @generated
-	 */
-	EReference getSecurityRequirement_SecurityScheme();
+	EReference getSecurityRequirement_SecuritySchemes();
 
 	/**
 	 * Returns the meta object for class '{@link edu.uoc.som.openapi2.JSONPointer <em>JSON Pointer</em>}'.
@@ -4921,6 +4947,38 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 */
 	EReference getSecuritySchemeEntry_Value();
+
+	/**
+	 * Returns the meta object for class '{@link edu.uoc.som.openapi2.RequiredSecurityScheme <em>Required Security Scheme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Required Security Scheme</em>'.
+	 * @see edu.uoc.som.openapi2.RequiredSecurityScheme
+	 * @generated
+	 */
+	EClass getRequiredSecurityScheme();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.uoc.som.openapi2.RequiredSecurityScheme#getSecurityScopes <em>Security Scopes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Security Scopes</em>'.
+	 * @see edu.uoc.som.openapi2.RequiredSecurityScheme#getSecurityScopes()
+	 * @see #getRequiredSecurityScheme()
+	 * @generated
+	 */
+	EReference getRequiredSecurityScheme_SecurityScopes();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.uoc.som.openapi2.RequiredSecurityScheme#getSecurityScheme <em>Security Scheme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Security Scheme</em>'.
+	 * @see edu.uoc.som.openapi2.RequiredSecurityScheme#getSecurityScheme()
+	 * @see #getRequiredSecurityScheme()
+	 * @generated
+	 */
+	EReference getRequiredSecurityScheme_SecurityScheme();
 
 	/**
 	 * Returns the meta object for enum '{@link edu.uoc.som.openapi2.SchemeType <em>Scheme Type</em>}'.
@@ -6258,20 +6316,12 @@ public interface OpenAPI2Package extends EPackage {
 		EClass SECURITY_REQUIREMENT = eINSTANCE.getSecurityRequirement();
 
 		/**
-		 * The meta object literal for the '<em><b>Security Scopes</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Security Schemes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SECURITY_REQUIREMENT__SECURITY_SCOPES = eINSTANCE.getSecurityRequirement_SecurityScopes();
-
-		/**
-		 * The meta object literal for the '<em><b>Security Scheme</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SECURITY_REQUIREMENT__SECURITY_SCHEME = eINSTANCE.getSecurityRequirement_SecurityScheme();
+		EReference SECURITY_REQUIREMENT__SECURITY_SCHEMES = eINSTANCE.getSecurityRequirement_SecuritySchemes();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi2.impl.JSONPointerImpl <em>JSON Pointer</em>}' class.
@@ -6472,6 +6522,32 @@ public interface OpenAPI2Package extends EPackage {
 		 * @generated
 		 */
 		EReference SECURITY_SCHEME_ENTRY__VALUE = eINSTANCE.getSecuritySchemeEntry_Value();
+
+		/**
+		 * The meta object literal for the '{@link edu.uoc.som.openapi2.impl.RequiredSecuritySchemeImpl <em>Required Security Scheme</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.uoc.som.openapi2.impl.RequiredSecuritySchemeImpl
+		 * @see edu.uoc.som.openapi2.impl.OpenAPI2PackageImpl#getRequiredSecurityScheme()
+		 * @generated
+		 */
+		EClass REQUIRED_SECURITY_SCHEME = eINSTANCE.getRequiredSecurityScheme();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Scopes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REQUIRED_SECURITY_SCHEME__SECURITY_SCOPES = eINSTANCE.getRequiredSecurityScheme_SecurityScopes();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Scheme</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REQUIRED_SECURITY_SCHEME__SECURITY_SCHEME = eINSTANCE.getRequiredSecurityScheme_SecurityScheme();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi2.SchemeType <em>Scheme Type</em>}' enum.

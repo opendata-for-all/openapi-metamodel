@@ -26,6 +26,7 @@ import edu.uoc.som.openapi2.ParameterContainer;
 import edu.uoc.som.openapi2.ParameterLocation;
 import edu.uoc.som.openapi2.Path;
 import edu.uoc.som.openapi2.Property;
+import edu.uoc.som.openapi2.RequiredSecurityScheme;
 import edu.uoc.som.openapi2.Response;
 import edu.uoc.som.openapi2.ResponseContainer;
 import edu.uoc.som.openapi2.Schema;
@@ -285,6 +286,13 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 	 * @generated
 	 */
 	private EClass securitySchemeEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass requiredSecuritySchemeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1892,18 +1900,8 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 	 * @generated
 	 */
 	@Override
-	public EReference getSecurityRequirement_SecurityScopes() {
+	public EReference getSecurityRequirement_SecuritySchemes() {
 		return (EReference)securityRequirementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSecurityRequirement_SecurityScheme() {
-		return (EReference)securityRequirementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2134,6 +2132,36 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 	@Override
 	public EReference getSecuritySchemeEntry_Value() {
 		return (EReference)securitySchemeEntryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getRequiredSecurityScheme() {
+		return requiredSecuritySchemeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRequiredSecurityScheme_SecurityScopes() {
+		return (EReference)requiredSecuritySchemeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRequiredSecurityScheme_SecurityScheme() {
+		return (EReference)requiredSecuritySchemeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2408,8 +2436,7 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 		createEReference(arrayContainerEClass, ARRAY_CONTAINER__ITEMS);
 
 		securityRequirementEClass = createEClass(SECURITY_REQUIREMENT);
-		createEReference(securityRequirementEClass, SECURITY_REQUIREMENT__SECURITY_SCOPES);
-		createEReference(securityRequirementEClass, SECURITY_REQUIREMENT__SECURITY_SCHEME);
+		createEReference(securityRequirementEClass, SECURITY_REQUIREMENT__SECURITY_SCHEMES);
 
 		jsonPointerEClass = createEClass(JSON_POINTER);
 		createEAttribute(jsonPointerEClass, JSON_POINTER__REF);
@@ -2441,6 +2468,10 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 		securitySchemeEntryEClass = createEClass(SECURITY_SCHEME_ENTRY);
 		createEAttribute(securitySchemeEntryEClass, SECURITY_SCHEME_ENTRY__KEY);
 		createEReference(securitySchemeEntryEClass, SECURITY_SCHEME_ENTRY__VALUE);
+
+		requiredSecuritySchemeEClass = createEClass(REQUIRED_SECURITY_SCHEME);
+		createEReference(requiredSecuritySchemeEClass, REQUIRED_SECURITY_SCHEME__SECURITY_SCOPES);
+		createEReference(requiredSecuritySchemeEClass, REQUIRED_SECURITY_SCHEME__SECURITY_SCHEME);
 
 		// Create enums
 		schemeTypeEEnum = createEEnum(SCHEME_TYPE);
@@ -2489,6 +2520,7 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 		operationEClass.getESuperTypes().add(this.getParameterContainer());
 		operationEClass.getESuperTypes().add(this.getExternalDocsContainer());
 		operationEClass.getESuperTypes().add(this.getSecurityContainer());
+		operationEClass.getESuperTypes().add(this.getResponseContainer());
 		parameterEClass.getESuperTypes().add(this.getSchemaContainer());
 		parameterEClass.getESuperTypes().add(this.getJSONSchemaSubset());
 		parameterEClass.getESuperTypes().add(this.getArrayContainer());
@@ -2701,8 +2733,7 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 		initEReference(getArrayContainer_Items(), this.getItemsDefinition(), null, "items", null, 0, 1, ArrayContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(securityRequirementEClass, SecurityRequirement.class, "SecurityRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSecurityRequirement_SecurityScopes(), this.getSecurityScope(), null, "securityScopes", null, 0, -1, SecurityRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSecurityRequirement_SecurityScheme(), this.getSecurityScheme(), null, "securityScheme", null, 0, 1, SecurityRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSecurityRequirement_SecuritySchemes(), this.getRequiredSecurityScheme(), null, "securitySchemes", null, 0, -1, SecurityRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jsonPointerEClass, JSONPointer.class, "JSONPointer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJSONPointer_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, JSONPointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2734,6 +2765,10 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 		initEClass(securitySchemeEntryEClass, Map.Entry.class, "SecuritySchemeEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSecuritySchemeEntry_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSecuritySchemeEntry_Value(), this.getSecurityScheme(), null, "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(requiredSecuritySchemeEClass, RequiredSecurityScheme.class, "RequiredSecurityScheme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRequiredSecurityScheme_SecurityScopes(), this.getSecurityScope(), null, "securityScopes", null, 0, -1, RequiredSecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRequiredSecurityScheme_SecurityScheme(), this.getSecurityScheme(), null, "securityScheme", null, 0, 1, RequiredSecurityScheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(schemeTypeEEnum, SchemeType.class, "SchemeType");

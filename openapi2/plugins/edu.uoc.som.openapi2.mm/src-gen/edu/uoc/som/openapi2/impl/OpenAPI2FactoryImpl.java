@@ -84,6 +84,7 @@ public class OpenAPI2FactoryImpl extends EFactoryImpl implements OpenAPI2Factory
 			case OpenAPI2Package.RESPONSE_DEFINITION_ENTRY: return (EObject)createResponseDefinitionEntry();
 			case OpenAPI2Package.PARAMETER_ENTRY: return (EObject)createParameterEntry();
 			case OpenAPI2Package.SECURITY_SCHEME_ENTRY: return (EObject)createSecuritySchemeEntry();
+			case OpenAPI2Package.REQUIRED_SECURITY_SCHEME: return createRequiredSecurityScheme();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -411,6 +412,17 @@ public class OpenAPI2FactoryImpl extends EFactoryImpl implements OpenAPI2Factory
 	public Map.Entry<String, SecurityScheme> createSecuritySchemeEntry() {
 		SecuritySchemeEntryImpl securitySchemeEntry = new SecuritySchemeEntryImpl();
 		return securitySchemeEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RequiredSecurityScheme createRequiredSecurityScheme() {
+		RequiredSecuritySchemeImpl requiredSecurityScheme = new RequiredSecuritySchemeImpl();
+		return requiredSecurityScheme;
 	}
 
 	/**

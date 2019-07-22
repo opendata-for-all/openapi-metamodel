@@ -122,6 +122,7 @@ public class OpenAPI2Switch<T> extends Switch<T> {
 				if (result == null) result = caseParameterContainer(operation);
 				if (result == null) result = caseExternalDocsContainer(operation);
 				if (result == null) result = caseSecurityContainer(operation);
+				if (result == null) result = caseResponseContainer(operation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -290,6 +291,12 @@ public class OpenAPI2Switch<T> extends Switch<T> {
 			case OpenAPI2Package.SECURITY_SCHEME_ENTRY: {
 				@SuppressWarnings("unchecked") Map.Entry<String, SecurityScheme> securitySchemeEntry = (Map.Entry<String, SecurityScheme>)theEObject;
 				T result = caseSecuritySchemeEntry(securitySchemeEntry);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case OpenAPI2Package.REQUIRED_SECURITY_SCHEME: {
+				RequiredSecurityScheme requiredSecurityScheme = (RequiredSecurityScheme)theEObject;
+				T result = caseRequiredSecurityScheme(requiredSecurityScheme);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -789,6 +796,21 @@ public class OpenAPI2Switch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSecuritySchemeEntry(Map.Entry<String, SecurityScheme> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Required Security Scheme</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Required Security Scheme</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRequiredSecurityScheme(RequiredSecurityScheme object) {
 		return null;
 	}
 

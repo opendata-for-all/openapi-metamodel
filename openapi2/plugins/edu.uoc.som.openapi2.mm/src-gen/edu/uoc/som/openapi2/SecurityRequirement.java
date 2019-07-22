@@ -15,8 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link edu.uoc.som.openapi2.SecurityRequirement#getSecurityScopes <em>Security Scopes</em>}</li>
- *   <li>{@link edu.uoc.som.openapi2.SecurityRequirement#getSecurityScheme <em>Security Scheme</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi2.SecurityRequirement#getSecuritySchemes <em>Security Schemes</em>}</li>
  * </ul>
  *
  * @see edu.uoc.som.openapi2.OpenAPI2Package#getSecurityRequirement()
@@ -25,37 +24,15 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface SecurityRequirement extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Security Scopes</b></em>' reference list.
-	 * The list contents are of type {@link edu.uoc.som.openapi2.SecurityScope}.
+	 * Returns the value of the '<em><b>Security Schemes</b></em>' containment reference list.
+	 * The list contents are of type {@link edu.uoc.som.openapi2.RequiredSecurityScheme}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Security Scopes</em>' reference list.
-	 * @see edu.uoc.som.openapi2.OpenAPI2Package#getSecurityRequirement_SecurityScopes()
-	 * @model
+	 * @return the value of the '<em>Security Schemes</em>' containment reference list.
+	 * @see edu.uoc.som.openapi2.OpenAPI2Package#getSecurityRequirement_SecuritySchemes()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SecurityScope> getSecurityScopes();
-
-	/**
-	 * Returns the value of the '<em><b>Security Scheme</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Security Scheme</em>' reference.
-	 * @see #setSecurityScheme(SecurityScheme)
-	 * @see edu.uoc.som.openapi2.OpenAPI2Package#getSecurityRequirement_SecurityScheme()
-	 * @model
-	 * @generated
-	 */
-	SecurityScheme getSecurityScheme();
-
-	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi2.SecurityRequirement#getSecurityScheme <em>Security Scheme</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Security Scheme</em>' reference.
-	 * @see #getSecurityScheme()
-	 * @generated
-	 */
-	void setSecurityScheme(SecurityScheme value);
+	EList<RequiredSecurityScheme> getSecuritySchemes();
 
 } // SecurityRequirement
