@@ -3,13 +3,17 @@
 package edu.uoc.som.openapi2.impl;
 
 import edu.uoc.som.openapi2.API;
+import edu.uoc.som.openapi2.ContainedCollections;
 import edu.uoc.som.openapi2.Info;
 import edu.uoc.som.openapi2.OpenAPI2Package;
 import edu.uoc.som.openapi2.Operation;
 import edu.uoc.som.openapi2.Parameter;
+import edu.uoc.som.openapi2.ParameterContainer;
 import edu.uoc.som.openapi2.Path;
 import edu.uoc.som.openapi2.Response;
+import edu.uoc.som.openapi2.ResponseContainer;
 import edu.uoc.som.openapi2.Schema;
+import edu.uoc.som.openapi2.SchemaContainer;
 import edu.uoc.som.openapi2.SchemeType;
 import edu.uoc.som.openapi2.SecurityContainer;
 import edu.uoc.som.openapi2.SecurityRequirement;
@@ -59,6 +63,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.uoc.som.openapi2.impl.APIImpl#getSecurityDefinitions <em>Security Definitions</em>}</li>
  *   <li>{@link edu.uoc.som.openapi2.impl.APIImpl#getTags <em>Tags</em>}</li>
  *   <li>{@link edu.uoc.som.openapi2.impl.APIImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi2.impl.APIImpl#getContainedCollections <em>Contained Collections</em>}</li>
  * </ul>
  *
  * @generated
@@ -213,6 +218,16 @@ public class APIImpl extends ExternalDocsContainerImpl implements API {
 	 * @ordered
 	 */
 	protected EMap<String, Parameter> parameters;
+
+	/**
+	 * The cached value of the '{@link #getContainedCollections() <em>Contained Collections</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContainedCollections()
+	 * @generated
+	 * @ordered
+	 */
+	protected ContainedCollections containedCollections;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -480,6 +495,51 @@ public class APIImpl extends ExternalDocsContainerImpl implements API {
 	 * @generated
 	 */
 	@Override
+	public ContainedCollections getContainedCollections() {
+		return containedCollections;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContainedCollections(ContainedCollections newContainedCollections, NotificationChain msgs) {
+		ContainedCollections oldContainedCollections = containedCollections;
+		containedCollections = newContainedCollections;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPI2Package.API__CONTAINED_COLLECTIONS, oldContainedCollections, newContainedCollections);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setContainedCollections(ContainedCollections newContainedCollections) {
+		if (newContainedCollections != containedCollections) {
+			NotificationChain msgs = null;
+			if (containedCollections != null)
+				msgs = ((InternalEObject)containedCollections).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPI2Package.API__CONTAINED_COLLECTIONS, null, msgs);
+			if (newContainedCollections != null)
+				msgs = ((InternalEObject)newContainedCollections).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPI2Package.API__CONTAINED_COLLECTIONS, null, msgs);
+			msgs = basicSetContainedCollections(newContainedCollections, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPI2Package.API__CONTAINED_COLLECTIONS, newContainedCollections, newContainedCollections));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<Operation> getAllOperations() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -585,6 +645,8 @@ public class APIImpl extends ExternalDocsContainerImpl implements API {
 				return ((InternalEList<?>)getTags()).basicRemove(otherEnd, msgs);
 			case OpenAPI2Package.API__PARAMETERS:
 				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+			case OpenAPI2Package.API__CONTAINED_COLLECTIONS:
+				return basicSetContainedCollections(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -627,6 +689,8 @@ public class APIImpl extends ExternalDocsContainerImpl implements API {
 			case OpenAPI2Package.API__PARAMETERS:
 				if (coreType) return getParameters();
 				else return getParameters().map();
+			case OpenAPI2Package.API__CONTAINED_COLLECTIONS:
+				return getContainedCollections();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -685,6 +749,9 @@ public class APIImpl extends ExternalDocsContainerImpl implements API {
 			case OpenAPI2Package.API__PARAMETERS:
 				((EStructuralFeature.Setting)getParameters()).set(newValue);
 				return;
+			case OpenAPI2Package.API__CONTAINED_COLLECTIONS:
+				setContainedCollections((ContainedCollections)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -736,6 +803,9 @@ public class APIImpl extends ExternalDocsContainerImpl implements API {
 			case OpenAPI2Package.API__PARAMETERS:
 				getParameters().clear();
 				return;
+			case OpenAPI2Package.API__CONTAINED_COLLECTIONS:
+				setContainedCollections((ContainedCollections)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -774,6 +844,8 @@ public class APIImpl extends ExternalDocsContainerImpl implements API {
 				return tags != null && !tags.isEmpty();
 			case OpenAPI2Package.API__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
+			case OpenAPI2Package.API__CONTAINED_COLLECTIONS:
+				return containedCollections != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -791,6 +863,21 @@ public class APIImpl extends ExternalDocsContainerImpl implements API {
 				default: return -1;
 			}
 		}
+		if (baseClass == ParameterContainer.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == ResponseContainer.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == SchemaContainer.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -804,6 +891,21 @@ public class APIImpl extends ExternalDocsContainerImpl implements API {
 		if (baseClass == SecurityContainer.class) {
 			switch (baseFeatureID) {
 				case OpenAPI2Package.SECURITY_CONTAINER__SECURITY: return OpenAPI2Package.API__SECURITY;
+				default: return -1;
+			}
+		}
+		if (baseClass == ParameterContainer.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == ResponseContainer.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == SchemaContainer.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

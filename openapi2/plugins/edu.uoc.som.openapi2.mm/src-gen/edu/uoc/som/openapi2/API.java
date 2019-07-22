@@ -26,13 +26,14 @@ import org.eclipse.emf.common.util.EMap;
  *   <li>{@link edu.uoc.som.openapi2.API#getSecurityDefinitions <em>Security Definitions</em>}</li>
  *   <li>{@link edu.uoc.som.openapi2.API#getTags <em>Tags</em>}</li>
  *   <li>{@link edu.uoc.som.openapi2.API#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi2.API#getContainedCollections <em>Contained Collections</em>}</li>
  * </ul>
  *
  * @see edu.uoc.som.openapi2.OpenAPI2Package#getAPI()
  * @model
  * @generated
  */
-public interface API extends ExternalDocsContainer, SecurityContainer {
+public interface API extends ExternalDocsContainer, SecurityContainer, ParameterContainer, ResponseContainer, SchemaContainer {
 	/**
 	 * Returns the value of the '<em><b>Info</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -237,6 +238,28 @@ public interface API extends ExternalDocsContainer, SecurityContainer {
 	 * @generated
 	 */
 	EMap<String, Parameter> getParameters();
+
+	/**
+	 * Returns the value of the '<em><b>Contained Collections</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contained Collections</em>' containment reference.
+	 * @see #setContainedCollections(ContainedCollections)
+	 * @see edu.uoc.som.openapi2.OpenAPI2Package#getAPI_ContainedCollections()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ContainedCollections getContainedCollections();
+
+	/**
+	 * Sets the value of the '{@link edu.uoc.som.openapi2.API#getContainedCollections <em>Contained Collections</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Contained Collections</em>' containment reference.
+	 * @see #getContainedCollections()
+	 * @generated
+	 */
+	void setContainedCollections(ContainedCollections value);
 
 	/**
 	 * <!-- begin-user-doc -->

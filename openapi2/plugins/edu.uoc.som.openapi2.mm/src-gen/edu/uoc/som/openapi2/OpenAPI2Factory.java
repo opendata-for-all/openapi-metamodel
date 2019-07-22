@@ -22,13 +22,13 @@ public interface OpenAPI2Factory extends EFactory {
 	OpenAPI2Factory eINSTANCE = edu.uoc.som.openapi2.impl.OpenAPI2FactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Root</em>'.
+	 * Returns a new object of class '<em>Contained Collections</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Root</em>'.
+	 * @return a new object of class '<em>Contained Collections</em>'.
 	 * @generated
 	 */
-	Root createRoot();
+	ContainedCollections createContainedCollections();
 
 	/**
 	 * Returns a new object of class '<em>API</em>'.

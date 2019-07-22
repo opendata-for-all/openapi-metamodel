@@ -74,8 +74,8 @@ public class OpenAPI2AdapterFactory extends AdapterFactoryImpl {
 				return createJSONSchemaSubsetAdapter();
 			}
 			@Override
-			public Adapter caseRoot(Root object) {
-				return createRootAdapter();
+			public Adapter caseContainedCollections(ContainedCollections object) {
+				return createContainedCollectionsAdapter();
 			}
 			@Override
 			public Adapter caseAPI(API object) {
@@ -236,16 +236,16 @@ public class OpenAPI2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.uoc.som.openapi2.Root <em>Root</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.uoc.som.openapi2.ContainedCollections <em>Contained Collections</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.uoc.som.openapi2.Root
+	 * @see edu.uoc.som.openapi2.ContainedCollections
 	 * @generated
 	 */
-	public Adapter createRootAdapter() {
+	public Adapter createContainedCollectionsAdapter() {
 		return null;
 	}
 

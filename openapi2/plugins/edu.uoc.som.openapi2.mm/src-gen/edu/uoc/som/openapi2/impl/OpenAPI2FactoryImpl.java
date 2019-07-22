@@ -59,7 +59,7 @@ public class OpenAPI2FactoryImpl extends EFactoryImpl implements OpenAPI2Factory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case OpenAPI2Package.ROOT: return createRoot();
+			case OpenAPI2Package.CONTAINED_COLLECTIONS: return createContainedCollections();
 			case OpenAPI2Package.API: return createAPI();
 			case OpenAPI2Package.INFO: return createInfo();
 			case OpenAPI2Package.CONTACT: return createContact();
@@ -149,9 +149,9 @@ public class OpenAPI2FactoryImpl extends EFactoryImpl implements OpenAPI2Factory
 	 * @generated
 	 */
 	@Override
-	public Root createRoot() {
-		RootImpl root = new RootImpl();
-		return root;
+	public ContainedCollections createContainedCollections() {
+		ContainedCollectionsImpl containedCollections = new ContainedCollectionsImpl();
+		return containedCollections;
 	}
 
 	/**

@@ -74,9 +74,9 @@ public class OpenAPI2Switch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case OpenAPI2Package.ROOT: {
-				Root root = (Root)theEObject;
-				T result = caseRoot(root);
+			case OpenAPI2Package.CONTAINED_COLLECTIONS: {
+				ContainedCollections containedCollections = (ContainedCollections)theEObject;
+				T result = caseContainedCollections(containedCollections);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -85,6 +85,9 @@ public class OpenAPI2Switch<T> extends Switch<T> {
 				T result = caseAPI(api);
 				if (result == null) result = caseExternalDocsContainer(api);
 				if (result == null) result = caseSecurityContainer(api);
+				if (result == null) result = caseParameterContainer(api);
+				if (result == null) result = caseResponseContainer(api);
+				if (result == null) result = caseSchemaContainer(api);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -256,21 +259,18 @@ public class OpenAPI2Switch<T> extends Switch<T> {
 			case OpenAPI2Package.RESPONSE_ENTRY: {
 				@SuppressWarnings("unchecked") Map.Entry<String, Response> responseEntry = (Map.Entry<String, Response>)theEObject;
 				T result = caseResponseEntry(responseEntry);
-				if (result == null) result = caseResponseContainer((ResponseContainer)responseEntry);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case OpenAPI2Package.SCHEMA_ENTRY: {
 				@SuppressWarnings("unchecked") Map.Entry<String, Schema> schemaEntry = (Map.Entry<String, Schema>)theEObject;
 				T result = caseSchemaEntry(schemaEntry);
-				if (result == null) result = caseSchemaContainer((SchemaContainer)schemaEntry);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case OpenAPI2Package.RESPONSE_DEFINITION_ENTRY: {
 				@SuppressWarnings("unchecked") Map.Entry<String, Response> responseDefinitionEntry = (Map.Entry<String, Response>)theEObject;
 				T result = caseResponseDefinitionEntry(responseDefinitionEntry);
-				if (result == null) result = caseResponseContainer((ResponseContainer)responseDefinitionEntry);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -313,17 +313,17 @@ public class OpenAPI2Switch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Root</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Contained Collections</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Root</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Contained Collections</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRoot(Root object) {
+	public T caseContainedCollections(ContainedCollections object) {
 		return null;
 	}
 

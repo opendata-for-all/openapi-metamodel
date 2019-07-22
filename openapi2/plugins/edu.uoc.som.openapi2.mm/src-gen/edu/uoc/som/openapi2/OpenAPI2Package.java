@@ -231,23 +231,14 @@ public interface OpenAPI2Package extends EPackage {
 	int JSON_SCHEMA_SUBSET_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.uoc.som.openapi2.impl.RootImpl <em>Root</em>}' class.
+	 * The meta object id for the '{@link edu.uoc.som.openapi2.impl.ContainedCollectionsImpl <em>Contained Collections</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.uoc.som.openapi2.impl.RootImpl
-	 * @see edu.uoc.som.openapi2.impl.OpenAPI2PackageImpl#getRoot()
+	 * @see edu.uoc.som.openapi2.impl.ContainedCollectionsImpl
+	 * @see edu.uoc.som.openapi2.impl.OpenAPI2PackageImpl#getContainedCollections()
 	 * @generated
 	 */
-	int ROOT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Api</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROOT__API = 0;
+	int CONTAINED_COLLECTIONS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Paramters</b></em>' containment reference list.
@@ -256,7 +247,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__PARAMTERS = 1;
+	int CONTAINED_COLLECTIONS__PARAMTERS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Schemas</b></em>' containment reference list.
@@ -265,7 +256,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__SCHEMAS = 2;
+	int CONTAINED_COLLECTIONS__SCHEMAS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Responses</b></em>' containment reference list.
@@ -274,25 +265,25 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__RESPONSES = 3;
+	int CONTAINED_COLLECTIONS__RESPONSES = 2;
 
 	/**
-	 * The number of structural features of the '<em>Root</em>' class.
+	 * The number of structural features of the '<em>Contained Collections</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_FEATURE_COUNT = 4;
+	int CONTAINED_COLLECTIONS_FEATURE_COUNT = 3;
 
 	/**
-	 * The number of operations of the '<em>Root</em>' class.
+	 * The number of operations of the '<em>Contained Collections</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_OPERATION_COUNT = 0;
+	int CONTAINED_COLLECTIONS_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi2.impl.ExternalDocsContainerImpl <em>External Docs Container</em>}' class.
@@ -468,13 +459,22 @@ public interface OpenAPI2Package extends EPackage {
 	int API__PARAMETERS = EXTERNAL_DOCS_CONTAINER_FEATURE_COUNT + 12;
 
 	/**
+	 * The feature id for the '<em><b>Contained Collections</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API__CONTAINED_COLLECTIONS = EXTERNAL_DOCS_CONTAINER_FEATURE_COUNT + 13;
+
+	/**
 	 * The number of structural features of the '<em>API</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API_FEATURE_COUNT = EXTERNAL_DOCS_CONTAINER_FEATURE_COUNT + 13;
+	int API_FEATURE_COUNT = EXTERNAL_DOCS_CONTAINER_FEATURE_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Get All Operations</em>' operation.
@@ -2721,7 +2721,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_ENTRY__KEY = RESPONSE_CONTAINER_FEATURE_COUNT + 0;
+	int RESPONSE_ENTRY__KEY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' reference.
@@ -2730,7 +2730,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_ENTRY__VALUE = RESPONSE_CONTAINER_FEATURE_COUNT + 1;
+	int RESPONSE_ENTRY__VALUE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Response Entry</em>' class.
@@ -2739,7 +2739,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_ENTRY_FEATURE_COUNT = RESPONSE_CONTAINER_FEATURE_COUNT + 2;
+	int RESPONSE_ENTRY_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Response Entry</em>' class.
@@ -2748,7 +2748,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_ENTRY_OPERATION_COUNT = RESPONSE_CONTAINER_OPERATION_COUNT + 0;
+	int RESPONSE_ENTRY_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi2.impl.SchemaEntryImpl <em>Schema Entry</em>}' class.
@@ -2767,7 +2767,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_ENTRY__KEY = SCHEMA_CONTAINER_FEATURE_COUNT + 0;
+	int SCHEMA_ENTRY__KEY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' reference.
@@ -2776,7 +2776,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_ENTRY__VALUE = SCHEMA_CONTAINER_FEATURE_COUNT + 1;
+	int SCHEMA_ENTRY__VALUE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Schema Entry</em>' class.
@@ -2785,7 +2785,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_ENTRY_FEATURE_COUNT = SCHEMA_CONTAINER_FEATURE_COUNT + 2;
+	int SCHEMA_ENTRY_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Schema Entry</em>' class.
@@ -2794,7 +2794,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_ENTRY_OPERATION_COUNT = SCHEMA_CONTAINER_OPERATION_COUNT + 0;
+	int SCHEMA_ENTRY_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi2.impl.ResponseDefinitionEntryImpl <em>Response Definition Entry</em>}' class.
@@ -2813,7 +2813,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_DEFINITION_ENTRY__KEY = RESPONSE_CONTAINER_FEATURE_COUNT + 0;
+	int RESPONSE_DEFINITION_ENTRY__KEY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' reference.
@@ -2822,7 +2822,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_DEFINITION_ENTRY__VALUE = RESPONSE_CONTAINER_FEATURE_COUNT + 1;
+	int RESPONSE_DEFINITION_ENTRY__VALUE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Response Definition Entry</em>' class.
@@ -2831,7 +2831,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_DEFINITION_ENTRY_FEATURE_COUNT = RESPONSE_CONTAINER_FEATURE_COUNT + 2;
+	int RESPONSE_DEFINITION_ENTRY_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Response Definition Entry</em>' class.
@@ -2840,7 +2840,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_DEFINITION_ENTRY_OPERATION_COUNT = RESPONSE_CONTAINER_OPERATION_COUNT + 0;
+	int RESPONSE_DEFINITION_ENTRY_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi2.impl.ParameterEntryImpl <em>Parameter Entry</em>}' class.
@@ -3229,58 +3229,47 @@ public interface OpenAPI2Package extends EPackage {
 	EAttribute getJSONSchemaSubset_MultipleOf();
 
 	/**
-	 * Returns the meta object for class '{@link edu.uoc.som.openapi2.Root <em>Root</em>}'.
+	 * Returns the meta object for class '{@link edu.uoc.som.openapi2.ContainedCollections <em>Contained Collections</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Root</em>'.
-	 * @see edu.uoc.som.openapi2.Root
+	 * @return the meta object for class '<em>Contained Collections</em>'.
+	 * @see edu.uoc.som.openapi2.ContainedCollections
 	 * @generated
 	 */
-	EClass getRoot();
+	EClass getContainedCollections();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link edu.uoc.som.openapi2.Root#getApi <em>Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Api</em>'.
-	 * @see edu.uoc.som.openapi2.Root#getApi()
-	 * @see #getRoot()
-	 * @generated
-	 */
-	EReference getRoot_Api();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi2.Root#getParamters <em>Paramters</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi2.ContainedCollections#getParamters <em>Paramters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Paramters</em>'.
-	 * @see edu.uoc.som.openapi2.Root#getParamters()
-	 * @see #getRoot()
+	 * @see edu.uoc.som.openapi2.ContainedCollections#getParamters()
+	 * @see #getContainedCollections()
 	 * @generated
 	 */
-	EReference getRoot_Paramters();
+	EReference getContainedCollections_Paramters();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi2.Root#getSchemas <em>Schemas</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi2.ContainedCollections#getSchemas <em>Schemas</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Schemas</em>'.
-	 * @see edu.uoc.som.openapi2.Root#getSchemas()
-	 * @see #getRoot()
+	 * @see edu.uoc.som.openapi2.ContainedCollections#getSchemas()
+	 * @see #getContainedCollections()
 	 * @generated
 	 */
-	EReference getRoot_Schemas();
+	EReference getContainedCollections_Schemas();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi2.Root#getResponses <em>Responses</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.uoc.som.openapi2.ContainedCollections#getResponses <em>Responses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Responses</em>'.
-	 * @see edu.uoc.som.openapi2.Root#getResponses()
-	 * @see #getRoot()
+	 * @see edu.uoc.som.openapi2.ContainedCollections#getResponses()
+	 * @see #getContainedCollections()
 	 * @generated
 	 */
-	EReference getRoot_Responses();
+	EReference getContainedCollections_Responses();
 
 	/**
 	 * Returns the meta object for class '{@link edu.uoc.som.openapi2.API <em>API</em>}'.
@@ -3423,6 +3412,17 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 */
 	EReference getAPI_Parameters();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link edu.uoc.som.openapi2.API#getContainedCollections <em>Contained Collections</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Contained Collections</em>'.
+	 * @see edu.uoc.som.openapi2.API#getContainedCollections()
+	 * @see #getAPI()
+	 * @generated
+	 */
+	EReference getAPI_ContainedCollections();
 
 	/**
 	 * Returns the meta object for the '{@link edu.uoc.som.openapi2.API#getAllOperations() <em>Get All Operations</em>}' operation.
@@ -5154,22 +5154,14 @@ public interface OpenAPI2Package extends EPackage {
 		EAttribute JSON_SCHEMA_SUBSET__MULTIPLE_OF = eINSTANCE.getJSONSchemaSubset_MultipleOf();
 
 		/**
-		 * The meta object literal for the '{@link edu.uoc.som.openapi2.impl.RootImpl <em>Root</em>}' class.
+		 * The meta object literal for the '{@link edu.uoc.som.openapi2.impl.ContainedCollectionsImpl <em>Contained Collections</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.uoc.som.openapi2.impl.RootImpl
-		 * @see edu.uoc.som.openapi2.impl.OpenAPI2PackageImpl#getRoot()
+		 * @see edu.uoc.som.openapi2.impl.ContainedCollectionsImpl
+		 * @see edu.uoc.som.openapi2.impl.OpenAPI2PackageImpl#getContainedCollections()
 		 * @generated
 		 */
-		EClass ROOT = eINSTANCE.getRoot();
-
-		/**
-		 * The meta object literal for the '<em><b>Api</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROOT__API = eINSTANCE.getRoot_Api();
+		EClass CONTAINED_COLLECTIONS = eINSTANCE.getContainedCollections();
 
 		/**
 		 * The meta object literal for the '<em><b>Paramters</b></em>' containment reference list feature.
@@ -5177,7 +5169,7 @@ public interface OpenAPI2Package extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOT__PARAMTERS = eINSTANCE.getRoot_Paramters();
+		EReference CONTAINED_COLLECTIONS__PARAMTERS = eINSTANCE.getContainedCollections_Paramters();
 
 		/**
 		 * The meta object literal for the '<em><b>Schemas</b></em>' containment reference list feature.
@@ -5185,7 +5177,7 @@ public interface OpenAPI2Package extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOT__SCHEMAS = eINSTANCE.getRoot_Schemas();
+		EReference CONTAINED_COLLECTIONS__SCHEMAS = eINSTANCE.getContainedCollections_Schemas();
 
 		/**
 		 * The meta object literal for the '<em><b>Responses</b></em>' containment reference list feature.
@@ -5193,7 +5185,7 @@ public interface OpenAPI2Package extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOT__RESPONSES = eINSTANCE.getRoot_Responses();
+		EReference CONTAINED_COLLECTIONS__RESPONSES = eINSTANCE.getContainedCollections_Responses();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi2.impl.APIImpl <em>API</em>}' class.
@@ -5300,6 +5292,14 @@ public interface OpenAPI2Package extends EPackage {
 		 * @generated
 		 */
 		EReference API__PARAMETERS = eINSTANCE.getAPI_Parameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Contained Collections</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference API__CONTAINED_COLLECTIONS = eINSTANCE.getAPI_ContainedCollections();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Operations</b></em>' operation.

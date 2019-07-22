@@ -6,6 +6,7 @@ import edu.uoc.som.openapi2.APIKeyLocation;
 import edu.uoc.som.openapi2.ArrayContainer;
 import edu.uoc.som.openapi2.CollectionFormat;
 import edu.uoc.som.openapi2.Contact;
+import edu.uoc.som.openapi2.ContainedCollections;
 import edu.uoc.som.openapi2.Example;
 import edu.uoc.som.openapi2.ExternalDocs;
 import edu.uoc.som.openapi2.ExternalDocsContainer;
@@ -27,7 +28,6 @@ import edu.uoc.som.openapi2.Path;
 import edu.uoc.som.openapi2.Property;
 import edu.uoc.som.openapi2.Response;
 import edu.uoc.som.openapi2.ResponseContainer;
-import edu.uoc.som.openapi2.Root;
 import edu.uoc.som.openapi2.Schema;
 import edu.uoc.som.openapi2.SchemaContainer;
 import edu.uoc.som.openapi2.SchemeType;
@@ -67,7 +67,7 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass rootEClass = null;
+	private EClass containedCollectionsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -572,8 +572,8 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 	 * @generated
 	 */
 	@Override
-	public EClass getRoot() {
-		return rootEClass;
+	public EClass getContainedCollections() {
+		return containedCollectionsEClass;
 	}
 
 	/**
@@ -582,8 +582,8 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 	 * @generated
 	 */
 	@Override
-	public EReference getRoot_Api() {
-		return (EReference)rootEClass.getEStructuralFeatures().get(0);
+	public EReference getContainedCollections_Paramters() {
+		return (EReference)containedCollectionsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -592,8 +592,8 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 	 * @generated
 	 */
 	@Override
-	public EReference getRoot_Paramters() {
-		return (EReference)rootEClass.getEStructuralFeatures().get(1);
+	public EReference getContainedCollections_Schemas() {
+		return (EReference)containedCollectionsEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -602,18 +602,8 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 	 * @generated
 	 */
 	@Override
-	public EReference getRoot_Schemas() {
-		return (EReference)rootEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getRoot_Responses() {
-		return (EReference)rootEClass.getEStructuralFeatures().get(3);
+	public EReference getContainedCollections_Responses() {
+		return (EReference)containedCollectionsEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -744,6 +734,16 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 	@Override
 	public EReference getAPI_Parameters() {
 		return (EReference)apiEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAPI_ContainedCollections() {
+		return (EReference)apiEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -2253,11 +2253,10 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 		createEAttribute(jsonSchemaSubsetEClass, JSON_SCHEMA_SUBSET__DEFAULT);
 		createEAttribute(jsonSchemaSubsetEClass, JSON_SCHEMA_SUBSET__MULTIPLE_OF);
 
-		rootEClass = createEClass(ROOT);
-		createEReference(rootEClass, ROOT__API);
-		createEReference(rootEClass, ROOT__PARAMTERS);
-		createEReference(rootEClass, ROOT__SCHEMAS);
-		createEReference(rootEClass, ROOT__RESPONSES);
+		containedCollectionsEClass = createEClass(CONTAINED_COLLECTIONS);
+		createEReference(containedCollectionsEClass, CONTAINED_COLLECTIONS__PARAMTERS);
+		createEReference(containedCollectionsEClass, CONTAINED_COLLECTIONS__SCHEMAS);
+		createEReference(containedCollectionsEClass, CONTAINED_COLLECTIONS__RESPONSES);
 
 		apiEClass = createEClass(API);
 		createEReference(apiEClass, API__INFO);
@@ -2272,6 +2271,7 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 		createEReference(apiEClass, API__SECURITY_DEFINITIONS);
 		createEReference(apiEClass, API__TAGS);
 		createEReference(apiEClass, API__PARAMETERS);
+		createEReference(apiEClass, API__CONTAINED_COLLECTIONS);
 		createEOperation(apiEClass, API___GET_ALL_OPERATIONS);
 		createEOperation(apiEClass, API___GET_SCHEMA_BY_REFERENCE__STRING);
 		createEOperation(apiEClass, API___GET_OPERATION_BY_ID__STRING);
@@ -2482,6 +2482,9 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 		// Add supertypes to classes
 		apiEClass.getESuperTypes().add(this.getExternalDocsContainer());
 		apiEClass.getESuperTypes().add(this.getSecurityContainer());
+		apiEClass.getESuperTypes().add(this.getParameterContainer());
+		apiEClass.getESuperTypes().add(this.getResponseContainer());
+		apiEClass.getESuperTypes().add(this.getSchemaContainer());
 		pathEClass.getESuperTypes().add(this.getParameterContainer());
 		operationEClass.getESuperTypes().add(this.getParameterContainer());
 		operationEClass.getESuperTypes().add(this.getExternalDocsContainer());
@@ -2503,9 +2506,6 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 		tagEClass.getESuperTypes().add(this.getExternalDocsContainer());
 		propertyEClass.getESuperTypes().add(this.getJSONPointer());
 		propertyEClass.getESuperTypes().add(this.getSchemaContainer());
-		responseEntryEClass.getESuperTypes().add(this.getResponseContainer());
-		schemaEntryEClass.getESuperTypes().add(this.getSchemaContainer());
-		responseDefinitionEntryEClass.getESuperTypes().add(this.getResponseContainer());
 		parameterEntryEClass.getESuperTypes().add(this.getParameterContainer());
 
 		// Initialize classes, features, and operations; add parameters
@@ -2527,11 +2527,10 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 		initEAttribute(getJSONSchemaSubset_Default(), ecorePackage.getEString(), "default", null, 0, 1, JSONSchemaSubset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJSONSchemaSubset_MultipleOf(), ecorePackage.getEDoubleObject(), "multipleOf", null, 0, 1, JSONSchemaSubset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRoot_Api(), this.getAPI(), null, "api", null, 0, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoot_Paramters(), this.getParameter(), null, "paramters", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoot_Schemas(), this.getSchema(), null, "schemas", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoot_Responses(), this.getResponse(), null, "responses", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(containedCollectionsEClass, ContainedCollections.class, "ContainedCollections", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getContainedCollections_Paramters(), this.getParameter(), null, "paramters", null, 0, -1, ContainedCollections.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContainedCollections_Schemas(), this.getSchema(), null, "schemas", null, 0, -1, ContainedCollections.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContainedCollections_Responses(), this.getResponse(), null, "responses", null, 0, -1, ContainedCollections.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(apiEClass, edu.uoc.som.openapi2.API.class, "API", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAPI_Info(), this.getInfo(), null, "info", null, 0, 1, edu.uoc.som.openapi2.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2546,6 +2545,7 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 		initEReference(getAPI_SecurityDefinitions(), this.getSecuritySchemeEntry(), null, "securityDefinitions", null, 0, -1, edu.uoc.som.openapi2.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPI_Tags(), this.getTag(), null, "tags", null, 0, -1, edu.uoc.som.openapi2.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPI_Parameters(), this.getParameterEntry(), null, "parameters", null, 0, -1, edu.uoc.som.openapi2.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAPI_ContainedCollections(), this.getContainedCollections(), null, "containedCollections", null, 0, 1, edu.uoc.som.openapi2.API.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getAPI__GetAllOperations(), this.getOperation(), "getAllOperations", 0, -1, IS_UNIQUE, IS_ORDERED);
 
