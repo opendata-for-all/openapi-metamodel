@@ -8,13 +8,6 @@
 
 
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated openapi -->
-      <package
-            uri="http://som.uoc.edu/openapi/2.0.0"
-            class="edu.uoc.som.openapi.OpenAPIPackage"
-            genModel="model/openapi2.genmodel"/>
-   </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated openapi2 -->
@@ -22,6 +15,13 @@
             uri="http://som.uoc.edu/openapi/2.0.0"
             class="edu.uoc.som.openapi2.OpenAPI2Package"
             genModel="model/openapi2.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.factory_override">
+      <factory
+            class="edu.uoc.som.openapi2.impl.ExtendedOpenAPI2FactoryImpl"
+            uri="http://som.uoc.edu/openapi/2.0.0">
+      </factory>
    </extension>
 
 </plugin>
