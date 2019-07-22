@@ -8,53 +8,30 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Root</b></em>'.
+ * A representation of the model object '<em><b>Contained Collections</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link edu.uoc.som.openapi2.Root#getApi <em>Api</em>}</li>
- *   <li>{@link edu.uoc.som.openapi2.Root#getParamters <em>Paramters</em>}</li>
- *   <li>{@link edu.uoc.som.openapi2.Root#getSchemas <em>Schemas</em>}</li>
- *   <li>{@link edu.uoc.som.openapi2.Root#getResponses <em>Responses</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi2.ContainedCollections#getParamters <em>Paramters</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi2.ContainedCollections#getSchemas <em>Schemas</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi2.ContainedCollections#getResponses <em>Responses</em>}</li>
  * </ul>
  *
- * @see edu.uoc.som.openapi2.OpenAPI2Package#getRoot()
+ * @see edu.uoc.som.openapi2.OpenAPI2Package#getContainedCollections()
  * @model
  * @generated
  */
-public interface Root extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Api</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Api</em>' containment reference.
-	 * @see #setApi(API)
-	 * @see edu.uoc.som.openapi2.OpenAPI2Package#getRoot_Api()
-	 * @model containment="true"
-	 * @generated
-	 */
-	API getApi();
-
-	/**
-	 * Sets the value of the '{@link edu.uoc.som.openapi2.Root#getApi <em>Api</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Api</em>' containment reference.
-	 * @see #getApi()
-	 * @generated
-	 */
-	void setApi(API value);
-
+public interface ContainedCollections extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Paramters</b></em>' containment reference list.
 	 * The list contents are of type {@link edu.uoc.som.openapi2.Parameter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Paramters</em>' containment reference list.
-	 * @see edu.uoc.som.openapi2.OpenAPI2Package#getRoot_Paramters()
+	 * @see edu.uoc.som.openapi2.OpenAPI2Package#getContainedCollections_Paramters()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -66,7 +43,7 @@ public interface Root extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Schemas</em>' containment reference list.
-	 * @see edu.uoc.som.openapi2.OpenAPI2Package#getRoot_Schemas()
+	 * @see edu.uoc.som.openapi2.OpenAPI2Package#getContainedCollections_Schemas()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -78,10 +55,10 @@ public interface Root extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Responses</em>' containment reference list.
-	 * @see edu.uoc.som.openapi2.OpenAPI2Package#getRoot_Responses()
+	 * @see edu.uoc.som.openapi2.OpenAPI2Package#getContainedCollections_Responses()
 	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Response> getResponses();
 
-} // Root
+} // ContainedCollections

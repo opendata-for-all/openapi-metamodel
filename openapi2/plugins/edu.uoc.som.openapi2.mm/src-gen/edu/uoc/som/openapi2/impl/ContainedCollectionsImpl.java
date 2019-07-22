@@ -2,16 +2,14 @@
  */
 package edu.uoc.som.openapi2.impl;
 
-import edu.uoc.som.openapi2.API;
+import edu.uoc.som.openapi2.ContainedCollections;
 import edu.uoc.som.openapi2.OpenAPI2Package;
 import edu.uoc.som.openapi2.Parameter;
 import edu.uoc.som.openapi2.Response;
-import edu.uoc.som.openapi2.Root;
 import edu.uoc.som.openapi2.Schema;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -19,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -27,31 +24,20 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Root</b></em>'.
+ * An implementation of the model object '<em><b>Contained Collections</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link edu.uoc.som.openapi2.impl.RootImpl#getApi <em>Api</em>}</li>
- *   <li>{@link edu.uoc.som.openapi2.impl.RootImpl#getParamters <em>Paramters</em>}</li>
- *   <li>{@link edu.uoc.som.openapi2.impl.RootImpl#getSchemas <em>Schemas</em>}</li>
- *   <li>{@link edu.uoc.som.openapi2.impl.RootImpl#getResponses <em>Responses</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi2.impl.ContainedCollectionsImpl#getParamters <em>Paramters</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi2.impl.ContainedCollectionsImpl#getSchemas <em>Schemas</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi2.impl.ContainedCollectionsImpl#getResponses <em>Responses</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RootImpl extends MinimalEObjectImpl.Container implements Root {
-	/**
-	 * The cached value of the '{@link #getApi() <em>Api</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getApi()
-	 * @generated
-	 * @ordered
-	 */
-	protected API api;
-
+public class ContainedCollectionsImpl extends MinimalEObjectImpl.Container implements ContainedCollections {
 	/**
 	 * The cached value of the '{@link #getParamters() <em>Paramters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -87,7 +73,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RootImpl() {
+	protected ContainedCollectionsImpl() {
 		super();
 	}
 
@@ -98,52 +84,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return OpenAPI2Package.Literals.ROOT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public API getApi() {
-		return api;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetApi(API newApi, NotificationChain msgs) {
-		API oldApi = api;
-		api = newApi;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenAPI2Package.ROOT__API, oldApi, newApi);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setApi(API newApi) {
-		if (newApi != api) {
-			NotificationChain msgs = null;
-			if (api != null)
-				msgs = ((InternalEObject)api).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenAPI2Package.ROOT__API, null, msgs);
-			if (newApi != null)
-				msgs = ((InternalEObject)newApi).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenAPI2Package.ROOT__API, null, msgs);
-			msgs = basicSetApi(newApi, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenAPI2Package.ROOT__API, newApi, newApi));
+		return OpenAPI2Package.Literals.CONTAINED_COLLECTIONS;
 	}
 
 	/**
@@ -154,7 +95,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	@Override
 	public EList<Parameter> getParamters() {
 		if (paramters == null) {
-			paramters = new EObjectContainmentEList<Parameter>(Parameter.class, this, OpenAPI2Package.ROOT__PARAMTERS);
+			paramters = new EObjectContainmentEList<Parameter>(Parameter.class, this, OpenAPI2Package.CONTAINED_COLLECTIONS__PARAMTERS);
 		}
 		return paramters;
 	}
@@ -167,7 +108,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	@Override
 	public EList<Schema> getSchemas() {
 		if (schemas == null) {
-			schemas = new EObjectContainmentEList<Schema>(Schema.class, this, OpenAPI2Package.ROOT__SCHEMAS);
+			schemas = new EObjectContainmentEList<Schema>(Schema.class, this, OpenAPI2Package.CONTAINED_COLLECTIONS__SCHEMAS);
 		}
 		return schemas;
 	}
@@ -180,7 +121,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	@Override
 	public EList<Response> getResponses() {
 		if (responses == null) {
-			responses = new EObjectContainmentEList<Response>(Response.class, this, OpenAPI2Package.ROOT__RESPONSES);
+			responses = new EObjectContainmentEList<Response>(Response.class, this, OpenAPI2Package.CONTAINED_COLLECTIONS__RESPONSES);
 		}
 		return responses;
 	}
@@ -193,13 +134,11 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case OpenAPI2Package.ROOT__API:
-				return basicSetApi(null, msgs);
-			case OpenAPI2Package.ROOT__PARAMTERS:
+			case OpenAPI2Package.CONTAINED_COLLECTIONS__PARAMTERS:
 				return ((InternalEList<?>)getParamters()).basicRemove(otherEnd, msgs);
-			case OpenAPI2Package.ROOT__SCHEMAS:
+			case OpenAPI2Package.CONTAINED_COLLECTIONS__SCHEMAS:
 				return ((InternalEList<?>)getSchemas()).basicRemove(otherEnd, msgs);
-			case OpenAPI2Package.ROOT__RESPONSES:
+			case OpenAPI2Package.CONTAINED_COLLECTIONS__RESPONSES:
 				return ((InternalEList<?>)getResponses()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -213,13 +152,11 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case OpenAPI2Package.ROOT__API:
-				return getApi();
-			case OpenAPI2Package.ROOT__PARAMTERS:
+			case OpenAPI2Package.CONTAINED_COLLECTIONS__PARAMTERS:
 				return getParamters();
-			case OpenAPI2Package.ROOT__SCHEMAS:
+			case OpenAPI2Package.CONTAINED_COLLECTIONS__SCHEMAS:
 				return getSchemas();
-			case OpenAPI2Package.ROOT__RESPONSES:
+			case OpenAPI2Package.CONTAINED_COLLECTIONS__RESPONSES:
 				return getResponses();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -234,18 +171,15 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case OpenAPI2Package.ROOT__API:
-				setApi((API)newValue);
-				return;
-			case OpenAPI2Package.ROOT__PARAMTERS:
+			case OpenAPI2Package.CONTAINED_COLLECTIONS__PARAMTERS:
 				getParamters().clear();
 				getParamters().addAll((Collection<? extends Parameter>)newValue);
 				return;
-			case OpenAPI2Package.ROOT__SCHEMAS:
+			case OpenAPI2Package.CONTAINED_COLLECTIONS__SCHEMAS:
 				getSchemas().clear();
 				getSchemas().addAll((Collection<? extends Schema>)newValue);
 				return;
-			case OpenAPI2Package.ROOT__RESPONSES:
+			case OpenAPI2Package.CONTAINED_COLLECTIONS__RESPONSES:
 				getResponses().clear();
 				getResponses().addAll((Collection<? extends Response>)newValue);
 				return;
@@ -261,16 +195,13 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case OpenAPI2Package.ROOT__API:
-				setApi((API)null);
-				return;
-			case OpenAPI2Package.ROOT__PARAMTERS:
+			case OpenAPI2Package.CONTAINED_COLLECTIONS__PARAMTERS:
 				getParamters().clear();
 				return;
-			case OpenAPI2Package.ROOT__SCHEMAS:
+			case OpenAPI2Package.CONTAINED_COLLECTIONS__SCHEMAS:
 				getSchemas().clear();
 				return;
-			case OpenAPI2Package.ROOT__RESPONSES:
+			case OpenAPI2Package.CONTAINED_COLLECTIONS__RESPONSES:
 				getResponses().clear();
 				return;
 		}
@@ -285,16 +216,14 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case OpenAPI2Package.ROOT__API:
-				return api != null;
-			case OpenAPI2Package.ROOT__PARAMTERS:
+			case OpenAPI2Package.CONTAINED_COLLECTIONS__PARAMTERS:
 				return paramters != null && !paramters.isEmpty();
-			case OpenAPI2Package.ROOT__SCHEMAS:
+			case OpenAPI2Package.CONTAINED_COLLECTIONS__SCHEMAS:
 				return schemas != null && !schemas.isEmpty();
-			case OpenAPI2Package.ROOT__RESPONSES:
+			case OpenAPI2Package.CONTAINED_COLLECTIONS__RESPONSES:
 				return responses != null && !responses.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //RootImpl
+} //ContainedCollectionsImpl
