@@ -10,6 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -20,6 +21,7 @@ import edu.uoc.som.openapi2.APIKeyLocation;
 import edu.uoc.som.openapi2.CollectionFormat;
 import edu.uoc.som.openapi2.Contact;
 import edu.uoc.som.openapi2.Example;
+import edu.uoc.som.openapi2.ExtendedOpenAPI2Factory;
 import edu.uoc.som.openapi2.ExternalDocs;
 import edu.uoc.som.openapi2.Header;
 import edu.uoc.som.openapi2.Info;
@@ -27,15 +29,14 @@ import edu.uoc.som.openapi2.ItemsDefinition;
 import edu.uoc.som.openapi2.JSONDataType;
 import edu.uoc.som.openapi2.License;
 import edu.uoc.som.openapi2.OAuth2FlowType;
-import edu.uoc.som.openapi2.OpenAPIFactory;
+import edu.uoc.som.openapi2.OpenAPI2Factory;
 import edu.uoc.som.openapi2.Operation;
 import edu.uoc.som.openapi2.Parameter;
 import edu.uoc.som.openapi2.ParameterLocation;
 import edu.uoc.som.openapi2.Path;
 import edu.uoc.som.openapi2.Property;
+import edu.uoc.som.openapi2.RequiredSecurityScheme;
 import edu.uoc.som.openapi2.Response;
-import edu.uoc.som.openapi2.ResponseDefinition;
-import edu.uoc.som.openapi2.Root;
 import edu.uoc.som.openapi2.Schema;
 import edu.uoc.som.openapi2.SchemeType;
 import edu.uoc.som.openapi2.SecurityRequirement;
@@ -44,98 +45,113 @@ import edu.uoc.som.openapi2.SecuritySchemeType;
 import edu.uoc.som.openapi2.SecurityScope;
 import edu.uoc.som.openapi2.Tag;
 import edu.uoc.som.openapi2.XMLElement;
+import edu.uoc.som.openapi2.io.model.SerializationFormat;
+public class OpenAPI2Importer {
+	
+	private OpenAPI2Factory openAPIFactory;
+	private API openAPI2Model;
 
-public class OpenAPIImporter {
-	OpenAPIFactory openAPIFactory;
-
-	public OpenAPIImporter() {
-		openAPIFactory = OpenAPIFactory.eINSTANCE;
+	public OpenAPI2Importer() {
+		openAPIFactory = ExtendedOpenAPI2Factory.eINSTANCE;
+		openAPI2Model = openAPIFactory.createAPI();
 
 	}
 
-	public Root createOpenAPIModelFromJson(File jsonFile) throws FileNotFoundException, UnsupportedEncodingException {
-		InputStream in = new FileInputStream(jsonFile);
+	public API createOpenAPI2ModelFromFile(File inputFile, SerializationFormat serializationFormat) throws FileNotFoundException, UnsupportedEncodingException {
+		
+		InputStream in = new FileInputStream(inputFile);
 		Reader reader = new InputStreamReader(in, "UTF-8");
 		JsonParser parser = new JsonParser();
 		JsonElement jsonElement = parser.parse(reader);
 
-		return createOpenAPIModelFromJson(jsonElement.getAsJsonObject());
+		if(serializationFormat== null || serializationFormat.equals(SerializationFormat.JSON))
+			return createOpenAPIModelFromJson(jsonElement.getAsJsonObject());
+		else 
+		return createOpenAPIModelFromYaml();
 
 	}
 
-	public Root createOpenAPIModelFromJson(JsonObject jsonObject) {
 
-		Root root = openAPIFactory.createRoot();
-		API api = openAPIFactory.createAPI();
-		root.setApi(api);
-		if (jsonObject.has("swagger"))
-			api.setSwagger(jsonObject.get("swagger").getAsString());
+	public API createOpenAPI2ModelFromString(String text, SerializationFormat serializationFormat) {
+		JsonParser parser = new JsonParser();
+		JsonElement jsonElement = parser.parse(text);
+		if(serializationFormat== null || serializationFormat.equals(SerializationFormat.JSON))
+			return createOpenAPIModelFromJson(jsonElement.getAsJsonObject());
+		else 
+		return createOpenAPIModelFromYaml();
+
+	}
+
+	public API createOpenAPIModelFromJson(JsonObject jsonObject) {
+
+		openAPI2Model = openAPIFactory.createAPI();
 		if (jsonObject.has("info")) {
 			Info info = openAPIFactory.createInfo();
-			api.setInfo(info);
+			openAPI2Model.setInfo(info);
 			importInfo(jsonObject.get("info"), info);
 		}
 		if (jsonObject.has("host"))
-			api.setHost(jsonObject.get("host").getAsString());
+			openAPI2Model.setHost(jsonObject.get("host").getAsString());
 
 		if (jsonObject.has("basePath"))
-			api.setBasePath(jsonObject.get("basePath").getAsString());
+			openAPI2Model.setBasePath(jsonObject.get("basePath").getAsString());
 		if (jsonObject.has("schemes")) {
 			JsonArray schemes = jsonObject.get("schemes").getAsJsonArray();
 			for (JsonElement scheme : schemes) {
-				api.getSchemes().add(SchemeType.get(scheme.getAsString()));
+				openAPI2Model.getSchemes().add(SchemeType.get(scheme.getAsString()));
 			}
 		}
 		if (jsonObject.has("consumes")) {
 			JsonArray mimeTypes = jsonObject.get("consumes").getAsJsonArray();
 			for (JsonElement mimeType : mimeTypes) {
-				api.getConsumes().add(mimeType.getAsString());
+				openAPI2Model.getConsumes().add(mimeType.getAsString());
 			}
 		}
 
 		if (jsonObject.has("produces")) {
 			JsonArray mimeTypes = jsonObject.get("produces").getAsJsonArray();
 			for (JsonElement mimeType : mimeTypes) {
-				api.getProduces().add(mimeType.getAsString());
+				openAPI2Model.getProduces().add(mimeType.getAsString());
 			}
 		}
 		if (jsonObject.has("definitions")) {
-			importDefinitions(jsonObject.get("definitions"), root);
+			importDefinitions(jsonObject.get("definitions"));
 		}
 		if (jsonObject.has("securityDefinitions")) {
-			importSecurityDefinitions(jsonObject.get("securityDefinitions"), root);
+			importSecurityDefinitions(jsonObject.get("securityDefinitions"));
 		}
 		if (jsonObject.has("responses")) {
-			importResponses(jsonObject.get("responses"), root);
+			importResponses(jsonObject.get("responses"));
 		}
 		if (jsonObject.has("parameters")) {
-			importParameters(jsonObject.get("parameters"), root);
+			importParameters(jsonObject.get("parameters"));
 		}
 
 		if (jsonObject.has("paths")) {
-			importPaths(jsonObject.get("paths"), root);
+			importPaths(jsonObject.get("paths"));
 		}
 
 		if (jsonObject.has("security")) {
-			importSecurity(jsonObject.get("security"), api);
+			importSecurity(jsonObject.get("security"));
 		}
 		if (jsonObject.has("tags")) {
-			importTags(jsonObject.get("tags"), root);
+			importTags(jsonObject.get("tags"));
 		}
 		if (jsonObject.has("externalDocs")) {
 			ExternalDocs externalDocs = openAPIFactory.createExternalDocs();
-			api.setExternalDocs(externalDocs);
+			openAPI2Model.setExternalDocs(externalDocs);
 			importExternalDocs(jsonObject.get("externalDocs"), externalDocs);
 		}
-		return root;
+		return openAPI2Model;
+		
 
 	}
 
-	private void importTags(JsonElement jsonElement, Root root) {
+	private void importTags(JsonElement jsonElement) {
 		JsonArray tagArray = jsonElement.getAsJsonArray();
 		for (JsonElement tagElement : tagArray) {
 			Tag tag = openAPIFactory.createTag();
-			root.getApi().getTags().add(tag);
+			openAPI2Model.getTags().add(tag);
 			importTag(tagElement, tag);
 		}
 
@@ -155,37 +171,35 @@ public class OpenAPIImporter {
 
 	}
 
-	private void importSecurity(JsonElement jsonElement, API api) {
+	private void importSecurity(JsonElement jsonElement) {
 		JsonArray securityArray = jsonElement.getAsJsonArray();
 		for (JsonElement securityElement : securityArray) {
 			SecurityRequirement security = openAPIFactory.createSecurityRequirement();
-			api.getSecurity().add(security);
-			importSecurityRequirement(securityElement, security, api);
+			openAPI2Model.getSecurity().add(security);
+			importSecurityRequirement(securityElement, security);
 		}
 
 	}
 
-	private void importParameters(JsonElement jsonElement, Root root) {
+	private void importParameters(JsonElement jsonElement) {
 		JsonObject aPIParametersObject = jsonElement.getAsJsonObject();
 		Set<Entry<String, JsonElement>> aPIParameters = aPIParametersObject.entrySet();
 		for (Entry<String, JsonElement> aPIParameterElement : aPIParameters) {
-			Parameter aPIParameter = openAPIFactory.createParameter();
-			aPIParameter.setReferenceName(aPIParameterElement.getKey());
-			aPIParameter.setDeclaringContext(root.getApi());
-			root.getApi().getParameters().add(aPIParameter);
-			root.getParamters().add(aPIParameter);
-			importParameter(aPIParameterElement.getValue(), aPIParameter, root);
+			Parameter parameter = openAPIFactory.createParameter();
+			openAPI2Model.getParameters().put(aPIParameterElement.getKey(), parameter);
+			parameter.setDeclaringContext(openAPI2Model);
+			openAPI2Model.getContainedCollections().getParamters().add(parameter);
+			importParameter(aPIParameterElement.getValue(), parameter);
 		}
 
 	}
 
-	private void importSecurityDefinitions(JsonElement jsonElement, Root root) {
+	private void importSecurityDefinitions(JsonElement jsonElement) {
 		JsonObject securityDefinitionsObject = jsonElement.getAsJsonObject();
 		Set<Entry<String, JsonElement>> securityDefinitions = securityDefinitionsObject.entrySet();
 		for (Entry<String, JsonElement> securityDefinitionElement : securityDefinitions) {
 			SecurityScheme securityDefinition = openAPIFactory.createSecurityScheme();
-			securityDefinition.setReferenceName(securityDefinitionElement.getKey());
-			root.getApi().getSecurityDefinitions().add(securityDefinition);
+			openAPI2Model.getSecurityDefinitions().put(securityDefinitionElement.getKey(), securityDefinition);
 			importSecurityScheme(securityDefinitionElement.getValue(), securityDefinition);
 		}
 
@@ -221,35 +235,32 @@ public class OpenAPIImporter {
 
 	}
 
-	private void importResponses(JsonElement jsonElement, Root root) {
+	private void importResponses(JsonElement jsonElement) {
 		JsonObject responsesObject = jsonElement.getAsJsonObject();
 		Set<Entry<String, JsonElement>> responses = responsesObject.entrySet();
 		for (Entry<String, JsonElement> responseElement : responses) {
-			ResponseDefinition responseDefinition = openAPIFactory.createResponseDefinition();
-			responseDefinition.setReferenceName(responseElement.getKey());
-			root.getApi().getResponses().add(responseDefinition);
-			responseDefinition.setDeclaringContext(root.getApi());
-			importResponse(responseElement.getValue(), responseDefinition, root);
+			Response responseDefinition = openAPIFactory.createResponse();
+			openAPI2Model.getResponses().put(responseElement.getKey(),responseDefinition);
+			responseDefinition.setDeclaringContext(openAPI2Model);
+			openAPI2Model.getContainedCollections().getResponses().add(responseDefinition);
+			importResponse(responseElement.getValue(), responseDefinition);
 		}
 	}
 
-	private void importDefinitions(JsonElement jsonElement, Root root) {
+	private void importDefinitions(JsonElement jsonElement) {
 		JsonObject definitionsObject = jsonElement.getAsJsonObject();
 		Set<Entry<String, JsonElement>> definitions = definitionsObject.entrySet();
 		for (Entry<String, JsonElement> definitionElement : definitions) {
 			Schema schema = openAPIFactory.createSchema();
-			schema.setReferenceName(definitionElement.getKey());
-			root.getSchemas().add(schema);
-			schema.setDeclaringContext(root.getApi());
-			root.getApi().getDefinitions().add(schema);
+			openAPI2Model.getDefinitions().put(definitionElement.getKey(),schema);
+			openAPI2Model.getContainedCollections().getSchemas().add(schema);
+			schema.setDeclaringContext(openAPI2Model);
+			importSchema(definitionElement.getValue().getAsJsonObject(), schema);
 		}
-		for (Entry<String, JsonElement> definitionElement : definitions) {
-			importSchema(definitionElement.getValue().getAsJsonObject(),
-					root.getApi().getSchemaByName(definitionElement.getKey()), root);
-		}
+
 	}
 
-	private void importSchema(JsonObject schemaObject, Schema schema, Root root) {
+	private void importSchema(JsonObject schemaObject, Schema schema) {
 		if (schemaObject.has("format"))
 			schema.setFormat(schemaObject.get("format").getAsString());
 		if (schemaObject.has("description"))
@@ -296,12 +307,12 @@ public class OpenAPIImporter {
 			Set<Entry<String, JsonElement>> properties = schemaObject.get("properties").getAsJsonObject().entrySet();
 			for (Entry<String, JsonElement> jsonProperty : properties) {
 				Property property = openAPIFactory.createProperty();
-				property.setReferenceName(jsonProperty.getKey());
+				property.setName(jsonProperty.getKey());
 				schema.getProperties().add(property);
 				JsonObject value = jsonProperty.getValue().getAsJsonObject();
 				if (value.has("$ref")) {
 					String ref = value.get("$ref").getAsString();
-					Schema referencedchema = root.getApi().getSchemaByReference(ref);
+					Schema referencedchema = openAPI2Model.getSchemaByReference(ref);
 					if (referencedchema != null) {
 						property.setSchema(referencedchema);
 					}
@@ -309,8 +320,8 @@ public class OpenAPIImporter {
 					Schema propertyValue = openAPIFactory.createSchema();
 					property.setSchema(propertyValue);
 					propertyValue.setDeclaringContext(property);
-					root.getSchemas().add(propertyValue);
-					importSchema(jsonProperty.getValue().getAsJsonObject(), property.getSchema(), root);
+					openAPI2Model.getContainedCollections().getSchemas().add(propertyValue);
+					importSchema(jsonProperty.getValue().getAsJsonObject(), property.getSchema());
 				}
 
 			}
@@ -324,14 +335,14 @@ public class OpenAPIImporter {
 				JsonObject additionalPropertiesObject = additionalProperties.getAsJsonObject();
 				if (additionalPropertiesObject.has("$ref")) {
 					String ref = additionalPropertiesObject.get("$ref").getAsString();
-					Schema referencedchema = root.getApi().getSchemaByReference(ref);
+					Schema referencedchema = openAPI2Model.getSchemaByReference(ref);
 					schema.setAdditonalProperties(referencedchema);
 				} else {
 					Schema additionalPropertieSchema = openAPIFactory.createSchema();
 					schema.setAdditonalProperties(additionalPropertieSchema);
-					root.getSchemas().add(additionalPropertieSchema);
+					openAPI2Model.getContainedCollections().getSchemas().add(additionalPropertieSchema);
 					additionalPropertieSchema.setDeclaringContext(schema);
-					importSchema(additionalPropertiesObject, additionalPropertieSchema, root);
+					importSchema(additionalPropertiesObject, additionalPropertieSchema);
 				}
 			}
 
@@ -341,14 +352,14 @@ public class OpenAPIImporter {
 			for (JsonElement allOfElement : allOfArray) {
 				JsonObject allOfObject = allOfElement.getAsJsonObject();
 				if (allOfObject.has("$ref")) {
-					Schema allOfRef = root.getApi().getSchemaByReference(allOfObject.get("$ref").getAsString());
+					Schema allOfRef = openAPI2Model.getSchemaByReference(allOfObject.get("$ref").getAsString());
 					schema.getAllOf().add(allOfRef);
 				} else {
 					Schema allOfSchema = openAPIFactory.createSchema();
 					schema.getAllOf().add(allOfSchema);
-					root.getSchemas().add(allOfSchema);
+					openAPI2Model.getContainedCollections().getSchemas().add(allOfSchema);
 					allOfSchema.setDeclaringContext(schema);
-					importSchema(allOfObject, allOfSchema, root);
+					importSchema(allOfObject, allOfSchema);
 				}
 
 			}
@@ -356,13 +367,13 @@ public class OpenAPIImporter {
 		if (schemaObject.has("items")) {
 			JsonObject itemsObject = schemaObject.get("items").getAsJsonObject();
 			if (itemsObject.has("$ref")) {
-				schema.setItems(root.getApi().getSchemaByReference(itemsObject.get("$ref").getAsString()));
+				schema.setItems(openAPI2Model.getSchemaByReference(itemsObject.get("$ref").getAsString()));
 			} else {
 				Schema itemsSchema = openAPIFactory.createSchema();
 				schema.setItems(itemsSchema);
-				root.getSchemas().add(itemsSchema);
+				openAPI2Model.getContainedCollections().getSchemas().add(itemsSchema);
 				itemsSchema.setDeclaringContext(schema);
-				importSchema(itemsObject, itemsSchema, root);
+				importSchema(itemsObject, itemsSchema);
 			}
 		}
 		if (schemaObject.has("discriminator")) {
@@ -401,63 +412,63 @@ public class OpenAPIImporter {
 		}
 	}
 
-	private void importPaths(JsonElement jsonElement, Root root) {
+	private void importPaths(JsonElement jsonElement) {
 		JsonObject pathsObject = jsonElement.getAsJsonObject();
 		Set<Entry<String, JsonElement>> paths = pathsObject.entrySet();
 		for (Entry<String, JsonElement> pathElement : paths) {
 			JsonObject pathObject = pathElement.getValue().getAsJsonObject();
 			Path path = openAPIFactory.createPath();
-			root.getApi().getPaths().add(path);
+			openAPI2Model.getPaths().add(path);
 			path.setRelativePath(pathElement.getKey());
 			if (pathObject.has("get")) {
 				Operation getAPIOperation = openAPIFactory.createOperation();
 				path.setGet(getAPIOperation);
-				importOperation(pathObject.get("get"), getAPIOperation, root);
+				importOperation(pathObject.get("get"), getAPIOperation);
 			}
 			if (pathObject.has("put")) {
 				Operation putAPIOperation = openAPIFactory.createOperation();
 				path.setPut(putAPIOperation);
-				importOperation(pathObject.get("put"), putAPIOperation, root);
+				importOperation(pathObject.get("put"), putAPIOperation);
 			}
 			if (pathObject.has("post")) {
 				Operation aPIOperation = openAPIFactory.createOperation();
 				path.setPost(aPIOperation);
-				importOperation(pathObject.get("post"), aPIOperation, root);
+				importOperation(pathObject.get("post"), aPIOperation);
 			}
 			if (pathObject.has("delete")) {
 				Operation aPIOperation = openAPIFactory.createOperation();
 				path.setDelete(aPIOperation);
-				importOperation(pathObject.get("delete"), aPIOperation, root);
+				importOperation(pathObject.get("delete"), aPIOperation);
 			}
 			if (pathObject.has("options")) {
 				Operation aPIOperation = openAPIFactory.createOperation();
 				path.setOptions(aPIOperation);
-				importOperation(pathObject.get("options"), aPIOperation, root);
+				importOperation(pathObject.get("options"), aPIOperation);
 			}
 			if (pathObject.has("head")) {
 				Operation aPIOperation = openAPIFactory.createOperation();
 				path.setHead(aPIOperation);
-				importOperation(pathObject.get("head"), aPIOperation, root);
+				importOperation(pathObject.get("head"), aPIOperation);
 			}
 			if (pathObject.has("patch")) {
 				Operation aPIOperation = openAPIFactory.createOperation();
 				path.setPatch(aPIOperation);
-				importOperation(pathObject.get("patch"), aPIOperation, root);
+				importOperation(pathObject.get("patch"), aPIOperation);
 			}
 			if (pathObject.has("parameters")) {
 				JsonArray aPIParametersArray = pathObject.get("parameters").getAsJsonArray();
 				for (JsonElement aPIParameterElement : aPIParametersArray) {
 
 					if (aPIParameterElement.getAsJsonObject().has("$ref")) {
-						root.getApi()
+						openAPI2Model
 								.getParameterByReference(aPIParameterElement.getAsJsonObject().get("$ref").getAsString());
 
 					} else {
 						Parameter aPIParameter = openAPIFactory.createParameter();
 						aPIParameter.setDeclaringContext(path);
 						path.getParameters().add(aPIParameter);
-						root.getParamters().add(aPIParameter);
-						importParameter(aPIParameterElement, aPIParameter, root);
+						openAPI2Model.getContainedCollections().getParamters().add(aPIParameter);
+						importParameter(aPIParameterElement, aPIParameter);
 					}
 				
 					
@@ -468,7 +479,7 @@ public class OpenAPIImporter {
 
 	}
 
-	private void importOperation(JsonElement jsonElement, Operation aPIOperation, Root root) {
+	private void importOperation(JsonElement jsonElement, Operation aPIOperation) {
 		JsonObject jsonObject = jsonElement.getAsJsonObject();
 		if (jsonObject.has("tags")) {
 			JsonArray tagsArray = jsonObject.get("tags").getAsJsonArray();
@@ -502,15 +513,15 @@ public class OpenAPIImporter {
 			JsonArray aPIParameterArray = jsonObject.get("parameters").getAsJsonArray();
 			for (JsonElement aPIParameterElement : aPIParameterArray) {
 				if (aPIParameterElement.getAsJsonObject().has("$ref")) {
-					root.getApi()
+					openAPI2Model
 							.getParameterByReference(aPIParameterElement.getAsJsonObject().get("$ref").getAsString());
 
 				} else {
 					Parameter aPIParameter = openAPIFactory.createParameter();
 					aPIParameter.setDeclaringContext(aPIOperation);
 					aPIOperation.getParameters().add(aPIParameter);
-					root.getParamters().add(aPIParameter);
-					importParameter(aPIParameterElement, aPIParameter, root);
+					openAPI2Model.getContainedCollections().getParamters().add(aPIParameter);
+					importParameter(aPIParameterElement, aPIParameter);
 				}
 			}
 
@@ -518,23 +529,17 @@ public class OpenAPIImporter {
 		if (jsonObject.has("responses")) {
 			Set<Entry<String, JsonElement>> responses = jsonObject.get("responses").getAsJsonObject().entrySet();
 			for (Entry<String, JsonElement> responseElement : responses) {
-				Response response = openAPIFactory.createResponse();
-				aPIOperation.getResponses().add(response);
-				if (responseElement.getKey().equals("default"))
-					response.setDefault(Boolean.TRUE);
-				else
-					response.setCode(Integer.valueOf(responseElement.getKey()));
 				JsonObject responseJson = responseElement.getValue().getAsJsonObject();
 				if (responseJson.has("$ref")) {
-					ResponseDefinition responseDefinition = root.getApi()
+					Response responseDefinition = openAPI2Model
 							.getResponseDefinitionByReference(responseJson.get("$ref").getAsString());
-					response.setResponseDefinition(responseDefinition);
+					aPIOperation.getResponses().put(responseElement.getKey(),responseDefinition);
+				
 				} else {
-					ResponseDefinition responseDefinition = openAPIFactory.createResponseDefinition();
-					response.setResponseDefinition(responseDefinition);
-					responseDefinition.setDeclaringContext(response);
-					root.getResponses().add(responseDefinition);
-					importResponse(responseJson, responseDefinition, root);
+					Response responseDefinition = openAPIFactory.createResponse();
+					responseDefinition.setDeclaringContext(aPIOperation);
+					openAPI2Model.getContainedCollections().getResponses().add(responseDefinition);
+					importResponse(responseJson, responseDefinition);
 				}
 			}
 		}
@@ -551,24 +556,26 @@ public class OpenAPIImporter {
 			for (JsonElement securityElement : securityArray) {
 				SecurityRequirement security = openAPIFactory.createSecurityRequirement();
 				aPIOperation.getSecurity().add(security);
-				importSecurityRequirement(securityElement, security, root.getApi());
+				importSecurityRequirement(securityElement, security);
 
 			}
 
 		}
 	}
 
-	private void importSecurityRequirement(JsonElement securityElement, SecurityRequirement security, API api) {
-		Set<Entry<String, JsonElement>> securityAttributes = securityElement.getAsJsonObject().entrySet();
-		Entry<String, JsonElement> first = (Entry<String, JsonElement>) securityAttributes.toArray()[0];
-		SecurityScheme securityScheme = api.getSecuritySchemaByName(first.getKey());
-		security.setSecurityScheme(securityScheme);
-		for (JsonElement value : first.getValue().getAsJsonArray())
-			security.getSecurityScopes().add(securityScheme.getSecurityScopeByName(value.getAsString()));
+	private void importSecurityRequirement(JsonElement securityElement, SecurityRequirement securityRequirement) {
+		Set<Entry<String, JsonElement>> securityRequirementObjects = securityElement.getAsJsonObject().entrySet();
+		for (Entry<String, JsonElement> securityRequirementObject : securityRequirementObjects) {
+			RequiredSecurityScheme requiredSecurityScheme = openAPIFactory.createRequiredSecurityScheme();
+			requiredSecurityScheme.setSecurityScheme(openAPI2Model.getSecurityDefinitions().get(securityRequirementObject.getKey()));
+		for (JsonElement value : securityRequirementObject.getValue().getAsJsonArray())
+			requiredSecurityScheme.getSecurityScopes().add(requiredSecurityScheme.getSecurityScheme().getSecurityScopeByName(value.getAsString()));
+		securityRequirement.getSecuritySchemes().add(requiredSecurityScheme);
+		}
 
 	}
 
-	private void importResponse(JsonElement responseElement, ResponseDefinition responseDefinition, Root root) {
+	private void importResponse(JsonElement responseElement, Response responseDefinition) {
 		JsonObject responseObject = responseElement.getAsJsonObject();
 		if (responseObject.has("description"))
 			responseDefinition.setDescription(responseObject.get("description").getAsString());
@@ -576,13 +583,13 @@ public class OpenAPIImporter {
 			JsonObject schemaObject = responseObject.get("schema").getAsJsonObject();
 			if (schemaObject.has("$ref"))
 				responseDefinition
-						.setSchema(root.getApi().getSchemaByReference(schemaObject.get("$ref").getAsString()));
+						.setSchema(openAPI2Model.getSchemaByReference(schemaObject.get("$ref").getAsString()));
 			else {
 				Schema schema = openAPIFactory.createSchema();
 				responseDefinition.setSchema(schema);
 				schema.setDeclaringContext(responseDefinition);
-				root.getSchemas().add(schema);
-				importSchema(responseObject.get("schema").getAsJsonObject(), schema, root);
+				openAPI2Model.getContainedCollections().getSchemas().add(schema);
+				importSchema(responseObject.get("schema").getAsJsonObject(), schema);
 			}
 		}
 		if (responseObject.has("headers")) {
@@ -658,7 +665,7 @@ public class OpenAPIImporter {
 
 	}
 
-	private void importParameter(JsonElement aPIParameterElement, Parameter aPIParameter, Root root) {
+	private void importParameter(JsonElement aPIParameterElement, Parameter aPIParameter) {
 		JsonObject jsonObject = aPIParameterElement.getAsJsonObject();
 		if (jsonObject.has("name"))
 			aPIParameter.setName(jsonObject.get("name").getAsString());
@@ -673,13 +680,13 @@ public class OpenAPIImporter {
 		if (jsonObject.has("schema")) {
 			JsonObject schemaObject = jsonObject.get("schema").getAsJsonObject();
 			if (schemaObject.has("$ref"))
-				aPIParameter.setSchema(root.getApi().getSchemaByReference(schemaObject.get("$ref").getAsString()));
+				aPIParameter.setSchema(openAPI2Model.getSchemaByReference(schemaObject.get("$ref").getAsString()));
 			else {
 				Schema schema = openAPIFactory.createSchema();
 				aPIParameter.setSchema(schema);
-				root.getSchemas().add(schema);
+				openAPI2Model.getContainedCollections().getSchemas().add(schema);
 				schema.setDeclaringContext(aPIParameter);
-				importSchema(jsonObject.get("schema").getAsJsonObject(), schema, root);
+				importSchema(jsonObject.get("schema").getAsJsonObject(), schema);
 			}
 		}
 		if (jsonObject.has("type"))
@@ -822,9 +829,10 @@ public class OpenAPIImporter {
 
 	}
 
-	public Root createOpenAPIModelFromYaml() {
-		return null;
+	public API createOpenAPIModelFromYaml() {
+		return openAPI2Model;
 
 	}
+
 
 }
