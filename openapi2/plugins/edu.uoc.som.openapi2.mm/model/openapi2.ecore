@@ -19,8 +19,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="multipleOf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Root">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="api" eType="#//API" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ContainedCollections">
     <eStructuralFeatures xsi:type="ecore:EReference" name="paramters" upperBound="-1"
         eType="#//Parameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schemas" upperBound="-1"
@@ -66,6 +65,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//ParameterEntry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containedCollections" eType="#//ContainedCollections"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Info">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -76,11 +76,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//JSONSchemaSubset/default"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//JSONSchemaSubset/multipleOf"/>
     </genClasses>
-    <genClasses ecoreClass="openapi2.ecore#//Root">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//Root/api"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//Root/paramters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//Root/schemas"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//Root/responses"/>
+    <genClasses ecoreClass="openapi2.ecore#//ContainedCollections">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//ContainedCollections/paramters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//ContainedCollections/schemas"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//ContainedCollections/responses"/>
     </genClasses>
     <genClasses ecoreClass="openapi2.ecore#//API">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//API/info"/>
@@ -95,6 +94,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//API/securityDefinitions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//API/tags"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//API/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openapi2.ecore#//API/containedCollections"/>
       <genOperations ecoreOperation="openapi2.ecore#//API/getAllOperations"/>
       <genOperations ecoreOperation="openapi2.ecore#//API/getSchemaByReference">
         <genParameters ecoreParameter="openapi2.ecore#//API/getSchemaByReference/ref"/>
