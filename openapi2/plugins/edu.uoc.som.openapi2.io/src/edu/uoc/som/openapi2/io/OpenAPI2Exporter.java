@@ -31,7 +31,7 @@ import edu.uoc.som.openapi2.SecurityScheme;
 import edu.uoc.som.openapi2.SecuritySchemeType;
 import edu.uoc.som.openapi2.SecurityScope;
 import edu.uoc.som.openapi2.Tag;
-import edu.uoc.som.openapi2.impl.ParameterEntryImpl;
+import edu.uoc.som.openapi2.impl.SecuritySchemeEntryImpl;
 
 public class OpenAPI2Exporter {
 
@@ -150,7 +150,7 @@ public class OpenAPI2Exporter {
 		if (!securityRequirement.getSecuritySchemes().isEmpty()) {
 			for(RequiredSecurityScheme requiredSecurityScheme: securityRequirement.getSecuritySchemes()) {
 			JsonArray scopes = new JsonArray();
-			securityRequirementJson.add(((ParameterEntryImpl)requiredSecurityScheme.getSecurityScheme().eContainer()).getKey(), scopes);
+			securityRequirementJson.add(((SecuritySchemeEntryImpl)requiredSecurityScheme.getSecurityScheme().eContainer()).getKey(), scopes);
 				for (SecurityScope scope : requiredSecurityScheme.getSecurityScopes())
 					scopes.add(scope.getName());
 
