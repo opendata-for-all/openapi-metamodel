@@ -1,9 +1,9 @@
 package edu.uoc.som.openapi2.impl;
 
+import edu.uoc.som.openapi2.ExtendedSchema;
 import edu.uoc.som.openapi2.Property;
-import edu.uoc.som.openapi2.SchemaContainer;
 
-public class ExtendedSchemaImpl extends SchemaImpl {
+public class ExtendedSchemaImpl extends SchemaImpl implements ExtendedSchema {
 
 	
 	@Override
@@ -16,9 +16,8 @@ public class ExtendedSchemaImpl extends SchemaImpl {
 	
 	@Override
 	public String getRef() {
-		SchemaContainer schemaContext = getDeclaringContext();
-		if(schemaContext instanceof SchemaEntryImpl)
-			return "#/definitions/"+((SchemaEntryImpl)schemaContext).getKey();
+		if(declaringContext instanceof SchemaEntryImpl)
+			return "#/definitions/"+((SchemaEntryImpl)declaringContext).getKey();
 		return "unknown";
 	}
 }

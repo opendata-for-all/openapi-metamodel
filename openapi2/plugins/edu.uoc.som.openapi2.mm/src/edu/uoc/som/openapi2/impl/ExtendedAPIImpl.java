@@ -9,14 +9,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 
+import edu.uoc.som.openapi2.ExtendedAPI;
 import edu.uoc.som.openapi2.Operation;
 import edu.uoc.som.openapi2.Parameter;
 import edu.uoc.som.openapi2.Path;
 import edu.uoc.som.openapi2.Response;
 import edu.uoc.som.openapi2.Schema;
-import edu.uoc.som.openapi2.SecurityScheme;
 
-public class ExtendedAPIImpl extends APIImpl {
+public class ExtendedAPIImpl extends APIImpl implements ExtendedAPI {
 	
 	@Override
 	public EList<Operation> getAllOperations() {

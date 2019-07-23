@@ -1,15 +1,14 @@
 package edu.uoc.som.openapi2.impl;
 
-import edu.uoc.som.openapi2.ParameterContainer;
+import edu.uoc.som.openapi2.ExtendedParameter;
 
-public class ExtendedParameterImpl extends ParameterImpl {
+public class ExtendedParameterImpl extends ParameterImpl implements ExtendedParameter{
 
 	
 	@Override
 	public String getRef() {
-		ParameterContainer declaringContainer = getDeclaringContext();
 		if(declaringContext instanceof ParameterEntryImpl)
-			return "#/parameters/"+ ((ParameterEntryImpl) declaringContainer).getKey();
+			return "#/parameters/"+ ((ParameterEntryImpl) declaringContext).getKey();
 		return "unknown";
 	}
 }

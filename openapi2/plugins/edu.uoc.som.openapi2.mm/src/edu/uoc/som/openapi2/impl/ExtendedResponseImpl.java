@@ -1,14 +1,13 @@
 package edu.uoc.som.openapi2.impl;
 
-import edu.uoc.som.openapi2.ResponseContainer;
+import edu.uoc.som.openapi2.ExtendedResponse;
 
-public class ExtendedResponseImpl extends ResponseImpl {
+public class ExtendedResponseImpl extends ResponseImpl implements ExtendedResponse {
 
 	@Override
 	public String getRef() {
-		ResponseContainer responseContainer = getDeclaringContext();
-		if (responseContainer instanceof ResponseDefinitionEntryImpl)
-			return "#/responses/" + ((ResponseDefinitionEntryImpl) responseContainer).getKey();
+		if (declaringContext instanceof ResponseDefinitionEntryImpl)
+			return "#/responses/" + ((ResponseDefinitionEntryImpl) declaringContext).getKey();
 
 		return "unkown";
 	}

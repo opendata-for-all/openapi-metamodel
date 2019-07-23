@@ -1,8 +1,9 @@
 package edu.uoc.som.openapi2.impl;
 
+import edu.uoc.som.openapi2.ExtendedPath;
 import edu.uoc.som.openapi2.Operation;
 
-public class ExtendedPathImpl extends PathImpl {
+public class ExtendedPathImpl extends PathImpl implements ExtendedPath {
 
 	@Override
 	public Operation getOperationByHTTPMethod(String method) {
