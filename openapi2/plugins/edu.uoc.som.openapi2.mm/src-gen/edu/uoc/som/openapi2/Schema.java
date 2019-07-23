@@ -307,4 +307,12 @@ public interface Schema extends JSONSchemaSubset, SchemaContainer, ExternalDocsC
 	 */
 	Property getPropertyByName(String name);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getName();
+
 } // Schema

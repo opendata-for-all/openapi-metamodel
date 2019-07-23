@@ -744,6 +744,18 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * @generated
 	 */
 	@Override
+	public String getName() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case OpenAPI2Package.SCHEMA__EXTERNAL_DOCS:
@@ -1024,6 +1036,8 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 		switch (operationID) {
 			case OpenAPI2Package.SCHEMA___GET_PROPERTY_BY_NAME__STRING:
 				return getPropertyByName((String)arguments.get(0));
+			case OpenAPI2Package.SCHEMA___GET_NAME:
+				return getName();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

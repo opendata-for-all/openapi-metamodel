@@ -20,4 +20,13 @@ public class ExtendedSchemaImpl extends SchemaImpl implements ExtendedSchema {
 			return "#/definitions/"+((SchemaEntryImpl)declaringContext).getKey();
 		return "unknown";
 	}
+	
+	@Override
+	public String getName() {
+		if(declaringContext instanceof SchemaEntryImpl)
+			return ((SchemaEntryImpl)declaringContext).getKey();
+		
+		return null;
+	}
+	
 }

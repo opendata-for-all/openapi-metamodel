@@ -1865,13 +1865,22 @@ public interface OpenAPI2Package extends EPackage {
 	int SCHEMA___GET_PROPERTY_BY_NAME__STRING = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA___GET_NAME = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_OPERATION_COUNT = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 1;
+	int SCHEMA_OPERATION_COUNT = JSON_SCHEMA_SUBSET_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi2.impl.ResponseImpl <em>Response</em>}' class.
@@ -4235,6 +4244,16 @@ public interface OpenAPI2Package extends EPackage {
 	EOperation getSchema__GetPropertyByName__String();
 
 	/**
+	 * Returns the meta object for the '{@link edu.uoc.som.openapi2.Schema#getName() <em>Get Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Name</em>' operation.
+	 * @see edu.uoc.som.openapi2.Schema#getName()
+	 * @generated
+	 */
+	EOperation getSchema__GetName();
+
+	/**
 	 * Returns the meta object for class '{@link edu.uoc.som.openapi2.Response <em>Response</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5952,6 +5971,14 @@ public interface OpenAPI2Package extends EPackage {
 		 * @generated
 		 */
 		EOperation SCHEMA___GET_PROPERTY_BY_NAME__STRING = eINSTANCE.getSchema__GetPropertyByName__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SCHEMA___GET_NAME = eINSTANCE.getSchema__GetName();
 
 		/**
 		 * The meta object literal for the '{@link edu.uoc.som.openapi2.impl.ResponseImpl <em>Response</em>}' class.

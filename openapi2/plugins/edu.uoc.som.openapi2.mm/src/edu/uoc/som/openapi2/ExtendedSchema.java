@@ -5,4 +5,6 @@ public interface ExtendedSchema extends Schema {
 	Property getPropertyByName(String name);
 	
 	String getRef();
+	
+	String getName();
 }

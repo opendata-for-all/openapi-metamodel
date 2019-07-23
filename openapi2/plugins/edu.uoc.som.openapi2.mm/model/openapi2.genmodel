@@ -189,6 +189,7 @@
       <genOperations ecoreOperation="openapi2.ecore#//Schema/getPropertyByName">
         <genParameters ecoreParameter="openapi2.ecore#//Schema/getPropertyByName/name"/>
       </genOperations>
+      <genOperations ecoreOperation="openapi2.ecore#//Schema/getName"/>
     </genClasses>
     <genClasses ecoreClass="openapi2.ecore#//Response">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openapi2.ecore#//Response/description"/>

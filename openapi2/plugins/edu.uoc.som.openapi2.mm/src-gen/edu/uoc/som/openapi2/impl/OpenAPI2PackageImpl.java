@@ -1480,6 +1480,16 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 	 * @generated
 	 */
 	@Override
+	public EOperation getSchema__GetName() {
+		return schemaEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getResponse() {
 		return responseEClass;
 	}
@@ -2381,6 +2391,7 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 		createEReference(schemaEClass, SCHEMA__DECLARING_CONTEXT);
 		createEAttribute(schemaEClass, SCHEMA__ADDITONAL_PROPERTIES_ALLOWED);
 		createEOperation(schemaEClass, SCHEMA___GET_PROPERTY_BY_NAME__STRING);
+		createEOperation(schemaEClass, SCHEMA___GET_NAME);
 
 		responseEClass = createEClass(RESPONSE);
 		createEAttribute(responseEClass, RESPONSE__DESCRIPTION);
@@ -2675,6 +2686,8 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 
 		op = initEOperation(getSchema__GetPropertyByName__String(), this.getProperty(), "getPropertyByName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getSchema__GetName(), ecorePackage.getEString(), "getName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(responseEClass, Response.class, "Response", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResponse_Description(), ecorePackage.getEString(), "description", null, 0, 1, Response.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
