@@ -2513,9 +2513,6 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 		// Add supertypes to classes
 		apiEClass.getESuperTypes().add(this.getExternalDocsContainer());
 		apiEClass.getESuperTypes().add(this.getSecurityContainer());
-		apiEClass.getESuperTypes().add(this.getParameterContainer());
-		apiEClass.getESuperTypes().add(this.getResponseContainer());
-		apiEClass.getESuperTypes().add(this.getSchemaContainer());
 		pathEClass.getESuperTypes().add(this.getParameterContainer());
 		operationEClass.getESuperTypes().add(this.getParameterContainer());
 		operationEClass.getESuperTypes().add(this.getExternalDocsContainer());
@@ -2538,6 +2535,8 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 		tagEClass.getESuperTypes().add(this.getExternalDocsContainer());
 		propertyEClass.getESuperTypes().add(this.getJSONPointer());
 		propertyEClass.getESuperTypes().add(this.getSchemaContainer());
+		schemaEntryEClass.getESuperTypes().add(this.getSchemaContainer());
+		responseDefinitionEntryEClass.getESuperTypes().add(this.getResponseContainer());
 		parameterEntryEClass.getESuperTypes().add(this.getParameterContainer());
 
 		// Initialize classes, features, and operations; add parameters

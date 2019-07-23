@@ -2758,7 +2758,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_ENTRY__KEY = 0;
+	int SCHEMA_ENTRY__KEY = SCHEMA_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' reference.
@@ -2767,7 +2767,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_ENTRY__VALUE = 1;
+	int SCHEMA_ENTRY__VALUE = SCHEMA_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Schema Entry</em>' class.
@@ -2776,7 +2776,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_ENTRY_FEATURE_COUNT = 2;
+	int SCHEMA_ENTRY_FEATURE_COUNT = SCHEMA_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Schema Entry</em>' class.
@@ -2785,7 +2785,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_ENTRY_OPERATION_COUNT = 0;
+	int SCHEMA_ENTRY_OPERATION_COUNT = SCHEMA_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi2.impl.ResponseDefinitionEntryImpl <em>Response Definition Entry</em>}' class.
@@ -2804,7 +2804,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_DEFINITION_ENTRY__KEY = 0;
+	int RESPONSE_DEFINITION_ENTRY__KEY = RESPONSE_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' reference.
@@ -2813,7 +2813,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_DEFINITION_ENTRY__VALUE = 1;
+	int RESPONSE_DEFINITION_ENTRY__VALUE = RESPONSE_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Response Definition Entry</em>' class.
@@ -2822,7 +2822,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_DEFINITION_ENTRY_FEATURE_COUNT = 2;
+	int RESPONSE_DEFINITION_ENTRY_FEATURE_COUNT = RESPONSE_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Response Definition Entry</em>' class.
@@ -2831,7 +2831,7 @@ public interface OpenAPI2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESPONSE_DEFINITION_ENTRY_OPERATION_COUNT = 0;
+	int RESPONSE_DEFINITION_ENTRY_OPERATION_COUNT = RESPONSE_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.uoc.som.openapi2.impl.ParameterEntryImpl <em>Parameter Entry</em>}' class.

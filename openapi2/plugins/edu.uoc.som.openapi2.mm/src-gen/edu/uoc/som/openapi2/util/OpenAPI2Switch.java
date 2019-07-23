@@ -85,9 +85,6 @@ public class OpenAPI2Switch<T> extends Switch<T> {
 				T result = caseAPI(api);
 				if (result == null) result = caseExternalDocsContainer(api);
 				if (result == null) result = caseSecurityContainer(api);
-				if (result == null) result = caseParameterContainer(api);
-				if (result == null) result = caseResponseContainer(api);
-				if (result == null) result = caseSchemaContainer(api);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -266,12 +263,14 @@ public class OpenAPI2Switch<T> extends Switch<T> {
 			case OpenAPI2Package.SCHEMA_ENTRY: {
 				@SuppressWarnings("unchecked") Map.Entry<String, Schema> schemaEntry = (Map.Entry<String, Schema>)theEObject;
 				T result = caseSchemaEntry(schemaEntry);
+				if (result == null) result = caseSchemaContainer((SchemaContainer)schemaEntry);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case OpenAPI2Package.RESPONSE_DEFINITION_ENTRY: {
 				@SuppressWarnings("unchecked") Map.Entry<String, Response> responseDefinitionEntry = (Map.Entry<String, Response>)theEObject;
 				T result = caseResponseDefinitionEntry(responseDefinitionEntry);
+				if (result == null) result = caseResponseContainer((ResponseContainer)responseDefinitionEntry);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
