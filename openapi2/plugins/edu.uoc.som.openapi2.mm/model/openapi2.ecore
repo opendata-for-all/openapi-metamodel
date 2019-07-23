@@ -27,7 +27,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="responses" upperBound="-1"
         eType="#//Response" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="API" eSuperTypes="#//ExternalDocsContainer #//SecurityContainer #//ParameterContainer #//ResponseContainer #//SchemaContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="API" eSuperTypes="#//ExternalDocsContainer #//SecurityContainer">
     <eOperations name="getAllOperations" upperBound="-1" eType="#//Operation"/>
     <eOperations name="getSchemaByReference" eType="#//Schema">
       <eParameters name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -290,11 +290,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Response"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SchemaEntry" instanceClassName="java.util.Map$Entry">
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaEntry" instanceClassName="java.util.Map$Entry"
+      eSuperTypes="#//SchemaContainer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Schema"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResponseDefinitionEntry" instanceClassName="java.util.Map$Entry">
+  <eClassifiers xsi:type="ecore:EClass" name="ResponseDefinitionEntry" instanceClassName="java.util.Map$Entry"
+      eSuperTypes="#//ResponseContainer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Response"/>
   </eClassifiers>

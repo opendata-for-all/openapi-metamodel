@@ -8,12 +8,9 @@ import edu.uoc.som.openapi2.Info;
 import edu.uoc.som.openapi2.OpenAPI2Package;
 import edu.uoc.som.openapi2.Operation;
 import edu.uoc.som.openapi2.Parameter;
-import edu.uoc.som.openapi2.ParameterContainer;
 import edu.uoc.som.openapi2.Path;
 import edu.uoc.som.openapi2.Response;
-import edu.uoc.som.openapi2.ResponseContainer;
 import edu.uoc.som.openapi2.Schema;
-import edu.uoc.som.openapi2.SchemaContainer;
 import edu.uoc.som.openapi2.SchemeType;
 import edu.uoc.som.openapi2.SecurityContainer;
 import edu.uoc.som.openapi2.SecurityRequirement;
@@ -863,21 +860,6 @@ public class APIImpl extends ExternalDocsContainerImpl implements API {
 				default: return -1;
 			}
 		}
-		if (baseClass == ParameterContainer.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == ResponseContainer.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == SchemaContainer.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -891,21 +873,6 @@ public class APIImpl extends ExternalDocsContainerImpl implements API {
 		if (baseClass == SecurityContainer.class) {
 			switch (baseFeatureID) {
 				case OpenAPI2Package.SECURITY_CONTAINER__SECURITY: return OpenAPI2Package.API__SECURITY;
-				default: return -1;
-			}
-		}
-		if (baseClass == ParameterContainer.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == ResponseContainer.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == SchemaContainer.class) {
-			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

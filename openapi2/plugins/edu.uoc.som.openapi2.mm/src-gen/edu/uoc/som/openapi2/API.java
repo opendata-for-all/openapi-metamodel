@@ -33,7 +33,7 @@ import org.eclipse.emf.common.util.EMap;
  * @model
  * @generated
  */
-public interface API extends ExternalDocsContainer, SecurityContainer, ParameterContainer, ResponseContainer, SchemaContainer {
+public interface API extends ExternalDocsContainer, SecurityContainer {
 	/**
 	 * Returns the value of the '<em><b>Info</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
