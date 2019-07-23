@@ -20,5 +20,8 @@ public class ExporterBuilder {
 		OpenAPI2Exporter export = new OpenAPI2Exporter(openAPI2Model,prettyPrinting);
 		return export.toJsonFormat();
 	}
-	
+	public String exportYaml(API openAPI2Model) {
+		OpenAPI2Exporter export = new OpenAPI2Exporter(openAPI2Model,prettyPrinting);
+		return export.toYamlFormat();
+	}
 }

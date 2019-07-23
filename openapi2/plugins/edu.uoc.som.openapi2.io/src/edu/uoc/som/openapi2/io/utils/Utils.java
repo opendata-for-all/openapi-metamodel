@@ -8,6 +8,7 @@ import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Map;
 
+import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 
 import com.google.gson.Gson;
@@ -29,11 +30,21 @@ public class Utils {
 		bufferWritter.close();
 		
 	}
+	@SuppressWarnings("unchecked")
 	public static JsonElement convertYamlToGson(String yamlString) {
 	    Yaml yaml= new Yaml();
 	    Map<String, Object>  map = (Map<String, Object>) yaml.load(yamlString);
 
 	    return wrapSnakeObject(map);
+	}
+	@SuppressWarnings("unchecked")
+	public static String convertJsonToYaml(String jsonText, boolean pretty) {
+		DumperOptions options = new DumperOptions();
+	      options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
+	      options.setPrettyFlow(pretty);
+		 Yaml yaml= new Yaml(options);
+		Map<String, Object>  map = (Map<String, Object>) yaml.load(jsonText);
+		return yaml.dump(map);
 	}
 	
 	// taken from https://stackoverflow.com/questions/23744216/how-do-i-convert-from-yaml-to-json-in-java

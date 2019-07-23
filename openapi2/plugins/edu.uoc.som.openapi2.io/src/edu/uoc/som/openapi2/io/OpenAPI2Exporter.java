@@ -32,6 +32,7 @@ import edu.uoc.som.openapi2.SecuritySchemeType;
 import edu.uoc.som.openapi2.SecurityScope;
 import edu.uoc.som.openapi2.Tag;
 import edu.uoc.som.openapi2.impl.SecuritySchemeEntryImpl;
+import edu.uoc.som.openapi2.io.utils.Utils;
 
 public class OpenAPI2Exporter {
 
@@ -50,6 +51,11 @@ public class OpenAPI2Exporter {
 			gsonBuilder.setPrettyPrinting();
 		Gson gson = gsonBuilder.create();
 		return gson.toJson(jsonObject); 
+		
+	}
+	public String toYamlFormat() {
+		String jsonText = toJsonFormat();
+		return Utils.convertJsonToYaml(jsonText,prettyPrinting);
 		
 	}
 	public JsonObject toJsonObject() {
