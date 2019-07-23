@@ -1,11 +1,7 @@
 package edu.uoc.som.openapi2.io;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.Reader;
-import java.io.UnsupportedEncodingException;
-
 import edu.uoc.som.openapi2.API;
 import edu.uoc.som.openapi2.io.model.SerializationFormat;
 
