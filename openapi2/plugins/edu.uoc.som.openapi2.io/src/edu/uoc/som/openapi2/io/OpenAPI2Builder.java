@@ -2,6 +2,7 @@ package edu.uoc.som.openapi2.io;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 
@@ -24,15 +25,15 @@ public class OpenAPI2Builder {
 		return this;
 	}
 	
-	public API fromFile(File file) throws FileNotFoundException, UnsupportedEncodingException {
+	public API fromFile(File file) throws IOException {
 		OpenAPI2Importer importer = new OpenAPI2Importer();
 		return importer.createOpenAPI2ModelFromFile(file, serializationFormat);
 		
 	}
 
-	public API fromString(String text) {
+	public API fromText(String text) {
 		OpenAPI2Importer importer = new OpenAPI2Importer();
-		return importer.createOpenAPI2ModelFromString(text, serializationFormat);
+		return importer.createOpenAPI2ModelFromText(text, serializationFormat);
 	}
 	
 	

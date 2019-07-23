@@ -2,13 +2,14 @@ package edu.uoc.som.openapi2.io;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.io.UnsupportedEncodingException;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import org.apache.commons.io.IOUtils;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -49,38 +50,54 @@ import edu.uoc.som.openapi2.impl.ParameterEntryImpl;
 import edu.uoc.som.openapi2.impl.ResponseDefinitionEntryImpl;
 import edu.uoc.som.openapi2.impl.SchemaEntryImpl;
 import edu.uoc.som.openapi2.io.model.SerializationFormat;
+import edu.uoc.som.openapi2.io.utils.Utils;
+
 public class OpenAPI2Importer {
-	
 
 	private API openAPI2Model;
 	ExtendedOpenAPI2FactoryImpl factory = (ExtendedOpenAPI2FactoryImpl) ExtendedOpenAPI2Factory.eINSTANCE;
+
 	public OpenAPI2Importer() {
 		openAPI2Model = factory.createAPI();
 
 	}
 
-	public API createOpenAPI2ModelFromFile(File inputFile, SerializationFormat serializationFormat) throws FileNotFoundException, UnsupportedEncodingException {
-		
+	public API createOpenAPI2ModelFromFile(File inputFile, SerializationFormat serializationFormat) throws IOException {
+
 		InputStream in = new FileInputStream(inputFile);
 		Reader reader = new InputStreamReader(in, "UTF-8");
-		JsonParser parser = new JsonParser();
-		JsonElement jsonElement = parser.parse(reader);
-
-		if(serializationFormat== null || serializationFormat.equals(SerializationFormat.JSON))
-			return createOpenAPIModelFromJson(jsonElement.getAsJsonObject());
-		else 
-		return createOpenAPIModelFromYaml();
+		if (serializationFormat == null || serializationFormat.equals(SerializationFormat.JSON)) {
+			JsonParser parser = new JsonParser();
+			JsonElement jsonElement = parser.parse(reader);
+			openAPI2Model = createOpenAPIModelFromJson(jsonElement.getAsJsonObject());
+		} else {
+			String yamlSring = IOUtils.toString(reader);
+			openAPI2Model = createOpenAPIModelFromYaml(yamlSring);
+		}
+		reader.close();
+		return openAPI2Model;
 
 	}
 
+	public API createOpenAPI2ModelFromText(String text, SerializationFormat serializationFormat) {
 
-	public API createOpenAPI2ModelFromString(String text, SerializationFormat serializationFormat) {
-		JsonParser parser = new JsonParser();
-		JsonElement jsonElement = parser.parse(text);
-		if(serializationFormat== null || serializationFormat.equals(SerializationFormat.JSON))
-			return createOpenAPIModelFromJson(jsonElement.getAsJsonObject());
-		else 
-		return createOpenAPIModelFromYaml();
+		if (serializationFormat == null || serializationFormat.equals(SerializationFormat.JSON)) {
+			JsonElement jsonElement;
+			JsonParser parser = new JsonParser();
+			jsonElement = parser.parse(text);
+			openAPI2Model = createOpenAPIModelFromJson(jsonElement.getAsJsonObject());
+		} else {
+			openAPI2Model = createOpenAPIModelFromYaml(text);
+		}
+		return openAPI2Model;
+
+	}
+
+	public API createOpenAPIModelFromYaml(String yamlSring) {
+
+		JsonElement jsonObject = Utils.convertYamlToGson(yamlSring);
+		openAPI2Model = createOpenAPIModelFromJson(jsonObject.getAsJsonObject());
+		return openAPI2Model;
 
 	}
 
@@ -146,7 +163,6 @@ public class OpenAPI2Importer {
 			importExternalDocs(jsonObject.get("externalDocs"), externalDocs);
 		}
 		return openAPI2Model;
-		
 
 	}
 
@@ -189,7 +205,8 @@ public class OpenAPI2Importer {
 		Set<Entry<String, JsonElement>> aPIParameters = aPIParametersObject.entrySet();
 		for (Entry<String, JsonElement> aPIParameterElement : aPIParameters) {
 			Parameter parameter = ExtendedOpenAPI2Factory.eINSTANCE.createParameter();
-			ParameterEntryImpl parameterEntry = (ParameterEntryImpl) factory.create(OpenAPI2Package.Literals.PARAMETER_ENTRY);
+			ParameterEntryImpl parameterEntry = (ParameterEntryImpl) factory
+					.create(OpenAPI2Package.Literals.PARAMETER_ENTRY);
 			parameterEntry.setKey(aPIParameterElement.getKey());
 			parameterEntry.setValue(parameter);
 			openAPI2Model.getParameters().add(parameterEntry);
@@ -247,7 +264,8 @@ public class OpenAPI2Importer {
 		Set<Entry<String, JsonElement>> responses = responsesObject.entrySet();
 		for (Entry<String, JsonElement> responseElement : responses) {
 			Response responseDefinition = ExtendedOpenAPI2Factory.eINSTANCE.createResponse();
-			ResponseDefinitionEntryImpl responseDefinitionEntry = (ResponseDefinitionEntryImpl) factory.create(OpenAPI2Package.Literals.RESPONSE_DEFINITION_ENTRY);
+			ResponseDefinitionEntryImpl responseDefinitionEntry = (ResponseDefinitionEntryImpl) factory
+					.create(OpenAPI2Package.Literals.RESPONSE_DEFINITION_ENTRY);
 			responseDefinitionEntry.setKey(responseElement.getKey());
 			responseDefinitionEntry.setValue(responseDefinition);
 			openAPI2Model.getResponses().add(responseDefinitionEntry);
@@ -473,8 +491,8 @@ public class OpenAPI2Importer {
 				for (JsonElement aPIParameterElement : aPIParametersArray) {
 
 					if (aPIParameterElement.getAsJsonObject().has("$ref")) {
-						openAPI2Model
-								.getParameterByReference(aPIParameterElement.getAsJsonObject().get("$ref").getAsString());
+						openAPI2Model.getParameterByReference(
+								aPIParameterElement.getAsJsonObject().get("$ref").getAsString());
 
 					} else {
 						Parameter aPIParameter = ExtendedOpenAPI2Factory.eINSTANCE.createParameter();
@@ -483,8 +501,7 @@ public class OpenAPI2Importer {
 						openAPI2Model.getContainedCollections().getParamters().add(aPIParameter);
 						importParameter(aPIParameterElement, aPIParameter);
 					}
-				
-					
+
 				}
 			}
 
@@ -546,11 +563,11 @@ public class OpenAPI2Importer {
 				if (responseJson.has("$ref")) {
 					Response responseDefinition = openAPI2Model
 							.getResponseDefinitionByReference(responseJson.get("$ref").getAsString());
-					aPIOperation.getResponses().put(responseElement.getKey(),responseDefinition);
-				
+					aPIOperation.getResponses().put(responseElement.getKey(), responseDefinition);
+
 				} else {
 					Response responseDefinition = ExtendedOpenAPI2Factory.eINSTANCE.createResponse();
-					aPIOperation.getResponses().put(responseElement.getKey(),responseDefinition);
+					aPIOperation.getResponses().put(responseElement.getKey(), responseDefinition);
 					responseDefinition.setDeclaringContext(aPIOperation);
 					openAPI2Model.getContainedCollections().getResponses().add(responseDefinition);
 					importResponse(responseJson, responseDefinition);
@@ -580,11 +597,14 @@ public class OpenAPI2Importer {
 	private void importSecurityRequirement(JsonElement securityElement, SecurityRequirement securityRequirement) {
 		Set<Entry<String, JsonElement>> securityRequirementObjects = securityElement.getAsJsonObject().entrySet();
 		for (Entry<String, JsonElement> securityRequirementObject : securityRequirementObjects) {
-			RequiredSecurityScheme requiredSecurityScheme = ExtendedOpenAPI2Factory.eINSTANCE.createRequiredSecurityScheme();
-			requiredSecurityScheme.setSecurityScheme(openAPI2Model.getSecurityDefinitions().get(securityRequirementObject.getKey()));
-		for (JsonElement value : securityRequirementObject.getValue().getAsJsonArray())
-			requiredSecurityScheme.getSecurityScopes().add(requiredSecurityScheme.getSecurityScheme().getSecurityScopeByName(value.getAsString()));
-		securityRequirement.getSecuritySchemes().add(requiredSecurityScheme);
+			RequiredSecurityScheme requiredSecurityScheme = ExtendedOpenAPI2Factory.eINSTANCE
+					.createRequiredSecurityScheme();
+			requiredSecurityScheme
+					.setSecurityScheme(openAPI2Model.getSecurityDefinitions().get(securityRequirementObject.getKey()));
+			for (JsonElement value : securityRequirementObject.getValue().getAsJsonArray())
+				requiredSecurityScheme.getSecurityScopes()
+						.add(requiredSecurityScheme.getSecurityScheme().getSecurityScopeByName(value.getAsString()));
+			securityRequirement.getSecuritySchemes().add(requiredSecurityScheme);
 		}
 
 	}
@@ -842,11 +862,5 @@ public class OpenAPI2Importer {
 			contact.setEmail(contactObject.get("email").getAsString());
 
 	}
-
-	public API createOpenAPIModelFromYaml() {
-		return openAPI2Model;
-
-	}
-
 
 }
