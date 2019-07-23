@@ -2,7 +2,7 @@
 <feature
       id="edu.uoc.som.openapi2.feature"
       label="OpenAPI Metamodel"
-      version="2.0.0.qualifier"
+      version="2.1.0.qualifier"
       provider-name="SOM Research Lab">
 
    <description url="https://github.com/SOM-Research/openapi-metamodel">

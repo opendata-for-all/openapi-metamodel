@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: OpenAPI Importrer/Exporter
 Bundle-SymbolicName: edu.uoc.som.openapi2.io
-Bundle-Version: 2.0.0.qualifier
+Bundle-Version: 2.1.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: SOM Research Lab
 Require-Bundle: edu.uoc.som.openapi2.mm;bundle-version="2.0.0",
