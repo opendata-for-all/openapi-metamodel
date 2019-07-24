@@ -11,8 +11,6 @@ import java.util.Map;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
@@ -21,9 +19,7 @@ import com.google.gson.JsonPrimitive;
 
 public class Utils {
 
-	public static void saveOpenAPIDefintion(JsonObject jsonDefinition, File output) throws IOException {
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String jsonOutput = gson.toJson(jsonDefinition); 
+	public static void saveOpenAPIDefintion(String jsonOutput, File output) throws IOException {
 		FileWriter fileWritter = new FileWriter(output.getPath(), false);
 		BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
 		bufferWritter.write(jsonOutput);
