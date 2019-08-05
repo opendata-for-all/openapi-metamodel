@@ -11,6 +11,7 @@ import java.util.Set;
 
 import org.apache.commons.io.IOUtils;
 
+import com.github.fge.jsonschema.core.exceptions.ProcessingException;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -49,6 +50,8 @@ import edu.uoc.som.openapi2.impl.ExtendedOpenAPI2FactoryImpl;
 import edu.uoc.som.openapi2.impl.ParameterEntryImpl;
 import edu.uoc.som.openapi2.impl.ResponseDefinitionEntryImpl;
 import edu.uoc.som.openapi2.impl.SchemaEntryImpl;
+import edu.uoc.som.openapi2.io.exception.OpenAPIValidationException;
+import edu.uoc.som.openapi2.io.model.OpenAPIValidationReport;
 import edu.uoc.som.openapi2.io.model.SerializationFormat;
 import edu.uoc.som.openapi2.io.utils.Utils;
 
@@ -62,8 +65,11 @@ public class OpenAPI2Importer {
 
 	}
 
-	public API createOpenAPI2ModelFromFile(File inputFile, SerializationFormat serializationFormat) throws IOException {
+	public API createOpenAPI2ModelFromFile(File inputFile, SerializationFormat serializationFormat)
+			throws IOException, ProcessingException, OpenAPIValidationException {
 
+
+	
 		InputStream in = new FileInputStream(inputFile);
 		Reader reader = new InputStreamReader(in, "UTF-8");
 		if (serializationFormat == null || serializationFormat.equals(SerializationFormat.JSON)) {
@@ -79,9 +85,10 @@ public class OpenAPI2Importer {
 
 	}
 
-	public API createOpenAPI2ModelFromText(String text, SerializationFormat serializationFormat) {
+	public API createOpenAPI2ModelFromText(String text, SerializationFormat serializationFormat) throws ProcessingException, IOException {
 
 		if (serializationFormat == null || serializationFormat.equals(SerializationFormat.JSON)) {
+		
 			JsonElement jsonElement;
 			JsonParser parser = new JsonParser();
 			jsonElement = parser.parse(text);
@@ -93,16 +100,25 @@ public class OpenAPI2Importer {
 
 	}
 
-	public API createOpenAPIModelFromYaml(String yamlSring) {
+	private API createOpenAPIModelFromYaml(String yamlSring) throws IOException, ProcessingException, OpenAPIValidationException {
 
 		JsonElement jsonObject = Utils.convertYamlToGson(yamlSring);
+		OpenAPIValidator openAPIValidator = new OpenAPIValidator();
+		OpenAPIValidationReport report = openAPIValidator.validate(jsonObject.toString());
+		if (!report.isSuccess()) {
+			throw new OpenAPIValidationException("Invalid OpenAPI definition\n" + report.getError());
+		}
 		openAPI2Model = createOpenAPIModelFromJson(jsonObject.getAsJsonObject());
 		return openAPI2Model;
 
 	}
 
-	public API createOpenAPIModelFromJson(JsonObject jsonObject) {
-
+	private API createOpenAPIModelFromJson(JsonObject jsonObject) throws IOException, ProcessingException, OpenAPIValidationException {
+		OpenAPIValidator openAPIValidator = new OpenAPIValidator();
+		OpenAPIValidationReport report = openAPIValidator.validate(jsonObject.toString());
+		if (!report.isSuccess()) {
+			throw new OpenAPIValidationException("Invalid OpenAPI definition\n" + report.getError());
+		}
 		openAPI2Model = factory.createAPI();
 		openAPI2Model.setContainedCollections(ExtendedOpenAPI2Factory.eINSTANCE.createContainedCollections());
 		if (jsonObject.has("info")) {
