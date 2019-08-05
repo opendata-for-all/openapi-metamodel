@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: OpenAPI Importrer/Exporter
 Bundle-SymbolicName: edu.uoc.som.openapi2.io;singleton:=true
-Bundle-Version: 2.1.0.qualifier
+Bundle-Version: 2.2.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: SOM Research Lab
 Require-Bundle: edu.uoc.som.openapi2.mm;bundle-version="2.0.0",
@@ -10,5 +10,10 @@ Require-Bundle: edu.uoc.som.openapi2.mm;bundle-version="2.0.0",
  org.yaml.snakeyaml;bundle-version="1.14.0",
  org.apache.commons.io;bundle-version="2.6.0"
 Export-Package: edu.uoc.som.openapi2.io,
+ edu.uoc.som.openapi2.io.exception,
  edu.uoc.som.openapi2.io.model,
  edu.uoc.som.openapi2.io.utils
+Bundle-ClassPath: lib/json-schema-validator-2.2.6-lib.jar,
+ lib/json-schema-validator-2.2.6.jar,
+ .,
+ resources/
