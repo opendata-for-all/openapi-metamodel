@@ -10,7 +10,7 @@ Require-Bundle: edu.uoc.som.openapi2.mm;bundle-version="2.0.0",
  org.yaml.snakeyaml;bundle-version="1.14.0",
  org.apache.commons.io;bundle-version="2.6.0"
 Export-Package: edu.uoc.som.openapi2.io,
- edu.uoc.som.openapi2.io.exception,
+ edu.uoc.som.openapi2.io.exceptions,
  edu.uoc.som.openapi2.io.model,
  edu.uoc.som.openapi2.io.utils
 Bundle-ClassPath: lib/json-schema-validator-2.2.6-lib.jar,

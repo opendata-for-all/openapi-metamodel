@@ -6,7 +6,7 @@ import java.io.IOException;
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
 
 import edu.uoc.som.openapi2.API;
-import edu.uoc.som.openapi2.io.exception.OpenAPIValidationException;
+import edu.uoc.som.openapi2.io.exceptions.OpenAPIValidationException;
 import edu.uoc.som.openapi2.io.model.SerializationFormat;
 
 public class OpenAPI2Builder {

@@ -1,4 +1,4 @@
-package edu.uoc.som.openapi2.io.exception;
+package edu.uoc.som.openapi2.io.exceptions;
 
 public class OpenAPIValidationException extends RuntimeException {
 
