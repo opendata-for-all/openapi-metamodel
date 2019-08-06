@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests
+Bundle-SymbolicName: edu.uoc.som.openapi2.tests
+Bundle-Version: 2.2.0.qualifier
+Automatic-Module-Name: edu.uoc.som.openapi2.tests
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.core.runtime,
+ edu.uoc.som.openapi2.io;bundle-version="2.2.0",
+ edu.uoc.som.openapi2.mm;bundle-version="2.2.0",
+ com.google.gson;bundle-version="2.7.0",
+ org.junit
