@@ -27,6 +27,7 @@
 		<module>plugins</module>
 		<module>features</module>
         <module>releng</module>
+        <module>tests</module>
 	</modules>
 	
 	
