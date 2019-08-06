@@ -47,17 +47,19 @@ public class OpenAPI2Exporter {
 	public String toJsonFormat() {
 		JsonObject jsonObject = toJsonObject();
 		GsonBuilder gsonBuilder = new GsonBuilder();
-		if(prettyPrinting)
+		if (prettyPrinting)
 			gsonBuilder.setPrettyPrinting();
 		Gson gson = gsonBuilder.create();
-		return gson.toJson(jsonObject); 
-		
+		return gson.toJson(jsonObject);
+
 	}
+
 	public String toYamlFormat() {
 		String jsonText = toJsonFormat();
-		return Utils.convertJsonToYaml(jsonText,prettyPrinting);
-		
+		return Utils.convertJsonToYaml(jsonText, prettyPrinting);
+
 	}
+
 	public JsonObject toJsonObject() {
 		JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty("swagger", "2.0");
@@ -154,13 +156,15 @@ public class OpenAPI2Exporter {
 
 	private void generateSecurity(SecurityRequirement securityRequirement, JsonObject securityRequirementJson) {
 		if (!securityRequirement.getSecuritySchemes().isEmpty()) {
-			for(RequiredSecurityScheme requiredSecurityScheme: securityRequirement.getSecuritySchemes()) {
-			JsonArray scopes = new JsonArray();
-			securityRequirementJson.add(((SecuritySchemeEntryImpl)requiredSecurityScheme.getSecurityScheme().eContainer()).getKey(), scopes);
+			for (RequiredSecurityScheme requiredSecurityScheme : securityRequirement.getSecuritySchemes()) {
+				JsonArray scopes = new JsonArray();
+				securityRequirementJson.add(
+						((SecuritySchemeEntryImpl) requiredSecurityScheme.getSecurityScheme().eContainer()).getKey(),
+						scopes);
 				for (SecurityScope scope : requiredSecurityScheme.getSecurityScopes())
 					scopes.add(scope.getName());
 
-		}
+			}
 
 		}
 	}
@@ -355,12 +359,14 @@ public class OpenAPI2Exporter {
 		if (!operation.getSecurity().isEmpty()) {
 			JsonArray security = new JsonArray();
 			jsonOperation.add("security", security);
-			for (SecurityRequirement securityRequirement : operation.getSecurity()) {
-				JsonObject securityRequirementJson = new JsonObject();
-				generateSecurity(securityRequirement, securityRequirementJson);
-				security.add(securityRequirementJson);
+			//we should test if there is only one securityRequiremenent and if it does not include securitySchemes to generate an empty array
+			if (operation.getSecurity().size() != 1 && !operation.getSecurity().get(0).getSecuritySchemes().isEmpty())
+				for (SecurityRequirement securityRequirement : operation.getSecurity()) {
+					JsonObject securityRequirementJson = new JsonObject();
+					generateSecurity(securityRequirement, securityRequirementJson);
+					security.add(securityRequirementJson);
 
-			}
+				}
 
 		}
 
@@ -482,8 +488,7 @@ public class OpenAPI2Exporter {
 
 	}
 
-	private void generateResponse(Response responseDefinition,
-			JsonObject responseJson , boolean isDeclaringContext) {
+	private void generateResponse(Response responseDefinition, JsonObject responseJson, boolean isDeclaringContext) {
 		if (isDeclaringContext) {
 			responseJson.addProperty("description", responseDefinition.getDescription());
 			if (responseDefinition.getSchema() != null) {

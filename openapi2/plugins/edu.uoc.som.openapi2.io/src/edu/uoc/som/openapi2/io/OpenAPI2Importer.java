@@ -69,8 +69,6 @@ public class OpenAPI2Importer {
 	public API createOpenAPI2ModelFromFile(File inputFile, SerializationFormat serializationFormat)
 			throws IOException, OpenAPIValidationException {
 
-
-	
 		InputStream in = new FileInputStream(inputFile);
 		Reader reader = new InputStreamReader(in, "UTF-8");
 		if (serializationFormat == null || serializationFormat.equals(SerializationFormat.JSON)) {
@@ -89,7 +87,7 @@ public class OpenAPI2Importer {
 	public API createOpenAPI2ModelFromText(String text, SerializationFormat serializationFormat) throws IOException {
 
 		if (serializationFormat == null || serializationFormat.equals(SerializationFormat.JSON)) {
-		
+
 			JsonElement jsonElement;
 			JsonParser parser = new JsonParser();
 			jsonElement = parser.parse(text);
@@ -101,13 +99,14 @@ public class OpenAPI2Importer {
 
 	}
 
-	private API createOpenAPIModelFromYaml(String yamlSring) throws IOException, OpenAPIValidationException, OpenAPIProcessingException {
+	private API createOpenAPIModelFromYaml(String yamlSring)
+			throws IOException, OpenAPIValidationException, OpenAPIProcessingException {
 
 		JsonElement jsonObject = Utils.convertYamlToGson(yamlSring);
 		OpenAPIValidationReport report;
-		
+
 		try {
-		
+
 			OpenAPIValidator openAPIValidator = new OpenAPIValidator();
 			report = openAPIValidator.validate(jsonObject.toString());
 		} catch (ProcessingException e) {
@@ -121,7 +120,8 @@ public class OpenAPI2Importer {
 
 	}
 
-	private API createOpenAPIModelFromJson(JsonObject jsonObject) throws IOException, OpenAPIValidationException, OpenAPIProcessingException {
+	private API createOpenAPIModelFromJson(JsonObject jsonObject)
+			throws IOException, OpenAPIValidationException, OpenAPIProcessingException {
 		OpenAPIValidator openAPIValidator;
 		try {
 			openAPIValidator = new OpenAPIValidator();
@@ -132,8 +132,7 @@ public class OpenAPI2Importer {
 		} catch (ProcessingException e) {
 			throw new OpenAPIProcessingException(e.getProcessingMessage().getMessage());
 		}
-		
-	
+
 		openAPI2Model = factory.createAPI();
 		openAPI2Model.setContainedCollections(ExtendedOpenAPI2Factory.eINSTANCE.createContainedCollections());
 		if (jsonObject.has("info")) {
@@ -615,12 +614,20 @@ public class OpenAPI2Importer {
 		}
 		if (jsonObject.has("security")) {
 			JsonArray securityArray = jsonObject.get("security").getAsJsonArray();
-			for (JsonElement securityElement : securityArray) {
+			// This operation remove the authentication declared at the top level.
+			if (securityArray.size() == 0) {
+				// in this case we just need to add an instances of SecurityRequirement with
+				// empty list of schemes
 				SecurityRequirement security = ExtendedOpenAPI2Factory.eINSTANCE.createSecurityRequirement();
 				aPIOperation.getSecurity().add(security);
-				importSecurityRequirement(securityElement, security);
 
-			}
+			} else
+				for (JsonElement securityElement : securityArray) {
+					SecurityRequirement security = ExtendedOpenAPI2Factory.eINSTANCE.createSecurityRequirement();
+					aPIOperation.getSecurity().add(security);
+					importSecurityRequirement(securityElement, security);
+
+				}
 
 		}
 	}
