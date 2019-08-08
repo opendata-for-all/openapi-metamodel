@@ -23,7 +23,7 @@ public class OpenAPITest {
 
 		try {
 			File input = new File("resources/inputs/petstore.json");
-			File output = File.createTempFile("petstore-gen", "json");
+			File output = File.createTempFile("petstore-gen", ".json");
 			API apiModel = new OpenAPI2Builder().setSerializationFormat(SerializationFormat.JSON).fromFile(input);
 			Utils.saveOpenAPIDefintion(new ExporterBuilder().setJsonPrettyPrinting().exportJson(apiModel), output);
 		} catch (Exception e) {
