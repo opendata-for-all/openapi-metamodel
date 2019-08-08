@@ -67,7 +67,7 @@ public class OpenAPI2Importer {
 	}
 
 	public API createOpenAPI2ModelFromFile(File inputFile, SerializationFormat serializationFormat)
-			throws IOException, OpenAPIValidationException {
+			throws IOException, OpenAPIValidationException, OpenAPIProcessingException {
 
 		InputStream in = new FileInputStream(inputFile);
 		Reader reader = new InputStreamReader(in, "UTF-8");
@@ -84,7 +84,7 @@ public class OpenAPI2Importer {
 
 	}
 
-	public API createOpenAPI2ModelFromText(String text, SerializationFormat serializationFormat) throws IOException {
+	public API createOpenAPI2ModelFromText(String text, SerializationFormat serializationFormat) throws IOException, OpenAPIValidationException, OpenAPIProcessingException {
 
 		if (serializationFormat == null || serializationFormat.equals(SerializationFormat.JSON)) {
 
