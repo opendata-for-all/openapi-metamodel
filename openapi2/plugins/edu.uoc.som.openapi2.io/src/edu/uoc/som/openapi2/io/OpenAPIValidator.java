@@ -18,7 +18,9 @@ public class OpenAPIValidator {
 
 	public OpenAPIValidator() throws IOException, ProcessingException {
 		JsonNode openAPIJson = null;
-		InputStream stream = this.getClass().getResourceAsStream("/schema.json");
+		InputStream stream = this.getClass().getResourceAsStream("/resources/schema.json");
+		if(stream == null)
+			stream = this.getClass().getResourceAsStream("/schema.json");
 		openAPIJson = JsonLoader.fromReader(new InputStreamReader(stream));
 		JsonSchemaFactory factory = JsonSchemaFactory.byDefault();
 		openAPIschema = factory.getJsonSchema(openAPIJson);
