@@ -356,17 +356,18 @@ public class OpenAPI2Exporter {
 		}
 		if (operation.getDeprecated() != null)
 			jsonOperation.addProperty("deprecated", operation.getDeprecated());
+		
 		if (!operation.getSecurity().isEmpty()) {
 			JsonArray security = new JsonArray();
 			jsonOperation.add("security", security);
 			//we should test if there is only one securityRequiremenent and if it does not include securitySchemes to generate an empty array
-			if (operation.getSecurity().size() != 1 && !operation.getSecurity().get(0).getSecuritySchemes().isEmpty())
+			if ((operation.getSecurity().size() != 1) || (operation.getSecurity().size() == 1 && !operation.getSecurity().get(0).getSecuritySchemes().isEmpty()))
 				for (SecurityRequirement securityRequirement : operation.getSecurity()) {
 					JsonObject securityRequirementJson = new JsonObject();
 					generateSecurity(securityRequirement, securityRequirementJson);
 					security.add(securityRequirementJson);
-
 				}
+			
 
 		}
 
