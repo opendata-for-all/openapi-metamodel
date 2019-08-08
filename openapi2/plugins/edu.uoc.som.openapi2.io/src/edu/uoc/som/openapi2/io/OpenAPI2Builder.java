@@ -3,7 +3,6 @@ package edu.uoc.som.openapi2.io;
 import java.io.File;
 import java.io.IOException;
 
-import com.github.fge.jsonschema.core.exceptions.ProcessingException;
 
 import edu.uoc.som.openapi2.API;
 import edu.uoc.som.openapi2.io.exceptions.OpenAPIProcessingException;
