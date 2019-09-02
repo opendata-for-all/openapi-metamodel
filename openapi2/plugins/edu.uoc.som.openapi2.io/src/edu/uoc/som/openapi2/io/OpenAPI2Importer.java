@@ -385,7 +385,11 @@ public class OpenAPI2Importer {
 				JsonObject value = jsonProperty.getValue().getAsJsonObject();
 				if (value.has("$ref")) {
 					String ref = value.get("$ref").getAsString();
-					propertiesToResolve.put(property, ref);
+					Schema referencedSchema = openAPI2Model.getSchemaByReference(ref);
+					if (referencedSchema != null)
+						property.setSchema(referencedSchema);
+					else
+						propertiesToResolve.put(property, ref);
 				} else {
 					Schema propertyValue = ExtendedOpenAPI2Factory.eINSTANCE.createSchema();
 					property.setSchema(propertyValue);
@@ -405,7 +409,11 @@ public class OpenAPI2Importer {
 				JsonObject additionalPropertiesObject = additionalProperties.getAsJsonObject();
 				if (additionalPropertiesObject.has("$ref")) {
 					String ref = additionalPropertiesObject.get("$ref").getAsString();
-					additionalPropertiesToResolve.put(schema, ref);
+					Schema referencedSchema = openAPI2Model.getSchemaByReference(ref);
+					if (referencedSchema != null)
+						schema.setAdditonalProperties(referencedSchema);
+					else
+						additionalPropertiesToResolve.put(schema, ref);
 				} else {
 					Schema additionalPropertieSchema = ExtendedOpenAPI2Factory.eINSTANCE.createSchema();
 					schema.setAdditonalProperties(additionalPropertieSchema);
@@ -422,7 +430,11 @@ public class OpenAPI2Importer {
 			for (int i = 0; i < allOfArray.size(); i++) {
 				JsonObject allOfObject = allOfArray.get(i).getAsJsonObject();
 				if (allOfObject.has("$ref")) {
-					allOfRefs.put(i, allOfObject.get("$ref").getAsString());
+					Schema referencedSchema = openAPI2Model.getSchemaByReference(allOfObject.get("$ref").getAsString());
+					if (referencedSchema != null)
+						schema.getAllOf().add(i, referencedSchema);
+					else
+						allOfRefs.put(i, allOfObject.get("$ref").getAsString());
 				} else {
 					Schema allOfSchema = ExtendedOpenAPI2Factory.eINSTANCE.createSchema();
 					schema.getAllOf().add(allOfSchema);
@@ -438,7 +450,11 @@ public class OpenAPI2Importer {
 		if (schemaObject.has("items")) {
 			JsonObject itemsObject = schemaObject.get("items").getAsJsonObject();
 			if (itemsObject.has("$ref")) {
-				itemsToResolve.put(schema, itemsObject.get("$ref").getAsString());
+				Schema referencedSchema = openAPI2Model.getSchemaByReference(itemsObject.get("$ref").getAsString());
+				if (referencedSchema != null)
+					schema.setItems(referencedSchema);
+				else
+					itemsToResolve.put(schema, itemsObject.get("$ref").getAsString());
 			} else {
 				Schema itemsSchema = ExtendedOpenAPI2Factory.eINSTANCE.createSchema();
 				schema.setItems(itemsSchema);
