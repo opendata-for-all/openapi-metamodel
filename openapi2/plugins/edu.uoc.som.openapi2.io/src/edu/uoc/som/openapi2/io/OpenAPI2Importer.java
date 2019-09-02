@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -60,9 +62,17 @@ public class OpenAPI2Importer {
 
 	private API openAPI2Model;
 	ExtendedOpenAPI2FactoryImpl factory = (ExtendedOpenAPI2FactoryImpl) ExtendedOpenAPI2Factory.eINSTANCE;
+	private Map<Property, String> propertiesToResolve;
+	private Map<Schema, String> additionalPropertiesToResolve;
+	private Map<Schema, String> itemsToResolve;
+	private Map<Schema, Map<Integer, String>> allOfToResolve;
 
 	public OpenAPI2Importer() {
 		openAPI2Model = factory.createAPI();
+		propertiesToResolve = new HashMap<Property, String>();
+		additionalPropertiesToResolve = new HashMap<Schema, String>();
+		itemsToResolve = new HashMap<Schema, String>();
+		allOfToResolve = new HashMap<Schema, Map<Integer, String>>();
 
 	}
 
@@ -84,7 +94,8 @@ public class OpenAPI2Importer {
 
 	}
 
-	public API createOpenAPI2ModelFromText(String text, SerializationFormat serializationFormat) throws IOException, OpenAPIValidationException, OpenAPIProcessingException {
+	public API createOpenAPI2ModelFromText(String text, SerializationFormat serializationFormat)
+			throws IOException, OpenAPIValidationException, OpenAPIProcessingException {
 
 		if (serializationFormat == null || serializationFormat.equals(SerializationFormat.JSON)) {
 
@@ -166,6 +177,7 @@ public class OpenAPI2Importer {
 		}
 		if (jsonObject.has("definitions")) {
 			importDefinitions(jsonObject.get("definitions"));
+			resolveRefs();
 		}
 		if (jsonObject.has("securityDefinitions")) {
 			importSecurityDefinitions(jsonObject.get("securityDefinitions"));
@@ -373,10 +385,7 @@ public class OpenAPI2Importer {
 				JsonObject value = jsonProperty.getValue().getAsJsonObject();
 				if (value.has("$ref")) {
 					String ref = value.get("$ref").getAsString();
-					Schema referencedchema = openAPI2Model.getSchemaByReference(ref);
-					if (referencedchema != null) {
-						property.setSchema(referencedchema);
-					}
+					propertiesToResolve.put(property, ref);
 				} else {
 					Schema propertyValue = ExtendedOpenAPI2Factory.eINSTANCE.createSchema();
 					property.setSchema(propertyValue);
@@ -396,8 +405,7 @@ public class OpenAPI2Importer {
 				JsonObject additionalPropertiesObject = additionalProperties.getAsJsonObject();
 				if (additionalPropertiesObject.has("$ref")) {
 					String ref = additionalPropertiesObject.get("$ref").getAsString();
-					Schema referencedchema = openAPI2Model.getSchemaByReference(ref);
-					schema.setAdditonalProperties(referencedchema);
+					additionalPropertiesToResolve.put(schema, ref);
 				} else {
 					Schema additionalPropertieSchema = ExtendedOpenAPI2Factory.eINSTANCE.createSchema();
 					schema.setAdditonalProperties(additionalPropertieSchema);
@@ -410,11 +418,11 @@ public class OpenAPI2Importer {
 		}
 		if (schemaObject.has("allOf")) {
 			JsonArray allOfArray = schemaObject.get("allOf").getAsJsonArray();
-			for (JsonElement allOfElement : allOfArray) {
-				JsonObject allOfObject = allOfElement.getAsJsonObject();
+			Map<Integer, String> allOfRefs = new HashMap<Integer, String>();
+			for (int i = 0; i < allOfArray.size(); i++) {
+				JsonObject allOfObject = allOfArray.get(i).getAsJsonObject();
 				if (allOfObject.has("$ref")) {
-					Schema allOfRef = openAPI2Model.getSchemaByReference(allOfObject.get("$ref").getAsString());
-					schema.getAllOf().add(allOfRef);
+					allOfRefs.put(i, allOfObject.get("$ref").getAsString());
 				} else {
 					Schema allOfSchema = ExtendedOpenAPI2Factory.eINSTANCE.createSchema();
 					schema.getAllOf().add(allOfSchema);
@@ -424,11 +432,13 @@ public class OpenAPI2Importer {
 				}
 
 			}
+			if (!allOfRefs.isEmpty())
+				allOfToResolve.put(schema, allOfRefs);
 		}
 		if (schemaObject.has("items")) {
 			JsonObject itemsObject = schemaObject.get("items").getAsJsonObject();
 			if (itemsObject.has("$ref")) {
-				schema.setItems(openAPI2Model.getSchemaByReference(itemsObject.get("$ref").getAsString()));
+				itemsToResolve.put(schema, itemsObject.get("$ref").getAsString());
 			} else {
 				Schema itemsSchema = ExtendedOpenAPI2Factory.eINSTANCE.createSchema();
 				schema.setItems(itemsSchema);
@@ -899,6 +909,35 @@ public class OpenAPI2Importer {
 		if (contactObject.has("email"))
 			contact.setEmail(contactObject.get("email").getAsString());
 
+	}
+
+	private void resolveRefs() {
+		for (Map.Entry<Property, String> entry : propertiesToResolve.entrySet()) {
+			Schema referencedchema = openAPI2Model.getSchemaByReference(entry.getValue());
+			if (referencedchema != null) {
+				entry.getKey().setSchema(referencedchema);
+			}
+		}
+		for (Map.Entry<Schema, String> entry : additionalPropertiesToResolve.entrySet()) {
+			Schema referencedchema = openAPI2Model.getSchemaByReference(entry.getValue());
+			if (referencedchema != null) {
+				entry.getKey().setAdditonalProperties(referencedchema);
+			}
+		}
+		for (Map.Entry<Schema, String> entry : itemsToResolve.entrySet()) {
+			Schema referencedchema = openAPI2Model.getSchemaByReference(entry.getValue());
+			if (referencedchema != null) {
+				entry.getKey().setItems(referencedchema);
+			}
+		}
+		for (Entry<Schema, Map<Integer, String>> entry : allOfToResolve.entrySet()) {
+			for (Entry<Integer, String> ref : entry.getValue().entrySet()) {
+				Schema referencedchema = openAPI2Model.getSchemaByReference(ref.getValue());
+				if (referencedchema != null) {
+					entry.getKey().getAllOf().add(ref.getKey(), referencedchema);
+				}
+			}
+		}
 	}
 
 }
