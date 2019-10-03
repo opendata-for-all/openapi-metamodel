@@ -40,10 +40,9 @@ public class OpenAPIValidationReport {
 		StringBuilder message = new StringBuilder();
 		message.append("pointer: \"");
 		message.append(processingMessage.asJson().get("instance").get("pointer").asText());
-		message.append("\",\n");
+		message.append("\",");
 		message.append("message: ");
 		message.append(processingMessage.getMessage());
-		message.append("\n");
 		return message.toString();
 	}
 
