@@ -2,7 +2,7 @@ package edu.uoc.som.openapi2.io;
 
 import java.io.File;
 import java.io.IOException;
-
+import java.net.MalformedURLException;
 
 import edu.uoc.som.openapi2.API;
 import edu.uoc.som.openapi2.io.exceptions.OpenAPIProcessingException;
@@ -15,10 +15,7 @@ public class OpenAPI2Builder {
 	private SerializationFormat serializationFormat;
 	
 	
-	public OpenAPI2Builder() {
-		//JSON is the default format
-		serializationFormat = SerializationFormat.JSON;
-	}
+
 	
 	public OpenAPI2Builder setSerializationFormat(SerializationFormat serializationFormat){
 		this.serializationFormat = serializationFormat;
@@ -34,6 +31,12 @@ public class OpenAPI2Builder {
 	public API fromText(String text) throws IOException, OpenAPIValidationException,  OpenAPIProcessingException {
 		OpenAPI2Importer importer = new OpenAPI2Importer();
 		return importer.createOpenAPI2ModelFromText(text, serializationFormat);
+	}
+	
+	public API fromURL(String url) throws MalformedURLException, IOException {
+		OpenAPI2Importer importer = new OpenAPI2Importer();
+		return importer.createOpenAPI2ModelFromURL(url, serializationFormat);
+		
 	}
 	
 	

@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -81,13 +83,21 @@ public class OpenAPI2Importer {
 
 		InputStream in = new FileInputStream(inputFile);
 		Reader reader = new InputStreamReader(in, "UTF-8");
-		if (serializationFormat == null || serializationFormat.equals(SerializationFormat.JSON)) {
+		String definition = IOUtils.toString(reader);
+		reader.close();
+		SerializationFormat finalSerializationFormat = serializationFormat;
+		if(finalSerializationFormat == null) {
+			finalSerializationFormat = Utils.discoverFormat(definition);
+			if(finalSerializationFormat == null) {
+				throw new OpenAPIProcessingException("Malformatted document (not a valid JSON or YAML document)");
+			}
+		}
+		if (finalSerializationFormat.equals(SerializationFormat.JSON)) {
 			JsonParser parser = new JsonParser();
-			JsonElement jsonElement = parser.parse(reader);
+			JsonElement jsonElement = parser.parse(definition);
 			openAPI2Model = createOpenAPIModelFromJson(jsonElement.getAsJsonObject());
 		} else {
-			String yamlSring = IOUtils.toString(reader);
-			openAPI2Model = createOpenAPIModelFromYaml(yamlSring);
+			openAPI2Model = createOpenAPIModelFromYaml(definition);
 		}
 		reader.close();
 		return openAPI2Model;
@@ -96,8 +106,15 @@ public class OpenAPI2Importer {
 
 	public API createOpenAPI2ModelFromText(String text, SerializationFormat serializationFormat)
 			throws IOException, OpenAPIValidationException, OpenAPIProcessingException {
-
-		if (serializationFormat == null || serializationFormat.equals(SerializationFormat.JSON)) {
+		
+		SerializationFormat finalSerializationFormat = serializationFormat;
+		if(finalSerializationFormat == null) {
+			finalSerializationFormat = Utils.discoverFormat(text);
+			if(finalSerializationFormat == null) {
+				throw new OpenAPIProcessingException("Malformatted document (not a valid JSON or YAML document)");
+			}
+		}
+		if (finalSerializationFormat.equals(SerializationFormat.JSON)) {
 
 			JsonElement jsonElement;
 			JsonParser parser = new JsonParser();
@@ -108,6 +125,30 @@ public class OpenAPI2Importer {
 		}
 		return openAPI2Model;
 
+	}
+	
+	public API createOpenAPI2ModelFromURL(String url, SerializationFormat serializationFormat) throws MalformedURLException, IOException {
+		InputStream inputStream = new URL(url).openStream();
+		Reader reader = new InputStreamReader(inputStream);
+		String definition = IOUtils.toString(reader);
+		reader.close();
+		SerializationFormat finalSerializationFormat = serializationFormat;
+		if(finalSerializationFormat == null) {
+			finalSerializationFormat = Utils.discoverFormat(definition);
+			if(finalSerializationFormat == null) {
+				throw new OpenAPIProcessingException("Malformatted document (not a valid JSON or YAML document)");
+			}
+		}
+		if (finalSerializationFormat.equals(SerializationFormat.JSON)) {
+
+			JsonElement jsonElement;
+			JsonParser parser = new JsonParser();
+			jsonElement = parser.parse(definition);
+			openAPI2Model = createOpenAPIModelFromJson(jsonElement.getAsJsonObject());
+		} else {
+			openAPI2Model = createOpenAPIModelFromYaml(definition);
+		}
+		return openAPI2Model;
 	}
 
 	private API createOpenAPIModelFromYaml(String yamlSring)
@@ -124,7 +165,7 @@ public class OpenAPI2Importer {
 			throw new OpenAPIProcessingException(e.getProcessingMessage().getMessage());
 		}
 		if (!report.isSuccess()) {
-			throw new OpenAPIValidationException("Invalid OpenAPI definition\n" + report.getError());
+			throw new OpenAPIValidationException("Invalid OpenAPI definition",report);
 		}
 		openAPI2Model = createOpenAPIModelFromJson(jsonObject.getAsJsonObject());
 		return openAPI2Model;
@@ -138,7 +179,7 @@ public class OpenAPI2Importer {
 			openAPIValidator = new OpenAPIValidator();
 			OpenAPIValidationReport report = openAPIValidator.validate(jsonObject.toString());
 			if (!report.isSuccess()) {
-				throw new OpenAPIValidationException("Invalid OpenAPI definition\n" + report.getError());
+				throw new OpenAPIValidationException("Invalid OpenAPI definition",report);
 			}
 		} catch (ProcessingException e) {
 			throw new OpenAPIProcessingException(e.getProcessingMessage().getMessage());
