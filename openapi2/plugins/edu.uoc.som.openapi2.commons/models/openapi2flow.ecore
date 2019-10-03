@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="flow" nsURI="http://som.uoc.edu/openapi/2.0.0/flow" nsPrefix="flow">
+  <eClassifiers xsi:type="ecore:EClass" name="Sequence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="steps" upperBound="-1"
+        eType="#//Step"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Step" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Request" eSuperTypes="#//Step">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" eType="ecore:EClass ../../edu.uoc.som.openapi2.mm/model/openapi2.ecore#//Operation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Property" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="request" eType="#//Request"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyTransfer" eSuperTypes="#//Step">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Property"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputProperty" abstract="true" eSuperTypes="#//Property"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputProperty" abstract="true" eSuperTypes="#//Property"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HeaderProperty" eSuperTypes="#//OutputProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ResponseProperty" eSuperTypes="#//OutputProperty">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schemaProperty" eType="ecore:EClass ../../edu.uoc.som.openapi2.mm/model/openapi2.ecore#//Property"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterProperty" eSuperTypes="#//InputProperty">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="ecore:EClass ../../edu.uoc.som.openapi2.mm/model/openapi2.ecore#//Parameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Flow">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequences" upperBound="-1"
+        eType="#//Sequence" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
