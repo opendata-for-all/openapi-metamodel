@@ -6,7 +6,8 @@
     usedGenPackages="../../edu.uoc.som.openapi2.mm/model/openapi2.genmodel#//openapi2"
     operationReflection="true" importOrganizing="true">
   <foreignModel>openapi2flow.ecore</foreignModel>
-  <genPackages prefix="Flow" disposableProviderFactory="true" ecorePackage="openapi2flow.ecore#/">
+  <genPackages prefix="OpenAPI2Flow" basePackage="edu.uoc.som.openapi2" disposableProviderFactory="true"
+      fileExtensions="flow" ecorePackage="openapi2flow.ecore#/">
     <genClasses ecoreClass="openapi2flow.ecore#//Sequence">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2flow.ecore#//Sequence/steps"/>
     </genClasses>
