@@ -12,9 +12,9 @@ Require-Bundle: org.eclipse.core.runtime,
  edu.uoc.som.openapi2.mm;bundle-version="2.2.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: mapping,
- mapping.impl,
- mapping.util,
- flow,
- flow.impl,
- flow.util
+Export-Package: edu.uoc.som.openapi2.flow,
+ edu.uoc.som.openapi2.flow.impl,
+ edu.uoc.som.openapi2.flow.util,
+ edu.uoc.som.openapi2.mapping,
+ edu.uoc.som.openapi2.mapping.impl,
+ edu.uoc.som.openapi2.mapping.util

@@ -7,19 +7,19 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated openapi2mapping -->
-      <package
-            uri="http://som.uoc.edu/openapi/2.0.0/mapping"
-            class="mapping.MappingPackage"
-            genModel="models/openapi2mapping.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated openapi2flow -->
       <package
             uri="http://som.uoc.edu/openapi/2.0.0/flow"
-            class="flow.FlowPackage"
+            class="edu.uoc.som.openapi2.flow.OpenAPI2FlowPackage"
             genModel="models/openapi2flow.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated openapi2mapping -->
+      <package
+            uri="http://som.uoc.edu/openapi/2.0.0/mapping"
+            class="edu.uoc.som.openapi2.mapping.OpenAPI2MappingPackage"
+            genModel="models/openapi2mapping.genmodel"/>
    </extension>
 
 </plugin>
