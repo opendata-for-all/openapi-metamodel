@@ -9,7 +9,7 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- edu.uoc.som.openapi2.mm;bundle-version="2.2.0";visibility:=reexport
+ edu.uoc.som.openapi2.mm;bundle-version="2.2.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: edu.uoc.som.openapi2.flow,
