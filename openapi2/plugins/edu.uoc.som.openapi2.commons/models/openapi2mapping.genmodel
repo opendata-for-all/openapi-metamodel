@@ -18,7 +18,7 @@
     </genClasses>
     <genClasses ecoreClass="openapi2mapping.ecore#//Mapping">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2mapping.ecore#//Mapping/propertyToParameterMappings"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2mapping.ecore#//Mapping/propertyToPropertyMapping"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openapi2mapping.ecore#//Mapping/propertyToPropertyMappings"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
