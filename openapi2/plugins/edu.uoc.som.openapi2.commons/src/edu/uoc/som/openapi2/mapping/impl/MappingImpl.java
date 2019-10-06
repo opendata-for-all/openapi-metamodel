@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link edu.uoc.som.openapi2.mapping.impl.MappingImpl#getPropertyToParameterMappings <em>Property To Parameter Mappings</em>}</li>
- *   <li>{@link edu.uoc.som.openapi2.mapping.impl.MappingImpl#getPropertyToPropertyMapping <em>Property To Property Mapping</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi2.mapping.impl.MappingImpl#getPropertyToPropertyMappings <em>Property To Property Mappings</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,14 +43,14 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	protected EList<PropertyToParameter> propertyToParameterMappings;
 
 	/**
-	 * The cached value of the '{@link #getPropertyToPropertyMapping() <em>Property To Property Mapping</em>}' reference list.
+	 * The cached value of the '{@link #getPropertyToPropertyMappings() <em>Property To Property Mappings</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPropertyToPropertyMapping()
+	 * @see #getPropertyToPropertyMappings()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PropertyToProperty> propertyToPropertyMapping;
+	protected EList<PropertyToProperty> propertyToPropertyMappings;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,11 +90,11 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 	 * @generated
 	 */
 	@Override
-	public EList<PropertyToProperty> getPropertyToPropertyMapping() {
-		if (propertyToPropertyMapping == null) {
-			propertyToPropertyMapping = new EObjectResolvingEList<PropertyToProperty>(PropertyToProperty.class, this, OpenAPI2MappingPackage.MAPPING__PROPERTY_TO_PROPERTY_MAPPING);
+	public EList<PropertyToProperty> getPropertyToPropertyMappings() {
+		if (propertyToPropertyMappings == null) {
+			propertyToPropertyMappings = new EObjectResolvingEList<PropertyToProperty>(PropertyToProperty.class, this, OpenAPI2MappingPackage.MAPPING__PROPERTY_TO_PROPERTY_MAPPINGS);
 		}
-		return propertyToPropertyMapping;
+		return propertyToPropertyMappings;
 	}
 
 	/**
@@ -107,8 +107,8 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 		switch (featureID) {
 			case OpenAPI2MappingPackage.MAPPING__PROPERTY_TO_PARAMETER_MAPPINGS:
 				return getPropertyToParameterMappings();
-			case OpenAPI2MappingPackage.MAPPING__PROPERTY_TO_PROPERTY_MAPPING:
-				return getPropertyToPropertyMapping();
+			case OpenAPI2MappingPackage.MAPPING__PROPERTY_TO_PROPERTY_MAPPINGS:
+				return getPropertyToPropertyMappings();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -126,9 +126,9 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 				getPropertyToParameterMappings().clear();
 				getPropertyToParameterMappings().addAll((Collection<? extends PropertyToParameter>)newValue);
 				return;
-			case OpenAPI2MappingPackage.MAPPING__PROPERTY_TO_PROPERTY_MAPPING:
-				getPropertyToPropertyMapping().clear();
-				getPropertyToPropertyMapping().addAll((Collection<? extends PropertyToProperty>)newValue);
+			case OpenAPI2MappingPackage.MAPPING__PROPERTY_TO_PROPERTY_MAPPINGS:
+				getPropertyToPropertyMappings().clear();
+				getPropertyToPropertyMappings().addAll((Collection<? extends PropertyToProperty>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -145,8 +145,8 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 			case OpenAPI2MappingPackage.MAPPING__PROPERTY_TO_PARAMETER_MAPPINGS:
 				getPropertyToParameterMappings().clear();
 				return;
-			case OpenAPI2MappingPackage.MAPPING__PROPERTY_TO_PROPERTY_MAPPING:
-				getPropertyToPropertyMapping().clear();
+			case OpenAPI2MappingPackage.MAPPING__PROPERTY_TO_PROPERTY_MAPPINGS:
+				getPropertyToPropertyMappings().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -162,8 +162,8 @@ public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping
 		switch (featureID) {
 			case OpenAPI2MappingPackage.MAPPING__PROPERTY_TO_PARAMETER_MAPPINGS:
 				return propertyToParameterMappings != null && !propertyToParameterMappings.isEmpty();
-			case OpenAPI2MappingPackage.MAPPING__PROPERTY_TO_PROPERTY_MAPPING:
-				return propertyToPropertyMapping != null && !propertyToPropertyMapping.isEmpty();
+			case OpenAPI2MappingPackage.MAPPING__PROPERTY_TO_PROPERTY_MAPPINGS:
+				return propertyToPropertyMappings != null && !propertyToPropertyMappings.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link edu.uoc.som.openapi2.mapping.Mapping#getPropertyToParameterMappings <em>Property To Parameter Mappings</em>}</li>
- *   <li>{@link edu.uoc.som.openapi2.mapping.Mapping#getPropertyToPropertyMapping <em>Property To Property Mapping</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi2.mapping.Mapping#getPropertyToPropertyMappings <em>Property To Property Mappings</em>}</li>
  * </ul>
  *
  * @see edu.uoc.som.openapi2.mapping.OpenAPI2MappingPackage#getMapping()
@@ -37,15 +37,15 @@ public interface Mapping extends EObject {
 	EList<PropertyToParameter> getPropertyToParameterMappings();
 
 	/**
-	 * Returns the value of the '<em><b>Property To Property Mapping</b></em>' reference list.
+	 * Returns the value of the '<em><b>Property To Property Mappings</b></em>' reference list.
 	 * The list contents are of type {@link edu.uoc.som.openapi2.mapping.PropertyToProperty}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property To Property Mapping</em>' reference list.
-	 * @see edu.uoc.som.openapi2.mapping.OpenAPI2MappingPackage#getMapping_PropertyToPropertyMapping()
+	 * @return the value of the '<em>Property To Property Mappings</em>' reference list.
+	 * @see edu.uoc.som.openapi2.mapping.OpenAPI2MappingPackage#getMapping_PropertyToPropertyMappings()
 	 * @model
 	 * @generated
 	 */
-	EList<PropertyToProperty> getPropertyToPropertyMapping();
+	EList<PropertyToProperty> getPropertyToPropertyMappings();
 
 } // Mapping

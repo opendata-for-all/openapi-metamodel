@@ -167,13 +167,13 @@ public interface OpenAPI2MappingPackage extends EPackage {
 	int MAPPING__PROPERTY_TO_PARAMETER_MAPPINGS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Property To Property Mapping</b></em>' reference list.
+	 * The feature id for the '<em><b>Property To Property Mappings</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING__PROPERTY_TO_PROPERTY_MAPPING = 1;
+	int MAPPING__PROPERTY_TO_PROPERTY_MAPPINGS = 1;
 
 	/**
 	 * The number of structural features of the '<em>Mapping</em>' class.
@@ -280,15 +280,15 @@ public interface OpenAPI2MappingPackage extends EPackage {
 	EReference getMapping_PropertyToParameterMappings();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.uoc.som.openapi2.mapping.Mapping#getPropertyToPropertyMapping <em>Property To Property Mapping</em>}'.
+	 * Returns the meta object for the reference list '{@link edu.uoc.som.openapi2.mapping.Mapping#getPropertyToPropertyMappings <em>Property To Property Mappings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Property To Property Mapping</em>'.
-	 * @see edu.uoc.som.openapi2.mapping.Mapping#getPropertyToPropertyMapping()
+	 * @return the meta object for the reference list '<em>Property To Property Mappings</em>'.
+	 * @see edu.uoc.som.openapi2.mapping.Mapping#getPropertyToPropertyMappings()
 	 * @see #getMapping()
 	 * @generated
 	 */
-	EReference getMapping_PropertyToPropertyMapping();
+	EReference getMapping_PropertyToPropertyMappings();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -384,12 +384,12 @@ public interface OpenAPI2MappingPackage extends EPackage {
 		EReference MAPPING__PROPERTY_TO_PARAMETER_MAPPINGS = eINSTANCE.getMapping_PropertyToParameterMappings();
 
 		/**
-		 * The meta object literal for the '<em><b>Property To Property Mapping</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Property To Property Mappings</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MAPPING__PROPERTY_TO_PROPERTY_MAPPING = eINSTANCE.getMapping_PropertyToPropertyMapping();
+		EReference MAPPING__PROPERTY_TO_PROPERTY_MAPPINGS = eINSTANCE.getMapping_PropertyToPropertyMappings();
 
 	}
 

@@ -194,7 +194,7 @@ public class OpenAPI2MappingPackageImpl extends EPackageImpl implements OpenAPI2
 	 * @generated
 	 */
 	@Override
-	public EReference getMapping_PropertyToPropertyMapping() {
+	public EReference getMapping_PropertyToPropertyMappings() {
 		return (EReference)mappingEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -237,7 +237,7 @@ public class OpenAPI2MappingPackageImpl extends EPackageImpl implements OpenAPI2
 
 		mappingEClass = createEClass(MAPPING);
 		createEReference(mappingEClass, MAPPING__PROPERTY_TO_PARAMETER_MAPPINGS);
-		createEReference(mappingEClass, MAPPING__PROPERTY_TO_PROPERTY_MAPPING);
+		createEReference(mappingEClass, MAPPING__PROPERTY_TO_PROPERTY_MAPPINGS);
 	}
 
 	/**
@@ -283,7 +283,7 @@ public class OpenAPI2MappingPackageImpl extends EPackageImpl implements OpenAPI2
 
 		initEClass(mappingEClass, Mapping.class, "Mapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMapping_PropertyToParameterMappings(), this.getPropertyToParameter(), null, "propertyToParameterMappings", null, 0, -1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMapping_PropertyToPropertyMapping(), this.getPropertyToProperty(), null, "propertyToPropertyMapping", null, 0, -1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMapping_PropertyToPropertyMappings(), this.getPropertyToProperty(), null, "propertyToPropertyMappings", null, 0, -1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
