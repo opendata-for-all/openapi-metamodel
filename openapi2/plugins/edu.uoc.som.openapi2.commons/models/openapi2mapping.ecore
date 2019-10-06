@@ -12,7 +12,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Mapping">
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyToParameterMappings"
         upperBound="-1" eType="#//PropertyToParameter"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyToPropertyMapping"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyToPropertyMappings"
         upperBound="-1" eType="#//PropertyToProperty"/>
   </eClassifiers>
 </ecore:EPackage>
