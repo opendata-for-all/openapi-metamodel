@@ -8,6 +8,7 @@ import java.util.Map.Entry;
 
 import edu.uoc.som.openapi2.API;
 import edu.uoc.som.openapi2.JSONDataType;
+import edu.uoc.som.openapi2.JSONSchemaSubset;
 import edu.uoc.som.openapi2.Operation;
 import edu.uoc.som.openapi2.Parameter;
 import edu.uoc.som.openapi2.ParameterLocation;
@@ -200,30 +201,24 @@ public class OpenAPIUtils {
 		return false;
 	}
 	
-	public static boolean isPrimitive(Schema property) {
-		if (property.getType().equals(JSONDataType.BOOLEAN) || property.getType().equals(JSONDataType.INTEGER)
-				|| property.getType().equals(JSONDataType.NUMBER) || property.getType().equals(JSONDataType.STRING))
-			return true;
-		if (property.getType().equals(JSONDataType.ARRAY) && (property.getItems().getType().equals(JSONDataType.BOOLEAN)
-				|| property.getItems().getType().equals(JSONDataType.INTEGER)
-				|| property.getItems().getType().equals(JSONDataType.NUMBER)
-				|| property.getItems().getType().equals(JSONDataType.STRING)))
+	public static boolean isPrimitive(JSONDataType jsonDataType) {
+		if (jsonDataType.equals(JSONDataType.BOOLEAN) || jsonDataType.equals(JSONDataType.INTEGER)
+				|| jsonDataType.equals(JSONDataType.NUMBER) || jsonDataType.equals(JSONDataType.STRING))
 			return true;
 		return false;
 	}
 	
-	public static boolean isSingleValuedPrimitive(Schema schema) {
-		if (schema.getType().equals(JSONDataType.BOOLEAN) || schema.getType().equals(JSONDataType.INTEGER)
-				|| schema.getType().equals(JSONDataType.NUMBER) || schema.getType().equals(JSONDataType.STRING))
-			return true;
+	
+	
+	
+	public static boolean isSingleValuedPrimitive(JSONSchemaSubset schema) {
+		if(isPrimitive(schema.getType()))
+				return true;
 		return false;
 	}
 	
-	public static boolean isMultiValuedPrimitive(Schema schema) {
-		if (schema.getType().equals(JSONDataType.ARRAY) && (schema.getItems().getType().equals(JSONDataType.BOOLEAN)
-				|| schema.getItems().getType().equals(JSONDataType.INTEGER)
-				|| schema.getItems().getType().equals(JSONDataType.NUMBER)
-				|| schema.getItems().getType().equals(JSONDataType.STRING)))
+	public static boolean isArrayOfPrimitives(Schema schema) {
+		if (schema.getType().equals(JSONDataType.ARRAY) && isSingleValuedPrimitive(schema.getItems()))
 			return true;
 		return false;
 	}
@@ -239,10 +234,21 @@ public class OpenAPIUtils {
 	public static List<Property> getMultiValuedPrimitiveProperties(Schema schema){
 		List<Property> properties = new ArrayList<Property>();
 		for(Property property: schema.getProperties()) 
-			if(isMultiValuedPrimitive(property.getSchema()))
+			if(isArrayOfPrimitives(property.getSchema()))
 				properties.add(property);
 			return properties;	
 		
+	}
+	public static boolean isSingleValuedPrimitive(Parameter parameter) {
+		if(nonNull(parameter.getType()) && isPrimitive(parameter.getType()))
+				return true;
+		return false;
+	}
+	
+	public static boolean isArrayOfPrimitives(Parameter parameter) {
+		if (nonNull(parameter.getType()) && parameter.getType().equals(JSONDataType.ARRAY) && isSingleValuedPrimitive(parameter.getItems()))
+			return true;
+		return false;
 	}
 
 }
