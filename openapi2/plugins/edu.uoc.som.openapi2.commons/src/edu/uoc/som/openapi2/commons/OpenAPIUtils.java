@@ -11,6 +11,7 @@ import edu.uoc.som.openapi2.JSONDataType;
 import edu.uoc.som.openapi2.JSONSchemaSubset;
 import edu.uoc.som.openapi2.Operation;
 import edu.uoc.som.openapi2.Parameter;
+import edu.uoc.som.openapi2.ParameterContainer;
 import edu.uoc.som.openapi2.ParameterLocation;
 import edu.uoc.som.openapi2.Path;
 import edu.uoc.som.openapi2.Property;
@@ -249,6 +250,13 @@ public class OpenAPIUtils {
 		if (nonNull(parameter.getType()) && parameter.getType().equals(JSONDataType.ARRAY) && isSingleValuedPrimitive(parameter.getItems()))
 			return true;
 		return false;
+	}
+	public static Operation getOperation(Parameter parameter) {
+		ParameterContainer container = parameter.getDeclaringContext();
+		if(nonNull(container) && container instanceof Operation)
+			return (Operation) container;
+		return null;
+		
 	}
 
 }
