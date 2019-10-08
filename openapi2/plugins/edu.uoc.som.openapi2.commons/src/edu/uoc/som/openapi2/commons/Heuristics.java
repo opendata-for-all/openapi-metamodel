@@ -69,7 +69,7 @@ public class Heuristics {
 		for (Map.Entry<String, Schema> targetDefinition : api.getDefinitions()) {
 			for (Property targetSchemaProperty : targetDefinition.getValue().getProperties()) {
 
-				if (areSimilar(sourceSchemaProperty, targetSchemaProperty,
+				if (!sourceSchemaProperty.equals(targetSchemaProperty) &&areSimilar(sourceSchemaProperty, targetSchemaProperty,
 						new BasicComparator(sourceDefinition.getKey(), null, true))) {
 					PropertyToProperty propertyToProperty = factory.createPropertyToProperty();
 					propertyToProperty.setSource(sourceSchemaProperty);
