@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" uid="_vQQKEOXpEemDrqm0uv4uQQ" version="14.1.0.201810161215">
+  <semanticResources>models/openapi2flow.ecore</semanticResources>
+  <semanticResources>platform:/resource/edu.uoc.som.openapi2.mm/model/openapi2.ecore</semanticResources>
+  <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+  <semanticResources>models/openapi2mapping.ecore</semanticResources>
+  <semanticResources>models/openapi2flow.genmodel</semanticResources>
+  <semanticResources>platform:/resource/edu.uoc.som.openapi2.mm/model/openapi2.genmodel</semanticResources>
+  <semanticResources>models/openapi2mapping.genmodel</semanticResources>
+  <semanticResources>build.properties</semanticResources>
+  <semanticResources>plugin.properties</semanticResources>
+  <semanticResources>target/local-artifacts.properties</semanticResources>
+  <semanticResources>target/maven-archiver/pom.properties</semanticResources>
+</viewpoint:DAnalysis>

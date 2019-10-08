@@ -15,7 +15,11 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
+
+import edu.uoc.som.openapi2.io.model.SerializationFormat;
 
 public class Utils {
 
@@ -24,76 +28,97 @@ public class Utils {
 		BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
 		bufferWritter.write(jsonOutput);
 		bufferWritter.close();
-		
+
 	}
+
 	@SuppressWarnings("unchecked")
 	public static JsonElement convertYamlToGson(String yamlString) {
-	    Yaml yaml= new Yaml();
-	    Map<String, Object>  map = (Map<String, Object>) yaml.load(yamlString);
+		Yaml yaml = new Yaml();
+		Map<String, Object> map = (Map<String, Object>) yaml.load(yamlString);
 
-	    return wrapSnakeObject(map);
+		return wrapSnakeObject(map);
 	}
+
 	@SuppressWarnings("unchecked")
 	public static String convertJsonToYaml(String jsonText, boolean pretty) {
 		DumperOptions options = new DumperOptions();
-	      options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
-	      options.setPrettyFlow(pretty);
-		 Yaml yaml= new Yaml(options);
-		Map<String, Object>  map = (Map<String, Object>) yaml.load(jsonText);
+		options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
+		options.setPrettyFlow(pretty);
+		Yaml yaml = new Yaml(options);
+		Map<String, Object> map = (Map<String, Object>) yaml.load(jsonText);
 		return yaml.dump(map);
 	}
-	
-	// taken from https://stackoverflow.com/questions/23744216/how-do-i-convert-from-yaml-to-json-in-java
+
+	@SuppressWarnings("unchecked")
+	public static SerializationFormat discoverFormat(String definition) {
+		try {
+			new JsonParser().parse(definition);
+			return SerializationFormat.JSON;
+		} catch (JsonParseException e) {
+			// Not a json
+		}
+		try {
+			Yaml yaml = new Yaml();
+			Map<String, Object> map = (Map<String, Object>) yaml.load(definition);
+			return SerializationFormat.YAML;
+		} catch (Exception e) {
+			// Not a yaml
+		}
+		return null;
+	}
+
+	// taken from
+	// https://stackoverflow.com/questions/23744216/how-do-i-convert-from-yaml-to-json-in-java
 	public static JsonElement wrapSnakeObject(Object o) {
 
-	    //NULL => JsonNull
-	    if (o == null)
-	        return JsonNull.INSTANCE;
+		// NULL => JsonNull
+		if (o == null)
+			return JsonNull.INSTANCE;
 
-	    // Collection => JsonArray
-	    if (o instanceof Collection) {
-	        JsonArray array = new JsonArray();
-	        for (Object childObj : (Collection<?>)o)
-	            array.add(wrapSnakeObject(childObj));
-	        return array;
-	    }
+		// Collection => JsonArray
+		if (o instanceof Collection) {
+			JsonArray array = new JsonArray();
+			for (Object childObj : (Collection<?>) o)
+				array.add(wrapSnakeObject(childObj));
+			return array;
+		}
 
-	    // Array => JsonArray
-	    if (o.getClass().isArray()) {
-	        JsonArray array = new JsonArray();
+		// Array => JsonArray
+		if (o.getClass().isArray()) {
+			JsonArray array = new JsonArray();
 
-	        int length = Array.getLength(array);
-	        for (int i=0; i<length; i++)
-	            array.add(wrapSnakeObject(Array.get(array, i)));
+			int length = Array.getLength(array);
+			for (int i = 0; i < length; i++)
+				array.add(wrapSnakeObject(Array.get(array, i)));
 
-	        return array;
-	    }
+			return array;
+		}
 
-	    // Map => JsonObject
-	    if (o instanceof Map) {
-	        Map<?, ?> map = (Map<?, ?>)o;
+		// Map => JsonObject
+		if (o instanceof Map) {
+			Map<?, ?> map = (Map<?, ?>) o;
 
-	        JsonObject jsonObject = new JsonObject();
-	        for (final Map.Entry<?, ?> entry : map.entrySet()) {
-	            final String name = String.valueOf(entry.getKey());
-	            final Object value = entry.getValue();
-	            jsonObject.add(name, wrapSnakeObject(value));
-	        }
+			JsonObject jsonObject = new JsonObject();
+			for (final Map.Entry<?, ?> entry : map.entrySet()) {
+				final String name = String.valueOf(entry.getKey());
+				final Object value = entry.getValue();
+				jsonObject.add(name, wrapSnakeObject(value));
+			}
 
-	        return jsonObject;
-	    }
+			return jsonObject;
+		}
 
-	    // everything else => JsonPrimitive
-	    if (o instanceof String)
-	        return new JsonPrimitive((String)o);
-	    if (o instanceof Number)
-	        return new JsonPrimitive((Number)o);
-	    if (o instanceof Character)
-	        return new JsonPrimitive((Character)o);
-	    if (o instanceof Boolean)
-	        return new JsonPrimitive((Boolean)o);
+		// everything else => JsonPrimitive
+		if (o instanceof String)
+			return new JsonPrimitive((String) o);
+		if (o instanceof Number)
+			return new JsonPrimitive((Number) o);
+		if (o instanceof Character)
+			return new JsonPrimitive((Character) o);
+		if (o instanceof Boolean)
+			return new JsonPrimitive((Boolean) o);
 
-	    // otherwise.. string is a good guess
-	    return new JsonPrimitive(String.valueOf(o));
+		// otherwise.. string is a good guess
+		return new JsonPrimitive(String.valueOf(o));
 	}
 }

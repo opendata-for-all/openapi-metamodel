@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="mapping" nsURI="http://som.uoc.edu/openapi/2.0.0/mapping" nsPrefix="mapping">
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyToParameter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass ../../edu.uoc.som.openapi2.mm/model/openapi2.ecore#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass ../../edu.uoc.som.openapi2.mm/model/openapi2.ecore#//Parameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyToProperty">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass ../../edu.uoc.som.openapi2.mm/model/openapi2.ecore#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass ../../edu.uoc.som.openapi2.mm/model/openapi2.ecore#//Property"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mapping">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyToParameterMappings"
+        upperBound="-1" eType="#//PropertyToParameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyToPropertyMappings"
+        upperBound="-1" eType="#//PropertyToProperty"/>
+  </eClassifiers>
+</ecore:EPackage>
