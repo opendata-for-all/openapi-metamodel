@@ -3,6 +3,10 @@ package edu.uoc.som.openapi2.commons;
 import java.util.Map;
 import java.util.Objects;
 import static java.util.Objects.nonNull;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.util.Objects.isNull;
 
 import edu.uoc.som.openapi2.API;
@@ -27,42 +31,71 @@ public class Heuristics {
 	 * @param api source API
 	 * @return a {@link Mapping} instance holding the discovered links
 	 */
-	public static Mapping discoverLinks(API api) {
+	public static Mapping discoverLinks(Schema defintion, API api) {
 		Mapping mapping = factory.createMapping();
 
 		for (Map.Entry<String, Schema> sourceDefinition : api.getDefinitions()) {
-			for (Property sourceSchemaProperty : sourceDefinition.getValue().getProperties()) {
-				// We compare properties with properties;
-				for (Map.Entry<String, Schema> targetDefinition : api.getDefinitions()) {
-					for (Property targetSchemaProperty : targetDefinition.getValue().getProperties()) {
-
-						if (areSimilar(sourceSchemaProperty, targetSchemaProperty,
-								new BasicComparator(sourceDefinition.getKey(), null, true))) {
-							PropertyToProperty propertyToProperty = factory.createPropertyToProperty();
-							propertyToProperty.setSource(sourceSchemaProperty);
-							propertyToProperty.setTarget(targetSchemaProperty);
-							mapping.getPropertyToPropertyMappings().add(propertyToProperty);
-						}
-					}
-				}
-				// We compare properties with parameters
-				for (Operation operation : api.getAllOperations())
-					for (Parameter parameter : operation.getParameters()) {
-						if (areSimilar(sourceSchemaProperty, parameter,
-								new BasicComparator(sourceDefinition.getKey(), null, false))) {
-							PropertyToParameter propertyToParameter = factory.createPropertyToParameter();
-							propertyToParameter.setSource(sourceSchemaProperty);
-							propertyToParameter.setTarget(parameter);
-							mapping.getPropertyToParameterMappings().add(propertyToParameter);
-						}
-					}
-
-			}
+			List<PropertyToProperty> propertyToPropertyMappings = discoverPropertyLinks(sourceDefinition,api);
+			mapping.getPropertyToPropertyMappings().addAll(propertyToPropertyMappings);
+			List<PropertyToParameter> propertyToParameterMappings = discoverParameterLinks(sourceDefinition,api);
+			mapping.getPropertyToParameterMappings().addAll(propertyToParameterMappings);
 
 		}
 		return mapping;
 
 	}
+
+	public static List<PropertyToProperty> discoverPropertyLinks( Map.Entry<String, Schema> sourceDefinition, API api) {
+		List<PropertyToProperty> propertToProperties  = new ArrayList<PropertyToProperty>();
+		for (Property sourceSchemaProperty : sourceDefinition.getValue().getProperties()) {
+			// We compare properties with properties;
+			propertToProperties.addAll(discoverPropertyLinks(sourceSchemaProperty,sourceDefinition, api));
+			
+		}
+		return propertToProperties;
+	}
+
+	public static List<PropertyToParameter> discoverParameterLinks( Map.Entry<String, Schema> sourceDefinition, API api) {
+		List<PropertyToParameter> propertToParameters  = new ArrayList<PropertyToParameter>();
+		for (Property sourceSchemaProperty : sourceDefinition.getValue().getProperties()) {
+			// We compare properties with properties;
+			propertToParameters.addAll(discoverParameterLinks(sourceSchemaProperty,sourceDefinition, api));
+
+		}
+		return propertToParameters;
+	}
+	public static List<PropertyToProperty> discoverPropertyLinks(Property sourceSchemaProperty, Map.Entry<String, Schema> sourceDefinition, API api) {
+		 List<PropertyToProperty> propertyToProperties = new ArrayList<PropertyToProperty>();
+		for (Map.Entry<String, Schema> targetDefinition : api.getDefinitions()) {
+			for (Property targetSchemaProperty : targetDefinition.getValue().getProperties()) {
+
+				if (areSimilar(sourceSchemaProperty, targetSchemaProperty,
+						new BasicComparator(sourceDefinition.getKey(), null, true))) {
+					PropertyToProperty propertyToProperty = factory.createPropertyToProperty();
+					propertyToProperty.setSource(sourceSchemaProperty);
+					propertyToProperty.setTarget(targetSchemaProperty);
+					propertyToProperties.add(propertyToProperty);
+				}
+			}
+		}
+		return propertyToProperties;
+	}
+	public static List<PropertyToParameter> discoverParameterLinks(Property sourceSchemaProperty, Map.Entry<String, Schema> sourceDefinition, API api) {
+		List<PropertyToParameter> propertyToParameters = new ArrayList<PropertyToParameter>();
+		for (Operation operation : api.getAllOperations())
+			for (Parameter parameter : operation.getParameters()) {
+				if (areSimilar(sourceSchemaProperty, parameter,
+						new BasicComparator(sourceDefinition.getKey(), null, false))) {
+					PropertyToParameter propertyToParameter = factory.createPropertyToParameter();
+					propertyToParameter.setSource(sourceSchemaProperty);
+					propertyToParameter.setTarget(parameter);
+					propertyToParameters.add(propertyToParameter);
+				}
+			}
+		return propertyToParameters;
+	}
+
+	
 
 	public static boolean areSimilar(Property source, Property target, AbstractComparator comparator) {
 
@@ -127,4 +160,6 @@ public class Heuristics {
 		return false;
 
 	}
+	
+	
 }

@@ -33,7 +33,7 @@ public class BasicComparator extends AbstractComparator {
 		}
 		
 		for(String option: options) {
-			if(option.equalsIgnoreCase(target));
+			if(option.equalsIgnoreCase(target))
 				return 0;
 		}
 		return 1;
