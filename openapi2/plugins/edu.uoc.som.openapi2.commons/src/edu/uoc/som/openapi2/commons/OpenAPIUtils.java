@@ -258,5 +258,8 @@ public class OpenAPIUtils {
 		return null;
 		
 	}
+	public static Schema getDefinition(Property property) {
+		return (Schema) property.eContainer();
+	}
 
 }
