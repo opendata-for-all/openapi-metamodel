@@ -37,7 +37,7 @@ public class OpenAPIUtils {
 				result.add(operation);
 			}
 		}
-		return null;
+		return result;
 
 	}
 
