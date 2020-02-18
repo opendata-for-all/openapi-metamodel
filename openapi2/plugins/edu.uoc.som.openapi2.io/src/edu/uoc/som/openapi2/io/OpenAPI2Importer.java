@@ -489,19 +489,25 @@ public class OpenAPI2Importer {
 				allOfToResolve.put(schema, allOfRefs);
 		}
 		if (schemaObject.has("items")) {
-			JsonObject itemsObject = schemaObject.get("items").getAsJsonObject();
-			if (itemsObject.has("$ref")) {
-				Schema referencedSchema = openAPI2Model.getSchemaByReference(itemsObject.get("$ref").getAsString());
-				if (referencedSchema != null)
-					schema.setItems(referencedSchema);
-				else
-					itemsToResolve.put(schema, itemsObject.get("$ref").getAsString());
-			} else {
-				Schema itemsSchema = ExtendedOpenAPI2Factory.eINSTANCE.createSchema();
-				schema.setItems(itemsSchema);
-				openAPI2Model.getContainedCollections().getSchemas().add(itemsSchema);
-				itemsSchema.setDeclaringContext(schema);
-				importSchema(itemsObject, itemsSchema);
+			if (schemaObject.get("items").isJsonObject()) {
+				JsonObject itemsObject = schemaObject.get("items").getAsJsonObject();
+				if (itemsObject.has("$ref")) {
+					Schema referencedSchema = openAPI2Model.getSchemaByReference(itemsObject.get("$ref").getAsString());
+					if (referencedSchema != null)
+						schema.setItems(referencedSchema);
+					else
+						itemsToResolve.put(schema, itemsObject.get("$ref").getAsString());
+				} else {
+					Schema itemsSchema = ExtendedOpenAPI2Factory.eINSTANCE.createSchema();
+					schema.setItems(itemsSchema);
+					openAPI2Model.getContainedCollections().getSchemas().add(itemsSchema);
+					itemsSchema.setDeclaringContext(schema);
+					importSchema(itemsObject, itemsSchema);
+				}
+			} else if (schemaObject.get("items").isJsonArray()) {
+				JsonArray itemsArray = schemaObject.get("items").getAsJsonArray();
+				
+
 			}
 		}
 		if (schemaObject.has("discriminator")) {
