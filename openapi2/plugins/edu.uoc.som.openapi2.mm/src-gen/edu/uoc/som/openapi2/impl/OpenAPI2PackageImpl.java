@@ -1470,6 +1470,16 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 	 * @generated
 	 */
 	@Override
+	public EReference getSchema_TupleItems() {
+		return (EReference)schemaEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getSchema__GetPropertyByName__String() {
 		return schemaEClass.getEOperations().get(0);
 	}
@@ -2390,6 +2400,7 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 		createEReference(schemaEClass, SCHEMA__ADDITONAL_PROPERTIES);
 		createEReference(schemaEClass, SCHEMA__DECLARING_CONTEXT);
 		createEAttribute(schemaEClass, SCHEMA__ADDITONAL_PROPERTIES_ALLOWED);
+		createEReference(schemaEClass, SCHEMA__TUPLE_ITEMS);
 		createEOperation(schemaEClass, SCHEMA___GET_PROPERTY_BY_NAME__STRING);
 		createEOperation(schemaEClass, SCHEMA___GET_NAME);
 
@@ -2683,6 +2694,7 @@ public class OpenAPI2PackageImpl extends EPackageImpl implements OpenAPI2Package
 		initEReference(getSchema_AdditonalProperties(), this.getSchema(), null, "additonalProperties", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchema_DeclaringContext(), this.getSchemaContainer(), null, "declaringContext", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchema_AdditonalPropertiesAllowed(), ecorePackage.getEBooleanObject(), "additonalPropertiesAllowed", null, 0, 1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchema_TupleItems(), this.getSchema(), null, "tupleItems", null, 0, -1, Schema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getSchema__GetPropertyByName__String(), this.getProperty(), "getPropertyByName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);

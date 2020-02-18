@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link edu.uoc.som.openapi2.Schema#getAdditonalProperties <em>Additonal Properties</em>}</li>
  *   <li>{@link edu.uoc.som.openapi2.Schema#getDeclaringContext <em>Declaring Context</em>}</li>
  *   <li>{@link edu.uoc.som.openapi2.Schema#getAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi2.Schema#getTupleItems <em>Tuple Items</em>}</li>
  * </ul>
  *
  * @see edu.uoc.som.openapi2.OpenAPI2Package#getSchema()
@@ -298,6 +299,18 @@ public interface Schema extends JSONSchemaSubset, SchemaContainer, ExternalDocsC
 	 * @generated
 	 */
 	void setAdditonalPropertiesAllowed(Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Tuple Items</b></em>' reference list.
+	 * The list contents are of type {@link edu.uoc.som.openapi2.Schema}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tuple Items</em>' reference list.
+	 * @see edu.uoc.som.openapi2.OpenAPI2Package#getSchema_TupleItems()
+	 * @model
+	 * @generated
+	 */
+	EList<Schema> getTupleItems();
 
 	/**
 	 * <!-- begin-user-doc -->

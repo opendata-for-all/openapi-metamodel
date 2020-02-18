@@ -52,6 +52,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.uoc.som.openapi2.impl.SchemaImpl#getAdditonalProperties <em>Additonal Properties</em>}</li>
  *   <li>{@link edu.uoc.som.openapi2.impl.SchemaImpl#getDeclaringContext <em>Declaring Context</em>}</li>
  *   <li>{@link edu.uoc.som.openapi2.impl.SchemaImpl#getAdditonalPropertiesAllowed <em>Additonal Properties Allowed</em>}</li>
+ *   <li>{@link edu.uoc.som.openapi2.impl.SchemaImpl#getTupleItems <em>Tuple Items</em>}</li>
  * </ul>
  *
  * @generated
@@ -286,6 +287,16 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * @ordered
 	 */
 	protected Boolean additonalPropertiesAllowed = ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTupleItems() <em>Tuple Items</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTupleItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Schema> tupleItems;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -732,6 +743,19 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 	 * @generated
 	 */
 	@Override
+	public EList<Schema> getTupleItems() {
+		if (tupleItems == null) {
+			tupleItems = new EObjectResolvingEList<Schema>(Schema.class, this, OpenAPI2Package.SCHEMA__TUPLE_ITEMS);
+		}
+		return tupleItems;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Property getPropertyByName(String name) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -809,6 +833,8 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 				return basicGetDeclaringContext();
 			case OpenAPI2Package.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
 				return getAdditonalPropertiesAllowed();
+			case OpenAPI2Package.SCHEMA__TUPLE_ITEMS:
+				return getTupleItems();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -869,6 +895,10 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 			case OpenAPI2Package.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
 				setAdditonalPropertiesAllowed((Boolean)newValue);
 				return;
+			case OpenAPI2Package.SCHEMA__TUPLE_ITEMS:
+				getTupleItems().clear();
+				getTupleItems().addAll((Collection<? extends Schema>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -926,6 +956,9 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 			case OpenAPI2Package.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
 				setAdditonalPropertiesAllowed(ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT);
 				return;
+			case OpenAPI2Package.SCHEMA__TUPLE_ITEMS:
+				getTupleItems().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -968,6 +1001,8 @@ public class SchemaImpl extends JSONSchemaSubsetImpl implements Schema {
 				return declaringContext != null;
 			case OpenAPI2Package.SCHEMA__ADDITONAL_PROPERTIES_ALLOWED:
 				return ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT == null ? additonalPropertiesAllowed != null : !ADDITONAL_PROPERTIES_ALLOWED_EDEFAULT.equals(additonalPropertiesAllowed);
+			case OpenAPI2Package.SCHEMA__TUPLE_ITEMS:
+				return tupleItems != null && !tupleItems.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

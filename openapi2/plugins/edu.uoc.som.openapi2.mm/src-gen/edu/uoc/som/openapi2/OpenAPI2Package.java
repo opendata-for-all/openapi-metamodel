@@ -1847,13 +1847,22 @@ public interface OpenAPI2Package extends EPackage {
 	int SCHEMA__ADDITONAL_PROPERTIES_ALLOWED = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 14;
 
 	/**
+	 * The feature id for the '<em><b>Tuple Items</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__TUPLE_ITEMS = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 15;
+
+	/**
 	 * The number of structural features of the '<em>Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_FEATURE_COUNT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 15;
+	int SCHEMA_FEATURE_COUNT = JSON_SCHEMA_SUBSET_FEATURE_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Get Property By Name</em>' operation.
@@ -4234,6 +4243,17 @@ public interface OpenAPI2Package extends EPackage {
 	EAttribute getSchema_AdditonalPropertiesAllowed();
 
 	/**
+	 * Returns the meta object for the reference list '{@link edu.uoc.som.openapi2.Schema#getTupleItems <em>Tuple Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Tuple Items</em>'.
+	 * @see edu.uoc.som.openapi2.Schema#getTupleItems()
+	 * @see #getSchema()
+	 * @generated
+	 */
+	EReference getSchema_TupleItems();
+
+	/**
 	 * Returns the meta object for the '{@link edu.uoc.som.openapi2.Schema#getPropertyByName(java.lang.String) <em>Get Property By Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5963,6 +5983,14 @@ public interface OpenAPI2Package extends EPackage {
 		 * @generated
 		 */
 		EAttribute SCHEMA__ADDITONAL_PROPERTIES_ALLOWED = eINSTANCE.getSchema_AdditonalPropertiesAllowed();
+
+		/**
+		 * The meta object literal for the '<em><b>Tuple Items</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEMA__TUPLE_ITEMS = eINSTANCE.getSchema_TupleItems();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Property By Name</b></em>' operation.
