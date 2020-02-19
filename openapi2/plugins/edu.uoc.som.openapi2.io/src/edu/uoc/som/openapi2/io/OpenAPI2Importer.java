@@ -15,7 +15,6 @@ import java.util.Set;
 
 import org.apache.commons.io.IOUtils;
 
-import com.github.fge.jsonschema.core.exceptions.ProcessingException;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -157,13 +156,11 @@ public class OpenAPI2Importer {
 		JsonElement jsonObject = Utils.convertYamlToGson(yamlSring);
 		OpenAPIValidationReport report;
 
-		try {
+	
 
 			OpenAPIValidator openAPIValidator = new OpenAPIValidator();
 			report = openAPIValidator.validate(jsonObject.toString());
-		} catch (ProcessingException e) {
-			throw new OpenAPIProcessingException(e.getProcessingMessage().getMessage());
-		}
+	
 		if (!report.isSuccess()) {
 			throw new OpenAPIValidationException("Invalid OpenAPI definition",report);
 		}
@@ -175,15 +172,15 @@ public class OpenAPI2Importer {
 	private API createOpenAPIModelFromJson(JsonObject jsonObject)
 			throws IOException, OpenAPIValidationException, OpenAPIProcessingException {
 		OpenAPIValidator openAPIValidator;
-		try {
+	
 			openAPIValidator = new OpenAPIValidator();
 			OpenAPIValidationReport report = openAPIValidator.validate(jsonObject.toString());
 			if (!report.isSuccess()) {
 				throw new OpenAPIValidationException("Invalid OpenAPI definition",report);
 			}
-		} catch (ProcessingException e) {
-			throw new OpenAPIProcessingException(e.getProcessingMessage().getMessage());
-		}
+	
+		
+
 
 		openAPI2Model = factory.createAPI();
 		openAPI2Model.setContainedCollections(ExtendedOpenAPI2Factory.eINSTANCE.createContainedCollections());
