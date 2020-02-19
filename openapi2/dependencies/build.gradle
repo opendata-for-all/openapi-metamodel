@@ -1,0 +1,49 @@
+plugins {
+  id "org.standardout.bnd-platform" version "1.7.0"
+  id 'com.github.ben-manes.versions' version '0.21.0'
+}
+
+repositories {
+	mavenCentral()
+}
+
+platform {
+	// configure proper names for the p2 update site
+	categoryId = 'openapi-Eclipse-Libs'
+	categoryName = 'OpenAPI Eclipse Libs'
+
+	generatePlatformFeature = false
+
+	defaultQualifier = ''
+	useBndHashQualifiers = false
+	useFeatureHashQualifiers = false
+	defaultQualifierMap.prefix = ''
+
+
+
+	feature(id: 'json-schema-validator', name: 'json-schema-validator', version: '1.0.30') {
+	   plugin('com.networknt:json-schema-validator:1.0.30')
+
+	   
+	   
+	}
+	
+
+}
+
+dependencyUpdates.resolutionStrategy {
+  componentSelection { rules ->
+    rules.all { ComponentSelection selection ->
+      boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm', 'preview', 'b', 'ea'].any { qualifier ->
+        selection.candidate.version ==~ /(?i).*[.-]$qualifier[.\d-+]*/
+      }
+      if (rejected) {
+        selection.reject('Release candidate')
+      }
+    }
+  }
+}
+
+wrapper {
+	gradleVersion = '5.4.1'
+}
