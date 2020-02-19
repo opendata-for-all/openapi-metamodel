@@ -1,82 +1,44 @@
 package edu.uoc.som.openapi2.io.model;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
-import com.github.fge.jsonschema.core.report.LogLevel;
-import com.github.fge.jsonschema.core.report.ProcessingMessage;
-import com.github.fge.jsonschema.core.report.ProcessingReport;
+import com.networknt.schema.ValidationMessage;
 
 public class OpenAPIValidationReport {
 
 	private boolean success = false; 
-	private List<String> warning;
-	private List<String> error;
-	private List<String> fatal;
-	private ProcessingReport report;
+	private Set<ValidationMessage> errors;
+	private List<String> errorMessages;
 	
 	
-	public OpenAPIValidationReport(ProcessingReport report) {
-		this.report = report;
+	public OpenAPIValidationReport(Set<ValidationMessage> errors) {
+		this.errors = errors;
+		errorMessages = new LinkedList<String>();
+		success = (errors.size()>0)?false:true;
+		if(!success) {
+			errors.forEach(e -> errorMessages.add(e.getMessage()));
+		}
 		
-		success = report.isSuccess();
-		warning = new ArrayList<>();
-		error = new ArrayList<>();
-		fatal = new ArrayList<>();
-		report.forEach((e)-> {
-			if(e.getLogLevel().equals(LogLevel.ERROR))
-				error.add(buildMessage(e));
-			if(e.getLogLevel().equals(LogLevel.WARNING))
-				warning.add(buildMessage(e));
-			if(e.getLogLevel().equals(LogLevel.FATAL))
-				fatal.add(buildMessage(e));
-			
-			
-		});
 		
 	}
 
-	private String buildMessage(ProcessingMessage processingMessage) {
-		StringBuilder message = new StringBuilder();
-		message.append("pointer: \"");
-		message.append(processingMessage.asJson().get("instance").get("pointer").asText());
-		message.append("\",");
-		message.append("message: ");
-		message.append(processingMessage.getMessage());
-		return message.toString();
-	}
+
 
 	public boolean isSuccess() {
 		return success;
 	}
 
-
-	public List<String> getWarning() {
-		return warning;
+	public Set<ValidationMessage> getErrors() {
+		return errors;
 	}
 
 
-	public List<String> getError() {
-		return error;
-	}
 
 
-	public List<String> getFatal() {
-		return fatal;
-	}
 
 
-	public ProcessingReport getReport() {
-		return report;
-	}
-
-
-	public void setReport(ProcessingReport report) {
-		this.report = report;
-	}
-
-
-	
 	
 	
 
