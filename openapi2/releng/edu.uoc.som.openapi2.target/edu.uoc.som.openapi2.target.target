@@ -18,5 +18,9 @@
 		    <unit id="org.junit.source" version="4.12.0.v201504281640"/>
 		    <unit id="org.apache.commons.lang3" version="3.1.0.v201403281430"/>
 	    </location>
+	    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+		    <repository location="https://opendata-for-all.github.io/openapi-metamodel/dependencies/updatesite/"/>
+		    <unit id="json-schema-validator.feature.group" version="1.0.30"/>
+	    </location>
     </locations>
 </target>
