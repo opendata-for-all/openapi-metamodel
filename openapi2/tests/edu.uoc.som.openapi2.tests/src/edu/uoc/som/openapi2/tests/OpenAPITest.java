@@ -13,6 +13,7 @@ import edu.uoc.som.openapi2.io.ExporterBuilder;
 import edu.uoc.som.openapi2.io.OpenAPI2Builder;
 import edu.uoc.som.openapi2.io.exceptions.OpenAPIProcessingException;
 import edu.uoc.som.openapi2.io.exceptions.OpenAPIValidationException;
+import edu.uoc.som.openapi2.io.exceptions.UnsupportedOpenAPIVersionException;
 import edu.uoc.som.openapi2.io.model.SerializationFormat;
 import edu.uoc.som.openapi2.io.utils.Utils;
 
@@ -37,7 +38,7 @@ public class OpenAPITest {
 	}
 	
 	@Test(expected = OpenAPIValidationException.class)
-	public void testInvalidAPI() throws OpenAPIValidationException, OpenAPIProcessingException, IOException {
+	public void testInvalidAPI() throws OpenAPIValidationException, OpenAPIProcessingException, IOException, UnsupportedOpenAPIVersionException {
 
 	
 			File input = new File("resources/inputs/petstore-invalid.json");

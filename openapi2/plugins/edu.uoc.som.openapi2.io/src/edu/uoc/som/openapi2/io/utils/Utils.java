@@ -19,6 +19,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
 
+import edu.uoc.som.openapi2.io.model.OpenAPIVersion;
 import edu.uoc.som.openapi2.io.model.SerializationFormat;
 
 public class Utils {
@@ -65,6 +66,50 @@ public class Utils {
 			// Not a yaml
 		}
 		return null;
+	}
+
+	public static OpenAPIVersion discoverOpenAPIVerison(JsonObject jsonObject) {
+		if (jsonObject.has("swagger"))
+			switch (jsonObject.get("swagger").getAsString()) {
+			case "1.2":
+				return OpenAPIVersion.V1_2;
+			case "2.0":
+				return OpenAPIVersion.V2_0;
+			default:
+				return null;
+			}
+		if (jsonObject.has("openapi"))
+			switch (jsonObject.get("openapi").getAsString()) {
+			case "3.0.0":
+				return OpenAPIVersion.V3_0_0;
+			case "3.0.1":
+				return OpenAPIVersion.V3_0_1;
+			case "3.0.2":
+				return OpenAPIVersion.V3_0_2;
+
+			default:
+				return null;
+			}
+		return null;
+
+	}
+
+	public static String printOpenPIVersion(OpenAPIVersion openAPIVersion) {
+		switch (openAPIVersion) {
+		case V1_2:
+			return "1.2";
+		case V2_0:
+			return "2.0";
+		case V3_0_0:
+			return "3.0.0";
+		case V3_0_1:
+			return "3.0.1";
+		case V3_0_2:
+			return "3.0.2";
+
+		default:
+			return null;
+		}
 	}
 
 	// taken from

@@ -53,9 +53,11 @@ import edu.uoc.som.openapi2.impl.ExtendedOpenAPI2FactoryImpl;
 import edu.uoc.som.openapi2.impl.ParameterEntryImpl;
 import edu.uoc.som.openapi2.impl.ResponseDefinitionEntryImpl;
 import edu.uoc.som.openapi2.impl.SchemaEntryImpl;
+import edu.uoc.som.openapi2.io.exceptions.UnsupportedOpenAPIVersionException;
 import edu.uoc.som.openapi2.io.exceptions.OpenAPIProcessingException;
 import edu.uoc.som.openapi2.io.exceptions.OpenAPIValidationException;
 import edu.uoc.som.openapi2.io.model.OpenAPIValidationReport;
+import edu.uoc.som.openapi2.io.model.OpenAPIVersion;
 import edu.uoc.som.openapi2.io.model.SerializationFormat;
 import edu.uoc.som.openapi2.io.utils.Utils;
 
@@ -78,7 +80,7 @@ public class OpenAPI2Importer {
 	}
 
 	public API createOpenAPI2ModelFromFile(File inputFile, SerializationFormat serializationFormat)
-			throws IOException, OpenAPIValidationException, OpenAPIProcessingException {
+			throws IOException, OpenAPIValidationException, OpenAPIProcessingException, UnsupportedOpenAPIVersionException {
 
 		InputStream in = new FileInputStream(inputFile);
 		Reader reader = new InputStreamReader(in, "UTF-8");
@@ -88,7 +90,7 @@ public class OpenAPI2Importer {
 	}
 
 	public API createOpenAPI2ModelFromText(String text, SerializationFormat serializationFormat)
-			throws IOException, OpenAPIValidationException, OpenAPIProcessingException {
+			throws IOException, OpenAPIValidationException, OpenAPIProcessingException, UnsupportedOpenAPIVersionException {
 
 		SerializationFormat finalSerializationFormat = serializationFormat;
 		if (finalSerializationFormat == null) {
@@ -111,7 +113,7 @@ public class OpenAPI2Importer {
 	}
 
 	public API createOpenAPI2ModelFromURL(String url, SerializationFormat serializationFormat)
-			throws MalformedURLException, IOException {
+			throws MalformedURLException, IOException, OpenAPIValidationException, OpenAPIProcessingException, UnsupportedOpenAPIVersionException {
 		InputStream inputStream = new URL(url).openStream();
 		Reader reader = new InputStreamReader(inputStream);
 		String definition = IOUtils.toString(reader);
@@ -121,26 +123,25 @@ public class OpenAPI2Importer {
 	}
 
 	private API createOpenAPIModelFromYaml(String yamlSring)
-			throws IOException, OpenAPIValidationException, OpenAPIProcessingException {
+			throws IOException, OpenAPIValidationException, OpenAPIProcessingException, UnsupportedOpenAPIVersionException {
 
 		JsonElement jsonObject = Utils.convertYamlToGson(yamlSring);
-		OpenAPIValidationReport report;
-
-		OpenAPIValidator openAPIValidator = new OpenAPIValidator();
-		report = openAPIValidator.validate(jsonObject.toString());
-
-		if (!report.isSuccess()) {
-			throw new OpenAPIValidationException("Invalid OpenAPI definition", report);
-		}
+	
 		openAPI2Model = createOpenAPIModelFromJson(jsonObject.getAsJsonObject());
 		return openAPI2Model;
 
 	}
 
 	private API createOpenAPIModelFromJson(JsonObject jsonObject)
-			throws IOException, OpenAPIValidationException, OpenAPIProcessingException {
+			throws IOException, OpenAPIValidationException, OpenAPIProcessingException, UnsupportedOpenAPIVersionException {
+		
+		OpenAPIVersion openAPIVersion = Utils.discoverOpenAPIVerison(jsonObject);
+		
+		if(!openAPIVersion.equals(OpenAPIVersion.V2_0)) {
+			throw new UnsupportedOpenAPIVersionException("Unsupported OpenAPI version: "+Utils.printOpenPIVersion(openAPIVersion), openAPIVersion);
+		}
+		
 		OpenAPIValidator openAPIValidator;
-
 		openAPIValidator = new OpenAPIValidator();
 		OpenAPIValidationReport report = openAPIValidator.validate(jsonObject.toString());
 		if (!report.isSuccess()) {

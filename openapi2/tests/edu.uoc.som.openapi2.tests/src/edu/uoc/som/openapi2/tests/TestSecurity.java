@@ -16,6 +16,7 @@ import edu.uoc.som.openapi2.io.OpenAPI2Builder;
 import edu.uoc.som.openapi2.io.OpenAPI2Exporter;
 import edu.uoc.som.openapi2.io.exceptions.OpenAPIProcessingException;
 import edu.uoc.som.openapi2.io.exceptions.OpenAPIValidationException;
+import edu.uoc.som.openapi2.io.exceptions.UnsupportedOpenAPIVersionException;
 import edu.uoc.som.openapi2.io.model.SerializationFormat;
 
 public class TestSecurity {
@@ -28,7 +29,7 @@ public class TestSecurity {
 		input = new File("resources/inputs/openapi-security.json");
 	}
 	@Test
-	public void testEmptySecurity() throws OpenAPIValidationException, OpenAPIProcessingException, IOException {
+	public void testEmptySecurity() throws OpenAPIValidationException, OpenAPIProcessingException, IOException, UnsupportedOpenAPIVersionException {
 
 			API apiModel = new OpenAPI2Builder().setSerializationFormat(SerializationFormat.JSON).fromFile(input);
 			OpenAPI2Exporter export = new OpenAPI2Exporter(apiModel,false);
@@ -41,7 +42,7 @@ public class TestSecurity {
 	}
 	
 	@Test
-	public void testDeclaredSecurity() throws OpenAPIValidationException, OpenAPIProcessingException, IOException {
+	public void testDeclaredSecurity() throws OpenAPIValidationException, OpenAPIProcessingException, IOException, UnsupportedOpenAPIVersionException {
 
 			API apiModel = new OpenAPI2Builder().setSerializationFormat(SerializationFormat.JSON).fromFile(input);
 			OpenAPI2Exporter export = new OpenAPI2Exporter(apiModel,false);

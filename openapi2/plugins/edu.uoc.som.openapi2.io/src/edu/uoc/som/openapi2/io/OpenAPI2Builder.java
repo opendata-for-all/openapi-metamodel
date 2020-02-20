@@ -7,6 +7,7 @@ import java.net.MalformedURLException;
 import edu.uoc.som.openapi2.API;
 import edu.uoc.som.openapi2.io.exceptions.OpenAPIProcessingException;
 import edu.uoc.som.openapi2.io.exceptions.OpenAPIValidationException;
+import edu.uoc.som.openapi2.io.exceptions.UnsupportedOpenAPIVersionException;
 import edu.uoc.som.openapi2.io.model.SerializationFormat;
 
 public class OpenAPI2Builder {
@@ -22,18 +23,18 @@ public class OpenAPI2Builder {
 		return this;
 	}
 	
-	public API fromFile(File file) throws OpenAPIValidationException, IOException, OpenAPIProcessingException {
+	public API fromFile(File file) throws OpenAPIValidationException, IOException, OpenAPIProcessingException, UnsupportedOpenAPIVersionException {
 		OpenAPI2Importer importer = new OpenAPI2Importer();
 		return importer.createOpenAPI2ModelFromFile(file, serializationFormat);
 		
 	}
 
-	public API fromText(String text) throws IOException, OpenAPIValidationException,  OpenAPIProcessingException {
+	public API fromText(String text) throws IOException, OpenAPIValidationException,  OpenAPIProcessingException, UnsupportedOpenAPIVersionException {
 		OpenAPI2Importer importer = new OpenAPI2Importer();
 		return importer.createOpenAPI2ModelFromText(text, serializationFormat);
 	}
 	
-	public API fromURL(String url) throws MalformedURLException, IOException {
+	public API fromURL(String url) throws MalformedURLException, IOException, OpenAPIValidationException, OpenAPIProcessingException, UnsupportedOpenAPIVersionException {
 		OpenAPI2Importer importer = new OpenAPI2Importer();
 		return importer.createOpenAPI2ModelFromURL(url, serializationFormat);
 		

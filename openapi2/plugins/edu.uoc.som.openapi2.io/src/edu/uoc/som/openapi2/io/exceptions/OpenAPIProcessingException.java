@@ -1,7 +1,7 @@
 package edu.uoc.som.openapi2.io.exceptions;
 
 
-public class OpenAPIProcessingException extends RuntimeException{
+public class OpenAPIProcessingException extends Exception{
 
 	/**
 	 * 
