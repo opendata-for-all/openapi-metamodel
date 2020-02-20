@@ -36,6 +36,14 @@ public class OpenAPIValidationReport {
 
 
 
+	public List<String> getErrorMessages() {
+		return errorMessages;
+	}
+
+
+
+
+	
 
 
 
