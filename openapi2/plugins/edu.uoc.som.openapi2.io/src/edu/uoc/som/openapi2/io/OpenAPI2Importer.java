@@ -136,8 +136,9 @@ public class OpenAPI2Importer {
 			throws IOException, OpenAPIValidationException, OpenAPIProcessingException, UnsupportedOpenAPIVersionException {
 		
 		OpenAPIVersion openAPIVersion = Utils.discoverOpenAPIVerison(jsonObject);
+	
 		
-		if(!openAPIVersion.equals(OpenAPIVersion.V2_0)) {
+		if(openAPIVersion!= null && !openAPIVersion.equals(OpenAPIVersion.V2_0)) {
 			throw new UnsupportedOpenAPIVersionException("Unsupported OpenAPI version: "+Utils.printOpenPIVersion(openAPIVersion), openAPIVersion);
 		}
 		
