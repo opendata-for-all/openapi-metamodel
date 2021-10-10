@@ -11,6 +11,6 @@
 
 	<modules>
 		<module>edu.uoc.som.openapi2.target</module>
-		<module>edu.uoc.som.openapi2.update</module>
+            <!--<module>edu.uoc.som.openapi2.update</module>-->
 	</modules>
 </project>

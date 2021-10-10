@@ -11,6 +11,6 @@
 	</parent>
 
     <modules>
-        <module>edu.uoc.som.openapi2.tests</module>
+            <!--<module>edu.uoc.som.openapi2.tests</module>-->
     </modules>
 </project>
